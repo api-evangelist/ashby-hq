@@ -1,0 +1,462 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Ashby \u2014 Surveys"
+  description: Ashby Surveys and Feedback capability. Manage survey form definitions, requests, and submissions; submit interviewer feedback.
+  tags:
+  - Ashby
+  - Recruiting
+  - ATS
+  - Surveys
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ASHBY_API_KEY: ASHBY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: surveys-surveys
+    baseUri: https://api.ashbyhq.com
+    description: Ashby Surveys and Feedback capability. Manage survey form definitions, requests, and submissions; submit interviewer feedback. Backed by the Ashby public REST API.
+    resources:
+    - name: survey-form-definition-list
+      path: /surveyFormDefinition.list
+      operations:
+      - name: survey-form-definition-list
+        method: POST
+        description: List survey form definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: survey-request-list
+      path: /surveyRequest.list
+      operations:
+      - name: survey-request-list
+        method: POST
+        description: List survey requests
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: survey-request-create
+      path: /surveyRequest.create
+      operations:
+      - name: survey-request-create
+        method: POST
+        description: Create a survey request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: survey-submission-list
+      path: /surveySubmission.list
+      operations:
+      - name: survey-submission-list
+        method: POST
+        description: List survey submissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: survey-submission-create
+      path: /surveySubmission.create
+      operations:
+      - name: survey-submission-create
+        method: POST
+        description: Create a survey submission
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: application-feedback-list
+      path: /applicationFeedback.list
+      operations:
+      - name: application-feedback-list
+        method: POST
+        description: List application feedback
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: application-feedback-submit
+      path: /applicationFeedback.submit
+      operations:
+      - name: application-feedback-submit
+        method: POST
+        description: Submit application feedback
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: feedback-form-definition-list
+      path: /feedbackFormDefinition.list
+      operations:
+      - name: feedback-form-definition-list
+        method: POST
+        description: List feedback form definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: application-feedback-request-create
+      path: /applicationFeedbackRequest.create
+      operations:
+      - name: application-feedback-request-create
+        method: POST
+        description: Create an application feedback request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    authentication:
+      type: basic
+      username: '{{env.ASHBY_API_KEY}}'
+      password: ''
+      description: 'HTTP Basic Auth: Ashby API key as username, blank password.'
+  exposes:
+  - type: rest
+    namespace: surveys-surveys-rest
+    port: 8080
+    description: "REST adapter for Ashby \u2014 Surveys. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/surveyFormDefinition.list
+      name: survey-form-definition-list
+      description: REST surface for survey-form-definition-list.
+      operations:
+      - method: POST
+        name: survey-form-definition-list
+        description: List survey form definitions
+        call: surveys-surveys.survey-form-definition-list
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/surveyRequest.list
+      name: survey-request-list
+      description: REST surface for survey-request-list.
+      operations:
+      - method: POST
+        name: survey-request-list
+        description: List survey requests
+        call: surveys-surveys.survey-request-list
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/surveyRequest.create
+      name: survey-request-create
+      description: REST surface for survey-request-create.
+      operations:
+      - method: POST
+        name: survey-request-create
+        description: Create a survey request
+        call: surveys-surveys.survey-request-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/surveySubmission.list
+      name: survey-submission-list
+      description: REST surface for survey-submission-list.
+      operations:
+      - method: POST
+        name: survey-submission-list
+        description: List survey submissions
+        call: surveys-surveys.survey-submission-list
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/surveySubmission.create
+      name: survey-submission-create
+      description: REST surface for survey-submission-create.
+      operations:
+      - method: POST
+        name: survey-submission-create
+        description: Create a survey submission
+        call: surveys-surveys.survey-submission-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applicationFeedback.list
+      name: application-feedback-list
+      description: REST surface for application-feedback-list.
+      operations:
+      - method: POST
+        name: application-feedback-list
+        description: List application feedback
+        call: surveys-surveys.application-feedback-list
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applicationFeedback.submit
+      name: application-feedback-submit
+      description: REST surface for application-feedback-submit.
+      operations:
+      - method: POST
+        name: application-feedback-submit
+        description: Submit application feedback
+        call: surveys-surveys.application-feedback-submit
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/feedbackFormDefinition.list
+      name: feedback-form-definition-list
+      description: REST surface for feedback-form-definition-list.
+      operations:
+      - method: POST
+        name: feedback-form-definition-list
+        description: List feedback form definitions
+        call: surveys-surveys.feedback-form-definition-list
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applicationFeedbackRequest.create
+      name: application-feedback-request-create
+      description: REST surface for application-feedback-request-create.
+      operations:
+      - method: POST
+        name: application-feedback-request-create
+        description: Create an application feedback request
+        call: surveys-surveys.application-feedback-request-create
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: surveys-surveys-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Ashby \u2014 Surveys. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: ashby-survey-form-definition-list
+      description: List survey form definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: surveys-surveys.survey-form-definition-list
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-survey-request-list
+      description: List survey requests
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: surveys-surveys.survey-request-list
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-survey-request-create
+      description: Create a survey request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: surveys-surveys.survey-request-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-survey-submission-list
+      description: List survey submissions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: surveys-surveys.survey-submission-list
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-survey-submission-create
+      description: Create a survey submission
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: surveys-surveys.survey-submission-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-application-feedback-list
+      description: List application feedback
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: surveys-surveys.application-feedback-list
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-application-feedback-submit
+      description: Submit application feedback
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: surveys-surveys.application-feedback-submit
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-feedback-form-definition-list
+      description: List feedback form definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: surveys-surveys.feedback-form-definition-list
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-application-feedback-request-create
+      description: Create an application feedback request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: surveys-surveys.application-feedback-request-create
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

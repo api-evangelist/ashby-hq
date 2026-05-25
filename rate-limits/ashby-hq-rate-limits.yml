@@ -1,0 +1,60 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Ashby
+providerId: ashby-hq
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Quotas
+  - ATS
+  - Recruiting
+description: 'Reconciled rate-limiting policies for the Ashby public REST API. Most operational endpoints rely
+  on plan-level fair-use; the Reports API enforces a documented hard limit because it executes analytics
+  warehouse queries. Source: developers.ashbyhq.com.'
+sources:
+  - https://developers.ashbyhq.com/reference/reportgenerate
+  - https://developers.ashbyhq.com/reference/authentication
+  - https://developers.ashbyhq.com/docs/responses-and-errors
+algorithm: fair-use (most surfaces) / fixed-window (Reports)
+headers:
+  retryAfter: retry-after
+responseCodes:
+  throttled: 429
+  unauthorized: 401
+  forbidden: 403
+  permissionMissing: 403 (error=missing_endpoint_permission)
+limits:
+  - surface: Reports API
+    endpoints:
+      - /report.generate
+      - /report.create
+    scope: per-organization
+    rpm: 15
+    concurrent: 3
+    description: Hard limit on synchronous and asynchronous report generation to protect the analytics
+      warehouse. Use the async path for any large dataset.
+  - surface: Most REST operations
+    endpoints: all (except Reports)
+    scope: per-API-key
+    description: No published numeric limit. Subject to fair-use enforcement; expect 429 with Retry-After on
+      sustained bursts. Recommended pattern is incremental sync via syncToken on list endpoints.
+  - surface: Job Postings public API
+    endpoints:
+      - /jobPosting.list (public)
+      - /jobPosting.info (public)
+    scope: per-IP
+    description: Public, unauthenticated; cached at the edge. Treat as low-frequency polling.
+authentication:
+  type: http-basic
+  description: API key as basic auth username; password blank. Per-key permission grants enforce module-level
+    read/write scopes; missing permission returns 403 with error=missing_endpoint_permission.
+notes:
+  - Ashby does not publish broad RPM caps for operational endpoints. Partners building high-volume integrations
+    should use webhooks (push) and incremental sync (pull with syncToken) rather than aggressive polling.
+  - The async Reports pattern — submit a report.generate request, then poll for completion — is preferred over
+    sync report generation. Sync calls count against the same 15 rpm / 3 concurrent budget.
+  - On 429 responses, honor Retry-After. On 403 with error=missing_endpoint_permission, request a key
+    rotation with the appropriate scope (e.g. jobsWrite, candidatesRead) from your Ashby admin.

@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Ashby \u2014 API Keys"
+  description: Ashby API Keys capability. Inspect the calling key's name and permission grants.
+  tags:
+  - Ashby
+  - Recruiting
+  - ATS
+  - API Keys
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ASHBY_API_KEY: ASHBY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: api-keys-api-keys
+    baseUri: https://api.ashbyhq.com
+    description: Ashby API Keys capability. Inspect the calling key's name and permission grants. Backed by the Ashby public REST API.
+    resources:
+    - name: api-key-info
+      path: /apiKey.info
+      operations:
+      - name: api-key-info
+        method: POST
+        description: Get info about the calling API key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    authentication:
+      type: basic
+      username: '{{env.ASHBY_API_KEY}}'
+      password: ''
+      description: 'HTTP Basic Auth: Ashby API key as username, blank password.'
+  exposes:
+  - type: rest
+    namespace: api-keys-api-keys-rest
+    port: 8080
+    description: "REST adapter for Ashby \u2014 API Keys. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/apiKey.info
+      name: api-key-info
+      description: REST surface for api-key-info.
+      operations:
+      - method: POST
+        name: api-key-info
+        description: Get info about the calling API key
+        call: api-keys-api-keys.api-key-info
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: api-keys-api-keys-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Ashby \u2014 API Keys. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: ashby-api-key-info
+      description: Get info about the calling API key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: api-keys-api-keys.api-key-info
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

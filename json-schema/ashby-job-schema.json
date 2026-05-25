@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/ashby-hq/ashby-job-schema.json",
+  "title": "Ashby Job",
+  "description": "Schema for the Ashby Job resource. Backs job.create, job.info, job.list, job.search, job.update, job.setStatus, job.updateCompensation, and the jobCreate / jobUpdate webhooks. A Job represents a specific hiring effort tied to one or more Openings.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "title": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["Open", "Closed", "Archived", "Draft"]
+    },
+    "confidential": { "type": "boolean" },
+    "employmentType": {
+      "type": "string",
+      "enum": ["FullTime", "PartTime", "Contract", "Intern", "Temporary"]
+    },
+    "department": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "type": "string" },
+        "parentId": { "type": "string", "format": "uuid" }
+      }
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "type": "string" }
+      }
+    },
+    "secondaryLocations": {
+      "type": "array",
+      "items": { "$ref": "#/properties/location" }
+    },
+    "compensation": {
+      "type": "object",
+      "properties": {
+        "summary": { "type": "string" },
+        "summaryComponents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "compensationType": {
+                "type": "string",
+                "enum": ["Salary", "Hourly", "Equity", "Bonus", "Commission"]
+              },
+              "interval": {
+                "type": "string",
+                "enum": ["1 HOUR", "1 DAY", "1 MONTH", "1 YEAR", "ONE_TIME"]
+              },
+              "currencyCode": { "type": "string", "description": "ISO 4217 currency code." },
+              "minValue": { "type": "number" },
+              "maxValue": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "hiringTeam": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": { "type": "string", "format": "uuid" },
+          "name": { "type": "string" },
+          "role": { "type": "string" }
+        }
+      }
+    },
+    "openings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "openingState": {
+            "type": "string",
+            "enum": ["Open", "Filled", "OnHold", "Cancelled"]
+          },
+          "openedAt": { "type": "string", "format": "date-time" },
+          "closedAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "jobPostingIds": {
+      "type": "array",
+      "items": { "type": "string", "format": "uuid" }
+    },
+    "interviewPlan": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "title": { "type": "string" }
+      }
+    },
+    "customFields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "title": { "type": "string" },
+          "value": {},
+          "valueType": { "type": "string" }
+        }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["id", "title", "status"]
+}

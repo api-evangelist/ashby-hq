@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/ashby-hq/ashby-candidate-schema.json",
+  "title": "Ashby Candidate",
+  "description": "Schema for the Ashby Candidate resource — the central CRM entity in Ashby's all-in-one recruiting platform. Surface for candidate.create, candidate.info, candidate.list, candidate.update, candidate.search, candidate.anonymize, candidate.merge, and webhook payloads (candidateHire, candidateMerge, candidateDelete, candidateStageChange).",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Ashby-assigned candidate identifier."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the candidate record was created in Ashby."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of the last update to the candidate record."
+    },
+    "name": {
+      "type": "string",
+      "description": "Candidate's full name."
+    },
+    "primaryEmailAddress": {
+      "type": "object",
+      "properties": {
+        "value": { "type": "string", "format": "email" },
+        "type": { "type": "string", "enum": ["Personal", "Work", "Other"] },
+        "isPrimary": { "type": "boolean" }
+      }
+    },
+    "emailAddresses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": { "type": "string", "format": "email" },
+          "type": { "type": "string" },
+          "isPrimary": { "type": "boolean" }
+        }
+      }
+    },
+    "primaryPhoneNumber": {
+      "type": "object",
+      "properties": {
+        "value": { "type": "string" },
+        "type": { "type": "string", "enum": ["Mobile", "Home", "Work", "Other"] },
+        "isPrimary": { "type": "boolean" }
+      }
+    },
+    "phoneNumbers": {
+      "type": "array",
+      "items": { "$ref": "#/properties/primaryPhoneNumber" }
+    },
+    "socialLinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "type": { "type": "string", "description": "e.g., LinkedIn, GitHub, X" }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "title": { "type": "string" }
+        }
+      },
+      "description": "Candidate tags. Managed via candidate.addTag, candidate.removeTag, candidateTag.create/list/archive."
+    },
+    "position": {
+      "type": "string",
+      "description": "Most recent or current job title (free-form)."
+    },
+    "company": {
+      "type": "string",
+      "description": "Most recent or current company (free-form)."
+    },
+    "school": {
+      "type": "string",
+      "description": "Most recent school (free-form)."
+    },
+    "locationSummary": {
+      "type": "string",
+      "description": "Free-form location summary."
+    },
+    "primaryLocation": {
+      "type": "object",
+      "properties": {
+        "locationSummary": { "type": "string" },
+        "locationComponents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["AdministrativeAreaLevel1", "AdministrativeAreaLevel2", "Country", "Locality", "PostalCode"]
+              },
+              "name": { "type": "string" }
+            }
+          }
+        },
+        "timezone": { "type": "string" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "title": { "type": "string" },
+        "isArchived": { "type": "boolean" },
+        "sourceType": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string", "format": "uuid" },
+            "title": { "type": "string" }
+          }
+        }
+      }
+    },
+    "creditedToUser": {
+      "type": "object",
+      "description": "User credited with sourcing the candidate.",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" }
+      }
+    },
+    "applicationIds": {
+      "type": "array",
+      "items": { "type": "string", "format": "uuid" }
+    },
+    "fileHandles": {
+      "type": "array",
+      "description": "Files attached to the candidate (resumes, portfolios, etc.).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "name": { "type": "string" },
+          "handle": { "type": "string", "description": "Opaque file handle used with file.info." }
+        }
+      }
+    },
+    "resumeFileHandle": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "type": "string" },
+        "handle": { "type": "string" }
+      },
+      "description": "Most recent resume on file."
+    },
+    "customFields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "title": { "type": "string" },
+          "value": {},
+          "valueType": {
+            "type": "string",
+            "enum": ["Boolean", "Date", "Number", "String", "ValueSelect", "MultiValueSelect", "LongText", "Currency", "EncryptedString"]
+          }
+        }
+      }
+    },
+    "linkedInUrl": { "type": "string", "format": "uri" },
+    "githubUrl": { "type": "string", "format": "uri" },
+    "websiteUrl": { "type": "string", "format": "uri" },
+    "profileUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the candidate profile inside the Ashby app."
+    },
+    "isAnonymized": {
+      "type": "boolean",
+      "description": "True after candidate.anonymize has scrubbed PII for retention compliance."
+    },
+    "fraudCheck": {
+      "type": "object",
+      "description": "Optional candidate fraud-check status surfaced when the AI fraud-detection feature is enabled.",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["NotStarted", "InProgress", "Flagged", "Clear"]
+        },
+        "outcome": { "type": "string" }
+      }
+    }
+  },
+  "required": ["id", "createdAt", "updatedAt", "name"]
+}

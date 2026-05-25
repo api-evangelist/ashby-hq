@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/ashby-hq/ashby-application-schema.json",
+  "title": "Ashby Application",
+  "description": "Schema for the Ashby Application resource — a candidate's application to a specific job. Backs application.create, application.info, application.list, application.update, application.transfer, application.changeStage, application.changeSource, application.listHistory, application.listCriteriaEvaluations, and the applicationSubmit / applicationUpdate webhooks.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "status": {
+      "type": "string",
+      "enum": ["Active", "Hired", "Archived", "Lead"],
+      "description": "Application lifecycle state."
+    },
+    "customFields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "title": { "type": "string" },
+          "value": {},
+          "valueType": { "type": "string" }
+        }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "type": "string" }
+      }
+    },
+    "job": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "title": { "type": "string" }
+      }
+    },
+    "currentInterviewStage": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "title": { "type": "string" },
+        "orderInInterviewPlan": { "type": "integer" },
+        "interviewStageGroup": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string", "format": "uuid" },
+            "title": { "type": "string" },
+            "type": {
+              "type": "string",
+              "enum": ["PreApplication", "Active", "Offer", "Hired", "Archived"]
+            }
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "title": { "type": "string" }
+      }
+    },
+    "creditedToUser": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "type": "string" }
+      }
+    },
+    "hiringTeam": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": { "type": "string", "format": "uuid" },
+          "roleId": { "type": "string", "format": "uuid" },
+          "name": { "type": "string" },
+          "role": { "type": "string" }
+        }
+      }
+    },
+    "archiveReason": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "text": { "type": "string" },
+        "reasonType": { "type": "string", "enum": ["Hired", "RejectedByCandidate", "RejectedByOrganization", "Withdrawn"] }
+      }
+    },
+    "applicationForm": {
+      "type": "object",
+      "description": "Custom application form responses (file uploads, text answers, multi-selects) submitted via applicationForm.submit."
+    },
+    "criteriaEvaluations": {
+      "type": "array",
+      "description": "AI-generated criteria evaluations (requires AI Application Review feature enabled).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "criterionId": { "type": "string", "format": "uuid" },
+          "outcome": {
+            "type": "string",
+            "enum": ["StrongMatch", "Match", "PartialMatch", "NoMatch"]
+          },
+          "reasoning": { "type": "string" },
+          "evaluatedAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  },
+  "required": ["id", "createdAt", "updatedAt", "status", "candidate", "job"]
+}

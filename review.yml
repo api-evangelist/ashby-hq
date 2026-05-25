@@ -1,0 +1,75 @@
+aid: ashby-hq
+provider: Ashby
+type: company
+tier: 1
+reviewed: '2026-05-25'
+reviewer: api-evangelist
+verdict: Tier-1. Modern, well-documented developer API with a real OpenAPI surface published inline on every
+  operation page (indexed via llms.txt). HTTP Basic Auth with module-scoped permission grants, 22 webhook
+  event types, async reporting, public job postings for custom careers pages, and a 200+ partner integrations
+  marketplace.
+strengths:
+  - Comprehensive 164-operation REST surface across 14 product modules with consistent resource.verb naming
+  - Every operation page exposes its OpenAPI definition inline as a fenced JSON block — machine-readable spec
+    despite no single canonical OpenAPI download URL
+  - Per-key permission scoping (Jobs, Candidates, Interviews, Offers, Approvals, Organization, Reports, API
+    Keys) with explicit Read/Write distinction
+  - 22 well-documented webhook event types with HMAC-SHA256 signing, automatic retries, and explicit related-
+    webhook ordering guarantees
+  - Public, unauthenticated job postings API for custom careers pages and partner job feeds — separation of
+    concerns from the authenticated platform
+  - AI-native surfaces — application.listCriteriaEvaluations (AI Application Review) and
+    notetakerTranscript.info (AI Notetaker) are first-class API resources, not bolt-ons
+  - Async Reports pattern with documented hard limit (15 rpm / 3 concurrent) — honest about analytics
+    warehouse constraints
+  - Pagination + incremental sync (syncToken) on most list endpoints — well-suited for ETL into HRIS/data lake
+  - Expansions parameter on most list endpoints — request related entities inline without N+1 follow-ups
+  - Foundations plan has a published flat monthly price ($400/mo) — rare in B2B SaaS recruiting
+weaknesses:
+  - No canonical single-file OpenAPI download URL (`/openapi.json` returns 404 on the docs subdomain; ReadMe
+    `/openapi/download` redirects to 404); the spec must be reconstructed from per-operation .md pages
+  - Endpoint naming is resource.verb POST-with-JSON rather than REST-pure — stable and consistent, but loses
+    HTTP semantic affordances (everything is POST, GET-only readers cannot use the API)
+  - No official SDKs published in github.com/ashbyhq — the org only has 2 public repos
+    (sentry-action-release fork, vigilant-waffle)
+  - Custom version negotiation via `Accept: application/json; version=1` rather than a URL version prefix
+  - Plus, Enterprise, Analytics, and all add-ons are contact-sales — only Foundations has transparent pricing
+sources:
+  - https://www.ashbyhq.com
+  - https://developers.ashbyhq.com
+  - https://developers.ashbyhq.com/llms.txt
+  - https://developers.ashbyhq.com/reference/authentication
+  - https://www.ashbyhq.com/pricing
+  - https://www.ashbyhq.com/integrations
+  - https://github.com/ashbyhq
+artifacts:
+  openapi: openapi/ashby-openapi.yml
+  jsonSchemas:
+    - json-schema/ashby-application-schema.json
+    - json-schema/ashby-candidate-schema.json
+    - json-schema/ashby-job-schema.json
+    - json-schema/ashby-interview-schema.json
+  jsonLd: json-ld/ashby-context.jsonld
+  plans: plans/ashby-hq-plans-pricing.yml
+  rateLimits: rate-limits/ashby-hq-rate-limits.yml
+  finops: finops/ashby-hq-finops.yml
+  capabilities:
+    - capabilities/applications-applications.yaml
+    - capabilities/candidates-candidates.yaml
+    - capabilities/jobs-jobs.yaml
+    - capabilities/jobs-openings.yaml
+    - capabilities/jobs-job-postings.yaml
+    - capabilities/interviews-interview-schedules.yaml
+    - capabilities/interviews-interviewer-pools.yaml
+    - capabilities/offers-offers.yaml
+    - capabilities/approvals-approvals.yaml
+    - capabilities/surveys-surveys.yaml
+    - capabilities/assessments-assessments.yaml
+    - capabilities/custom-fields-custom-fields.yaml
+    - capabilities/organization-users.yaml
+    - capabilities/organization-departments.yaml
+    - capabilities/organization-locations.yaml
+    - capabilities/files-files.yaml
+    - capabilities/reports-reports.yaml
+    - capabilities/webhooks-webhooks.yaml
+    - capabilities/api-keys-api-keys.yaml

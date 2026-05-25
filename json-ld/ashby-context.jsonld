@@ -1,0 +1,232 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "ashby": "https://api.ashbyhq.com/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "hydra": "http://www.w3.org/ns/hydra/core#",
+
+    "Candidate": {
+      "@id": "ashby:Candidate",
+      "@context": {
+        "id": { "@id": "ashby:Candidate/id", "@type": "xsd:string" },
+        "name": { "@id": "schema:name", "@type": "xsd:string" },
+        "primaryEmailAddress": { "@id": "schema:email" },
+        "primaryPhoneNumber": { "@id": "schema:telephone" },
+        "position": { "@id": "schema:jobTitle", "@type": "xsd:string" },
+        "company": { "@id": "schema:worksFor" },
+        "school": { "@id": "schema:alumniOf" },
+        "primaryLocation": { "@id": "schema:address" },
+        "createdAt": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+        "updatedAt": { "@id": "schema:dateModified", "@type": "xsd:dateTime" },
+        "tags": { "@id": "schema:keywords", "@container": "@list" },
+        "applicationIds": { "@id": "ashby:Candidate/applicationIds", "@container": "@list" },
+        "source": { "@id": "ashby:Candidate/source" },
+        "creditedToUser": { "@id": "ashby:Candidate/creditedToUser" },
+        "fraudCheck": { "@id": "ashby:Candidate/fraudCheck" },
+        "isAnonymized": { "@id": "ashby:Candidate/isAnonymized", "@type": "xsd:boolean" }
+      }
+    },
+
+    "Application": {
+      "@id": "ashby:Application",
+      "@context": {
+        "id": { "@id": "ashby:Application/id", "@type": "xsd:string" },
+        "status": { "@id": "ashby:Application/status", "@type": "xsd:string" },
+        "createdAt": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+        "updatedAt": { "@id": "schema:dateModified", "@type": "xsd:dateTime" },
+        "candidate": { "@id": "ashby:Application/candidate", "@type": "ashby:Candidate" },
+        "job": { "@id": "ashby:Application/job", "@type": "ashby:Job" },
+        "currentInterviewStage": { "@id": "ashby:Application/currentInterviewStage" },
+        "source": { "@id": "ashby:Application/source" },
+        "hiringTeam": { "@id": "ashby:Application/hiringTeam", "@container": "@list" },
+        "archiveReason": { "@id": "ashby:Application/archiveReason" },
+        "criteriaEvaluations": {
+          "@id": "ashby:Application/criteriaEvaluations",
+          "@container": "@list"
+        }
+      }
+    },
+
+    "Job": {
+      "@id": "ashby:Job",
+      "@context": {
+        "id": { "@id": "ashby:Job/id", "@type": "xsd:string" },
+        "title": { "@id": "schema:title", "@type": "xsd:string" },
+        "status": { "@id": "ashby:Job/status", "@type": "xsd:string" },
+        "confidential": { "@id": "ashby:Job/confidential", "@type": "xsd:boolean" },
+        "employmentType": { "@id": "schema:employmentType", "@type": "xsd:string" },
+        "department": { "@id": "schema:department" },
+        "location": { "@id": "schema:jobLocation" },
+        "secondaryLocations": { "@id": "ashby:Job/secondaryLocations", "@container": "@list" },
+        "compensation": { "@id": "schema:baseSalary" },
+        "hiringTeam": { "@id": "ashby:Job/hiringTeam", "@container": "@list" },
+        "openings": { "@id": "ashby:Job/openings", "@container": "@list" },
+        "jobPostingIds": { "@id": "ashby:Job/jobPostingIds", "@container": "@list" },
+        "createdAt": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+        "updatedAt": { "@id": "schema:dateModified", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Opening": {
+      "@id": "ashby:Opening",
+      "@context": {
+        "id": { "@id": "ashby:Opening/id", "@type": "xsd:string" },
+        "openingState": { "@id": "ashby:Opening/openingState", "@type": "xsd:string" },
+        "openedAt": { "@id": "ashby:Opening/openedAt", "@type": "xsd:dateTime" },
+        "closedAt": { "@id": "ashby:Opening/closedAt", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "JobPosting": {
+      "@id": "ashby:JobPosting",
+      "@context": {
+        "id": { "@id": "ashby:JobPosting/id", "@type": "xsd:string" },
+        "title": { "@id": "schema:title" },
+        "description": { "@id": "schema:description" },
+        "isPublished": { "@id": "ashby:JobPosting/isPublished", "@type": "xsd:boolean" },
+        "isListed": { "@id": "ashby:JobPosting/isListed", "@type": "xsd:boolean" },
+        "publishedDate": { "@id": "schema:datePosted", "@type": "xsd:dateTime" },
+        "address": { "@id": "schema:jobLocation" },
+        "compensation": { "@id": "schema:baseSalary" },
+        "employmentType": { "@id": "schema:employmentType" }
+      }
+    },
+
+    "InterviewSchedule": {
+      "@id": "ashby:InterviewSchedule",
+      "@context": {
+        "id": { "@id": "ashby:InterviewSchedule/id", "@type": "xsd:string" },
+        "applicationId": { "@id": "ashby:InterviewSchedule/applicationId" },
+        "candidateId": { "@id": "ashby:InterviewSchedule/candidateId" },
+        "interviewStageId": { "@id": "ashby:InterviewSchedule/interviewStageId" },
+        "status": { "@id": "ashby:InterviewSchedule/status", "@type": "xsd:string" },
+        "interviewEvents": { "@id": "ashby:InterviewSchedule/interviewEvents", "@container": "@list" },
+        "briefing": { "@id": "ashby:InterviewSchedule/briefing" },
+        "notetakerTranscript": { "@id": "ashby:InterviewSchedule/notetakerTranscript" },
+        "createdAt": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+        "updatedAt": { "@id": "schema:dateModified", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "InterviewEvent": {
+      "@id": "ashby:InterviewEvent",
+      "@context": {
+        "id": { "@id": "ashby:InterviewEvent/id", "@type": "xsd:string" },
+        "startTime": { "@id": "schema:startTime", "@type": "xsd:dateTime" },
+        "endTime": { "@id": "schema:endTime", "@type": "xsd:dateTime" },
+        "location": { "@id": "schema:location" },
+        "meetingLink": { "@id": "schema:url" },
+        "interviewerUserIds": { "@id": "ashby:InterviewEvent/interviewerUserIds", "@container": "@list" }
+      }
+    },
+
+    "Offer": {
+      "@id": "ashby:Offer",
+      "@context": {
+        "id": { "@id": "ashby:Offer/id", "@type": "xsd:string" },
+        "applicationId": { "@id": "ashby:Offer/applicationId" },
+        "status": { "@id": "ashby:Offer/status", "@type": "xsd:string" },
+        "createdAt": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+        "currentVersionId": { "@id": "ashby:Offer/currentVersionId" },
+        "approvalSteps": { "@id": "ashby:Offer/approvalSteps", "@container": "@list" }
+      }
+    },
+
+    "ApprovalDefinition": {
+      "@id": "ashby:ApprovalDefinition",
+      "@context": {
+        "id": { "@id": "ashby:ApprovalDefinition/id", "@type": "xsd:string" },
+        "entityId": { "@id": "ashby:ApprovalDefinition/entityId" },
+        "entityType": { "@id": "ashby:ApprovalDefinition/entityType", "@type": "xsd:string" },
+        "steps": { "@id": "ashby:ApprovalDefinition/steps", "@container": "@list" }
+      }
+    },
+
+    "User": {
+      "@id": "ashby:User",
+      "@context": {
+        "id": { "@id": "ashby:User/id", "@type": "xsd:string" },
+        "name": { "@id": "schema:name" },
+        "email": { "@id": "schema:email" },
+        "globalRole": { "@id": "ashby:User/globalRole", "@type": "xsd:string" }
+      }
+    },
+
+    "Department": {
+      "@id": "ashby:Department",
+      "@context": {
+        "id": { "@id": "ashby:Department/id", "@type": "xsd:string" },
+        "name": { "@id": "schema:name" },
+        "parentId": { "@id": "ashby:Department/parentId" }
+      }
+    },
+
+    "Location": {
+      "@id": "ashby:Location",
+      "@context": {
+        "id": { "@id": "ashby:Location/id", "@type": "xsd:string" },
+        "name": { "@id": "schema:name" },
+        "address": { "@id": "schema:address" }
+      }
+    },
+
+    "Source": {
+      "@id": "ashby:Source",
+      "@context": {
+        "id": { "@id": "ashby:Source/id", "@type": "xsd:string" },
+        "title": { "@id": "schema:name" },
+        "sourceType": { "@id": "ashby:Source/sourceType" }
+      }
+    },
+
+    "CustomField": {
+      "@id": "ashby:CustomField",
+      "@context": {
+        "id": { "@id": "ashby:CustomField/id", "@type": "xsd:string" },
+        "title": { "@id": "schema:name" },
+        "valueType": { "@id": "ashby:CustomField/valueType", "@type": "xsd:string" },
+        "value": { "@id": "schema:value" }
+      }
+    },
+
+    "File": {
+      "@id": "ashby:File",
+      "@context": {
+        "id": { "@id": "ashby:File/id", "@type": "xsd:string" },
+        "name": { "@id": "schema:name" },
+        "handle": { "@id": "ashby:File/handle" },
+        "presignedUrl": { "@id": "schema:url" }
+      }
+    },
+
+    "Webhook": {
+      "@id": "ashby:Webhook",
+      "@context": {
+        "id": { "@id": "ashby:Webhook/id", "@type": "xsd:string" },
+        "url": { "@id": "schema:url" },
+        "events": { "@id": "ashby:Webhook/events", "@container": "@list" },
+        "isEnabled": { "@id": "ashby:Webhook/isEnabled", "@type": "xsd:boolean" },
+        "secretToken": { "@id": "ashby:Webhook/secretToken" }
+      }
+    },
+
+    "WebhookEvent": {
+      "@id": "ashby:WebhookEvent",
+      "@context": {
+        "action": { "@id": "schema:eventType", "@type": "xsd:string" },
+        "data": { "@id": "ashby:WebhookEvent/data" }
+      }
+    },
+
+    "ApiKey": {
+      "@id": "ashby:ApiKey",
+      "@context": {
+        "name": { "@id": "schema:name" },
+        "permissions": { "@id": "ashby:ApiKey/permissions", "@container": "@list" }
+      }
+    }
+  }
+}

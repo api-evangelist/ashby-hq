@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/ashby-hq/ashby-interview-schema.json",
+  "title": "Ashby Interview Schedule",
+  "description": "Schema for the Ashby InterviewSchedule and child Interview resources. Backs interviewSchedule.create / update / cancel / list, interview.info / list, interviewEvent.list, interviewerPool.* operations, and the interviewScheduleCreate / interviewScheduleUpdate webhooks.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "applicationId": { "type": "string", "format": "uuid" },
+    "candidateId": { "type": "string", "format": "uuid" },
+    "interviewStageId": { "type": "string", "format": "uuid" },
+    "status": {
+      "type": "string",
+      "enum": ["Scheduled", "Cancelled", "Completed", "Rescheduling"]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "interviewEvents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "startTime": { "type": "string", "format": "date-time" },
+          "endTime": { "type": "string", "format": "date-time" },
+          "feedbackLink": { "type": "string", "format": "uri" },
+          "location": { "type": "string" },
+          "meetingLink": { "type": "string", "format": "uri" },
+          "interviewerUserIds": {
+            "type": "array",
+            "items": { "type": "string", "format": "uuid" }
+          },
+          "interview": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "format": "uuid" },
+              "title": { "type": "string" },
+              "interviewStage": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string", "format": "uuid" },
+                  "title": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "briefing": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "content": { "type": "string" }
+      }
+    },
+    "notetakerTranscript": {
+      "type": "object",
+      "description": "AI Notetaker transcript reference (requires AI Notetaker add-on).",
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "status": {
+          "type": "string",
+          "enum": ["Processing", "Completed", "Failed"]
+        },
+        "transcriptUrl": { "type": "string", "format": "uri" }
+      }
+    }
+  },
+  "required": ["id", "applicationId", "interviewStageId", "status"]
+}

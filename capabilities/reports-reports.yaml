@@ -1,0 +1,133 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Ashby \u2014 Reports"
+  description: Ashby Reports capability. Generate Ashby Analytics reports synchronously or asynchronously; subject to 15 req/min / 3 concurrent rate limit.
+  tags:
+  - Ashby
+  - Recruiting
+  - ATS
+  - Reports
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ASHBY_API_KEY: ASHBY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: reports-reports
+    baseUri: https://api.ashbyhq.com
+    description: Ashby Reports capability. Generate Ashby Analytics reports synchronously or asynchronously; subject to 15 req/min / 3 concurrent rate limit. Backed by the Ashby public REST API.
+    resources:
+    - name: report-generate
+      path: /report.generate
+      operations:
+      - name: report-generate
+        method: POST
+        description: Generate a report asynchronously (15 rpm, 3 concurrent)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: report-synchronous
+      path: /report.synchronous
+      operations:
+      - name: report-synchronous
+        method: POST
+        description: Generate a report synchronously (counts against the same 15 rpm / 3 concurrent budget)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    authentication:
+      type: basic
+      username: '{{env.ASHBY_API_KEY}}'
+      password: ''
+      description: 'HTTP Basic Auth: Ashby API key as username, blank password.'
+  exposes:
+  - type: rest
+    namespace: reports-reports-rest
+    port: 8080
+    description: "REST adapter for Ashby \u2014 Reports. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/report.generate
+      name: report-generate
+      description: REST surface for report-generate.
+      operations:
+      - method: POST
+        name: report-generate
+        description: Generate a report asynchronously (15 rpm, 3 concurrent)
+        call: reports-reports.report-generate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/report.synchronous
+      name: report-synchronous
+      description: REST surface for report-synchronous.
+      operations:
+      - method: POST
+        name: report-synchronous
+        description: Generate a report synchronously (counts against the same 15 rpm / 3 concurrent budget)
+        call: reports-reports.report-synchronous
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: reports-reports-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Ashby \u2014 Reports. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: ashby-report-generate
+      description: Generate a report asynchronously (15 rpm, 3 concurrent)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: reports-reports.report-generate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-report-synchronous
+      description: Generate a report synchronously (counts against the same 15 rpm / 3 concurrent budget)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: reports-reports.report-synchronous
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,274 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Ashby \u2014 Assessments"
+  description: Ashby Assessments partner-integration capability. Used by SHL, HackerRank, CodeSignal, and CoderPad to wire up structured assessments into Ashby workflows.
+  tags:
+  - Ashby
+  - Recruiting
+  - ATS
+  - Assessments
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ASHBY_API_KEY: ASHBY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: assessments-assessments
+    baseUri: https://api.ashbyhq.com
+    description: Ashby Assessments partner-integration capability. Used by SHL, HackerRank, CodeSignal, and CoderPad to wire up structured assessments into Ashby workflows. Backed by the Ashby public REST API.
+    resources:
+    - name: assessment-list
+      path: /assessment.list
+      operations:
+      - name: assessment-list
+        method: POST
+        description: List configured assessments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: assessment-start
+      path: /assessment.start
+      operations:
+      - name: assessment-start
+        method: POST
+        description: Start an assessment for a candidate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: assessment-cancel
+      path: /assessment.cancel
+      operations:
+      - name: assessment-cancel
+        method: POST
+        description: Cancel an in-flight assessment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: assessment-update
+      path: /assessment.update
+      operations:
+      - name: assessment-update
+        method: POST
+        description: Update assessment status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: assessment-add-completed-to-candidate
+      path: /assessment.addCompletedToCandidate
+      operations:
+      - name: assessment-add-completed-to-candidate
+        method: POST
+        description: Add a completed assessment to a candidate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    authentication:
+      type: basic
+      username: '{{env.ASHBY_API_KEY}}'
+      password: ''
+      description: 'HTTP Basic Auth: Ashby API key as username, blank password.'
+  exposes:
+  - type: rest
+    namespace: assessments-assessments-rest
+    port: 8080
+    description: "REST adapter for Ashby \u2014 Assessments. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/assessment.list
+      name: assessment-list
+      description: REST surface for assessment-list.
+      operations:
+      - method: POST
+        name: assessment-list
+        description: List configured assessments
+        call: assessments-assessments.assessment-list
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assessment.start
+      name: assessment-start
+      description: REST surface for assessment-start.
+      operations:
+      - method: POST
+        name: assessment-start
+        description: Start an assessment for a candidate
+        call: assessments-assessments.assessment-start
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assessment.cancel
+      name: assessment-cancel
+      description: REST surface for assessment-cancel.
+      operations:
+      - method: POST
+        name: assessment-cancel
+        description: Cancel an in-flight assessment
+        call: assessments-assessments.assessment-cancel
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assessment.update
+      name: assessment-update
+      description: REST surface for assessment-update.
+      operations:
+      - method: POST
+        name: assessment-update
+        description: Update assessment status
+        call: assessments-assessments.assessment-update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/assessment.addCompletedToCandidate
+      name: assessment-add-completed-to-candidate
+      description: REST surface for assessment-add-completed-to-candidate.
+      operations:
+      - method: POST
+        name: assessment-add-completed-to-candidate
+        description: Add a completed assessment to a candidate
+        call: assessments-assessments.assessment-add-completed-to-candidate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: assessments-assessments-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Ashby \u2014 Assessments. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: ashby-assessment-list
+      description: List configured assessments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: assessments-assessments.assessment-list
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-assessment-start
+      description: Start an assessment for a candidate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: assessments-assessments.assessment-start
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-assessment-cancel
+      description: Cancel an in-flight assessment
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: false
+      call: assessments-assessments.assessment-cancel
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-assessment-update
+      description: Update assessment status
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: assessments-assessments.assessment-update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-assessment-add-completed-to-candidate
+      description: Add a completed assessment to a candidate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: assessments-assessments.assessment-add-completed-to-candidate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

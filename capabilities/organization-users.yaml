@@ -1,0 +1,180 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Ashby \u2014 Users"
+  description: Ashby Users capability. List, search, and inspect users (recruiters, hiring managers, interviewers) and their global roles.
+  tags:
+  - Ashby
+  - Recruiting
+  - ATS
+  - Users
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ASHBY_API_KEY: ASHBY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: organization-users
+    baseUri: https://api.ashbyhq.com
+    description: Ashby Users capability. List, search, and inspect users (recruiters, hiring managers, interviewers) and their global roles. Backed by the Ashby public REST API.
+    resources:
+    - name: user-list
+      path: /user.list
+      operations:
+      - name: user-list
+        method: POST
+        description: List users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: user-info
+      path: /user.info
+      operations:
+      - name: user-info
+        method: POST
+        description: Get user info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    - name: user-search
+      path: /user.search
+      operations:
+      - name: user-search
+        method: POST
+        description: Search users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON). See https://developers.ashbyhq.com/reference for the schema of each operation.
+          required: false
+        headers:
+        - name: Accept
+          value: application/json; version=1
+        - name: Content-Type
+          value: application/json
+    authentication:
+      type: basic
+      username: '{{env.ASHBY_API_KEY}}'
+      password: ''
+      description: 'HTTP Basic Auth: Ashby API key as username, blank password.'
+  exposes:
+  - type: rest
+    namespace: organization-users-rest
+    port: 8080
+    description: "REST adapter for Ashby \u2014 Users. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+    resources:
+    - path: /v1/user.list
+      name: user-list
+      description: REST surface for user-list.
+      operations:
+      - method: POST
+        name: user-list
+        description: List users
+        call: organization-users.user-list
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.info
+      name: user-info
+      description: REST surface for user-info.
+      operations:
+      - method: POST
+        name: user-info
+        description: Get user info
+        call: organization-users.user-info
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user.search
+      name: user-search
+      description: REST surface for user-search.
+      operations:
+      - method: POST
+        name: user-search
+        description: Search users
+        call: organization-users.user-search
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: organization-users-mcp
+    port: 9090
+    transport: http
+    description: "MCP adapter for Ashby \u2014 Users. One tool per consumed operation, routed inline through this capability's consumes block."
+    tools:
+    - name: ashby-user-list
+      description: List users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: organization-users.user-list
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-user-info
+      description: Get user info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: organization-users.user-info
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ashby-user-search
+      description: Search users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: organization-users.user-search
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

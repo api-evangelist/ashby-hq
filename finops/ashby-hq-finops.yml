@@ -1,0 +1,129 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Ashby
+providerId: ashby-hq
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - SaaS
+  - HR Tech
+  - ATS
+description: FOCUS-aligned FinOps definition for Ashby, the all-in-one recruiting platform. Per-company
+  subscription model with no per-API-call charges; add-ons (Advanced Scheduling, AI Notetaker) and the
+  standalone Ashby Analytics product are separately metered at contract level.
+sources:
+  - https://www.ashbyhq.com/pricing
+  - https://developers.ashbyhq.com
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Ashby
+serviceCategory: HR and Recruiting Software
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly (Foundations) / Annual (Plus, Enterprise, Analytics)
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Adjustment
+    - Credit
+  primaryUnit: company-month
+  secondaryUnits:
+    - employee
+    - report-execution
+focusColumns:
+  ServiceName: Ashby
+  ServiceCategory: HR and Recruiting Software
+  ProviderName: Ashby
+  PublisherName: Ashby
+  InvoiceIssuerName: Ashby, Inc.
+  PricingCategory: Subscription
+  PricingUnit: company-month
+  BillingCurrency: USD
+meters:
+  - name: foundations_subscription
+    unit: company-month
+    aggregation: sum
+    dimensions:
+      - plan
+      - billing_period
+      - commitment
+    description: Flat monthly fee for Foundations plan (up to 100 employees). $400/month list; 10% annual
+      discount.
+  - name: plus_subscription
+    unit: company-month
+    aggregation: sum
+    dimensions:
+      - plan
+      - employee_count_band
+      - commitment
+    description: Contract-priced subscription for Plus plan (101-1,000 employees). Scales with company size,
+      usage, and commitment length.
+  - name: enterprise_subscription
+    unit: company-year
+    aggregation: sum
+    dimensions:
+      - plan
+      - employee_count_band
+      - sla_tier
+    description: Annual subscription for Enterprise plan (1,000+ employees). Predictable pricing model
+      explicitly marketed as a procurement advantage vs. per-seat ATS competitors.
+  - name: analytics_subscription
+    unit: company-month
+    aggregation: sum
+    dimensions:
+      - plan
+      - source_ats
+    description: Ashby Analytics standalone product. Usage-based; quote-driven.
+  - name: addon_subscription
+    unit: company-month
+    aggregation: sum
+    dimensions:
+      - addon
+      - plan
+    description: Add-on subscriptions — Advanced Scheduling and AI Notetaker. Contract-priced.
+  - name: api_calls
+    unit: request
+    aggregation: count
+    dimensions:
+      - module
+      - endpoint
+      - api_key
+    description: API calls are not billed. Tracked for fair-use and rate-limit governance.
+  - name: report_executions
+    unit: report-execution
+    aggregation: count
+    dimensions:
+      - report_type
+      - async
+    description: Report executions are rate-limited (15 req/min, 3 concurrent) but not separately billed.
+  - name: webhook_deliveries
+    unit: delivery
+    aggregation: count
+    dimensions:
+      - event_type
+      - status
+    description: Outbound webhook deliveries — 22 event types — included; not billed.
+discountModels:
+  - name: Annual commitment
+    description: 10% discount on Foundations for annual prepay; deeper discounts negotiable on Plus and
+      Enterprise multi-year commitments.
+  - name: Emerging market pricing
+    description: Reduced pricing available for companies in eligible emerging markets on the Foundations plan.
+notes:
+  - Ashby's pricing model is intentionally not per-seat for the recruiter / interviewer audience — they argue
+    this avoids penalizing customers for involving more hiring-team members in structured-hiring workflows.
+  - There is no public per-API-call pricing. Cost allocation across business units should be driven by the
+    contract-level Plan plus add-on attributions, not by API consumption.
+  - The Reports API rate limit (15 rpm, 3 concurrent) is the only documented usage-governance signal that
+    could meaningfully inform a chargeback model — useful for analytics-heavy tenants on the standalone
+    Analytics product.

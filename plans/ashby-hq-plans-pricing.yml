@@ -1,0 +1,155 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Ashby
+providerId: ashby-hq
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - ATS
+  - Recruiting
+  - HR Tech
+  - SaaS
+  - Per-company
+description: 'Reconciled plans for Ashby, the modern all-in-one recruiting platform. Foundations is a published
+  flat monthly price; Plus, Enterprise, Analytics, and add-ons are quote-based with usage- and commitment-driven
+  pricing. Source: ashbyhq.com/pricing.'
+sources:
+  - https://www.ashbyhq.com/pricing
+  - https://www.ashbyhq.com
+plans:
+  - id: ashby-foundations
+    name: Foundations
+    type: subscription
+    description: All-in-one recruiting for startups (1-100 employees). Published flat monthly price; 10% annual
+      discount; emerging-market pricing available.
+    entries:
+      - label: Company subscription
+        name: foundations_monthly
+        type: flat
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '400.00'
+        userMultiplied: false
+    features:
+      - All-in-one ATS + sourcing + scheduling + analytics
+      - Up to 100 employees
+      - Custom careers page
+      - Structured hiring workflows
+      - Full API access subject to per-endpoint permissions
+      - 22 webhook event types
+      - Standard support
+  - id: ashby-plus
+    name: Plus
+    type: subscription
+    description: All-in-one recruiting product built for growth companies (101-1,000 employees). Custom pricing
+      based on company size, usage, and commitment length.
+    entries:
+      - label: Company subscription
+        name: plus_monthly
+        type: contact_sales
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        price: 'contact_sales'
+        userMultiplied: false
+    features:
+      - All Foundations features
+      - 101-1,000 employees
+      - Advanced sourcing and CRM
+      - Custom dashboards and reporting
+      - Priority partner integrations
+      - Production support SLA
+  - id: ashby-enterprise
+    name: Enterprise
+    type: subscription
+    description: Enterprise-grade recruiting platform for 1,000+ employee organizations. Predictable annual
+      pricing model; quote-based.
+    entries:
+      - label: Company subscription
+        name: enterprise_annual
+        type: contact_sales
+        metric: year
+        limit: 1
+        timeFrame: year
+        geo: global
+        price: 'contact_sales'
+        userMultiplied: false
+    features:
+      - All Plus features
+      - 1,000+ employees
+      - Enterprise SSO and SCIM
+      - Predictable pricing model
+      - Dedicated success engineering
+      - Custom SLAs
+      - Advanced security and compliance reviews
+  - id: ashby-analytics
+    name: Ashby Analytics
+    type: subscription
+    description: Standalone recruiting analytics layered on an existing ATS via integrations. Usage-based pricing
+      targeted at 100+ employee companies.
+    entries:
+      - label: Analytics subscription
+        name: analytics_usage
+        type: usage-based
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        price: 'contact_sales'
+        userMultiplied: false
+    features:
+      - Custom dashboards
+      - Async Reports API (15 req/min, 3 concurrent)
+      - Integrations with major ATS providers
+      - No ATS migration required
+  - id: ashby-advanced-scheduling
+    name: Advanced Scheduling
+    type: add-on
+    description: Add-on for Foundations / Plus / Enterprise. Interviewer-pool load balancing and calendar
+      automation.
+    entries:
+      - label: Add-on subscription
+        name: scheduling_addon
+        type: add-on
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        price: 'contact_sales'
+        userMultiplied: false
+    features:
+      - Interviewer-pool load balancing
+      - Google Workspace and Microsoft 365 calendar integration
+      - Automated reschedules and conflict resolution
+  - id: ashby-ai-notetaker
+    name: AI Notetaker
+    type: add-on
+    description: AI Notetaker add-on. Live interview transcription and AI-drafted structured feedback.
+    entries:
+      - label: Add-on subscription
+        name: notetaker_addon
+        type: add-on
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        price: 'contact_sales'
+        userMultiplied: false
+    features:
+      - Live interview transcription
+      - AI-generated structured-feedback drafts
+      - notetakerTranscript.info API access
+notes:
+  - All paid plans include full Ashby API access. Per-endpoint authorization is enforced via API-key permission
+    grants (Jobs, Candidates, Interviews, Offers, Approvals, Organization, Reports, API Keys — each with
+    Read and Write scopes).
+  - The public Job Postings API (custom careers pages and dedicated partner job feeds) is available to all
+    plans without authentication.
+  - No published per-API-call pricing — API usage is included in the platform subscription. The async Reports
+    API is the only documented rate-limited surface (15 req/min, 3 concurrent).
