@@ -1,574 +1,570 @@
 aid: ashby-hq
 url: https://raw.githubusercontent.com/api-evangelist/ashby-hq/refs/heads/main/apis.yml
 apis:
-  - aid: ashby-hq:ashby-applications-api
-    name: Ashby Applications API
-    tags:
-      - Applications
-      - ATS
-      - Recruiting
-      - Candidates
-    humanURL: https://developers.ashbyhq.com/reference/applicationlist
-    properties:
-      - url: https://developers.ashbyhq.com/reference/applicationlist
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-      - url: json-schema/ashby-application-schema.json
-        type: JSONSchema
-      - url: json-ld/ashby-context.jsonld
-        type: JSONLD
-    description: >-
-      Create, list, transfer, update, and inspect candidate applications across jobs and stages. Includes application
-      history, hiring team membership, source and stage changes, feedback submission, criteria evaluations from AI
-      Application Review, and application form submission for custom careers pages.
-  - aid: ashby-hq:ashby-candidates-api
-    name: Ashby Candidates API
-    tags:
-      - Candidates
-      - ATS
-      - CRM
-      - Sourcing
-      - Recruiting
-    humanURL: https://developers.ashbyhq.com/reference/candidatelist
-    properties:
-      - url: https://developers.ashbyhq.com/reference/candidatelist
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-      - url: json-schema/ashby-candidate-schema.json
-        type: JSONSchema
-      - url: json-ld/ashby-context.jsonld
-        type: JSONLD
-    description: >-
-      Manage candidate records — create, update, search, anonymize, merge, hire — plus candidate tags, projects, notes,
-      messages, resume and file uploads, sourcing sequences, referrals, and fraud-check status. The candidate is the
-      central CRM entity in Ashby's all-in-one recruiting platform.
-  - aid: ashby-hq:ashby-jobs-api
-    name: Ashby Jobs API
-    tags:
-      - Jobs
-      - Openings
-      - Job Postings
-      - Job Boards
-      - ATS
-    humanURL: https://developers.ashbyhq.com/reference/joblist
-    properties:
-      - url: https://developers.ashbyhq.com/reference/joblist
-        type: Documentation
-      - url: https://developers.ashbyhq.com/reference/jobpostinglist
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-      - url: json-schema/ashby-job-schema.json
-        type: JSONSchema
-    description: >-
-      Manage jobs, openings, job postings, and job boards. Includes job CRUD, compensation updates, status changes (Open
-      / Closed / Archived / Draft), opening lifecycle (create / archive / restore / addJob / removeJob / addLocation /
-      removeLocation), job posting publish/unpublish, job templates, and interview plan associations. Powers Ashby's
-      dedicated partner job feeds.
-  - aid: ashby-hq:ashby-interviews-api
-    name: Ashby Interviews API
-    tags:
-      - Interviews
-      - Scheduling
-      - Recruiting
-      - Calendar
-      - Notetaker
-    humanURL: https://developers.ashbyhq.com/reference/interviewschedulelist
-    properties:
-      - url: https://developers.ashbyhq.com/reference/interviewschedulelist
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-      - url: json-schema/ashby-interview-schema.json
-        type: JSONSchema
-    description: >-
-      Read and manage interviews, interview schedules (create / update / cancel), interview events, interview stages and
-      stage groups, interview plans, interview briefings, interviewer pools and pauses, and AI Notetaker transcripts.
-      Backs Ashby's advanced scheduling and AI Notetaker add-ons.
-  - aid: ashby-hq:ashby-offers-api
-    name: Ashby Offers API
-    tags:
-      - Offers
-      - Approvals
-      - Recruiting
-      - Hiring
-    humanURL: https://developers.ashbyhq.com/reference/offerlist
-    properties:
-      - url: https://developers.ashbyhq.com/reference/offerlist
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-    description: >-
-      Create and manage candidate offers, offer versions, the offer process (start), and approval workflows — including
-      force-approve for individual approval steps or the entire offer (mirrors the Ashby app's admin override).
-      Integrates with Pave for compensation and Ironclad for offer contracts.
-  - aid: ashby-hq:ashby-approvals-api
-    name: Ashby Approvals API
-    tags:
-      - Approvals
-      - Workflow
-      - Governance
-      - Recruiting
-    humanURL: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
-    properties:
-      - url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-    description: >-
-      Programmatically define approval definitions for entities in scope of API-managed approvals. Supports multi-step
-      approval workflows and skip-via-empty-list semantics for routing offers and other entities through governance
-      gates.
-  - aid: ashby-hq:ashby-surveys-api
-    name: Ashby Surveys & Feedback API
-    tags:
-      - Surveys
-      - Feedback
-      - Forms
-      - Recruiting
-    humanURL: https://developers.ashbyhq.com/reference/surveyrequestlist
-    properties:
-      - url: https://developers.ashbyhq.com/reference/surveyrequestlist
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-    description: >-
-      Read survey form and feedback form definitions, create survey requests, list and submit survey submissions, list
-      application feedback, and submit interviewer feedback. Powers Ashby's structured-hiring feedback loops and
-      candidate-experience surveys.
-  - aid: ashby-hq:ashby-assessments-api
-    name: Ashby Assessments API
-    tags:
-      - Assessments
-      - Integrations
-      - Partner API
-      - Recruiting
-    humanURL: https://developers.ashbyhq.com/reference/assessmentstart
-    properties:
-      - url: https://developers.ashbyhq.com/reference/assessmentstart
-        type: Documentation
-      - url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-    description: >-
-      Partner-implemented assessment integration surface. Lists configured assessments, starts and cancels assessment
-      instances, updates assessment status, adds completed assessments to a candidate, and syncs result-driven custom
-      fields. Used by SHL, HackerRank, CodeSignal, and CoderPad integrations.
-  - aid: ashby-hq:ashby-custom-fields-api
-    name: Ashby Custom Fields API
-    tags:
-      - Custom Fields
-      - Configuration
-      - Recruiting
-    humanURL: https://developers.ashbyhq.com/reference/customfieldcreate
-    properties:
-      - url: https://developers.ashbyhq.com/reference/customfieldcreate
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-    description: >-
-      Define custom fields on Ashby entities, set single and batch values, and manage selectable options. Backs Ashby's
-      structured-hiring data model and is the integration point for partner-driven field syncing (assessments,
-      background checks, HRIS).
-  - aid: ashby-hq:ashby-organization-api
-    name: Ashby Organization API
-    tags:
-      - Organization
-      - Users
-      - Departments
-      - Locations
-      - Brands
-      - Sources
-    humanURL: https://developers.ashbyhq.com/reference/userlist
-    properties:
-      - url: https://developers.ashbyhq.com/reference/userlist
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-    description: >-
-      Read and manage organization metadata — users (with permission roles), departments and teams, locations with
-      hierarchical address updates, brands, hiring team roles, archive and close reasons, communication templates,
-      sources, source tracking links, referral forms, and search across users and locations. The reference data plane
-      for every other Ashby resource.
-  - aid: ashby-hq:ashby-files-api
-    name: Ashby Files API
-    tags:
-      - Files
-      - Uploads
-      - Recruiting
-    humanURL: https://developers.ashbyhq.com/reference/fileinfo
-    properties:
-      - url: https://developers.ashbyhq.com/reference/fileinfo
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-    description: >-
-      Look up file metadata and request presigned upload URLs for candidate resumes, application attachments, and
-      partner-provided assessment artifacts. Two-step pattern — request presigned URL, then PUT bytes — keeps payloads
-      off Ashby's API surface.
-  - aid: ashby-hq:ashby-reports-api
-    name: Ashby Reports API
-    tags:
-      - Reports
-      - Analytics
-      - Recruiting
-      - Async
-    humanURL: https://developers.ashbyhq.com/reference/reportgenerate
-    properties:
-      - url: https://developers.ashbyhq.com/reference/reportgenerate
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-    description: >-
-      Generate Ashby Analytics reports synchronously or asynchronously. The async path is the recommended pattern for
-      large datasets; subject to a strict 15 req/min, 3 concurrent execution cap to protect the analytics warehouse.
-      Powers the standalone Ashby Analytics product.
-  - aid: ashby-hq:ashby-webhooks-api
-    name: Ashby Webhooks API
-    tags:
-      - Webhooks
-      - Events
-      - Eventing
-      - Recruiting
-    humanURL: https://developers.ashbyhq.com/docs/setting-up-webhooks
-    properties:
-      - url: https://developers.ashbyhq.com/docs/setting-up-webhooks
-        type: Documentation
-      - url: https://developers.ashbyhq.com/docs/authenticating-webhooks
-        type: Documentation
-      - url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
-        type: Documentation
-      - url: https://developers.ashbyhq.com/docs/related-webhooks
-        type: Documentation
-      - url: https://developers.ashbyhq.com/docs/webhook-retries
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-    description: >-
-      Manage outbound webhook subscriptions (webhook.create / update / info / delete) and consume 22 event types:
-      applicationSubmit, applicationUpdate, candidateDelete, candidateHire, candidateMerge, candidateStageChange,
-      interviewPlanTransition, interviewScheduleCreate, interviewScheduleUpdate, jobCreate, jobUpdate,
-      jobPostingPublish, jobPostingUnpublish, jobPostingUpdate, offerCreate, offerDelete, offerUpdate, openingCreate,
-      ping, pushToHRIS, signatureRequestUpdate, surveySubmit. HMAC-SHA256 signed via Ashby-Signature header; automatic
-      retries on non-2xx responses.
-  - aid: ashby-hq:ashby-job-postings-public-api
-    name: Ashby Job Postings Public API
-    tags:
-      - Job Postings
-      - Careers Page
-      - Public
-    humanURL: https://developers.ashbyhq.com/docs/ashby-job-postings-api
-    properties:
-      - url: https://developers.ashbyhq.com/docs/ashby-job-postings-api
-        type: Documentation
-      - url: https://developers.ashbyhq.com/docs/creating-a-custom-careers-page
-        type: Documentation
-      - url: https://developers.ashbyhq.com/docs/dedicated-partner-job-feeds
-        type: Documentation
-    description: >-
-      Public, unauthenticated job postings endpoint for building custom careers pages and partner job feeds (LinkedIn,
-      Indeed, Otta, Built In, ZipRecruiter, Levels.fyi). Returns published job postings with structured location,
-      compensation, employment type, and brand metadata.
-  - aid: ashby-hq:ashby-api-keys-api
-    name: Ashby API Keys API
-    tags:
-      - API Keys
-      - Authentication
-      - Administration
-    humanURL: https://developers.ashbyhq.com/reference/apikeyinfo
-    properties:
-      - url: https://developers.ashbyhq.com/reference/apikeyinfo
-        type: Documentation
-      - url: openapi/ashby-openapi.yml
-        type: OpenAPI
-    description: >-
-      Inspect the calling API key — returns the key's name, granted permission modules (Jobs, Candidates, Interviews,
-      Offers, Approvals, Organization, Reports, API Keys), and read/write scopes. Useful for partners that need to
-      validate permission grants before issuing dependent calls.
+- aid: ashby-hq:ashby-applications-api
+  name: Ashby Applications API
+  tags:
+  - Applications
+  - ATS
+  - Recruiting
+  - Candidates
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  properties:
+  - url: https://developers.ashbyhq.com/reference/applicationlist
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  - url: json-schema/ashby-application-schema.json
+    type: JSONSchema
+  - url: json-ld/ashby-context.jsonld
+    type: JSONLD
+  - url: graphql/ashby-hq-graphql.md
+    type: GraphQL
+  description: Create, list, transfer, update, and inspect candidate applications
+    across jobs and stages. Includes application history, hiring team membership,
+    source and stage changes, feedback submission, criteria evaluations from AI Application
+    Review, and application form submission for custom careers pages.
+- aid: ashby-hq:ashby-candidates-api
+  name: Ashby Candidates API
+  tags:
+  - Candidates
+  - ATS
+  - CRM
+  - Sourcing
+  - Recruiting
+  humanURL: https://developers.ashbyhq.com/reference/candidatelist
+  properties:
+  - url: https://developers.ashbyhq.com/reference/candidatelist
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  - url: json-schema/ashby-candidate-schema.json
+    type: JSONSchema
+  - url: json-ld/ashby-context.jsonld
+    type: JSONLD
+  description: Manage candidate records — create, update, search, anonymize, merge,
+    hire — plus candidate tags, projects, notes, messages, resume and file uploads,
+    sourcing sequences, referrals, and fraud-check status. The candidate is the central
+    CRM entity in Ashby's all-in-one recruiting platform.
+- aid: ashby-hq:ashby-jobs-api
+  name: Ashby Jobs API
+  tags:
+  - Jobs
+  - Openings
+  - Job Postings
+  - Job Boards
+  - ATS
+  humanURL: https://developers.ashbyhq.com/reference/joblist
+  properties:
+  - url: https://developers.ashbyhq.com/reference/joblist
+    type: Documentation
+  - url: https://developers.ashbyhq.com/reference/jobpostinglist
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  - url: json-schema/ashby-job-schema.json
+    type: JSONSchema
+  description: Manage jobs, openings, job postings, and job boards. Includes job CRUD,
+    compensation updates, status changes (Open / Closed / Archived / Draft), opening
+    lifecycle (create / archive / restore / addJob / removeJob / addLocation / removeLocation),
+    job posting publish/unpublish, job templates, and interview plan associations.
+    Powers Ashby's dedicated partner job feeds.
+- aid: ashby-hq:ashby-interviews-api
+  name: Ashby Interviews API
+  tags:
+  - Interviews
+  - Scheduling
+  - Recruiting
+  - Calendar
+  - Notetaker
+  humanURL: https://developers.ashbyhq.com/reference/interviewschedulelist
+  properties:
+  - url: https://developers.ashbyhq.com/reference/interviewschedulelist
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  - url: json-schema/ashby-interview-schema.json
+    type: JSONSchema
+  description: Read and manage interviews, interview schedules (create / update /
+    cancel), interview events, interview stages and stage groups, interview plans,
+    interview briefings, interviewer pools and pauses, and AI Notetaker transcripts.
+    Backs Ashby's advanced scheduling and AI Notetaker add-ons.
+- aid: ashby-hq:ashby-offers-api
+  name: Ashby Offers API
+  tags:
+  - Offers
+  - Approvals
+  - Recruiting
+  - Hiring
+  humanURL: https://developers.ashbyhq.com/reference/offerlist
+  properties:
+  - url: https://developers.ashbyhq.com/reference/offerlist
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  description: Create and manage candidate offers, offer versions, the offer process
+    (start), and approval workflows — including force-approve for individual approval
+    steps or the entire offer (mirrors the Ashby app's admin override). Integrates
+    with Pave for compensation and Ironclad for offer contracts.
+- aid: ashby-hq:ashby-approvals-api
+  name: Ashby Approvals API
+  tags:
+  - Approvals
+  - Workflow
+  - Governance
+  - Recruiting
+  humanURL: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  properties:
+  - url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  description: Programmatically define approval definitions for entities in scope
+    of API-managed approvals. Supports multi-step approval workflows and skip-via-empty-list
+    semantics for routing offers and other entities through governance gates.
+- aid: ashby-hq:ashby-surveys-api
+  name: Ashby Surveys & Feedback API
+  tags:
+  - Surveys
+  - Feedback
+  - Forms
+  - Recruiting
+  humanURL: https://developers.ashbyhq.com/reference/surveyrequestlist
+  properties:
+  - url: https://developers.ashbyhq.com/reference/surveyrequestlist
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  description: Read survey form and feedback form definitions, create survey requests,
+    list and submit survey submissions, list application feedback, and submit interviewer
+    feedback. Powers Ashby's structured-hiring feedback loops and candidate-experience
+    surveys.
+- aid: ashby-hq:ashby-assessments-api
+  name: Ashby Assessments API
+  tags:
+  - Assessments
+  - Integrations
+  - Partner API
+  - Recruiting
+  humanURL: https://developers.ashbyhq.com/reference/assessmentstart
+  properties:
+  - url: https://developers.ashbyhq.com/reference/assessmentstart
+    type: Documentation
+  - url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  description: Partner-implemented assessment integration surface. Lists configured
+    assessments, starts and cancels assessment instances, updates assessment status,
+    adds completed assessments to a candidate, and syncs result-driven custom fields.
+    Used by SHL, HackerRank, CodeSignal, and CoderPad integrations.
+- aid: ashby-hq:ashby-custom-fields-api
+  name: Ashby Custom Fields API
+  tags:
+  - Custom Fields
+  - Configuration
+  - Recruiting
+  humanURL: https://developers.ashbyhq.com/reference/customfieldcreate
+  properties:
+  - url: https://developers.ashbyhq.com/reference/customfieldcreate
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  description: Define custom fields on Ashby entities, set single and batch values,
+    and manage selectable options. Backs Ashby's structured-hiring data model and
+    is the integration point for partner-driven field syncing (assessments, background
+    checks, HRIS).
+- aid: ashby-hq:ashby-organization-api
+  name: Ashby Organization API
+  tags:
+  - Organization
+  - Users
+  - Departments
+  - Locations
+  - Brands
+  - Sources
+  humanURL: https://developers.ashbyhq.com/reference/userlist
+  properties:
+  - url: https://developers.ashbyhq.com/reference/userlist
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  description: Read and manage organization metadata — users (with permission roles),
+    departments and teams, locations with hierarchical address updates, brands, hiring
+    team roles, archive and close reasons, communication templates, sources, source
+    tracking links, referral forms, and search across users and locations. The reference
+    data plane for every other Ashby resource.
+- aid: ashby-hq:ashby-files-api
+  name: Ashby Files API
+  tags:
+  - Files
+  - Uploads
+  - Recruiting
+  humanURL: https://developers.ashbyhq.com/reference/fileinfo
+  properties:
+  - url: https://developers.ashbyhq.com/reference/fileinfo
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  description: Look up file metadata and request presigned upload URLs for candidate
+    resumes, application attachments, and partner-provided assessment artifacts. Two-step
+    pattern — request presigned URL, then PUT bytes — keeps payloads off Ashby's API
+    surface.
+- aid: ashby-hq:ashby-reports-api
+  name: Ashby Reports API
+  tags:
+  - Reports
+  - Analytics
+  - Recruiting
+  - Async
+  humanURL: https://developers.ashbyhq.com/reference/reportgenerate
+  properties:
+  - url: https://developers.ashbyhq.com/reference/reportgenerate
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  description: Generate Ashby Analytics reports synchronously or asynchronously. The
+    async path is the recommended pattern for large datasets; subject to a strict
+    15 req/min, 3 concurrent execution cap to protect the analytics warehouse. Powers
+    the standalone Ashby Analytics product.
+- aid: ashby-hq:ashby-webhooks-api
+  name: Ashby Webhooks API
+  tags:
+  - Webhooks
+  - Events
+  - Eventing
+  - Recruiting
+  humanURL: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  properties:
+  - url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+    type: Documentation
+  - url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+    type: Documentation
+  - url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+    type: Documentation
+  - url: https://developers.ashbyhq.com/docs/related-webhooks
+    type: Documentation
+  - url: https://developers.ashbyhq.com/docs/webhook-retries
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  description: 'Manage outbound webhook subscriptions (webhook.create / update / info
+    / delete) and consume 22 event types: applicationSubmit, applicationUpdate, candidateDelete,
+    candidateHire, candidateMerge, candidateStageChange, interviewPlanTransition,
+    interviewScheduleCreate, interviewScheduleUpdate, jobCreate, jobUpdate, jobPostingPublish,
+    jobPostingUnpublish, jobPostingUpdate, offerCreate, offerDelete, offerUpdate,
+    openingCreate, ping, pushToHRIS, signatureRequestUpdate, surveySubmit. HMAC-SHA256
+    signed via Ashby-Signature header; automatic retries on non-2xx responses.'
+- aid: ashby-hq:ashby-job-postings-public-api
+  name: Ashby Job Postings Public API
+  tags:
+  - Job Postings
+  - Careers Page
+  - Public
+  humanURL: https://developers.ashbyhq.com/docs/ashby-job-postings-api
+  properties:
+  - url: https://developers.ashbyhq.com/docs/ashby-job-postings-api
+    type: Documentation
+  - url: https://developers.ashbyhq.com/docs/creating-a-custom-careers-page
+    type: Documentation
+  - url: https://developers.ashbyhq.com/docs/dedicated-partner-job-feeds
+    type: Documentation
+  description: Public, unauthenticated job postings endpoint for building custom careers
+    pages and partner job feeds (LinkedIn, Indeed, Otta, Built In, ZipRecruiter, Levels.fyi).
+    Returns published job postings with structured location, compensation, employment
+    type, and brand metadata.
+- aid: ashby-hq:ashby-api-keys-api
+  name: Ashby API Keys API
+  tags:
+  - API Keys
+  - Authentication
+  - Administration
+  humanURL: https://developers.ashbyhq.com/reference/apikeyinfo
+  properties:
+  - url: https://developers.ashbyhq.com/reference/apikeyinfo
+    type: Documentation
+  - url: openapi/ashby-openapi.yml
+    type: OpenAPI
+  description: Inspect the calling API key — returns the key's name, granted permission
+    modules (Jobs, Candidates, Interviews, Offers, Approvals, Organization, Reports,
+    API Keys), and read/write scopes. Useful for partners that need to validate permission
+    grants before issuing dependent calls.
 name: Ashby
 tags:
-  - ATS
-  - Applicant Tracking System
-  - Recruiting
-  - Talent Acquisition
-  - Sourcing
-  - CRM
-  - Scheduling
-  - Analytics
-  - Hiring
-  - HR Tech
-  - AI
+- ATS
+- Applicant Tracking System
+- Recruiting
+- Talent Acquisition
+- Sourcing
+- CRM
+- Scheduling
+- Analytics
+- Hiring
+- HR Tech
+- AI
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-  - url: https://www.ashbyhq.com
-    type: Portal
-  - url: https://developers.ashbyhq.com
-    name: Ashby Developer Portal
-    type: Portal
-  - url: https://developers.ashbyhq.com/docs/getting-started-with-ashby
-    name: Getting Started with Ashby
-    type: GettingStarted
-  - url: https://developers.ashbyhq.com/reference/authentication
-    name: Authentication
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/introduction
-    name: API Introduction
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/endpoint-naming
-    name: Endpoint Naming Conventions
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/pagination
-    name: Pagination
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/pagination-and-incremental-sync
-    name: Pagination and Incremental Synchronization
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/expansions
-    name: Expansions
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/responses-and-errors
-    name: Responses and Errors
-    type: Errors
-  - url: https://developers.ashbyhq.com/docs/syncing-records
-    name: Syncing Records
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/support
-    name: Support
-    type: Support
-  - url: https://developers.ashbyhq.com/changelog
-    name: Changelog
-    type: ChangeLog
-  - url: https://developers.ashbyhq.com/llms.txt
-    name: llms.txt index
-    type: Documentation
-  - url: https://www.ashbyhq.com/pricing
-    data:
-      - id: foundations
-        name: Foundations
-        entries:
-          - geo: Global
-            unit: 1
-            label: Company
-            limit: 1
-            price: 400
-            metric: month
-            timeFrame: month
-            description: >-
-              Flat monthly fee for companies up to 100 employees. 10% discount for annual commitments; emerging-market
-              pricing available.
-        elements:
-          - name: All-in-one ATS + sourcing + scheduling + analytics
-          - name: Up to 100 employees
-          - name: Custom careers page
-          - name: Structured hiring workflows
-          - name: Full API access (subject to per-endpoint permissions)
-          - name: 22 webhook event types
-        description: For startups (1-100 employees). Get started within minutes, scale for years.
-      - id: plus
-        name: Plus
-        entries:
-          - geo: Global
-            label: Company
-            price: Contact Sales
-            timeFrame: month
-            description: Custom pricing based on company size, usage, and commitment length.
-        elements:
-          - name: All Foundations features
-          - name: 101-1,000 employees
-          - name: Advanced sourcing and CRM
-          - name: Custom dashboards and reporting
-          - name: Priority partner integrations
-        description: For growth companies (101-1,000 employees). All-in-one recruiting product built for scale.
-      - id: enterprise
-        name: Enterprise
-        entries:
-          - geo: Global
-            label: Company
-            price: Contact Sales
-            timeFrame: year
-            description: Predictable pricing model for large organizations.
-        elements:
-          - name: All Plus features
-          - name: 1,000+ employees
-          - name: Enterprise SSO and SCIM
-          - name: Predictable pricing model
-          - name: Dedicated success engineering
-          - name: Custom SLAs
-        description: For 1,000+ employees. Enterprise-grade, all-in-one recruiting solution.
-      - id: ashby-analytics
-        name: Ashby Analytics
-        entries:
-          - geo: Global
-            label: Company
-            price: Contact Sales
-            timeFrame: month
-            description: Usage-based pricing; targeted at 100+ employee companies with an existing ATS.
-        elements:
-          - name: Standalone analytics layered on existing ATS via integrations
-          - name: Custom dashboards
-          - name: Async reports API (15 req/min, 3 concurrent)
-        description: For 100+ employees already on another ATS. Bring Ashby's analytics layer to your stack.
-      - id: advanced-scheduling
-        name: Advanced Scheduling
-        type: Add-on
-        entries:
-          - geo: Global
-            label: Company
-            price: Contact Sales
-            timeFrame: month
-            description: Add-on for Foundations / Plus / Enterprise.
-        elements:
-          - name: Interviewer-pool load balancing
-          - name: Calendar integration with Google Workspace and Microsoft 365
-          - name: Automated reschedules and conflict resolution
-        description: Advanced scheduling add-on.
-      - id: ai-notetaker
-        name: AI Notetaker
-        type: Add-on
-        entries:
-          - geo: Global
-            label: Company
-            price: Contact Sales
-            timeFrame: month
-            description: Add-on for Foundations / Plus / Enterprise.
-        elements:
-          - name: Live interview transcription
-          - name: AI-generated structured-feedback drafts
-          - name: notetakerTranscript.info API
-        description: AI Notetaker add-on. Surfaces transcripts and AI-drafted interviewer feedback.
-    name: Plans
-    type: Plans
-  - url: https://www.ashbyhq.com/customers
-    type: CaseStudies
-  - url: https://www.ashbyhq.com/blog
-    type: Blog
-  - url: https://www.ashbyhq.com/integrations
-    name: Integrations Marketplace
-    type: Integrations
-  - url: https://www.ashbyhq.com/about
-    type: AboutUs
-  - url: https://www.ashbyhq.com/careers
-    type: Jobs
-  - url: https://app.ashbyhq.com/signup
-    type: SignUp
-  - url: https://app.ashbyhq.com/login
-    type: Login
-  - url: https://docs.ashbyhq.com
-    name: Help Center
-    type: Documentation
-  - url: https://docs.ashbyhq.com/user-permissions
-    name: User Permissions Reference
-    type: Documentation
-  - url: https://app.ashbyhq.com/support
-    type: Support
-  - url: https://www.ashbyhq.com/legal/terms
-    type: TermsOfService
-  - url: https://www.ashbyhq.com/legal/privacy
-    type: PrivacyPolicy
-  - url: https://www.ashbyhq.com/security
-    type: Security
-  - url: https://www.ashbyhq.com/trust
-    type: TrustCenter
-  - url: https://www.ashbyhq.com/status
-    type: StatusPage
-  - url: https://github.com/ashbyhq
-    type: GitHubOrganization
-  - url: https://www.linkedin.com/company/ashbyhq
-    type: LinkedIn
-  - url: https://twitter.com/ashbyhq
-    type: Twitter
-  - url: https://api.ashbyhq.com
-    name: API Base URL
-    type: BaseURL
-  - url: plans/ashby-hq-plans-pricing.yml
-    type: Plans
-  - url: rate-limits/ashby-hq-rate-limits.yml
-    type: RateLimits
-  - url: finops/ashby-hq-finops.yml
-    type: FinOps
-  - type: Features
-    data:
-      - All-in-one recruiting platform — ATS + CRM/sourcing + scheduling + analytics + AI Notetaker in a single product
-      - >-
-        164 REST operations across 14 product modules — Applications, Candidates, Jobs, Openings, Job Postings,
-        Interviews, Offers, Approvals, Surveys, Assessments, Custom Fields, Organization, Files, Reports, Webhooks, API
-        Keys
-      - >-
-        HTTP Basic Auth with API key as username — keys are scoped to read/write modules (Jobs, Candidates, Interviews,
-        Offers, Approvals, Organization, Reports, API Keys)
-      - >-
-        22 outbound webhook event types — HMAC-SHA256 signed via Ashby-Signature header — with automatic retries and
-        related-webhook ordering guarantees
-      - >-
-        AI Application Review — application.listCriteriaEvaluations exposes AI-generated criteria scoring with outcome
-        and reasoning per candidate against job requirements
-      - >-
-        AI Notetaker — notetakerTranscript.info surfaces live interview transcripts and AI-drafted structured feedback
-        for reviewers
-      - Pagination and incremental sync via syncToken — most list endpoints return a sync cursor for delta polling
-      - >-
-        Expansions — request related entities inline (jobs include departments, locations; applications include
-        candidates, jobs) via the expand request parameter
-      - >-
-        Endpoint naming convention — resource.verb (e.g., application.list, candidate.create) over POST with JSON body;
-        not REST-pure but stable and consistent across 164 operations
-      - >-
-        Async Reports API — generate analytics reports at 15 req/min / 3 concurrent; powers Ashby Analytics standalone
-        product
-      - >-
-        Public, unauthenticated job postings API for custom careers pages — drives Ashby-hosted and self-hosted careers
-        experiences
-      - >-
-        Dedicated partner job feeds — pre-built integrations with LinkedIn, Indeed, ZipRecruiter, Otta, Built In,
-        Levels.fyi via the public job postings surface
-      - >-
-        Push to HRIS — pushToHRIS webhook and pushToHRIS API trigger handoff to Workday, Rippling, Gusto, HiBob, Deel,
-        Paylocity, BambooHR after candidate hire
-      - >-
-        200+ integration partners across HRIS, assessments (SHL, CodeSignal, HackerRank, CoderPad), background checks
-        (HireRight, Checkr), video (Zoom), comms (Slack, Google Workspace, Microsoft 365), and contract / offer letter
-        tools (Pave, Ironclad, Metaview)
-      - Zapier connector for low-code workflows
-      - >-
-        Custom fields data model — define, list, set values (single and batch), update selectable values — drives
-        structured-hiring data extensibility
-      - >-
-        Approval definitions API for governance — manage multi-step approval workflows on offers and other entities;
-        supports force-approve overrides
-      - Candidate fraud check status surfaced via candidate.info / candidate.list
-      - File upload via two-step presigned URL — request URL, PUT bytes — keeps binary payloads off the API plane
-      - >-
-        llms.txt index at developers.ashbyhq.com/llms.txt — every operation page exposes its OpenAPI definition inline
-        in a fenced JSON block
-      - ReadMe-hosted developer portal with API Reference, Guides, Webhooks, Changelog, and Try It console
-    sources:
-      - https://www.ashbyhq.com
-      - https://developers.ashbyhq.com
-      - https://developers.ashbyhq.com/llms.txt
-      - https://developers.ashbyhq.com/reference/authentication
-      - https://www.ashbyhq.com/pricing
-      - https://www.ashbyhq.com/integrations
-    updated: '2026-05-25'
+- url: https://www.ashbyhq.com
+  type: Portal
+- url: https://developers.ashbyhq.com
+  name: Ashby Developer Portal
+  type: Portal
+- url: https://developers.ashbyhq.com/docs/getting-started-with-ashby
+  name: Getting Started with Ashby
+  type: GettingStarted
+- url: https://developers.ashbyhq.com/reference/authentication
+  name: Authentication
+  type: Documentation
+- url: https://developers.ashbyhq.com/docs/introduction
+  name: API Introduction
+  type: Documentation
+- url: https://developers.ashbyhq.com/docs/endpoint-naming
+  name: Endpoint Naming Conventions
+  type: Documentation
+- url: https://developers.ashbyhq.com/docs/pagination
+  name: Pagination
+  type: Documentation
+- url: https://developers.ashbyhq.com/docs/pagination-and-incremental-sync
+  name: Pagination and Incremental Synchronization
+  type: Documentation
+- url: https://developers.ashbyhq.com/docs/expansions
+  name: Expansions
+  type: Documentation
+- url: https://developers.ashbyhq.com/docs/responses-and-errors
+  name: Responses and Errors
+  type: Errors
+- url: https://developers.ashbyhq.com/docs/syncing-records
+  name: Syncing Records
+  type: Documentation
+- url: https://developers.ashbyhq.com/docs/support
+  name: Support
+  type: Support
+- url: https://developers.ashbyhq.com/changelog
+  name: Changelog
+  type: ChangeLog
+- url: https://developers.ashbyhq.com/llms.txt
+  name: llms.txt index
+  type: Documentation
+- url: https://www.ashbyhq.com/pricing
+  data:
+  - id: foundations
+    name: Foundations
+    entries:
+    - geo: Global
+      unit: 1
+      label: Company
+      limit: 1
+      price: 400
+      metric: month
+      timeFrame: month
+      description: Flat monthly fee for companies up to 100 employees. 10% discount
+        for annual commitments; emerging-market pricing available.
+    elements:
+    - name: All-in-one ATS + sourcing + scheduling + analytics
+    - name: Up to 100 employees
+    - name: Custom careers page
+    - name: Structured hiring workflows
+    - name: Full API access (subject to per-endpoint permissions)
+    - name: 22 webhook event types
+    description: For startups (1-100 employees). Get started within minutes, scale
+      for years.
+  - id: plus
+    name: Plus
+    entries:
+    - geo: Global
+      label: Company
+      price: Contact Sales
+      timeFrame: month
+      description: Custom pricing based on company size, usage, and commitment length.
+    elements:
+    - name: All Foundations features
+    - name: 101-1,000 employees
+    - name: Advanced sourcing and CRM
+    - name: Custom dashboards and reporting
+    - name: Priority partner integrations
+    description: For growth companies (101-1,000 employees). All-in-one recruiting
+      product built for scale.
+  - id: enterprise
+    name: Enterprise
+    entries:
+    - geo: Global
+      label: Company
+      price: Contact Sales
+      timeFrame: year
+      description: Predictable pricing model for large organizations.
+    elements:
+    - name: All Plus features
+    - name: 1,000+ employees
+    - name: Enterprise SSO and SCIM
+    - name: Predictable pricing model
+    - name: Dedicated success engineering
+    - name: Custom SLAs
+    description: For 1,000+ employees. Enterprise-grade, all-in-one recruiting solution.
+  - id: ashby-analytics
+    name: Ashby Analytics
+    entries:
+    - geo: Global
+      label: Company
+      price: Contact Sales
+      timeFrame: month
+      description: Usage-based pricing; targeted at 100+ employee companies with an
+        existing ATS.
+    elements:
+    - name: Standalone analytics layered on existing ATS via integrations
+    - name: Custom dashboards
+    - name: Async reports API (15 req/min, 3 concurrent)
+    description: For 100+ employees already on another ATS. Bring Ashby's analytics
+      layer to your stack.
+  - id: advanced-scheduling
+    name: Advanced Scheduling
+    type: Add-on
+    entries:
+    - geo: Global
+      label: Company
+      price: Contact Sales
+      timeFrame: month
+      description: Add-on for Foundations / Plus / Enterprise.
+    elements:
+    - name: Interviewer-pool load balancing
+    - name: Calendar integration with Google Workspace and Microsoft 365
+    - name: Automated reschedules and conflict resolution
+    description: Advanced scheduling add-on.
+  - id: ai-notetaker
+    name: AI Notetaker
+    type: Add-on
+    entries:
+    - geo: Global
+      label: Company
+      price: Contact Sales
+      timeFrame: month
+      description: Add-on for Foundations / Plus / Enterprise.
+    elements:
+    - name: Live interview transcription
+    - name: AI-generated structured-feedback drafts
+    - name: notetakerTranscript.info API
+    description: AI Notetaker add-on. Surfaces transcripts and AI-drafted interviewer
+      feedback.
+  name: Plans
+  type: Plans
+- url: https://www.ashbyhq.com/customers
+  type: CaseStudies
+- url: https://www.ashbyhq.com/blog
+  type: Blog
+- url: https://www.ashbyhq.com/integrations
+  name: Integrations Marketplace
+  type: Integrations
+- url: https://www.ashbyhq.com/about
+  type: AboutUs
+- url: https://www.ashbyhq.com/careers
+  type: Jobs
+- url: https://app.ashbyhq.com/signup
+  type: SignUp
+- url: https://app.ashbyhq.com/login
+  type: Login
+- url: https://docs.ashbyhq.com
+  name: Help Center
+  type: Documentation
+- url: https://docs.ashbyhq.com/user-permissions
+  name: User Permissions Reference
+  type: Documentation
+- url: https://app.ashbyhq.com/support
+  type: Support
+- url: https://www.ashbyhq.com/legal/terms
+  type: TermsOfService
+- url: https://www.ashbyhq.com/legal/privacy
+  type: PrivacyPolicy
+- url: https://www.ashbyhq.com/security
+  type: Security
+- url: https://www.ashbyhq.com/trust
+  type: TrustCenter
+- url: https://www.ashbyhq.com/status
+  type: StatusPage
+- url: https://github.com/ashbyhq
+  type: GitHubOrganization
+- url: https://www.linkedin.com/company/ashbyhq
+  type: LinkedIn
+- url: https://twitter.com/ashbyhq
+  type: Twitter
+- url: https://api.ashbyhq.com
+  name: API Base URL
+  type: BaseURL
+- url: plans/ashby-hq-plans-pricing.yml
+  type: Plans
+- url: rate-limits/ashby-hq-rate-limits.yml
+  type: RateLimits
+- url: finops/ashby-hq-finops.yml
+  type: FinOps
+- type: Features
+  data:
+  - All-in-one recruiting platform — ATS + CRM/sourcing + scheduling + analytics +
+    AI Notetaker in a single product
+  - 164 REST operations across 14 product modules — Applications, Candidates, Jobs,
+    Openings, Job Postings, Interviews, Offers, Approvals, Surveys, Assessments, Custom
+    Fields, Organization, Files, Reports, Webhooks, API Keys
+  - HTTP Basic Auth with API key as username — keys are scoped to read/write modules
+    (Jobs, Candidates, Interviews, Offers, Approvals, Organization, Reports, API Keys)
+  - 22 outbound webhook event types — HMAC-SHA256 signed via Ashby-Signature header
+    — with automatic retries and related-webhook ordering guarantees
+  - AI Application Review — application.listCriteriaEvaluations exposes AI-generated
+    criteria scoring with outcome and reasoning per candidate against job requirements
+  - AI Notetaker — notetakerTranscript.info surfaces live interview transcripts and
+    AI-drafted structured feedback for reviewers
+  - Pagination and incremental sync via syncToken — most list endpoints return a sync
+    cursor for delta polling
+  - Expansions — request related entities inline (jobs include departments, locations;
+    applications include candidates, jobs) via the expand request parameter
+  - Endpoint naming convention — resource.verb (e.g., application.list, candidate.create)
+    over POST with JSON body; not REST-pure but stable and consistent across 164 operations
+  - Async Reports API — generate analytics reports at 15 req/min / 3 concurrent; powers
+    Ashby Analytics standalone product
+  - Public, unauthenticated job postings API for custom careers pages — drives Ashby-hosted
+    and self-hosted careers experiences
+  - Dedicated partner job feeds — pre-built integrations with LinkedIn, Indeed, ZipRecruiter,
+    Otta, Built In, Levels.fyi via the public job postings surface
+  - Push to HRIS — pushToHRIS webhook and pushToHRIS API trigger handoff to Workday,
+    Rippling, Gusto, HiBob, Deel, Paylocity, BambooHR after candidate hire
+  - 200+ integration partners across HRIS, assessments (SHL, CodeSignal, HackerRank,
+    CoderPad), background checks (HireRight, Checkr), video (Zoom), comms (Slack,
+    Google Workspace, Microsoft 365), and contract / offer letter tools (Pave, Ironclad,
+    Metaview)
+  - Zapier connector for low-code workflows
+  - Custom fields data model — define, list, set values (single and batch), update
+    selectable values — drives structured-hiring data extensibility
+  - Approval definitions API for governance — manage multi-step approval workflows
+    on offers and other entities; supports force-approve overrides
+  - Candidate fraud check status surfaced via candidate.info / candidate.list
+  - File upload via two-step presigned URL — request URL, PUT bytes — keeps binary
+    payloads off the API plane
+  - llms.txt index at developers.ashbyhq.com/llms.txt — every operation page exposes
+    its OpenAPI definition inline in a fenced JSON block
+  - ReadMe-hosted developer portal with API Reference, Guides, Webhooks, Changelog,
+    and Try It console
+  sources:
+  - https://www.ashbyhq.com
+  - https://developers.ashbyhq.com
+  - https://developers.ashbyhq.com/llms.txt
+  - https://developers.ashbyhq.com/reference/authentication
+  - https://www.ashbyhq.com/pricing
+  - https://www.ashbyhq.com/integrations
+  updated: '2026-05-25'
 created: '2026-05-25T00:00:00.000Z'
 modified: '2026-05-25'
 position: Consuming
-description: >-
-  Ashby is a modern all-in-one recruiting platform combining Applicant Tracking System (ATS), sourcing/CRM, interview
-  scheduling, structured-hiring workflows, and recruiting analytics with AI embedded throughout — including AI
-  Application Review for criteria scoring and an AI Notetaker for interview transcripts and structured feedback. The
-  Ashby API exposes 164 operations across 14 product modules with HTTP Basic Auth, 22 webhook event types, async
-  reporting, public job postings for custom careers pages, and partner-implemented assessment integrations. Customers
-  include Deel, Snowflake, Shopify, Notion, Linear, Zapier, and Replit; pricing spans Foundations ($400/mo flat for
-  sub-100 employees), Plus, and Enterprise tiers, plus a standalone Ashby Analytics product layered on existing ATS
-  deployments.
+description: Ashby is a modern all-in-one recruiting platform combining Applicant
+  Tracking System (ATS), sourcing/CRM, interview scheduling, structured-hiring workflows,
+  and recruiting analytics with AI embedded throughout — including AI Application
+  Review for criteria scoring and an AI Notetaker for interview transcripts and structured
+  feedback. The Ashby API exposes 164 operations across 14 product modules with HTTP
+  Basic Auth, 22 webhook event types, async reporting, public job postings for custom
+  careers pages, and partner-implemented assessment integrations. Customers include
+  Deel, Snowflake, Shopify, Notion, Linear, Zapier, and Replit; pricing spans Foundations
+  ($400/mo flat for sub-100 employees), Plus, and Enterprise tiers, plus a standalone
+  Ashby Analytics product layered on existing ATS deployments.
 maintainers:
-  - FN: Kin Lane
-    email: info@apievangelist.com
-    X: apievangelist
-    url: https://apievangelist.com
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
 specificationVersion: '0.16'

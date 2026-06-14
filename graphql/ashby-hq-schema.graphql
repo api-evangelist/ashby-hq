@@ -1,0 +1,1328 @@
+"""
+Ashby HQ GraphQL Schema
+Conceptual GraphQL representation of the Ashby recruiting platform API.
+Based on the Ashby REST API surface at https://developers.ashbyhq.com
+Covers Applications, Candidates, Jobs, Openings, Interviews, Offers, Approvals,
+Surveys, Assessments, Custom Fields, Organization, Files, Reports, Webhooks, and API Keys.
+"""
+
+scalar DateTime
+scalar JSON
+scalar Upload
+
+# ─────────────────────────────────────────────
+# Enums
+# ─────────────────────────────────────────────
+
+enum JobStatus {
+  OPEN
+  CLOSED
+  ARCHIVED
+  DRAFT
+}
+
+enum ApplicationStatus {
+  ACTIVE
+  ARCHIVED
+  HIRED
+  REJECTED
+}
+
+enum OfferStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  SENT
+  ACCEPTED
+  DECLINED
+  RESCINDED
+  EXPIRED
+}
+
+enum InterviewScheduleStatus {
+  SCHEDULED
+  CANCELLED
+  COMPLETED
+}
+
+enum ApprovalStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  SKIPPED
+}
+
+enum WebhookEventType {
+  APPLICATION_SUBMIT
+  APPLICATION_UPDATE
+  CANDIDATE_DELETE
+  CANDIDATE_HIRE
+  CANDIDATE_MERGE
+  CANDIDATE_STAGE_CHANGE
+  INTERVIEW_PLAN_TRANSITION
+  INTERVIEW_SCHEDULE_CREATE
+  INTERVIEW_SCHEDULE_UPDATE
+  JOB_CREATE
+  JOB_UPDATE
+  JOB_POSTING_PUBLISH
+  JOB_POSTING_UNPUBLISH
+  JOB_POSTING_UPDATE
+  OFFER_CREATE
+  OFFER_DELETE
+  OFFER_UPDATE
+  OPENING_CREATE
+  PING
+  PUSH_TO_HRIS
+  SIGNATURE_REQUEST_UPDATE
+  SURVEY_SUBMIT
+}
+
+enum CustomFieldType {
+  TEXT
+  NUMBER
+  DATE
+  BOOLEAN
+  SELECT
+  MULTI_SELECT
+  URL
+  PERSON
+}
+
+enum CustomFieldEntity {
+  APPLICATION
+  CANDIDATE
+  JOB
+  OPENING
+  OFFER
+}
+
+enum PermissionModule {
+  JOBS
+  CANDIDATES
+  INTERVIEWS
+  OFFERS
+  APPROVALS
+  ORGANIZATION
+  REPORTS
+  API_KEYS
+}
+
+enum PermissionScope {
+  READ
+  WRITE
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+}
+
+enum CompensationInterval {
+  HOURLY
+  DAILY
+  WEEKLY
+  BIWEEKLY
+  MONTHLY
+  ANNUALLY
+}
+
+enum AssessmentStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum SurveyStatus {
+  PENDING
+  SUBMITTED
+  EXPIRED
+}
+
+enum ReportFormat {
+  CSV
+  JSON
+}
+
+enum ReportStatus {
+  PENDING
+  RUNNING
+  COMPLETE
+  FAILED
+}
+
+enum OpeningStatus {
+  OPEN
+  CLOSED
+  ARCHIVED
+}
+
+enum FraudCheckStatus {
+  CLEAR
+  FLAGGED
+  NOT_RUN
+}
+
+# ─────────────────────────────────────────────
+# Scalar and support types
+# ─────────────────────────────────────────────
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+  nextSyncToken: String
+}
+
+type Address {
+  street1: String
+  street2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  countryCode: String
+}
+
+type CompensationRange {
+  minValue: Float
+  maxValue: Float
+  currency: String
+  interval: CompensationInterval
+}
+
+type SourceTrackingLink {
+  id: ID!
+  url: String!
+  source: Source
+  referralForm: ReferralForm
+  createdAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Organization
+# ─────────────────────────────────────────────
+
+type Organization {
+  id: ID!
+  name: String!
+  slug: String
+  logoUrl: String
+  websiteUrl: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  globalRole: String
+  isEnabled: Boolean!
+  isEmailVerified: Boolean!
+  permissionModules: [PermissionModuleGrant!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type PermissionModuleGrant {
+  module: PermissionModule!
+  scope: PermissionScope!
+}
+
+type Department {
+  id: ID!
+  name: String!
+  parentDepartment: Department
+  childDepartments: [Department!]
+  jobs: [Job!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Location {
+  id: ID!
+  name: String!
+  address: Address
+  isRemote: Boolean!
+  parentLocation: Location
+  childLocations: [Location!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Brand {
+  id: ID!
+  name: String!
+  logoUrl: String
+  websiteUrl: String
+  careersPageUrl: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Source {
+  id: ID!
+  name: String!
+  isArchived: Boolean!
+}
+
+type ArchiveReason {
+  id: ID!
+  name: String!
+  reasonType: String
+  isArchived: Boolean!
+}
+
+type CloseReason {
+  id: ID!
+  name: String!
+  isArchived: Boolean!
+}
+
+type CommunicationTemplate {
+  id: ID!
+  name: String!
+  subject: String
+  body: String!
+  templateType: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type HiringTeamRole {
+  id: ID!
+  name: String!
+  description: String
+}
+
+type HiringTeamMember {
+  id: ID!
+  user: User!
+  role: HiringTeamRole!
+  job: Job
+}
+
+type ReferralForm {
+  id: ID!
+  name: String!
+  url: String!
+  isArchived: Boolean!
+}
+
+# ─────────────────────────────────────────────
+# Candidate
+# ─────────────────────────────────────────────
+
+type Candidate {
+  id: ID!
+  name: String!
+  firstName: String
+  lastName: String
+  email: String
+  phoneNumber: String
+  linkedInUrl: String
+  githubUrl: String
+  websiteUrl: String
+  company: String
+  title: String
+  location: String
+  timezone: String
+  isAnonymized: Boolean!
+  fraudCheckStatus: FraudCheckStatus
+  source: Source
+  sourceTrackingLink: SourceTrackingLink
+  tags: [CandidateTag!]
+  applications: [Application!]
+  notes: [CandidateNote!]
+  files: [File!]
+  customFields: [CustomFieldValue!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CandidateTag {
+  id: ID!
+  name: String!
+  isArchived: Boolean!
+}
+
+type CandidateNote {
+  id: ID!
+  candidate: Candidate!
+  author: User
+  content: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CandidateProject {
+  id: ID!
+  candidate: Candidate!
+  name: String!
+  description: String
+  members: [User!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CandidateSequence {
+  id: ID!
+  candidate: Candidate!
+  sequenceName: String!
+  currentStep: Int
+  totalSteps: Int
+  status: String
+  enrolledAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Job and Opening
+# ─────────────────────────────────────────────
+
+type Job {
+  id: ID!
+  title: String!
+  status: JobStatus!
+  department: Department
+  location: Location
+  hiringManager: User
+  recruiter: User
+  coordinators: [User!]
+  brand: Brand
+  employmentType: EmploymentType
+  compensation: CompensationRange
+  isConfidential: Boolean!
+  isRemote: Boolean!
+  interviewPlan: InterviewPlan
+  hiringTeam: [HiringTeamMember!]
+  openings: [Opening!]
+  jobPostings: [JobPosting!]
+  applications: [Application!]
+  customFields: [CustomFieldValue!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Opening {
+  id: ID!
+  identifier: String
+  status: OpeningStatus!
+  job: Job
+  location: Location
+  targetStartDate: DateTime
+  targetHireDate: DateTime
+  openedAt: DateTime
+  closedAt: DateTime
+  customFields: [CustomFieldValue!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type JobPosting {
+  id: ID!
+  title: String!
+  job: Job!
+  status: String!
+  isPublished: Boolean!
+  isRemote: Boolean!
+  brand: Brand
+  location: Location
+  employmentType: EmploymentType
+  compensation: CompensationRange
+  descriptionHtml: String
+  applicationFormUrl: String
+  publishedAt: DateTime
+  unpublishedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type JobTemplate {
+  id: ID!
+  name: String!
+  descriptionHtml: String
+  employmentType: EmploymentType
+  department: Department
+  location: Location
+  compensation: CompensationRange
+  interviewPlan: InterviewPlan
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Application
+# ─────────────────────────────────────────────
+
+type Application {
+  id: ID!
+  candidate: Candidate!
+  job: Job!
+  status: ApplicationStatus!
+  currentStage: InterviewStage
+  source: Source
+  archiveReason: ArchiveReason
+  appliedAt: DateTime!
+  hiredAt: DateTime
+  rejectedAt: DateTime
+  hiringTeam: [HiringTeamMember!]
+  interviews: [Interview!]
+  offer: Offer
+  feedback: [ApplicationFeedback!]
+  criteriaEvaluations: [CriteriaEvaluation!]
+  history: [ApplicationHistoryEntry!]
+  customFields: [CustomFieldValue!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ApplicationHistoryEntry {
+  id: ID!
+  application: Application!
+  type: String!
+  fromStage: InterviewStage
+  toStage: InterviewStage
+  actor: User
+  occurredAt: DateTime!
+}
+
+type ApplicationFeedback {
+  id: ID!
+  application: Application!
+  interviewer: User!
+  rating: String
+  recommendation: String
+  strengths: String
+  weaknesses: String
+  notes: String
+  submittedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CriteriaEvaluation {
+  id: ID!
+  application: Application!
+  criterionName: String!
+  outcome: String
+  reasoning: String
+  evaluatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Interview
+# ─────────────────────────────────────────────
+
+type InterviewPlan {
+  id: ID!
+  name: String
+  job: Job
+  stages: [InterviewStage!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type InterviewStage {
+  id: ID!
+  name: String!
+  orderIndex: Int!
+  interviewPlan: InterviewPlan
+  stageGroup: InterviewStageGroup
+  interviews: [Interview!]
+}
+
+type InterviewStageGroup {
+  id: ID!
+  name: String!
+  stages: [InterviewStage!]
+}
+
+type Interview {
+  id: ID!
+  name: String!
+  application: Application
+  interviewers: [User!]
+  interviewerPool: InterviewerPool
+  feedbackForms: [SurveyForm!]
+  durationMinutes: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type InterviewSchedule {
+  id: ID!
+  application: Application!
+  status: InterviewScheduleStatus!
+  startTime: DateTime
+  endTime: DateTime
+  timezone: String
+  meetingLink: String
+  interviewEvents: [InterviewEvent!]
+  notetakerTranscript: NotetakerTranscript
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type InterviewEvent {
+  id: ID!
+  schedule: InterviewSchedule!
+  interview: Interview
+  startTime: DateTime!
+  endTime: DateTime!
+  location: String
+  meetingLink: String
+  interviewers: [User!]
+  isPrivate: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type InterviewerPool {
+  id: ID!
+  name: String!
+  members: [InterviewerPoolMember!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type InterviewerPoolMember {
+  id: ID!
+  user: User!
+  pool: InterviewerPool!
+  isPaused: Boolean!
+  pausedUntil: DateTime
+}
+
+type NotetakerTranscript {
+  id: ID!
+  schedule: InterviewSchedule!
+  transcript: String
+  aiDraftFeedback: String
+  recordingUrl: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type InterviewBriefing {
+  id: ID!
+  application: Application!
+  schedule: InterviewSchedule
+  content: String
+  createdAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Offer
+# ─────────────────────────────────────────────
+
+type Offer {
+  id: ID!
+  application: Application!
+  status: OfferStatus!
+  currentVersion: OfferVersion
+  versions: [OfferVersion!]
+  approvalWorkflow: ApprovalWorkflow
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type OfferVersion {
+  id: ID!
+  offer: Offer!
+  versionNumber: Int!
+  startDate: DateTime
+  compensation: CompensationRange
+  bonuses: [CompensationBonus!]
+  equity: EquityGrant
+  customFields: [CustomFieldValue!]
+  createdAt: DateTime!
+}
+
+type CompensationBonus {
+  name: String!
+  amount: Float
+  currency: String
+  interval: CompensationInterval
+}
+
+type EquityGrant {
+  shares: Int
+  vestingMonths: Int
+  cliffMonths: Int
+  strikePrice: Float
+  currency: String
+}
+
+# ─────────────────────────────────────────────
+# Approvals
+# ─────────────────────────────────────────────
+
+type ApprovalDefinition {
+  id: ID!
+  name: String!
+  entityType: String!
+  steps: [ApprovalStep!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ApprovalStep {
+  id: ID!
+  definition: ApprovalDefinition!
+  orderIndex: Int!
+  approvers: [User!]!
+  requireAll: Boolean!
+}
+
+type ApprovalWorkflow {
+  id: ID!
+  definition: ApprovalDefinition!
+  status: ApprovalStatus!
+  steps: [ApprovalWorkflowStep!]!
+  startedAt: DateTime
+  completedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ApprovalWorkflowStep {
+  id: ID!
+  workflow: ApprovalWorkflow!
+  stepIndex: Int!
+  status: ApprovalStatus!
+  approvers: [User!]!
+  approvedBy: User
+  rejectedBy: User
+  decisionAt: DateTime
+  note: String
+}
+
+# ─────────────────────────────────────────────
+# Surveys and Feedback
+# ─────────────────────────────────────────────
+
+type SurveyForm {
+  id: ID!
+  name: String!
+  formType: String
+  questions: [SurveyQuestion!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SurveyQuestion {
+  id: ID!
+  form: SurveyForm!
+  label: String!
+  questionType: String!
+  isRequired: Boolean!
+  options: [String!]
+  orderIndex: Int!
+}
+
+type SurveyRequest {
+  id: ID!
+  form: SurveyForm!
+  candidate: Candidate
+  application: Application
+  status: SurveyStatus!
+  sentAt: DateTime
+  submittedAt: DateTime
+  expiresAt: DateTime
+  submission: SurveySubmission
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SurveySubmission {
+  id: ID!
+  request: SurveyRequest!
+  form: SurveyForm!
+  answers: [SurveyAnswer!]!
+  submittedAt: DateTime!
+}
+
+type SurveyAnswer {
+  id: ID!
+  submission: SurveySubmission!
+  question: SurveyQuestion!
+  value: JSON
+}
+
+# ─────────────────────────────────────────────
+# Assessments
+# ─────────────────────────────────────────────
+
+type Assessment {
+  id: ID!
+  name: String!
+  provider: String
+  description: String
+  isArchived: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type AssessmentInstance {
+  id: ID!
+  assessment: Assessment!
+  application: Application!
+  candidate: Candidate!
+  status: AssessmentStatus!
+  externalId: String
+  resultUrl: String
+  score: Float
+  startedAt: DateTime
+  completedAt: DateTime
+  cancelledAt: DateTime
+  customFields: [CustomFieldValue!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Custom Fields
+# ─────────────────────────────────────────────
+
+type CustomFieldDefinition {
+  id: ID!
+  name: String!
+  fieldType: CustomFieldType!
+  entityType: CustomFieldEntity!
+  isRequired: Boolean!
+  isArchived: Boolean!
+  selectableValues: [CustomFieldSelectableValue!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CustomFieldSelectableValue {
+  id: ID!
+  value: String!
+  isArchived: Boolean!
+}
+
+type CustomFieldValue {
+  id: ID!
+  definition: CustomFieldDefinition!
+  value: JSON
+  updatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Files
+# ─────────────────────────────────────────────
+
+type File {
+  id: ID!
+  name: String!
+  mimeType: String
+  sizeBytes: Int
+  url: String
+  candidate: Candidate
+  application: Application
+  fileType: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type PresignedUploadUrl {
+  uploadUrl: String!
+  fileId: ID!
+  expiresAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Reports
+# ─────────────────────────────────────────────
+
+type Report {
+  id: ID!
+  name: String!
+  reportType: String!
+  status: ReportStatus!
+  format: ReportFormat!
+  parameters: JSON
+  downloadUrl: String
+  generatedAt: DateTime
+  expiresAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Webhooks
+# ─────────────────────────────────────────────
+
+type Webhook {
+  id: ID!
+  name: String
+  url: String!
+  secretToken: String
+  eventTypes: [WebhookEventType!]!
+  isEnabled: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type WebhookDelivery {
+  id: ID!
+  webhook: Webhook!
+  eventType: WebhookEventType!
+  payload: JSON
+  responseStatus: Int
+  attemptCount: Int!
+  deliveredAt: DateTime
+  nextRetryAt: DateTime
+  createdAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# API Keys
+# ─────────────────────────────────────────────
+
+type APIKey {
+  id: ID!
+  name: String!
+  permissionGrants: [PermissionModuleGrant!]!
+  createdAt: DateTime!
+  lastUsedAt: DateTime
+}
+
+# ─────────────────────────────────────────────
+# Connection / pagination wrappers
+# ─────────────────────────────────────────────
+
+type CandidateConnection {
+  nodes: [Candidate!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type ApplicationConnection {
+  nodes: [Application!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type JobConnection {
+  nodes: [Job!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type OpeningConnection {
+  nodes: [Opening!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type JobPostingConnection {
+  nodes: [JobPosting!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type InterviewScheduleConnection {
+  nodes: [InterviewSchedule!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type OfferConnection {
+  nodes: [Offer!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type SurveyRequestConnection {
+  nodes: [SurveyRequest!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type WebhookConnection {
+  nodes: [Webhook!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type UserConnection {
+  nodes: [User!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type DepartmentConnection {
+  nodes: [Department!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type LocationConnection {
+  nodes: [Location!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type AssessmentConnection {
+  nodes: [Assessment!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+type CustomFieldDefinitionConnection {
+  nodes: [CustomFieldDefinition!]!
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+# ─────────────────────────────────────────────
+# Input types
+# ─────────────────────────────────────────────
+
+input CreateCandidateInput {
+  name: String!
+  email: String
+  phoneNumber: String
+  linkedInUrl: String
+  company: String
+  title: String
+  sourceId: ID
+  tagIds: [ID!]
+}
+
+input UpdateCandidateInput {
+  name: String
+  email: String
+  phoneNumber: String
+  linkedInUrl: String
+  company: String
+  title: String
+  sourceId: ID
+}
+
+input CreateApplicationInput {
+  candidateId: ID!
+  jobId: ID!
+  sourceId: ID
+  stageId: ID
+}
+
+input CreateJobInput {
+  title: String!
+  departmentId: ID
+  locationId: ID
+  hiringManagerId: ID
+  recruiterId: ID
+  employmentType: EmploymentType
+  compensation: CompensationRangeInput
+}
+
+input CompensationRangeInput {
+  minValue: Float
+  maxValue: Float
+  currency: String
+  interval: CompensationInterval
+}
+
+input CreateInterviewScheduleInput {
+  applicationId: ID!
+  startTime: DateTime!
+  endTime: DateTime!
+  timezone: String!
+  meetingLink: String
+  interviewEventIds: [ID!]
+}
+
+input CreateOfferInput {
+  applicationId: ID!
+  startDate: DateTime
+  compensation: CompensationRangeInput
+}
+
+input CreateWebhookInput {
+  url: String!
+  name: String
+  eventTypes: [WebhookEventType!]!
+  secretToken: String
+}
+
+input UpdateWebhookInput {
+  url: String
+  name: String
+  eventTypes: [WebhookEventType!]
+  isEnabled: Boolean
+}
+
+input CreateCustomFieldInput {
+  name: String!
+  fieldType: CustomFieldType!
+  entityType: CustomFieldEntity!
+  isRequired: Boolean
+  selectableValues: [String!]
+}
+
+input SetCustomFieldValueInput {
+  entityId: ID!
+  definitionId: ID!
+  value: JSON!
+}
+
+input GenerateReportInput {
+  reportType: String!
+  format: ReportFormat!
+  parameters: JSON
+}
+
+input CreateSurveyRequestInput {
+  formId: ID!
+  candidateId: ID
+  applicationId: ID
+}
+
+input ApprovalDefinitionInput {
+  name: String!
+  entityType: String!
+  steps: [ApprovalStepInput!]!
+}
+
+input ApprovalStepInput {
+  approverIds: [ID!]!
+  requireAll: Boolean!
+}
+
+input CreateOpeningInput {
+  jobId: ID!
+  locationId: ID
+  targetStartDate: DateTime
+  targetHireDate: DateTime
+}
+
+# ─────────────────────────────────────────────
+# Root types
+# ─────────────────────────────────────────────
+
+type Query {
+  # Candidates
+  candidate(id: ID!): Candidate
+  candidates(
+    first: Int
+    after: String
+    syncToken: String
+    tagIds: [ID!]
+    sourceId: ID
+  ): CandidateConnection!
+
+  # Applications
+  application(id: ID!): Application
+  applications(
+    first: Int
+    after: String
+    syncToken: String
+    jobId: ID
+    stageId: ID
+    status: ApplicationStatus
+  ): ApplicationConnection!
+
+  # Jobs
+  job(id: ID!): Job
+  jobs(
+    first: Int
+    after: String
+    syncToken: String
+    status: JobStatus
+    departmentId: ID
+    locationId: ID
+  ): JobConnection!
+
+  # Openings
+  opening(id: ID!): Opening
+  openings(
+    first: Int
+    after: String
+    syncToken: String
+    status: OpeningStatus
+    jobId: ID
+  ): OpeningConnection!
+
+  # Job Postings
+  jobPosting(id: ID!): JobPosting
+  jobPostings(
+    first: Int
+    after: String
+    syncToken: String
+    isPublished: Boolean
+    jobId: ID
+  ): JobPostingConnection!
+
+  jobTemplates(first: Int, after: String): [JobTemplate!]!
+
+  # Interviews
+  interviewSchedule(id: ID!): InterviewSchedule
+  interviewSchedules(
+    first: Int
+    after: String
+    syncToken: String
+    applicationId: ID
+    status: InterviewScheduleStatus
+  ): InterviewScheduleConnection!
+  interviewStages(interviewPlanId: ID): [InterviewStage!]!
+  interviewPlan(id: ID!): InterviewPlan
+  interviewerPools(first: Int, after: String): [InterviewerPool!]!
+  notetakerTranscript(scheduleId: ID!): NotetakerTranscript
+
+  # Offers
+  offer(id: ID!): Offer
+  offers(
+    first: Int
+    after: String
+    syncToken: String
+    applicationId: ID
+    status: OfferStatus
+  ): OfferConnection!
+
+  # Approvals
+  approvalDefinition(id: ID!): ApprovalDefinition
+  approvalDefinitions(first: Int, after: String): [ApprovalDefinition!]!
+
+  # Surveys
+  surveyForm(id: ID!): SurveyForm
+  surveyForms(first: Int, after: String): [SurveyForm!]!
+  surveyRequest(id: ID!): SurveyRequest
+  surveyRequests(
+    first: Int
+    after: String
+    status: SurveyStatus
+    applicationId: ID
+  ): SurveyRequestConnection!
+
+  # Assessments
+  assessment(id: ID!): Assessment
+  assessments(first: Int, after: String): AssessmentConnection!
+  assessmentInstance(id: ID!): AssessmentInstance
+
+  # Custom Fields
+  customFieldDefinition(id: ID!): CustomFieldDefinition
+  customFieldDefinitions(
+    first: Int
+    after: String
+    entityType: CustomFieldEntity
+  ): CustomFieldDefinitionConnection!
+
+  # Organization
+  organization: Organization
+  user(id: ID!): User
+  users(first: Int, after: String, syncToken: String): UserConnection!
+  department(id: ID!): Department
+  departments(first: Int, after: String): DepartmentConnection!
+  location(id: ID!): Location
+  locations(first: Int, after: String): LocationConnection!
+  brands(first: Int, after: String): [Brand!]!
+  sources: [Source!]!
+  archiveReasons: [ArchiveReason!]!
+  closeReasons: [CloseReason!]!
+  communicationTemplates: [CommunicationTemplate!]!
+  hiringTeamRoles: [HiringTeamRole!]!
+  candidateTags: [CandidateTag!]!
+  referralForms: [ReferralForm!]!
+
+  # Files
+  file(id: ID!): File
+
+  # Reports
+  report(id: ID!): Report
+
+  # Webhooks
+  webhook(id: ID!): Webhook
+  webhooks(first: Int, after: String): WebhookConnection!
+
+  # API Keys
+  currentApiKey: APIKey
+}
+
+type Mutation {
+  # Candidates
+  createCandidate(input: CreateCandidateInput!): Candidate!
+  updateCandidate(id: ID!, input: UpdateCandidateInput!): Candidate!
+  anonymizeCandidate(id: ID!): Candidate!
+  mergeCandidates(primaryId: ID!, duplicateId: ID!): Candidate!
+  addCandidateTag(candidateId: ID!, tagId: ID!): Candidate!
+  removeCandidateTag(candidateId: ID!, tagId: ID!): Candidate!
+  addCandidateNote(candidateId: ID!, content: String!): CandidateNote!
+
+  # Applications
+  createApplication(input: CreateApplicationInput!): Application!
+  updateApplication(id: ID!, stageId: ID): Application!
+  transferApplication(id: ID!, jobId: ID!): Application!
+  archiveApplication(id: ID!, archiveReasonId: ID): Application!
+  submitApplicationForm(applicationId: ID!, answers: JSON!): Application!
+
+  # Jobs
+  createJob(input: CreateJobInput!): Job!
+  updateJob(id: ID!, title: String, departmentId: ID, locationId: ID): Job!
+  updateJobStatus(id: ID!, status: JobStatus!): Job!
+  updateJobCompensation(id: ID!, compensation: CompensationRangeInput!): Job!
+
+  # Openings
+  createOpening(input: CreateOpeningInput!): Opening!
+  archiveOpening(id: ID!): Opening!
+  restoreOpening(id: ID!): Opening!
+  addJobToOpening(openingId: ID!, jobId: ID!): Opening!
+  removeJobFromOpening(openingId: ID!, jobId: ID!): Opening!
+  addLocationToOpening(openingId: ID!, locationId: ID!): Opening!
+  removeLocationFromOpening(openingId: ID!, locationId: ID!): Opening!
+
+  # Job Postings
+  publishJobPosting(id: ID!): JobPosting!
+  unpublishJobPosting(id: ID!): JobPosting!
+
+  # Interviews
+  createInterviewSchedule(input: CreateInterviewScheduleInput!): InterviewSchedule!
+  updateInterviewSchedule(id: ID!, input: CreateInterviewScheduleInput!): InterviewSchedule!
+  cancelInterviewSchedule(id: ID!): InterviewSchedule!
+  pauseInterviewer(poolId: ID!, userId: ID!, pausedUntil: DateTime): InterviewerPoolMember!
+  resumeInterviewer(poolId: ID!, userId: ID!): InterviewerPoolMember!
+  submitInterviewFeedback(applicationId: ID!, interviewId: ID!, answers: JSON!): ApplicationFeedback!
+
+  # Offers
+  createOffer(input: CreateOfferInput!): Offer!
+  startOfferProcess(offerId: ID!): Offer!
+  forceApproveOffer(offerId: ID!, stepId: ID): Offer!
+
+  # Approvals
+  updateApprovalDefinition(id: ID!, input: ApprovalDefinitionInput!): ApprovalDefinition!
+
+  # Surveys
+  createSurveyRequest(input: CreateSurveyRequestInput!): SurveyRequest!
+  submitSurveySubmission(requestId: ID!, answers: JSON!): SurveySubmission!
+
+  # Assessments
+  startAssessment(assessmentId: ID!, applicationId: ID!): AssessmentInstance!
+  cancelAssessment(instanceId: ID!): AssessmentInstance!
+  updateAssessmentStatus(instanceId: ID!, status: AssessmentStatus!, resultUrl: String): AssessmentInstance!
+  addCompletedAssessment(candidateId: ID!, instanceId: ID!): Candidate!
+
+  # Custom Fields
+  createCustomFieldDefinition(input: CreateCustomFieldInput!): CustomFieldDefinition!
+  setCustomFieldValue(input: SetCustomFieldValueInput!): CustomFieldValue!
+  batchSetCustomFieldValues(inputs: [SetCustomFieldValueInput!]!): [CustomFieldValue!]!
+  addSelectableValue(definitionId: ID!, value: String!): CustomFieldDefinition!
+
+  # Files
+  requestPresignedUploadUrl(candidateId: ID, applicationId: ID, fileType: String!): PresignedUploadUrl!
+
+  # Reports
+  generateReport(input: GenerateReportInput!): Report!
+
+  # Webhooks
+  createWebhook(input: CreateWebhookInput!): Webhook!
+  updateWebhook(id: ID!, input: UpdateWebhookInput!): Webhook!
+  deleteWebhook(id: ID!): Boolean!
+}
