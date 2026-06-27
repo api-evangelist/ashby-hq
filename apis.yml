@@ -334,7 +334,7 @@ common:
   type: Documentation
 - url: https://developers.ashbyhq.com/docs/responses-and-errors
   name: Responses and Errors
-  type: Errors
+  type: ErrorCodes
 - url: https://developers.ashbyhq.com/docs/syncing-records
   name: Syncing Records
   type: Documentation
@@ -460,7 +460,7 @@ common:
 - url: https://www.ashbyhq.com/careers
   type: Jobs
 - url: https://app.ashbyhq.com/signup
-  type: SignUp
+  type: Signup
 - url: https://app.ashbyhq.com/login
   type: Login
 - url: https://docs.ashbyhq.com
