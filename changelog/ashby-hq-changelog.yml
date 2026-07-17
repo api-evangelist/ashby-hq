@@ -1,0 +1,42 @@
+generated: '2026-06-20'
+method: searched
+source: https://developers.ashbyhq.com/changelog.rss
+url: https://developers.ashbyhq.com/changelog
+scheme: dated
+detail: >-
+  Ashby publishes a dated developer changelog on its ReadMe-hosted portal, also
+  available as RSS (changelog.rss). No SemVer product version is exposed; the API
+  wire version is negotiated via the Accept header (version=1). Entries below are
+  the recent window captured from the RSS feed; the live changelog is the source
+  of truth. Additions are backward-compatible unless noted.
+entries:
+- date: '2026-07-16'
+  title: Include Non-Shared Take Homes in Interview List
+  type: addition
+- date: '2026-07-16'
+  title: Add Sequence Template Discovery
+  type: addition
+- date: '2026-07-15'
+  title: Link Take-Home Assignments to Interviews
+  type: addition
+- date: '2026-07-14'
+  title: Location Field Support Across Form and Custom Field Endpoints
+  type: addition
+- date: '2026-07-09'
+  title: Add Take-Home Assignment API
+  type: addition
+- date: '2026-07-09'
+  title: List Hiring Manager Experience Survey Submissions
+  type: addition
+- date: '2026-07-02'
+  title: Add Offer Status Update Endpoints
+  type: addition
+- date: '2026-07-01'
+  title: Document application.delete and sequence.cancel
+  type: docs
+- date: '2026-06-29'
+  title: Added Error Code for HRIS Rejections when Pushing Candidate Data
+  type: addition
+- date: '2026-06-26'
+  title: Add Job ID to Job Posting Delete Webhook
+  type: addition

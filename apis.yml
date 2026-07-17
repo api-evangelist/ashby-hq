@@ -306,6 +306,30 @@ kind: contract
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+- type: MCPServer
+  url: mcp/ashby-hq-mcp.yml
+- type: Packages
+  url: packages/ashby-hq-packages.yml
+- type: LLMsTxt
+  url: llms/ashby-hq-llms.txt
+- type: WellKnown
+  url: well-known/ashby-hq-well-known.yml
+- type: Overlay
+  url: overlays/ashby-hq-openapi-overlay.yaml
+- type: Conformance
+  url: conformance/ashby-hq-conformance.yml
+- type: ErrorCatalog
+  url: errors/ashby-hq-problem-types.yml
+- type: Conventions
+  url: conventions/ashby-hq-conventions.yml
+- type: Lifecycle
+  url: lifecycle/ashby-hq-lifecycle.yml
+- type: ChangeLog
+  url: changelog/ashby-hq-changelog.yml
+- type: DataModel
+  url: data-model/ashby-hq-data-model.yml
+- type: Sandbox
+  url: sandbox/ashby-hq-sandbox.yml
 - type: AgenticAccess
   url: agentic-access/ashby-hq-agentic-access.yml
 - type: TrustCenter
@@ -560,7 +584,7 @@ common:
   - https://www.ashbyhq.com/integrations
   updated: '2026-05-25'
 created: '2026-05-25T00:00:00.000Z'
-modified: '2026-05-25'
+modified: '2026-06-20'
 position: Consuming
 description: Ashby is a modern all-in-one recruiting platform combining Applicant
   Tracking System (ATS), sourcing/CRM, interview scheduling, structured-hiring workflows,

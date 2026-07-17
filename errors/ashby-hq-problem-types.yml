@@ -1,0 +1,78 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/ashby-openapi.yml
+docs:
+- https://developers.ashbyhq.com/docs/responses-and-errors
+- https://developers.ashbyhq.com/docs/authentication
+format: custom-envelope
+notes: >-
+  Ashby does NOT use RFC 9457 problem+json. Every response uses a uniform JSON
+  envelope. Logical/validation failures are commonly returned with HTTP 200 and
+  success=false, so clients MUST check the success field rather than relying on
+  the HTTP status alone. HTTP status codes are used for transport/auth/limit
+  conditions (401/403/429). The errors[] string array is deprecated in favor of
+  the structured errorInfo object.
+envelope:
+  fields:
+    success: boolean — false on error
+    results: present on success only
+    errors: array of string error codes (DEPRECATED)
+    errorInfo:
+      code: machine-readable error code (string)
+      message: human-readable message
+      requestId: opaque request identifier to give Ashby support (e.g. 01JSJ8FDK5ZN4XQBZP7DBKK7ZC)
+      meta: object with additional error context
+  example:
+    success: false
+    errors:
+    - invalid_input
+    errorInfo:
+      code: invalid_input
+      message: Request payload is malformed
+      requestId: 01JSJ8FDK5ZN4XQBZP7DBKK7ZC
+http_statuses:
+- status: 200
+  meaning: Request processed; check success field. success=false with errorInfo signals a logical/validation error.
+- status: 401
+  meaning: API key missing. Returns a human-readable message.
+  source: https://developers.ashbyhq.com/docs/authentication
+- status: 403
+  meaning: API key wrong/deactivated, or key lacks the endpoint's module permission (error code missing_endpoint_permission).
+  source: https://developers.ashbyhq.com/docs/authentication
+- status: 409
+  meaning: Conflict (e.g. duplicate or conflicting state on a write operation).
+  source: openapi/ashby-openapi.yml
+- status: 422
+  meaning: Unprocessable entity — request is well-formed but semantically invalid.
+  source: openapi/ashby-openapi.yml
+- status: 429
+  meaning: Rate limit or concurrent limit exceeded (notably the Reports API 15 rpm / 3 concurrent). Honor Retry-After.
+  source: openapi/ashby-openapi.yml
+error_codes:
+- code: invalid_input
+  title: Invalid input
+  description: A parameter is the wrong type, or a required field/precondition was not met (e.g. archive fields on non-archive stages, missing archive reason for an archive stage).
+- code: missing_endpoint_permission
+  title: Missing endpoint permission
+  description: The API key does not hold the read/write permission for the module backing this endpoint. Returned with HTTP 403.
+- code: application_not_found
+  title: Application not found
+  description: The referenced application id does not exist or is not accessible to the key.
+- code: interview_plan_not_found
+  title: Interview plan not found
+  description: The referenced interview plan id does not exist.
+- code: interview_stage_not_found
+  title: Interview stage not found
+  description: The referenced interview stage id does not exist.
+- code: archive_reason_not_found
+  title: Archive reason not found
+  description: The referenced archive reason id does not exist.
+- code: communication_template_not_found
+  title: Communication template not found
+  description: The referenced communication template id does not exist.
+- code: communication_template_not_allowed
+  title: Communication template not allowed
+  description: The communication template may not be used in this context.
+cross_reference:
+  rate_limits: rate-limits/ashby-hq-rate-limits.yml
+  conventions: conventions/ashby-hq-conventions.yml

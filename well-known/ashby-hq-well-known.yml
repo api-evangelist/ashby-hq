@@ -1,0 +1,46 @@
+generated: '2026-06-20'
+method: probed
+source: live GET probes of /.well-known/* on Ashby hosts
+summary: >-
+  No discoverable /.well-known documents were served. The API host
+  (api.ashbyhq.com) returns 401 for every /.well-known path because it requires
+  HTTP Basic auth on all routes; the docs and marketing hosts return 404. No
+  security.txt, OIDC/OAuth metadata, api-catalog, or ai-plugin.json is published.
+  Recorded as honest absence.
+hosts:
+- host: https://api.ashbyhq.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/ai-plugin.json
+    status: 401
+- host: https://developers.ashbyhq.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 429
+- host: https://www.ashbyhq.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

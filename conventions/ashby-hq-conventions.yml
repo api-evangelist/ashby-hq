@@ -1,0 +1,78 @@
+generated: '2026-06-20'
+method: searched
+source:
+- https://developers.ashbyhq.com/docs/endpoint-naming
+- https://developers.ashbyhq.com/docs/authentication
+- https://developers.ashbyhq.com/docs/pagination
+- https://developers.ashbyhq.com/docs/pagination-and-incremental-sync
+- https://developers.ashbyhq.com/docs/expansions
+- https://developers.ashbyhq.com/docs/responses-and-errors
+- openapi/ashby-openapi.yml
+style:
+  paradigm: RPC-over-HTTP
+  pattern: POST https://api.ashbyhq.com/<resource>.<verb>
+  verbs:
+    info: returns a single instance of the resource
+    list: returns all resources in a collection (paginated, for syncing all records)
+    search: quick specific lookups by query (NOT paginated)
+    action: 'e.g. .create/.update/.setStatus — performs an action and returns the updated resource'
+  content_type: application/json
+  request_body: JSON body on POST (empty object {} for a default list/sync)
+authentication:
+  type: http-basic
+  detail: API key as basic-auth username, password blank. See authentication/ashby-hq-authentication.yml.
+  errors: 401 when key missing; 403 when key wrong/deactivated or lacking module permission (missing_endpoint_permission).
+versioning:
+  style: accept-header
+  header: 'Accept: application/json; version=1'
+  current: '1'
+  detail: API version is negotiated via the Accept header version parameter.
+pagination:
+  style: cursor
+  request_params:
+    cursor: opaque token from a prior response's nextCursor
+    limit: optional page size cap
+  response_fields:
+    results: array of objects
+    moreDataAvailable: boolean — false on last page
+    nextCursor: opaque cursor for the next page
+incremental_sync:
+  supported_when: the endpoint's request schema exposes a syncToken parameter
+  mechanism: >-
+    Complete a full sync by paging until moreDataAvailable=false; the final response
+    returns a syncToken. Pass that syncToken on the next sync to receive only records
+    changed since. Endpoints without syncToken support pagination (full sync) only.
+  docs: https://developers.ashbyhq.com/docs/pagination-and-incremental-sync
+expansion:
+  param: expand
+  style: array of related-resource keys inlined into the response
+  examples:
+  - applicationFormSubmissions
+  - compensation
+  - interview
+  - job
+  - location
+  - openings
+  docs: https://developers.ashbyhq.com/docs/expansions
+error_envelope:
+  fields: [success, results, errors (deprecated), errorInfo]
+  detail: success=false with errorInfo{code,message,requestId,meta} on failure; logical errors may return HTTP 200. See errors/ashby-hq-problem-types.yml.
+request_tracing:
+  field: errorInfo.requestId
+  detail: Opaque request identifier returned on errors; provide it to Ashby support to diagnose issues.
+rate_limit_signaling:
+  status: 429
+  header: Retry-After
+  detail: Reports API enforces 15 rpm / 3 concurrent per organization; most surfaces are fair-use. See rate-limits/ashby-hq-rate-limits.yml.
+idempotency:
+  supported: false
+  detail: No idempotency-key header is documented. Writes are resource-action RPCs; safe retry relies on Retry-After semantics and natural-key conflict (409) handling.
+webhooks:
+  signature_header: Ashby-Signature
+  algorithm: HMAC-SHA256
+  detail: 22 outbound event types; automatic retries on non-2xx. See apis.yml Ashby Webhooks API.
+cross_reference:
+  errors: errors/ashby-hq-problem-types.yml
+  lifecycle: lifecycle/ashby-hq-lifecycle.yml
+  authentication: authentication/ashby-hq-authentication.yml
+  rate_limits: rate-limits/ashby-hq-rate-limits.yml

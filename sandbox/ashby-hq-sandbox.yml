@@ -1,0 +1,26 @@
+generated: '2026-06-20'
+method: searched
+source:
+- openapi/ashby-openapi.yml
+- https://developers.ashbyhq.com/reference/applicationsubmit
+notes: >-
+  Ashby does not publish a separate sandbox environment or test/live API-key
+  modes — there is a single production API host (api.ashbyhq.com) and one key
+  type. The one documented magic test value below simulates a validation failure
+  on public application-form submission. No test card / bank / token surface
+  exists (Ashby is not a payments API). Values captured verbatim from Ashby docs;
+  none invented.
+environments:
+  separation: none
+  detail: Single production API host; no test/live key prefixes or dedicated sandbox host.
+magic_values:
+- context: application.submit (public custom careers-page form submission)
+  value: testing-fail-validation@example.com
+  effect: >-
+    Submitting this email address deliberately triggers a validation failure so
+    integrators can test the success=false path. Ashby warns you MUST check the
+    response success field and surface validation errors, or applications are
+    silently dropped.
+  source: openapi/ashby-openapi.yml (application.submit description)
+test_clocks: null
+fixtures: null

@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Ashby API
+  version: 1.0.0
+extends: openapi/ashby-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: ashby-hq
+    x-apievangelist-category: ATS / Recruiting
+    x-apievangelist-auth: http-basic (API key as username)
+    x-apievangelist-style: RPC-over-HTTP (POST /<resource>.<verb>)
+    x-apievangelist-versioning: 'Accept: application/json; version=1'
+    x-apievangelist-artifacts:
+      conventions: conventions/ashby-hq-conventions.yml
+      errors: errors/ashby-hq-problem-types.yml
+      authentication: authentication/ashby-hq-authentication.yml
+      lifecycle: lifecycle/ashby-hq-lifecycle.yml
+      data_model: data-model/ashby-hq-data-model.yml
+      mcp: mcp/ashby-hq-mcp.yml
+      rate_limits: rate-limits/ashby-hq-rate-limits.yml
+      changelog: changelog/ashby-hq-changelog.yml
+- target: $.info
+  update:
+    x-apievangelist-agent-surface:
+      mcp_server: https://mcp.ashbyhq.com/mcp/v1
+      transport: http
+      auth: oauth2 (per-user)
+      status: beta
+- target: $.servers
+  update:
+    x-apievangelist-note: Single production host; no separate sandbox environment.

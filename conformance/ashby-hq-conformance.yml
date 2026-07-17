@@ -1,0 +1,51 @@
+generated: '2026-06-20'
+method: derived
+source:
+- openapi/ashby-openapi.yml
+- https://developers.ashbyhq.com/docs/authentication
+- https://developers.ashbyhq.com/docs/pagination-and-incremental-sync
+- https://developers.ashbyhq.com/docs/responses-and-errors
+standards:
+- id: oauth2
+  conforms: partial
+  evidence: >-
+    The public REST API uses HTTP Basic (API key), not OAuth. Ashby's hosted MCP
+    server (mcp/ashby-hq-mcp.yml) authenticates users via OAuth2.
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect discovery document served (well-known probe 401/404).
+- id: http-basic-auth
+  conforms: true
+  evidence: openapi securityScheme BasicAuth (type http, scheme basic)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Uses a custom {success,results,errors,errorInfo} envelope, not application/problem+json.
+- id: cursor-pagination
+  conforms: true
+  evidence: Cursor pagination via cursor/limit -> results/moreDataAvailable/nextCursor.
+- id: incremental-sync
+  conforms: true
+  evidence: syncToken delta-sync on list endpoints (documented).
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key header documented.
+- id: webhooks-hmac
+  conforms: true
+  evidence: Outbound webhooks HMAC-SHA256 signed via Ashby-Signature header.
+- id: rfc8594-sunset
+  conforms: false
+  evidence: No Sunset/Deprecation header policy documented.
+- id: scim2
+  conforms: false
+  evidence: Public API is RPC-style; Enterprise SCIM is app-level user provisioning, not exposed on the public REST surface.
+- id: json-api
+  conforms: false
+  evidence: Custom RPC envelope, not JSON:API.
+- id: fhir-r4
+  conforms: false
+- id: fapi
+  conforms: false
+- id: odata
+  conforms: false
+- id: psd2
+  conforms: false

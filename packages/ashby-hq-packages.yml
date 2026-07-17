@@ -1,0 +1,35 @@
+generated: '2026-06-20'
+method: searched
+source: npm, PyPI, github.com/ashbyhq
+summary: >-
+  Ashby does not publish a first-party server-side SDK. The github.com/ashbyhq
+  organization contains only forks and internal tooling (no client library, no
+  CLI, no MCP source). The Ashby API is RPC-style (POST /<resource>.<verb>) with
+  HTTP Basic auth, so community wrappers are thin. The packages below are all
+  third-party (official: false). Ashby's official agent surface is its hosted MCP
+  server (see mcp/ashby-hq-mcp.yml), not a distributed SDK.
+official_sdk: false
+packages:
+- language: python
+  registry: pypi
+  name: ashby
+  url: https://pypi.org/project/ashby/
+  install: pip install ashby
+  official: false
+  note: Community Python SDK for the Ashby ATS API (author Marvin Gabler).
+- language: javascript
+  registry: npm
+  name: ashbyhq-client
+  url: https://www.npmjs.com/package/ashbyhq-client
+  install: npm install ashbyhq-client
+  repository: https://github.com/codding360/ashbyhq-client
+  official: false
+  note: Community TypeScript client for the AshbyHQ API.
+- language: javascript
+  registry: npm
+  name: ashby-cli
+  url: https://www.npmjs.com/package/ashby-cli
+  install: npm install -g ashby-cli
+  repository: https://github.com/danielgwilson/ashby-cli
+  official: false
+  note: Community "agent-first" CLI wrapping Ashby's public API (author Daniel G Wilson). Not a first-party Ashby binary.

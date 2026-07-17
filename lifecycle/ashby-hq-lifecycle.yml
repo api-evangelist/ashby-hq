@@ -1,0 +1,36 @@
+generated: '2026-06-20'
+method: searched
+source:
+- https://developers.ashbyhq.com/docs/authentication
+- https://developers.ashbyhq.com/changelog
+- https://www.ashbyhq.com/status
+- openapi/ashby-openapi.yml
+versioning:
+  scheme: accept-header
+  header: 'Accept: application/json; version=1'
+  current: '1'
+  docs: https://developers.ashbyhq.com/docs/authentication
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  notes: >-
+    No formal RFC 8594 Sunset/Deprecation header policy is documented. Field-level
+    deprecation is signaled inside the OpenAPI (e.g. the envelope errors[] array is
+    marked deprecated in favor of errorInfo). New capabilities are announced on the
+    dated developer changelog.
+changelog:
+  url: https://developers.ashbyhq.com/changelog
+  artifact: changelog/ashby-hq-changelog.yml
+sla:
+  url: null
+  uptime_target: null
+  notes: Custom SLAs are offered on the Enterprise plan (see apis.yml Plans); no public numeric uptime target is published.
+status_page: https://www.ashbyhq.com/status
+support: https://developers.ashbyhq.com/docs/support
+deprecated_operations: []
+deprecated_fields:
+- location: response envelope
+  field: errors[]
+  replacement: errorInfo
+  source: openapi/ashby-openapi.yml

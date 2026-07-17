@@ -1,0 +1,106 @@
+generated: '2026-06-20'
+method: derived
+source:
+- openapi/ashby-openapi.yml
+- https://developers.ashbyhq.com/docs/expansions
+notes: >-
+  Entity-relationship graph derived from the Ashby OpenAPI operation surface,
+  documented expand keys, and id-reference fields. Ids are opaque UUIDs (e.g.
+  e9ed20fd-d45f-4aad-8a00-a19bfba0083e) — Ashby does not use type-prefixed ids.
+  The Candidate is the central CRM entity; the Application ties a Candidate to a Job.
+entities:
+- name: Candidate
+  role: Central CRM entity — a person in the pipeline.
+  relationships:
+  - {type: has_many, target: Application, via: candidateId}
+  - {type: has_many, target: Note}
+  - {type: has_many, target: File}
+  - {type: has_many, target: Tag}
+- name: Application
+  role: A candidate's pursuit of a specific job; the pipeline record.
+  relationships:
+  - {type: belongs_to, target: Candidate, via: candidateId}
+  - {type: belongs_to, target: Job, via: jobId}
+  - {type: has_many, target: InterviewSchedule}
+  - {type: has_one, target: Offer}
+  - {type: has_many, target: Feedback}
+  - {type: has_many, target: ApplicationFormSubmission, via: applicationFormSubmissions}
+- name: Job
+  role: An open role being hired for.
+  relationships:
+  - {type: has_many, target: Opening, via: openings}
+  - {type: has_many, target: JobPosting}
+  - {type: belongs_to, target: InterviewPlan, via: interviewPlanId}
+  - {type: has_many, target: Location, via: location}
+  - {type: has_one, target: Compensation, via: compensation}
+- name: Opening
+  role: A headcount slot under a job (create/archive/restore/addJob/removeJob).
+  relationships:
+  - {type: has_many, target: Job, via: jobIds}
+  - {type: has_many, target: Location, via: locationIds}
+- name: JobPosting
+  role: A published listing of a job on a job board / careers page.
+  relationships:
+  - {type: belongs_to, target: Job, via: jobId}
+  - {type: belongs_to, target: Brand, via: brandId}
+- name: InterviewSchedule
+  role: A scheduled interview session for an application.
+  relationships:
+  - {type: belongs_to, target: Application, via: applicationId}
+  - {type: has_many, target: InterviewEvent}
+  - {type: belongs_to, target: InterviewStage, via: interviewStageId}
+- name: Offer
+  role: A compensation offer extended to a candidate on an application.
+  relationships:
+  - {type: belongs_to, target: Application, via: applicationId}
+  - {type: has_many, target: OfferVersion}
+  - {type: has_many, target: Approval}
+- name: Approval
+  role: A governance approval step (ApprovalDefinition drives routing).
+  relationships:
+  - {type: belongs_to, target: ApprovalDefinition, via: approvalDefinitionId}
+- name: Survey
+  role: Survey and feedback form definitions, requests, and submissions.
+  relationships:
+  - {type: has_many, target: SurveyRequest}
+  - {type: has_many, target: SurveySubmission}
+- name: Assessment
+  role: Partner-implemented assessment instance attached to a candidate/application.
+  relationships:
+  - {type: belongs_to, target: Application, via: applicationId}
+  - {type: belongs_to, target: Candidate, via: candidateId}
+- name: CustomField
+  role: Structured-hiring extension field defined on Ashby entities.
+  relationships:
+  - {type: has_many, target: CustomFieldValue}
+- name: User
+  role: An Ashby org member with a permission role; interviewer/hiring-team member.
+  relationships:
+  - {type: belongs_to, target: Department, via: departmentId}
+  - {type: has_many, target: HiringTeamRole}
+- name: Department
+  relationships:
+  - {type: has_many, target: User}
+  - {type: has_many, target: Job}
+- name: Location
+  role: Hierarchical location (address) attached to jobs, openings, postings.
+  relationships: []
+- name: Brand
+  role: A careers-page brand for job postings.
+  relationships: []
+- name: Source
+  role: Candidate source with tracking links.
+  relationships: []
+- name: File
+  role: Resume/attachment; two-step presigned-URL upload.
+  relationships:
+  - {type: belongs_to, target: Candidate}
+- name: Report
+  role: Async Ashby Analytics report (generate/create/results).
+  relationships: []
+- name: Webhook
+  role: Outbound event subscription (22 event types, HMAC-signed).
+  relationships: []
+- name: ApiKey
+  role: The calling key; carries module read/write permission scopes.
+  relationships: []
