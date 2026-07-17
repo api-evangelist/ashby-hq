@@ -1,0 +1,150 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Archive an Application with a Reason
+  summary: Resolve an archive reason and an Archived stage, then archive the application.
+  description: >-
+    Rejecting a candidate in Ashby is not a delete — it is a stage change into a
+    stage whose type is Archived, accompanied by an archive reason. Both the
+    reason id and the archived stage id have to be resolved before the write, and
+    Ashby requires the reason whenever the destination stage is of type Archived.
+    This workflow lists the organization's archive reasons, resolves the
+    application's plan and its archived stages, performs the archive, and reads
+    the application back to confirm the reason stuck. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: application-archive
+  summary: Archive (reject) an application with a resolved archive reason.
+  description: >-
+    Lists archive reasons, resolves the application's job interview plan and its
+    Archived stage, changes the stage with the archive reason attached, and
+    verifies the archived state.
+  inputs:
+    type: object
+    required:
+    - applicationId
+    - archiveReasonId
+    - archivedStageId
+    properties:
+      applicationId:
+        type: string
+        description: The id of the application to archive.
+      archiveReasonId:
+        type: string
+        description: >-
+          The id of the archive reason to record. Resolve this from the
+          listArchiveReasons step output.
+      archivedStageId:
+        type: string
+        description: >-
+          The id of an interview stage whose type is Archived on the application's
+          plan. Resolve this from the listPlanStages step output.
+      archiveEmail:
+        type: boolean
+        description: Whether Ashby should send the configured rejection email.
+  steps:
+  - stepId: listArchiveReasons
+    description: >-
+      List the organization's archive reasons so the caller can pick a real
+      reason id. Archived reasons are excluded so a retired reason is not used.
+    operationId: archivereasonlist
+    requestBody:
+      contentType: application/json
+      payload:
+        includeArchived: false
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    - context: $response.body
+      condition: $.results.length > 0
+      type: jsonpath
+    outputs:
+      archiveReasons: $response.body#/results
+  - stepId: readApplication
+    description: >-
+      Read the application to learn its job, which anchors the interview plan and
+      therefore the archived stage lookup.
+    operationId: applicationInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      jobId: $response.body#/results/job/id
+      status: $response.body#/results/status
+  - stepId: resolveInterviewPlan
+    description: >-
+      Resolve the interview plan for the application's job.
+    operationId: jobInterviewPlanInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        jobId: $steps.readApplication.outputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      interviewPlanId: $response.body#/results/interviewPlanId
+  - stepId: listPlanStages
+    description: >-
+      List the plan's stages so an archived stage can be identified. Match on the
+      stage type field being Archived to obtain the archivedStageId.
+    operationId: interviewStageList
+    requestBody:
+      contentType: application/json
+      payload:
+        interviewPlanId: $steps.resolveInterviewPlan.outputs.interviewPlanId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      stages: $response.body#/results
+  - stepId: archiveApplication
+    description: >-
+      Move the application into the archived stage with the archive reason
+      attached. Ashby requires archiveReasonId whenever the destination stage is
+      of type Archived.
+    operationId: applicationChangeStage
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+        interviewStageId: $inputs.archivedStageId
+        archiveReasonId: $inputs.archiveReasonId
+        archiveEmail: $inputs.archiveEmail
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      applicationId: $response.body#/results/id
+      status: $response.body#/results/status
+  - stepId: verifyArchived
+    description: >-
+      Read the application back to confirm it is archived and that the reason and
+      timestamp were recorded.
+    operationId: applicationInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      status: $response.body#/results/status
+      archiveReason: $response.body#/results/archiveReason
+      archivedAt: $response.body#/results/archivedAt
+  outputs:
+    applicationId: $steps.archiveApplication.outputs.applicationId
+    status: $steps.verifyArchived.outputs.status
+    archiveReason: $steps.verifyArchived.outputs.archiveReason
+    archivedAt: $steps.verifyArchived.outputs.archivedAt
+    availableArchiveReasons: $steps.listArchiveReasons.outputs.archiveReasons

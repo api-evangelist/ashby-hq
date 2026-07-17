@@ -1,0 +1,153 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Request and Submit Interview Feedback
+  summary: Resolve a feedback form definition, request feedback from an interviewer, submit it, and read it back.
+  description: >-
+    Feedback is the highest-volume write in most Ashby integrations, and it is
+    also the most schema-bound: applicationFeedback.submit will not accept a form
+    body until the caller has read the form definition and learned each field's
+    path. This workflow resolves the definition first, opens a feedback request
+    against a real interview and interviewer, submits the completed form using
+    the paths the definition supplied, and lists the application's feedback to
+    confirm. Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: interview-feedback
+  summary: Resolve the feedback form, request feedback, submit the form, and verify.
+  description: >-
+    Lists and reads a feedback form definition to learn its field paths, creates
+    a feedback request for an interviewer, submits the filled form, and reads the
+    application's feedback back.
+  inputs:
+    type: object
+    required:
+    - applicationId
+    - interviewId
+    - interviewerUserId
+    - feedbackFormDefinitionId
+    - fieldSubmissions
+    properties:
+      applicationId:
+        type: string
+        description: The id of the application the feedback is about.
+      interviewId:
+        type: string
+        description: The id of the interview associated with the feedback request.
+      interviewerUserId:
+        type: string
+        description: The id of the user being asked for feedback.
+      feedbackFormDefinitionId:
+        type: string
+        description: >-
+          The id of the feedback form definition to submit against. Resolve this
+          from the listFormDefinitions step output.
+      fieldSubmissions:
+        type: array
+        description: >-
+          The completed form fields, each an object with a path and a value. The
+          paths must come from the form definition read in readFormDefinition.
+        items:
+          type: object
+          properties:
+            path:
+              type: string
+              description: The form field's path value.
+            value:
+              type: string
+              description: The value for the field, typed per the field definition.
+  steps:
+  - stepId: listFormDefinitions
+    description: >-
+      List the organization's feedback form definitions so the caller can pick a
+      real definition id rather than guessing.
+    operationId: feedbackFormDefinitionList
+    requestBody:
+      contentType: application/json
+      payload:
+        limit: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      formDefinitions: $response.body#/results
+  - stepId: readFormDefinition
+    description: >-
+      Read the chosen feedback form definition. This is the step that makes the
+      submission possible: each field in the definition carries the path that the
+      submitted fieldSubmissions must use.
+    operationId: feedbackFormDefinitionInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        feedbackFormDefinitionId: $inputs.feedbackFormDefinitionId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      formDefinitionId: $response.body#/results/id
+      formTitle: $response.body#/results/title
+      formSections: $response.body#/results/formDefinition/sections
+  - stepId: requestFeedback
+    description: >-
+      Open a feedback request so the interviewer is prompted in Ashby and the
+      submission below is attributed to a real request rather than appearing
+      unsolicited.
+    operationId: applicationfeedbackrequestcreate
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+        interviewId: $inputs.interviewId
+        interviewerUserId: $inputs.interviewerUserId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      interviewEventId: $response.body#/results/interviewEventId
+      requestedInterviewerUserId: $response.body#/results/interviewerUserId
+      requestedApplicationId: $response.body#/results/applicationId
+  - stepId: submitFeedback
+    description: >-
+      Submit the completed feedback form, crediting it to the interviewer. The
+      fieldSubmissions paths must match the definition read above or Ashby
+      rejects the submission.
+    operationId: applicationfeedbacksubmit
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+        formDefinitionId: $inputs.feedbackFormDefinitionId
+        userId: $inputs.interviewerUserId
+        feedbackForm:
+          fieldSubmissions: $inputs.fieldSubmissions
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      submittedFormInstanceId: $response.body#/results/submittedFormInstance/id
+      submittedValues: $response.body#/results/submittedFormInstance/submittedValues
+  - stepId: listFeedback
+    description: >-
+      List the application's feedback to confirm the submission landed and to
+      return the full feedback set for the application.
+    operationId: applicationFeedbackList
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      feedback: $response.body#/results
+  outputs:
+    interviewEventId: $steps.requestFeedback.outputs.interviewEventId
+    submittedFormInstanceId: $steps.submitFeedback.outputs.submittedFormInstanceId
+    submittedValues: $steps.submitFeedback.outputs.submittedValues
+    formTitle: $steps.readFormDefinition.outputs.formTitle
+    feedback: $steps.listFeedback.outputs.feedback

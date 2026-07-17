@@ -1,0 +1,159 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Create a Job and Open It
+  summary: Resolve department, location, and interview plan, create the job, then open it.
+  description: >-
+    job.create takes a department, a location, and (to be openable) a default
+    interview plan — three ids that a caller provisioning jobs from an HRIS or a
+    headcount tool never has on hand. This workflow resolves all three from the
+    organization's own metadata, creates the job as a draft, sets it Open, and
+    reads it back with its location and openings expanded. A job cannot be opened
+    without a default interview plan, which is why the plan lookup precedes the
+    create rather than following it. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: job-create
+  summary: Resolve org metadata, create a job, set it Open, and verify.
+  description: >-
+    Lists departments, locations, and interview plans to resolve the ids job
+    creation requires, creates the job, transitions it to Open, and reads the
+    result back.
+  inputs:
+    type: object
+    required:
+    - title
+    - teamId
+    - locationId
+    properties:
+      title:
+        type: string
+        description: The title of the job (e.g. "Software Engineer").
+      teamId:
+        type: string
+        description: >-
+          The id of the department or team for the job. Resolve this from the
+          listDepartments step output.
+      locationId:
+        type: string
+        description: >-
+          The id of the job's location. Resolve this from the listLocations step
+          output.
+      defaultInterviewPlanId:
+        type: string
+        description: >-
+          The id of the default interview plan. Required before the job can be
+          opened; resolve it from the listInterviewPlans step output.
+      status:
+        type: string
+        description: The status to apply to the job (Draft, Open, Closed, Archived).
+  steps:
+  - stepId: listDepartments
+    description: >-
+      List the organization's departments so the job is attached to a real team.
+      Archived departments are excluded so a retired team is not reused.
+    operationId: departmentList
+    requestBody:
+      contentType: application/json
+      payload:
+        includeArchived: false
+        limit: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      departments: $response.body#/results
+  - stepId: listLocations
+    description: >-
+      List the organization's locations so the job is attached to a real
+      location, excluding archived ones.
+    operationId: locationlist
+    requestBody:
+      contentType: application/json
+      payload:
+        includeArchived: false
+        limit: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      locations: $response.body#/results
+  - stepId: listInterviewPlans
+    description: >-
+      List interview plans. A job cannot be moved to Open without a default
+      interview plan, so this must be resolved before the create rather than
+      after it.
+    operationId: interviewPlanList
+    requestBody:
+      contentType: application/json
+      payload:
+        limit: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      interviewPlans: $response.body#/results
+  - stepId: createJob
+    description: >-
+      Create the job against the resolved department, location, and default
+      interview plan. Ashby creates the job in Draft.
+    operationId: jobCreate
+    requestBody:
+      contentType: application/json
+      payload:
+        title: $inputs.title
+        teamId: $inputs.teamId
+        locationId: $inputs.locationId
+        defaultInterviewPlanId: $inputs.defaultInterviewPlanId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      jobId: $response.body#/results/id
+      jobStatus: $response.body#/results/status
+  - stepId: setJobStatus
+    description: >-
+      Transition the job to the requested status. Moving to Open is what makes
+      the job eligible for postings and applications.
+    operationId: jobSetStatus
+    requestBody:
+      contentType: application/json
+      payload:
+        jobId: $steps.createJob.outputs.jobId
+        status: $inputs.status
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      jobId: $response.body#/results/id
+      jobStatus: $response.body#/results/status
+  - stepId: readJob
+    description: >-
+      Read the job back with its location and openings expanded so the caller
+      ends with a confirmed, fully resolved job record.
+    operationId: jobInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $steps.createJob.outputs.jobId
+        expand:
+        - location
+        - openings
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      jobId: $response.body#/results/id
+      title: $response.body#/results/title
+      status: $response.body#/results/status
+      openings: $response.body#/results/openings
+  outputs:
+    jobId: $steps.readJob.outputs.jobId
+    title: $steps.readJob.outputs.title
+    status: $steps.readJob.outputs.status
+    openings: $steps.readJob.outputs.openings

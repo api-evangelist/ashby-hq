@@ -1,0 +1,140 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Define a Custom Field and Set Its Value
+  summary: Create a custom field definition, locate it in the field list, set a value on a record, and verify.
+  description: >-
+    Ashby will not accept custom data on a candidate, application, job, or
+    opening until a field definition exists to hold it, and the write itself goes
+    through customField.setValue rather than the object's own update call — a
+    detail that catches out most HRIS and enrichment integrations. This workflow
+    defines the field once, confirms it in the organization's field list, writes
+    a value onto a target record, and reads the definition back. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: custom-field-setup
+  summary: Create a custom field definition and write a value to a record with it.
+  description: >-
+    Creates a custom field for a given object type, lists custom fields to
+    confirm registration, sets the field's value on a target record, and reads
+    the field definition back.
+  inputs:
+    type: object
+    required:
+    - fieldType
+    - objectType
+    - title
+    - objectId
+    - fieldValue
+    properties:
+      fieldType:
+        type: string
+        description: >-
+          The type of the field (e.g. String, Number, Date, Boolean,
+          ValueSelect, MultiValueSelect).
+      objectType:
+        type: string
+        description: >-
+          The object the field attaches to (Application, Candidate, Job, or
+          Opening).
+      title:
+        type: string
+        description: The title of the custom field.
+      description:
+        type: string
+        description: A description of what the field holds.
+      selectableValues:
+        type: array
+        description: >-
+          The allowed values, required when fieldType is ValueSelect or
+          MultiValueSelect.
+        items:
+          type: object
+      objectId:
+        type: string
+        description: The id of the record to set the field value on.
+      fieldValue:
+        description: >-
+          The value to store, typed to match fieldType (string, number, boolean,
+          or array depending on the field).
+  steps:
+  - stepId: createField
+    description: >-
+      Define the custom field against its object type. Nothing can be written to
+      a custom field until this definition exists, so this precedes any attempt
+      to set a value.
+    operationId: customFieldCreate
+    requestBody:
+      contentType: application/json
+      payload:
+        fieldType: $inputs.fieldType
+        objectType: $inputs.objectType
+        title: $inputs.title
+        description: $inputs.description
+        selectableValues: $inputs.selectableValues
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      fieldId: $response.body#/results/id
+      fieldTitle: $response.body#/results/title
+      fieldObjectType: $response.body#/results/objectType
+  - stepId: listFields
+    description: >-
+      List the organization's custom fields to confirm the new definition is
+      registered and visible, excluding archived fields.
+    operationId: customFieldList
+    requestBody:
+      contentType: application/json
+      payload:
+        includeArchived: false
+        limit: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      customFields: $response.body#/results
+  - stepId: setFieldValue
+    description: >-
+      Write the value onto the target record. Custom field values do not go
+      through candidate.update or job.update — customField.setValue is the only
+      path, and objectType here must match the type the field was defined for.
+    operationId: customFieldSetValue
+    requestBody:
+      contentType: application/json
+      payload:
+        objectId: $inputs.objectId
+        objectType: $inputs.objectType
+        fieldId: $steps.createField.outputs.fieldId
+        fieldValue: $inputs.fieldValue
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+  - stepId: readField
+    description: >-
+      Read the field definition back to confirm its final shape, including any
+      selectable values that were registered with it.
+    operationId: customFieldInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        customFieldId: $steps.createField.outputs.fieldId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      fieldId: $response.body#/results/id
+      fieldTitle: $response.body#/results/title
+      fieldType: $response.body#/results/fieldType
+      selectableValues: $response.body#/results/selectableValues
+  outputs:
+    fieldId: $steps.readField.outputs.fieldId
+    fieldTitle: $steps.readField.outputs.fieldTitle
+    fieldType: $steps.readField.outputs.fieldType
+    selectableValues: $steps.readField.outputs.selectableValues
+    customFields: $steps.listFields.outputs.customFields

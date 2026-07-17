@@ -1,0 +1,119 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Send a Candidate Survey and Collect Submissions
+  summary: Resolve a survey form definition, request the survey from a candidate, and read submissions back.
+  description: >-
+    Candidate experience programs run on this loop: pick the survey form, send it
+    to a candidate against a specific application, then pull the submissions back
+    out for analysis. surveyRequest.create binds all three — candidate,
+    application, and form definition — so the form id has to be resolved first,
+    and the submissions come back through a separate list call rather than on the
+    request itself. This workflow covers the whole loop. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: survey-request
+  summary: Resolve a survey form, request it from a candidate, and list submissions.
+  description: >-
+    Lists survey form definitions, reads the chosen definition, creates a survey
+    request for a candidate on an application, and lists submissions of that
+    survey type.
+  inputs:
+    type: object
+    required:
+    - candidateId
+    - applicationId
+    - surveyFormDefinitionId
+    - surveyType
+    properties:
+      candidateId:
+        type: string
+        description: The id of the candidate to survey.
+      applicationId:
+        type: string
+        description: The id of the application the survey relates to.
+      surveyFormDefinitionId:
+        type: string
+        description: >-
+          The id of the survey form definition to send. Resolve this from the
+          listSurveyForms step output.
+      surveyType:
+        type: string
+        description: >-
+          The type of survey submissions to fetch (CandidateExperience or
+          Questionnaire).
+  steps:
+  - stepId: listSurveyForms
+    description: >-
+      List the organization's survey form definitions so a real form id can be
+      resolved rather than guessed.
+    operationId: surveyFormDefinitionList
+    requestBody:
+      contentType: application/json
+      payload:
+        limit: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      surveyForms: $response.body#/results
+  - stepId: readSurveyForm
+    description: >-
+      Read the chosen survey form definition to confirm it exists and to capture
+      its structure before sending it to a candidate.
+    operationId: surveyFormDefinitionInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        surveyFormDefinitionId: $inputs.surveyFormDefinitionId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      formId: $response.body#/results/id
+      formTitle: $response.body#/results/title
+  - stepId: createSurveyRequest
+    description: >-
+      Send the survey to the candidate against a specific application. All three
+      ids are bound together here, which is what lets the response be attributed
+      to the right hiring context later.
+    operationId: surveyRequestCreate
+    requestBody:
+      contentType: application/json
+      payload:
+        candidateId: $inputs.candidateId
+        applicationId: $inputs.applicationId
+        surveyFormDefinitionId: $inputs.surveyFormDefinitionId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      surveyRequestId: $response.body#/results/id
+      surveyUrl: $response.body#/results/surveyUrl
+  - stepId: listSubmissions
+    description: >-
+      Pull survey submissions of the requested type. Submissions arrive
+      asynchronously as candidates respond, so this returns whatever has landed
+      so far rather than the just-sent request's answer.
+    operationId: surveySubmissionList
+    requestBody:
+      contentType: application/json
+      payload:
+        surveyType: $inputs.surveyType
+        limit: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      submissions: $response.body#/results
+      moreDataAvailable: $response.body#/moreDataAvailable
+  outputs:
+    surveyRequestId: $steps.createSurveyRequest.outputs.surveyRequestId
+    surveyUrl: $steps.createSurveyRequest.outputs.surveyUrl
+    formTitle: $steps.readSurveyForm.outputs.formTitle
+    submissions: $steps.listSubmissions.outputs.submissions

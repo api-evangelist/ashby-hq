@@ -1,0 +1,124 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Advance an Application to a Named Interview Stage
+  summary: Resolve an application's plan, find the target stage by title, move the application, and verify.
+  description: >-
+    Moving a candidate forward is the write that assessment vendors, scheduling
+    tools, and internal automations make most often. application.changeStage takes
+    a stage id, but stage ids are specific to each job's interview plan, so a
+    caller who knows only a stage title ("Onsite") must resolve it per
+    application. This workflow reads the application to learn its job, resolves
+    that job's interview plan, lists the plan's stages to match the target title,
+    moves the application, and reads it back to confirm the new stage. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: application-advance-stage
+  summary: Move an application to a stage identified by title on its job's interview plan.
+  description: >-
+    Reads the application, resolves its job's interview plan and stage list,
+    changes the application's stage, and confirms the move.
+  inputs:
+    type: object
+    required:
+    - applicationId
+    - targetStageId
+    properties:
+      applicationId:
+        type: string
+        description: The id of the application to advance.
+      targetStageId:
+        type: string
+        description: >-
+          The id of the interview stage to move the application to. Resolve this
+          from the listPlanStages step output when only a stage title is known.
+  steps:
+  - stepId: readApplication
+    description: >-
+      Read the application to learn which job it belongs to and where it sits
+      today, so the move can be resolved against the right interview plan.
+    operationId: applicationInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      jobId: $response.body#/results/job/id
+      currentStage: $response.body#/results/currentInterviewStage
+      status: $response.body#/results/status
+  - stepId: resolveInterviewPlan
+    description: >-
+      Resolve the interview plan for the application's job. Stage ids only make
+      sense within a plan, so this is the anchor for the stage lookup.
+    operationId: jobInterviewPlanInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        jobId: $steps.readApplication.outputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      interviewPlanId: $response.body#/results/interviewPlanId
+  - stepId: listPlanStages
+    description: >-
+      List every stage on the plan. Callers holding a stage title rather than an
+      id should match against the title field in these results to obtain the
+      targetStageId this workflow needs.
+    operationId: interviewStageList
+    requestBody:
+      contentType: application/json
+      payload:
+        interviewPlanId: $steps.resolveInterviewPlan.outputs.interviewPlanId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    - context: $response.body
+      condition: $.results.length > 0
+      type: jsonpath
+    outputs:
+      stages: $response.body#/results
+  - stepId: changeStage
+    description: >-
+      Move the application to the target stage. Ashby triggers whatever automatic
+      activities the plan attaches to the destination stage.
+    operationId: applicationChangeStage
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+        interviewStageId: $inputs.targetStageId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      applicationId: $response.body#/results/id
+      newStage: $response.body#/results/currentInterviewStage
+  - stepId: verifyStage
+    description: >-
+      Read the application back to confirm it now sits in the target stage.
+    operationId: applicationInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      currentStage: $response.body#/results/currentInterviewStage
+      status: $response.body#/results/status
+  outputs:
+    applicationId: $steps.changeStage.outputs.applicationId
+    previousStage: $steps.readApplication.outputs.currentStage
+    currentStage: $steps.verifyStage.outputs.currentStage
+    status: $steps.verifyStage.outputs.status
+    planStages: $steps.listPlanStages.outputs.stages

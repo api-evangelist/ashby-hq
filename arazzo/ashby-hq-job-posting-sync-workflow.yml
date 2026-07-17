@@ -1,0 +1,123 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Sync a Job Posting to a Careers Site
+  summary: Resolve the job board, list its live postings, read one in full, and update its copy.
+  description: >-
+    Teams running their own careers site pull postings from Ashby rather than
+    using the hosted board, and the two calls that matter are the listing and the
+    per-posting read — the list is a summary, and the full description only comes
+    back from jobPosting.info. This workflow resolves the board explicitly rather
+    than relying on the primary-board default, lists the postings that are
+    actually live, reads one in full, and writes updated copy back. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: job-posting-sync
+  summary: Resolve a job board, pull its live postings, read one, and update its copy.
+  description: >-
+    Lists job boards, lists the listed-only postings on the chosen board, reads a
+    posting with its job expanded, and updates the posting's title and
+    description.
+  inputs:
+    type: object
+    required:
+    - jobBoardId
+    - jobPostingId
+    properties:
+      jobBoardId:
+        type: string
+        description: >-
+          The id of the job board to sync from. Resolve this from the
+          listJobBoards step output.
+      jobPostingId:
+        type: string
+        description: >-
+          The id of the posting to read and update. Resolve this from the
+          listPostings step output.
+      title:
+        type: string
+        description: A new title for the job posting.
+      description:
+        type: string
+        description: New description copy for the job posting.
+  steps:
+  - stepId: listJobBoards
+    description: >-
+      List the organization's job boards. Resolving the board explicitly matters
+      because the posting calls silently default to the primary external board
+      when no board id is supplied, which is rarely what a multi-brand careers
+      site wants.
+    operationId: jobBoardList
+    requestBody:
+      contentType: application/json
+      payload: {}
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      jobBoards: $response.body#/results
+  - stepId: listPostings
+    description: >-
+      List the postings on the chosen board, filtered to listed postings only so
+      unlisted or draft postings never reach a public careers site.
+    operationId: jobPostingList
+    requestBody:
+      contentType: application/json
+      payload:
+        jobBoardId: $inputs.jobBoardId
+        listedOnly: true
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      postings: $response.body#/results
+  - stepId: readPosting
+    description: >-
+      Read the full posting with its job expanded. The list above returns
+      summaries; the complete description and compensation detail only come back
+      from this call, which is why a careers-site sync cannot be built on the
+      listing alone.
+    operationId: jobPostingInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        jobPostingId: $inputs.jobPostingId
+        jobBoardId: $inputs.jobBoardId
+        expand:
+        - job
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      postingId: $response.body#/results/id
+      postingTitle: $response.body#/results/title
+      descriptionHtml: $response.body#/results/descriptionHtml
+      isListed: $response.body#/results/isListed
+  - stepId: updatePosting
+    description: >-
+      Write updated copy back to the posting. Only the supplied fields change;
+      the rest of the posting is left intact.
+    operationId: jobPostingUpdate
+    requestBody:
+      contentType: application/json
+      payload:
+        jobPostingId: $inputs.jobPostingId
+        title: $inputs.title
+        description: $inputs.description
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      postingId: $response.body#/results/id
+      updatedTitle: $response.body#/results/title
+  outputs:
+    jobBoards: $steps.listJobBoards.outputs.jobBoards
+    postings: $steps.listPostings.outputs.postings
+    postingId: $steps.updatePosting.outputs.postingId
+    updatedTitle: $steps.updatePosting.outputs.updatedTitle
+    previousDescriptionHtml: $steps.readPosting.outputs.descriptionHtml

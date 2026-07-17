@@ -1,0 +1,106 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Attach a Resume to a Candidate
+  summary: Mint a presigned upload handle, attach the uploaded resume, and verify the file.
+  description: >-
+    Ashby does not accept resume bytes on its JSON API. Instead the integrator
+    asks Ashby for a presigned upload target, POSTs the file to that target out
+    of band, and then hands the returned handle back to Ashby to bind the file to
+    a candidate. This workflow covers the two API calls that bracket that upload
+    plus a read-back that resolves a fresh download url, which is the part
+    integrators most often get wrong. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: candidate-resume-upload
+  summary: Create a file upload handle, attach the resume to a candidate, verify it.
+  description: >-
+    Requests a presigned upload handle scoped to CandidateResume, binds the
+    uploaded file to the candidate as their resume, and confirms the attachment
+    by resolving the stored file handle to a url.
+  inputs:
+    type: object
+    required:
+    - candidateId
+    - filename
+    - contentType
+    - contentLength
+    properties:
+      candidateId:
+        type: string
+        description: The id of the candidate to attach the resume to.
+      filename:
+        type: string
+        description: The name of the resume file being uploaded, including extension.
+      contentType:
+        type: string
+        description: The MIME type of the resume file (e.g. application/pdf).
+      contentLength:
+        type: integer
+        description: The size of the resume file in bytes.
+  steps:
+  - stepId: createUploadHandle
+    description: >-
+      Ask Ashby for a presigned upload target scoped to the CandidateResume
+      context. The response carries the presigned url and form fields for the
+      out-of-band multipart POST, plus the encrypted handle that identifies the
+      file to Ashby once it lands.
+    operationId: fileCreateFileUploadHandle
+    requestBody:
+      contentType: application/json
+      payload:
+        fileUploadContext: CandidateResume
+        filename: $inputs.filename
+        contentType: $inputs.contentType
+        contentLength: $inputs.contentLength
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      resumeHandle: $response.body#/results/handle
+      uploadUrl: $response.body#/results/url
+      uploadFields: $response.body#/results/fields
+  - stepId: attachResume
+    description: >-
+      Bind the uploaded file to the candidate as their resume. This step assumes
+      the file has already been POSTed as multipart/form-data to the presigned
+      url from the previous step; that upload goes directly to object storage and
+      is not part of the Ashby JSON API.
+    operationId: candidateUploadResume
+    requestBody:
+      contentType: application/json
+      payload:
+        candidateId: $inputs.candidateId
+        resumeHandle: $steps.createUploadHandle.outputs.resumeHandle
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      candidateId: $response.body#/results/id
+      storedResumeHandle: $response.body#/results/resumeFileHandle/handle
+      resumeFileName: $response.body#/results/resumeFileHandle/name
+  - stepId: resolveResumeUrl
+    description: >-
+      Resolve the stored resume handle to a downloadable url, confirming the file
+      is attached and readable. Ashby file urls are short lived, so this call is
+      the correct way to fetch a resume rather than caching a url.
+    operationId: fileInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        fileHandle: $steps.attachResume.outputs.storedResumeHandle
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      resumeUrl: $response.body#/results/url
+  outputs:
+    candidateId: $steps.attachResume.outputs.candidateId
+    resumeHandle: $steps.attachResume.outputs.storedResumeHandle
+    resumeFileName: $steps.attachResume.outputs.resumeFileName
+    resumeUrl: $steps.resolveResumeUrl.outputs.resumeUrl

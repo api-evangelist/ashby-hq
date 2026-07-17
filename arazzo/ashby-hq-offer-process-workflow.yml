@@ -1,0 +1,166 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Run an Offer from Start to Approval
+  summary: Start an offer process, open an offer version, fill and create it, run approvals, and read the result.
+  description: >-
+    The offer chain is the most sequenced surface in the Ashby API and the one
+    where ids are least guessable: offerProcess.start yields the process id,
+    offer.start yields the offer version and its form definition, offer.create
+    submits that form, and only then can an approval process be started and
+    approved. Each id comes from the previous response, so the order here is not
+    a convenience — it is the contract. This workflow walks the whole chain and
+    reads the finished offer back. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: offer-process
+  summary: Start, fill, submit, and approve an offer for an application.
+  description: >-
+    Starts an offer process on an application, creates an offer version to obtain
+    the offer form definition, submits the filled offer form, starts the approval
+    process, force approves it, and reads the offer back.
+  inputs:
+    type: object
+    required:
+    - applicationId
+    - fieldSubmissions
+    properties:
+      applicationId:
+        type: string
+        description: The id of the application to start an offer process for.
+      fieldSubmissions:
+        type: array
+        description: >-
+          The completed offer form fields, each an object with a path and a
+          value. The paths must come from the form definition returned by the
+          openOfferVersion step.
+        items:
+          type: object
+          properties:
+            path:
+              type: string
+              description: The form field's path value.
+            value:
+              type: string
+              description: The value for the field, typed per the field definition.
+      approvalNote:
+        type: string
+        description: A note to attach when starting the approval process.
+      approverUserId:
+        type: string
+        description: >-
+          The id of the user to approve as. Omit to approve as the API key user.
+  steps:
+  - stepId: startOfferProcess
+    description: >-
+      Start the offer process on the application. This is the container every
+      later call hangs off; its id is required by offer.start and offer.create.
+    operationId: offerProcess.start
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      offerProcessId: $response.body#/results/id
+      processStatus: $response.body#/results/status
+  - stepId: openOfferVersion
+    description: >-
+      Create an offer version instance and return its form definition. This is
+      the step that hands back the field paths the offer form must be filled with
+      — offer.create cannot be composed without reading it first.
+    operationId: offerStart
+    requestBody:
+      contentType: application/json
+      payload:
+        offerProcessId: $steps.startOfferProcess.outputs.offerProcessId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      offerFormId: $response.body#/results/id
+      formSections: $response.body#/results/formDefinition/sections
+  - stepId: submitOffer
+    description: >-
+      Submit the filled offer form against the version opened above. The
+      fieldSubmissions paths must match the form definition or Ashby rejects the
+      offer.
+    operationId: offerCreate
+    requestBody:
+      contentType: application/json
+      payload:
+        offerProcessId: $steps.startOfferProcess.outputs.offerProcessId
+        offerFormId: $steps.openOfferVersion.outputs.offerFormId
+        offerForm:
+          fieldSubmissions: $inputs.fieldSubmissions
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      offerId: $response.body#/results/id
+      offerVersionId: $response.body#/results/latestVersion/id
+      offerStatus: $response.body#/results/offerStatus
+  - stepId: startApproval
+    description: >-
+      Start the approval process for the submitted offer version, routing it to
+      whoever the organization's approval definition names.
+    operationId: offerStartApprovalProcess
+    requestBody:
+      contentType: application/json
+      payload:
+        offerVersionId: $steps.submitOffer.outputs.offerVersionId
+        note: $inputs.approvalNote
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      offerId: $response.body#/results/id
+      offerStatus: $response.body#/results/offerStatus
+  - stepId: approveOffer
+    description: >-
+      Approve the offer version. This mirrors the "Force Approve" behavior in the
+      Ashby app, where an admin can override the approval chain, so it should be
+      wired only to callers entitled to do that.
+    operationId: offerApprove
+    requestBody:
+      contentType: application/json
+      payload:
+        offerVersionId: $steps.submitOffer.outputs.offerVersionId
+        userId: $inputs.approverUserId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      offerId: $response.body#/results/id
+      offerStatus: $response.body#/results/offerStatus
+  - stepId: readOffer
+    description: >-
+      Read the offer back to confirm its final status. The form definition is
+      excluded here because the caller already has it from openOfferVersion and
+      it is a large payload.
+    operationId: offerInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        offerId: $steps.submitOffer.outputs.offerId
+        excludeFormDefinition: true
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      offerId: $response.body#/results/id
+      offerStatus: $response.body#/results/offerStatus
+      latestVersion: $response.body#/results/latestVersion
+  outputs:
+    offerProcessId: $steps.startOfferProcess.outputs.offerProcessId
+    offerId: $steps.readOffer.outputs.offerId
+    offerVersionId: $steps.submitOffer.outputs.offerVersionId
+    offerStatus: $steps.readOffer.outputs.offerStatus
+    latestVersion: $steps.readOffer.outputs.latestVersion

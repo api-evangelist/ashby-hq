@@ -1,0 +1,130 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Register and Manage a Webhook Subscription
+  summary: Confirm the API key's access, register a webhook, verify it, then enable or rotate it.
+  description: >-
+    Every event-driven Ashby integration starts here. The flow confirms what the
+    API key can actually do before writing anything, registers a webhook for a
+    chosen event type with a secret token, reads the registration back, and then
+    updates it — the same call used to rotate the secret or disable a noisy
+    subscription. The secret token matters: Ashby signs each delivery with it as
+    an HMAC-SHA256 in the Ashby-Signature header, and a receiver that skips that
+    check will accept forged events. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: webhook-lifecycle
+  summary: Check API key access, create a webhook, read it back, and update it.
+  description: >-
+    Reads the API key's own metadata to confirm access, creates a webhook
+    subscription for an event type, verifies the registration, and updates the
+    subscription's url, secret, or enabled state.
+  inputs:
+    type: object
+    required:
+    - webhookType
+    - requestUrl
+    - secretToken
+    properties:
+      webhookType:
+        type: string
+        description: >-
+          The event type to subscribe to (e.g. applicationSubmit,
+          candidateStageChange, offerCreate, jobPostingPublish).
+      requestUrl:
+        type: string
+        description: The https endpoint Ashby should POST events to.
+      secretToken:
+        type: string
+        description: >-
+          The shared secret Ashby signs deliveries with. The receiver must verify
+          the Ashby-Signature HMAC-SHA256 header against this value.
+      updatedRequestUrl:
+        type: string
+        description: A new delivery url, when moving or rotating the endpoint.
+      enabled:
+        type: boolean
+        description: Whether the subscription should remain enabled.
+  steps:
+  - stepId: checkApiKey
+    description: >-
+      Read the API key's own metadata first. This returns the key's permission
+      scopes, which is the cheapest way to confirm the credential can actually
+      write webhook settings before creating a subscription that would otherwise
+      fail halfway through setup.
+    operationId: apiKeyInfo
+    requestBody:
+      contentType: application/json
+      payload: {}
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      apiKeyTitle: $response.body#/results/title
+      apiKeyScopes: $response.body#/results/scopes
+  - stepId: createWebhook
+    description: >-
+      Register the webhook for the chosen event type. The secretToken supplied
+      here is what Ashby uses to sign every delivery, so it must be stored by the
+      receiver, not discarded.
+    operationId: webhookcreate
+    requestBody:
+      contentType: application/json
+      payload:
+        webhookType: $inputs.webhookType
+        requestUrl: $inputs.requestUrl
+        secretToken: $inputs.secretToken
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      webhookId: $response.body#/results/id
+      webhookType: $response.body#/results/webhookType
+      enabled: $response.body#/results/enabled
+  - stepId: readWebhook
+    description: >-
+      Read the subscription back to confirm it registered against the intended
+      url and event type.
+    operationId: webhookInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        webhookId: $steps.createWebhook.outputs.webhookId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      webhookId: $response.body#/results/id
+      requestUrl: $response.body#/results/requestUrl
+      enabled: $response.body#/results/enabled
+  - stepId: updateWebhook
+    description: >-
+      Update the subscription. This same call rotates the secret token, moves the
+      delivery url, and disables a subscription without deleting it — the safe
+      way to pause deliveries during receiver maintenance. webhook.delete removes
+      it permanently and is deliberately not part of this flow.
+    operationId: webhookupdate
+    requestBody:
+      contentType: application/json
+      payload:
+        webhookId: $steps.createWebhook.outputs.webhookId
+        requestUrl: $inputs.updatedRequestUrl
+        enabled: $inputs.enabled
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      webhookId: $response.body#/results/id
+      requestUrl: $response.body#/results/requestUrl
+      enabled: $response.body#/results/enabled
+  outputs:
+    apiKeyScopes: $steps.checkApiKey.outputs.apiKeyScopes
+    webhookId: $steps.createWebhook.outputs.webhookId
+    webhookType: $steps.createWebhook.outputs.webhookType
+    requestUrl: $steps.updateWebhook.outputs.requestUrl
+    enabled: $steps.updateWebhook.outputs.enabled

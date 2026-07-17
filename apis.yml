@@ -340,6 +340,54 @@ common:
   url: security/ashby-hq-domain-security.yml
 - type: Authentication
   url: authentication/ashby-hq-authentication.yml
+- type: Arazzo
+  url: arazzo/ashby-hq-candidate-intake-workflow.yml
+  name: Ashby Candidate Intake with Deduplication
+- type: Arazzo
+  url: arazzo/ashby-hq-candidate-resume-upload-workflow.yml
+  name: Ashby Attach a Resume to a Candidate
+- type: Arazzo
+  url: arazzo/ashby-hq-candidate-tagging-workflow.yml
+  name: Ashby Tag a Candidate by Tag Title
+- type: Arazzo
+  url: arazzo/ashby-hq-application-create-workflow.yml
+  name: Ashby Create an Application on a Job
+- type: Arazzo
+  url: arazzo/ashby-hq-application-advance-stage-workflow.yml
+  name: Ashby Advance an Application to a Named Interview Stage
+- type: Arazzo
+  url: arazzo/ashby-hq-application-archive-workflow.yml
+  name: Ashby Archive an Application with a Reason
+- type: Arazzo
+  url: arazzo/ashby-hq-interview-schedule-workflow.yml
+  name: Ashby Schedule an Interview for an Application
+- type: Arazzo
+  url: arazzo/ashby-hq-interview-feedback-workflow.yml
+  name: Ashby Request and Submit Interview Feedback
+- type: Arazzo
+  url: arazzo/ashby-hq-offer-process-workflow.yml
+  name: Ashby Run an Offer from Start to Approval
+- type: Arazzo
+  url: arazzo/ashby-hq-job-create-workflow.yml
+  name: Ashby Create a Job and Open It
+- type: Arazzo
+  url: arazzo/ashby-hq-job-posting-sync-workflow.yml
+  name: Ashby Sync a Job Posting to a Careers Site
+- type: Arazzo
+  url: arazzo/ashby-hq-opening-setup-workflow.yml
+  name: Ashby Create an Opening and Bind It to a Job
+- type: Arazzo
+  url: arazzo/ashby-hq-custom-field-setup-workflow.yml
+  name: Ashby Define a Custom Field and Set Its Value
+- type: Arazzo
+  url: arazzo/ashby-hq-survey-request-workflow.yml
+  name: Ashby Send a Candidate Survey and Collect Submissions
+- type: Arazzo
+  url: arazzo/ashby-hq-report-generate-poll-workflow.yml
+  name: Ashby Generate a Report and Poll for the Result
+- type: Arazzo
+  url: arazzo/ashby-hq-webhook-lifecycle-workflow.yml
+  name: Ashby Register and Manage a Webhook Subscription
 - url: https://www.ashbyhq.com
   type: Portal
 - url: https://developers.ashbyhq.com

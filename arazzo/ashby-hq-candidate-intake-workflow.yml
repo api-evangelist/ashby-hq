@@ -1,0 +1,156 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Candidate Intake with Deduplication
+  summary: Search for a candidate by email, then update the match or create a new candidate.
+  description: >-
+    The foundational Ashby integration pattern for any system that pushes people
+    into the ATS. Sourcing tools, referral portals, and CRM syncs all need to
+    avoid creating duplicate candidate records, so this workflow searches by
+    email first and then branches: when a candidate already exists it updates the
+    existing record, and when none is found it creates one. Either way the flow
+    attaches an intake note and reads the candidate back so the caller ends with
+    a confirmed profile. Every step spells out its request inline so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: candidate-intake
+  summary: Deduplicate on email, create or update the candidate, then note and verify.
+  description: >-
+    Searches Ashby for an existing candidate with the supplied email, updates the
+    match or creates a new candidate, records an intake note, and fetches the
+    final candidate profile.
+  inputs:
+    type: object
+    required:
+    - email
+    - name
+    properties:
+      email:
+        type: string
+        description: Primary personal email of the candidate, used as the dedupe key.
+      name:
+        type: string
+        description: The first and last name of the candidate (e.g. "Adam Hart").
+      phoneNumber:
+        type: string
+        description: Primary personal phone number of the candidate.
+      linkedInUrl:
+        type: string
+        description: Url to the candidate's LinkedIn profile. Must be a valid Url.
+      githubUrl:
+        type: string
+        description: Url to the candidate's GitHub profile. Must be a valid Url.
+      note:
+        type: string
+        description: Intake note to record on the candidate (e.g. where they came from).
+  steps:
+  - stepId: findCandidate
+    description: >-
+      Search Ashby for an existing candidate with this email. Ashby matches on the
+      candidate's email addresses, so this is the reliable dedupe key before any
+      write.
+    operationId: candidateSearch
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      matchedCandidateId: $response.body#/results/0/id
+    onSuccess:
+    - name: candidateExists
+      type: goto
+      stepId: updateExisting
+      criteria:
+      - context: $response.body
+        condition: $.results.length > 0
+        type: jsonpath
+    - name: candidateMissing
+      type: goto
+      stepId: createCandidate
+      criteria:
+      - context: $response.body
+        condition: $.results.length == 0
+        type: jsonpath
+  - stepId: updateExisting
+    description: >-
+      Update the matched candidate with the supplied contact details. Only the
+      supplied fields are changed; everything else on the profile is left intact.
+    operationId: candidateUpdate
+    requestBody:
+      contentType: application/json
+      payload:
+        candidateId: $steps.findCandidate.outputs.matchedCandidateId
+        name: $inputs.name
+        phoneNumber: $inputs.phoneNumber
+        linkedInUrl: $inputs.linkedInUrl
+        githubUrl: $inputs.githubUrl
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      candidateId: $response.body#/results/id
+    onSuccess:
+    - name: continueToNote
+      type: goto
+      stepId: recordIntakeNote
+  - stepId: createCandidate
+    description: >-
+      Create a new candidate when the email search returned no match.
+    operationId: candidateCreate
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.name
+        email: $inputs.email
+        phoneNumber: $inputs.phoneNumber
+        linkedInUrl: $inputs.linkedInUrl
+        githubUrl: $inputs.githubUrl
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      candidateId: $response.body#/results/id
+  - stepId: recordIntakeNote
+    description: >-
+      Attach an intake note to the candidate so recruiters can see where the
+      record came from. Runs against whichever candidate id the branch produced.
+    operationId: candidateCreateNote
+    requestBody:
+      contentType: application/json
+      payload:
+        candidateId: $steps.createCandidate.outputs.candidateId
+        note: $inputs.note
+        sendNotifications: false
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      noteId: $response.body#/results/id
+  - stepId: readCandidate
+    description: >-
+      Read the candidate back to confirm the write landed and to hand the caller
+      a complete profile.
+    operationId: candidateInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $steps.createCandidate.outputs.candidateId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      candidateId: $response.body#/results/id
+      candidateName: $response.body#/results/name
+      primaryEmail: $response.body#/results/primaryEmailAddress/value
+  outputs:
+    candidateId: $steps.readCandidate.outputs.candidateId
+    candidateName: $steps.readCandidate.outputs.candidateName
+    primaryEmail: $steps.readCandidate.outputs.primaryEmail
+    noteId: $steps.recordIntakeNote.outputs.noteId

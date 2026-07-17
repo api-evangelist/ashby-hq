@@ -1,0 +1,123 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Create an Application on a Job
+  summary: Resolve the job's interview plan and first stage, create the application, then read it back.
+  description: >-
+    Putting an existing candidate onto a job is the core write of any sourcing or
+    referral integration. application.create accepts an interview plan and a
+    stage, but callers rarely know those ids up front, so this workflow resolves
+    the job's default interview plan, lists that plan's stages to pick a real
+    starting stage, creates the application, and reads it back with its openings
+    expanded. Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: application-create
+  summary: Resolve a job's interview plan and stage, then create an application for a candidate.
+  description: >-
+    Fetches the job's interview plan, lists its stages, creates the application
+    for the candidate at the chosen stage, and returns the confirmed application.
+  inputs:
+    type: object
+    required:
+    - candidateId
+    - jobId
+    properties:
+      candidateId:
+        type: string
+        description: The id of the candidate to consider for the job.
+      jobId:
+        type: string
+        description: The id of the job to consider the candidate for.
+      sourceId:
+        type: string
+        description: The id of the source to credit the application to (see source.list).
+      creditedToUserId:
+        type: string
+        description: The id of the user the application is credited to.
+  steps:
+  - stepId: resolveInterviewPlan
+    description: >-
+      Fetch the job's interview plan so the application is placed in a real plan
+      rather than relying on the default. A job cannot be opened without a
+      default interview plan, so this also confirms the job is configured.
+    operationId: jobInterviewPlanInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        jobId: $inputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      interviewPlanId: $response.body#/results/interviewPlanId
+      planStages: $response.body#/results/stages
+  - stepId: listStages
+    description: >-
+      List the stages on the resolved interview plan and take the first one as
+      the application's starting stage. Stage ids are plan-specific, so they must
+      be resolved per job rather than hard coded.
+    operationId: interviewStageList
+    requestBody:
+      contentType: application/json
+      payload:
+        interviewPlanId: $steps.resolveInterviewPlan.outputs.interviewPlanId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    - context: $response.body
+      condition: $.results.length > 0
+      type: jsonpath
+    outputs:
+      firstStageId: $response.body#/results/0/id
+      firstStageTitle: $response.body#/results/0/title
+      stages: $response.body#/results
+  - stepId: createApplication
+    description: >-
+      Create the application, placing the candidate in the resolved plan at the
+      resolved starting stage and crediting the supplied source and user.
+    operationId: applicationCreate
+    requestBody:
+      contentType: application/json
+      payload:
+        candidateId: $inputs.candidateId
+        jobId: $inputs.jobId
+        interviewPlanId: $steps.resolveInterviewPlan.outputs.interviewPlanId
+        interviewStageId: $steps.listStages.outputs.firstStageId
+        sourceId: $inputs.sourceId
+        creditedToUserId: $inputs.creditedToUserId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      applicationId: $response.body#/results/id
+      applicationStatus: $response.body#/results/status
+  - stepId: readApplication
+    description: >-
+      Read the application back with its openings expanded so the caller ends
+      with a confirmed application and knows which opening it counts against.
+    operationId: applicationInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $steps.createApplication.outputs.applicationId
+        expand:
+        - openings
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      applicationId: $response.body#/results/id
+      status: $response.body#/results/status
+      currentStage: $response.body#/results/currentInterviewStage
+      openings: $response.body#/results/openings
+  outputs:
+    applicationId: $steps.readApplication.outputs.applicationId
+    status: $steps.readApplication.outputs.status
+    currentStage: $steps.readApplication.outputs.currentStage
+    interviewPlanId: $steps.resolveInterviewPlan.outputs.interviewPlanId
+    startingStageTitle: $steps.listStages.outputs.firstStageTitle

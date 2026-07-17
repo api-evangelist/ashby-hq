@@ -1,0 +1,157 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Create an Opening and Bind It to a Job
+  summary: Create an opening, attach a job and a location, set its state, and read it back.
+  description: >-
+    Openings are how Ashby models approved headcount, and they are what finance
+    and HRIS systems actually reconcile against — a job is the hiring process, an
+    opening is the seat being filled. opening.create can take jobIds and
+    locationIds up front, but the incremental path shown here — create, then
+    attach a job, then attach a location, then set the state — is the one that
+    also works against openings that already exist, which is what a headcount
+    sync actually needs. Every step spells out its request inline so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: opening-setup
+  summary: Create an opening, bind a job and location to it, open it, and verify.
+  description: >-
+    Creates an opening with headcount metadata, attaches a job and a location,
+    sets the opening state, and reads the assembled opening back.
+  inputs:
+    type: object
+    required:
+    - identifier
+    - teamId
+    - jobId
+    - locationId
+    properties:
+      identifier:
+        type: string
+        description: The human-readable identifier for the opening (e.g. "ENG-104").
+      description:
+        type: string
+        description: A description of the opening.
+      teamId:
+        type: string
+        description: The id of the department or team the opening belongs to.
+      jobId:
+        type: string
+        description: The id of the job to attach to the opening.
+      locationId:
+        type: string
+        description: The id of the location to attach to the opening.
+      targetHireDate:
+        type: string
+        description: The target hire date for the opening.
+      targetStartDate:
+        type: string
+        description: The target start date for the opening.
+      isBackfill:
+        type: boolean
+        description: Whether this opening backfills a departing employee.
+      employmentType:
+        type: string
+        description: The employment type for the opening.
+      openingState:
+        type: string
+        description: The state to move the opening to (e.g. Open).
+  steps:
+  - stepId: createOpening
+    description: >-
+      Create the opening with its headcount metadata. jobIds and locationIds are
+      deliberately left off here so the attach steps below exercise the same
+      calls a sync would use against an opening that already exists.
+    operationId: openingcreate
+    requestBody:
+      contentType: application/json
+      payload:
+        identifier: $inputs.identifier
+        description: $inputs.description
+        teamId: $inputs.teamId
+        targetHireDate: $inputs.targetHireDate
+        targetStartDate: $inputs.targetStartDate
+        isBackfill: $inputs.isBackfill
+        employmentType: $inputs.employmentType
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      openingId: $response.body#/results/id
+      openingIdentifier: $response.body#/results/latestVersion/identifier
+  - stepId: attachJob
+    description: >-
+      Attach the job to the opening, which is what ties the hiring process to the
+      approved seat.
+    operationId: openingaddjob
+    requestBody:
+      contentType: application/json
+      payload:
+        openingId: $steps.createOpening.outputs.openingId
+        jobId: $inputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      openingId: $response.body#/results/id
+      jobIds: $response.body#/results/latestVersion/jobIds
+  - stepId: attachLocation
+    description: >-
+      Attach the location to the opening so headcount is reported against the
+      right site.
+    operationId: openingaddlocation
+    requestBody:
+      contentType: application/json
+      payload:
+        openingId: $steps.createOpening.outputs.openingId
+        locationId: $inputs.locationId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      openingId: $response.body#/results/id
+      locationIds: $response.body#/results/latestVersion/locationIds
+  - stepId: setOpeningState
+    description: >-
+      Move the opening to the requested state. Closing an opening additionally
+      requires a close reason, which can be resolved from closeReason.list.
+    operationId: openingsetopeningstate
+    requestBody:
+      contentType: application/json
+      payload:
+        openingId: $steps.createOpening.outputs.openingId
+        openingState: $inputs.openingState
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      openingId: $response.body#/results/id
+      openingState: $response.body#/results/openingState
+  - stepId: readOpening
+    description: >-
+      Read the assembled opening back to confirm the job, location, and state all
+      landed on one record.
+    operationId: openinginfo
+    requestBody:
+      contentType: application/json
+      payload:
+        openingId: $steps.createOpening.outputs.openingId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      openingId: $response.body#/results/id
+      identifier: $response.body#/results/latestVersion/identifier
+      openingState: $response.body#/results/openingState
+      jobIds: $response.body#/results/latestVersion/jobIds
+      locationIds: $response.body#/results/latestVersion/locationIds
+  outputs:
+    openingId: $steps.readOpening.outputs.openingId
+    identifier: $steps.readOpening.outputs.identifier
+    openingState: $steps.readOpening.outputs.openingState
+    jobIds: $steps.readOpening.outputs.jobIds
+    locationIds: $steps.readOpening.outputs.locationIds

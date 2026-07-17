@@ -1,0 +1,128 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Schedule an Interview for an Application
+  summary: Verify the interviewer exists, create an interview schedule, and confirm the events.
+  description: >-
+    Scheduling integrations have to fail cleanly when an interviewer is not a
+    real Ashby user, because interviewSchedule.create matches interviewers by
+    email and a typo turns into a silent scheduling error. This workflow resolves
+    the interviewer by email first, reads the application to confirm it is
+    active, creates the schedule with a single interview event, and lists the
+    application's schedules to confirm the booking. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: interview-schedule
+  summary: Resolve an interviewer by email and book an interview event on an application.
+  description: >-
+    Looks up the interviewer, confirms the application, creates an interview
+    schedule with one event, and reads the schedules back for that application.
+  inputs:
+    type: object
+    required:
+    - applicationId
+    - interviewerEmail
+    - startTime
+    - endTime
+    properties:
+      applicationId:
+        type: string
+        description: The id of the application to schedule an interview for.
+      interviewerEmail:
+        type: string
+        description: The email address of the Ashby user who will interview.
+      startTime:
+        type: string
+        description: The start time of the event (e.g. 2023-01-30T15:00:00.000Z).
+      endTime:
+        type: string
+        description: The end time of the event (e.g. 2023-01-30T16:00:00.000Z).
+      feedbackRequired:
+        type: boolean
+        description: Whether this interviewer is required to provide feedback.
+  steps:
+  - stepId: resolveInterviewer
+    description: >-
+      Look the interviewer up by email before booking anything. Ashby matches
+      interviewers on email, so confirming the user exists here turns a silent
+      scheduling failure into an explicit one.
+    operationId: userSearch
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.interviewerEmail
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    - context: $response.body
+      condition: $.results.length > 0
+      type: jsonpath
+    outputs:
+      interviewerUserId: $response.body#/results/0/id
+      interviewerFirstName: $response.body#/results/0/firstName
+      interviewerLastName: $response.body#/results/0/lastName
+      interviewerEnabled: $response.body#/results/0/isEnabled
+  - stepId: readApplication
+    description: >-
+      Read the application to confirm it exists and to capture its current stage,
+      which is the context the interview is being booked against.
+    operationId: applicationInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      status: $response.body#/results/status
+      currentStage: $response.body#/results/currentInterviewStage
+  - stepId: createSchedule
+    description: >-
+      Create the interview schedule with a single event covering the supplied
+      window and interviewer. Additional events can be added to the
+      interviewEvents array to book a multi-part onsite in one call.
+    operationId: interviewScheduleCreate
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+        interviewEvents:
+        - startTime: $inputs.startTime
+          endTime: $inputs.endTime
+          interviewers:
+          - email: $inputs.interviewerEmail
+            feedbackRequired: $inputs.feedbackRequired
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      interviewScheduleId: $response.body#/results/id
+      scheduleStatus: $response.body#/results/status
+      interviewEvents: $response.body#/results/interviewEvents
+  - stepId: verifySchedule
+    description: >-
+      List the application's interview schedules to confirm the booking is
+      visible on the application and to return the full schedule set.
+    operationId: interviewScheduleList
+    requestBody:
+      contentType: application/json
+      payload:
+        applicationId: $inputs.applicationId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      schedules: $response.body#/results
+  outputs:
+    interviewScheduleId: $steps.createSchedule.outputs.interviewScheduleId
+    scheduleStatus: $steps.createSchedule.outputs.scheduleStatus
+    interviewerUserId: $steps.resolveInterviewer.outputs.interviewerUserId
+    interviewerFirstName: $steps.resolveInterviewer.outputs.interviewerFirstName
+    interviewerLastName: $steps.resolveInterviewer.outputs.interviewerLastName
+    schedules: $steps.verifySchedule.outputs.schedules

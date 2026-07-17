@@ -1,0 +1,103 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Tag a Candidate by Tag Title
+  summary: Resolve a tag title to an id, creating the tag when it does not exist, then apply it.
+  description: >-
+    Ashby's candidate.addTag takes a tag id, but integrators almost always have a
+    tag title in hand instead. This workflow closes that gap: it lists the
+    existing candidate tags, branches on whether the title is already present,
+    creates the tag when it is not, and then applies the resolved tag id to the
+    candidate. candidateTag.create is itself idempotent on title, which makes the
+    create branch safe to re-run. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: candidate-tagging
+  summary: Resolve or create a candidate tag by title and apply it to a candidate.
+  description: >-
+    Lists candidate tags, creates the tag when the title is absent, applies the
+    tag to the candidate, and reads the candidate back to confirm the tag set.
+  inputs:
+    type: object
+    required:
+    - candidateId
+    - tagTitle
+    properties:
+      candidateId:
+        type: string
+        description: The unique id of the candidate to tag.
+      tagTitle:
+        type: string
+        description: The title of the tag to apply (e.g. "Strong candidate").
+  steps:
+  - stepId: listTags
+    description: >-
+      List the organization's candidate tags so the supplied title can be
+      resolved to a tag id without creating a duplicate. Archived tags are
+      excluded so a retired tag is not silently reused.
+    operationId: candidateTagList
+    requestBody:
+      contentType: application/json
+      payload:
+        includeArchived: false
+        limit: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      tags: $response.body#/results
+      moreDataAvailable: $response.body#/moreDataAvailable
+  - stepId: createTag
+    description: >-
+      Create the tag. Ashby returns the existing tag when one already has this
+      title, so this call is safe even if the listing above was paginated and the
+      match was missed.
+    operationId: candidatetagcreate
+    requestBody:
+      contentType: application/json
+      payload:
+        title: $inputs.tagTitle
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      tagId: $response.body#/results/id
+      tagTitle: $response.body#/results/title
+  - stepId: applyTag
+    description: >-
+      Apply the resolved tag to the candidate.
+    operationId: candidateAddTag
+    requestBody:
+      contentType: application/json
+      payload:
+        candidateId: $inputs.candidateId
+        tagId: $steps.createTag.outputs.tagId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      candidateId: $response.body#/results/id
+  - stepId: verifyTags
+    description: >-
+      Read the candidate back and return the full tag set so the caller can
+      confirm the tag landed alongside any tags already present.
+    operationId: candidateInfo
+    requestBody:
+      contentType: application/json
+      payload:
+        id: $inputs.candidateId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      candidateTags: $response.body#/results/tags
+  outputs:
+    tagId: $steps.createTag.outputs.tagId
+    tagTitle: $steps.createTag.outputs.tagTitle
+    candidateId: $steps.applyTag.outputs.candidateId
+    candidateTags: $steps.verifyTags.outputs.candidateTags

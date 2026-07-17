@@ -1,0 +1,136 @@
+arazzo: 1.0.1
+info:
+  title: Ashby Generate a Report and Poll for the Result
+  summary: Kick off an asynchronous report, poll it by request id until it completes, and take the data.
+  description: >-
+    Ashby exposes reporting two ways, and picking the wrong one is the classic
+    mistake: report.synchronous returns data in the response but only survives
+    small reports, while report.generate returns a requestId and an in_progress
+    status that the caller must poll until it flips to complete or failed. This
+    workflow drives the asynchronous path properly — it starts the generation,
+    polls the same operation with the returned requestId, and branches on the
+    terminal status rather than assuming success. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: ashbyApi
+  url: ../openapi/ashby-openapi.yml
+  type: openapi
+workflows:
+- workflowId: report-generate-poll
+  summary: Start an async report generation and poll by request id until it terminates.
+  description: >-
+    Starts a report generation, polls report.generate with the returned requestId
+    until the status is complete or failed, and returns the report rows and
+    column names on success.
+  inputs:
+    type: object
+    required:
+    - reportId
+    properties:
+      reportId:
+        type: string
+        description: The id of the report to generate.
+      includeHeadersInData:
+        type: boolean
+        description: >-
+          When true (the default), column headers are included as the first row
+          of the data array. When false, headers appear only in columnNames.
+  steps:
+  - stepId: startReport
+    description: >-
+      Kick off the report generation. Ashby answers immediately with a requestId
+      and a status, which is usually in_progress for any report large enough to
+      justify this path over report.synchronous.
+    operationId: reportGenerate
+    requestBody:
+      contentType: application/json
+      payload:
+        reportId: $inputs.reportId
+        includeHeadersInData: $inputs.includeHeadersInData
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    outputs:
+      requestId: $response.body#/results/requestId
+      initialStatus: $response.body#/results/status
+    onSuccess:
+    - name: alreadyComplete
+      type: goto
+      stepId: takeResult
+      criteria:
+      - context: $response.body
+        condition: $.results.status == 'complete'
+        type: jsonpath
+    - name: stillRunning
+      type: goto
+      stepId: pollReport
+      criteria:
+      - context: $response.body
+        condition: $.results.status == 'in_progress'
+        type: jsonpath
+  - stepId: pollReport
+    description: >-
+      Poll the same operation with the requestId from the start step. Supplying
+      requestId is what turns report.generate from a kickoff into a status check;
+      omitting it would queue a second report instead of polling the first. The
+      retry backs off between attempts until the report reaches a terminal state.
+    operationId: reportGenerate
+    requestBody:
+      contentType: application/json
+      payload:
+        reportId: $inputs.reportId
+        requestId: $steps.startReport.outputs.requestId
+        includeHeadersInData: $inputs.includeHeadersInData
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    - context: $response.body
+      condition: $.results.status != 'in_progress'
+      type: jsonpath
+    onSuccess:
+    - name: reportComplete
+      type: goto
+      stepId: takeResult
+      criteria:
+      - context: $response.body
+        condition: $.results.status == 'complete'
+        type: jsonpath
+    onFailure:
+    - name: keepPolling
+      type: retry
+      retryAfter: 5
+      retryLimit: 60
+      criteria:
+      - context: $response.body
+        condition: $.results.status == 'in_progress'
+        type: jsonpath
+    outputs:
+      status: $response.body#/results/status
+      failureReason: $response.body#/results/failureReason
+  - stepId: takeResult
+    description: >-
+      Take the finished report. This final call reads the completed generation by
+      requestId and returns the rows and column names for the caller to load.
+    operationId: reportGenerate
+    requestBody:
+      contentType: application/json
+      payload:
+        reportId: $inputs.reportId
+        requestId: $steps.startReport.outputs.requestId
+        includeHeadersInData: $inputs.includeHeadersInData
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/success == true
+    - context: $response.body
+      condition: $.results.status == 'complete'
+      type: jsonpath
+    outputs:
+      status: $response.body#/results/status
+      reportData: $response.body#/results/reportData
+  outputs:
+    requestId: $steps.startReport.outputs.requestId
+    status: $steps.takeResult.outputs.status
+    reportData: $steps.takeResult.outputs.reportData
+    failureReason: $steps.pollReport.outputs.failureReason
