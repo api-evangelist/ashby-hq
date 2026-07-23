@@ -1,0 +1,257 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Ashby API Key Interview Briefing API
+  description: Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.
+  contact:
+    name: Ashby Support
+    url: https://app.ashbyhq.com/support
+    email: support@ashbyhq.com
+servers:
+- url: https://api.ashbyhq.com
+security:
+- BasicAuth: []
+tags:
+- name: Interview Briefing
+paths:
+  /interviewBriefing.info:
+    post:
+      summary: interviewBriefing.info
+      operationId: interviewBriefingInfo
+      description: 'Fetch the briefing data for an interview event. Returns the application,
+
+        interview, per-interviewer status, and the feedback form definition id
+
+        needed to render an interviewer-facing briefing or to submit feedback via
+
+        [`applicationFeedback.submit`](applicationfeedbacksubmit).
+
+
+        By default, each interviewer in the response is returned as a `userId`
+
+        with status flags. Pass `expand: ["interviewers"]` to include the full
+
+        user and pool details for each interviewer. Other expansions return the
+
+        application, candidate, job, interview, and feedback form definition
+
+        inline.
+
+
+        **Requires the [`interviewsRead`](authentication#permissions-interviewbriefinginfo) permission.**
+
+        '
+      tags:
+      - Interview Briefing
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                interviewEventId:
+                  allOf:
+                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                  - description: The id of the interview event whose briefing should be returned.
+                expand:
+                  type: array
+                  description: 'Choose to expand the result and include additional data for related objects.
+
+                    '
+                  items:
+                    type: string
+                    enum:
+                    - feedbackFormDefinition
+                    - application
+                    - candidate
+                    - job
+                    - interview
+                    - interviewers
+              required:
+              - interviewEventId
+              example:
+                interviewEventId: 3ae2b801-19f6-41ef-ad28-214bd731948f
+                expand:
+                - feedbackFormDefinition
+                - interviewers
+      responses:
+        '200':
+          description: Responses from the interviewBriefing.info endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: object
+                        description: 'Briefing data for an interview event. Provides the application, interview,
+
+                          and per-interviewer information needed to render an interviewer-facing
+
+                          briefing or feedback-submission UI.
+
+                          '
+                        properties:
+                          id:
+                            allOf:
+                            - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            - description: The interview event's id
+                            - example: 3ae2b801-19f6-41ef-ad28-214bd731948f
+                          applicationId:
+                            allOf:
+                            - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            - description: The id of the application this briefing is for
+                            - example: 9d34f544-c150-4d70-91c4-e8b0b4a72846
+                          interviewId:
+                            allOf:
+                            - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            - description: The id of the interview
+                            - example: ff6c7d9d-71e3-4c9c-88b1-28824980c276
+                          interviewStageId:
+                            allOf:
+                            - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            - description: The id of the interview stage this event belongs to
+                            - example: 5a3f9c2b-71e3-4c9c-88b1-28824980c276
+                          interviewers:
+                            type: array
+                            description: 'The interviewers assigned to this event. By default each entry contains
+
+                              a `userId` with status flags; pass `expand: ["interviewers"]` to include
+
+                              the full user and pool details.
+
+                              '
+                            items:
+                              type: object
+                              description: 'An interviewer assigned to the briefing''s interview event. By default,
+
+                                contains the interviewer''s `userId` with status flags. Pass
+
+                                `expand: ["interviewers"]` on the request to also populate the `user` and
+
+                                `interviewerPool` fields.
+
+                                '
+                              properties:
+                                userId:
+                                  allOf:
+                                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                                  - description: The user id of the interviewer
+                                  - example: caea4d97-331d-46b1-a8e3-6b821c2214ef
+                                isFeedbackRequired:
+                                  type: boolean
+                                  description: Whether feedback is required from this interviewer for this specific event.
+                                hasSubmittedFeedback:
+                                  type: boolean
+                                  description: Whether this interviewer has already submitted a scorecard for this event.
+                                trainingRole:
+                                  type:
+                                  - string
+                                  - 'null'
+                                  description: 'The training-related role of the interviewer for this specific event.
+
+                                    Returns null when the interviewer is qualified for interviewing (or
+
+                                    Interviewer Training is not enabled). See
+
+                                    [Ashby Knowledge Base](https://docs.ashbyhq.com/interviewer-training)
+
+                                    for more information.
+
+                                    '
+                                  enum:
+                                  - Shadow
+                                  - Reverse-Shadow
+                                  example: Shadow
+                                user:
+                                  description: 'The full user record for this interviewer. Only included when the
+
+                                    request was made with `expand: ["interviewers"]`.
+
+                                    '
+                                  anyOf:
+                                  - $ref: '#/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                                  - type: 'null'
+                                interviewerPool:
+                                  description: 'The interviewer pool this interviewer belongs to, if applicable. Only
+
+                                    included when the request was made with `expand: ["interviewers"]`.
+
+                                    '
+                                  anyOf:
+                                  - $ref: '#/paths/~1interviewerPool.list/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/items'
+                                  - type: 'null'
+                              required:
+                              - userId
+                              - isFeedbackRequired
+                              - hasSubmittedFeedback
+                              - trainingRole
+                          hasSubmittedFeedback:
+                            type: boolean
+                            description: Whether any interviewer on this event has submitted a scorecard.
+                          feedbackFormDefinitionId:
+                            allOf:
+                            - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            - description: The id of the feedback form definition that should be used to render and submit feedback for this event.
+                          feedbackFormDefinition:
+                            description: 'The full feedback form definition. Only included when the request was
+
+                              made with `expand: ["feedbackFormDefinition"]`.
+
+                              '
+                            $ref: '#/paths/~1feedbackFormDefinition.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                          application:
+                            description: 'The application associated with this briefing. Only included when the
+
+                              request was made with `expand: ["application"]`.
+
+                              '
+                            $ref: '#/webhooks/pushToHRIS/post/requestBody/content/application~1json/schema/properties/data/properties/application'
+                          candidate:
+                            description: 'The candidate associated with this briefing. Only included when the
+
+                              request was made with `expand: ["candidate"]`.
+
+                              '
+                            $ref: '#/paths/~1candidate.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                          job:
+                            description: 'The job associated with this briefing. Only included when the request
+
+                              was made with `expand: ["job"]`.
+
+                              '
+                            $ref: '#/webhooks/jobCreate/post/requestBody/content/application~1json/schema/properties/data/properties/job'
+                          interview:
+                            description: 'The interview associated with this briefing. Only included when the
+
+                              request was made with `expand: ["interview"]`.
+
+                              '
+                            $ref: '#/paths/~1interview.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                        required:
+                        - id
+                        - applicationId
+                        - interviewId
+                        - interviewStageId
+                        - interviewers
+                        - hasSubmittedFeedback
+                        - feedbackFormDefinitionId
+                    required:
+                    - results
+                - $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Auth. Send your Ashby API key as the username and leave the password blank.
+    WebhookSignature:
+      type: apiKey
+      in: header
+      name: Ashby-Signature
+      description: HMAC-SHA256 signature of the webhook payload, used to verify webhook authenticity.

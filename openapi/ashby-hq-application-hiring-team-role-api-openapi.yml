@@ -1,0 +1,64 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Ashby API Key Application Hiring Team Role API
+  description: Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.
+  contact:
+    name: Ashby Support
+    url: https://app.ashbyhq.com/support
+    email: support@ashbyhq.com
+servers:
+- url: https://api.ashbyhq.com
+security:
+- BasicAuth: []
+tags:
+- name: Application Hiring Team Role
+paths:
+  /applicationHiringTeamRole.list:
+    post:
+      summary: applicationHiringTeamRole.list
+      operationId: applicationHiringTeamRoleList
+      description: 'Gets all available hiring team roles for applications in the organization.
+
+
+        **Requires the [`candidatesRead`](authentication#permissions-applicationHiringTeamRoleList) permission.**
+
+        '
+      tags:
+      - Application Hiring Team Role
+      responses:
+        '200':
+          description: Responses from the applicationHiringTeamRole.list endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - allOf:
+                  - properties:
+                      results:
+                        type: array
+                        items:
+                          allOf:
+                          - type: object
+                            properties:
+                              id:
+                                $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                              title:
+                                type: string
+                            required:
+                            - id
+                            - title
+                  required:
+                  - results
+                - $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Auth. Send your Ashby API key as the username and leave the password blank.
+    WebhookSignature:
+      type: apiKey
+      in: header
+      name: Ashby-Signature
+      description: HMAC-SHA256 signature of the webhook payload, used to verify webhook authenticity.

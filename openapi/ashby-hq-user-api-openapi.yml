@@ -1,0 +1,823 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Ashby API Key User API
+  description: Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.
+  contact:
+    name: Ashby Support
+    url: https://app.ashbyhq.com/support
+    email: support@ashbyhq.com
+servers:
+- url: https://api.ashbyhq.com
+security:
+- BasicAuth: []
+tags:
+- name: User
+paths:
+  /user.info:
+    post:
+      summary: user.info
+      description: 'Get an Ashby user by id
+
+
+        **Requires the [`organizationRead`](authentication#permissions-userinfo) permission.**
+
+        '
+      operationId: userInfo
+      tags:
+      - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  allOf:
+                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                  - description: The id to lookup the user
+              required:
+              - userId
+      responses:
+        '200':
+          description: Responses for the user.info endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: object
+                        properties:
+                          id:
+                            $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                          firstName:
+                            type: string
+                            example: Test
+                          lastName:
+                            type: string
+                            example: User
+                          email:
+                            $ref: '#/paths/~1candidate.create/post/requestBody/content/application~1json/schema/properties/email/allOf/0'
+                          globalRole:
+                            type: string
+                            enum:
+                            - Organization Admin
+                            - Elevated Access
+                            - Limited Access
+                            - External Recruiter
+                          isEnabled:
+                            type: boolean
+                          updatedAt:
+                            $ref: '#/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt'
+                          managerId:
+                            description: The user id of the user's manager
+                            $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                          customFields:
+                            type: array
+                            description: Custom field values associated with the user. **Note:** This field requires a feature to be enabled for your organization. If it is not present in the response, please contact Ashby support to have it enabled.
+                            items:
+                              $ref: '#/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                        required:
+                        - id
+                        - firstName
+                        - lastName
+                        - globalRole
+                        - isEnabled
+                        - updatedAt
+                    required:
+                    - results
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+  /user.list:
+    post:
+      summary: user.list
+      description: 'Get a list of all Ashby users.
+
+
+        See the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.
+
+
+        **Requires the [`organizationRead`](authentication#permissions-userlist) permission.**
+
+
+        The `globalRole` property in the response specifies the user''s access level in Ashby.
+
+        For more details on the permissions granted with each role, see our [documentation here](https://docs.ashbyhq.com/user-permissions).
+
+        '
+      operationId: userList
+      tags:
+      - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/paths/~1surveyFormDefinition.list/post/requestBody/content/application~1json/schema'
+              - type: object
+                properties:
+                  includeDeactivated:
+                    type: boolean
+                    default: false
+                    description: "If set to true, deactivated users are included in the response. \nBy default, deactivated users are not included.\n"
+      responses:
+        '200':
+          description: Responses for the user.list endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.list/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                    required:
+                    - results
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+  /user.search:
+    post:
+      summary: user.search
+      description: 'Search for an Ashby user by email address
+
+
+        **Requires the [`organizationRead`](authentication#permissions-usersearch) permission.**
+
+        '
+      operationId: userSearch
+      tags:
+      - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: The email to use to search for the user
+                  example: test@ashbyhq.com
+              required:
+              - email
+      responses:
+        '200':
+          description: Responses for the user.search endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                    required:
+                    - results
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+  /user.interviewerSettings:
+    post:
+      summary: user.interviewerSettings
+      description: 'Get interviewer settings for a user.
+
+
+        **Requires the [`organizationRead`](authentication#permissions-userinfo) permission.**
+
+        '
+      operationId: userInterviewerSettings
+      tags:
+      - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  allOf:
+                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                  - description: The id of the user to get interviewer settings for
+              required:
+              - userId
+      responses:
+        '200':
+          description: Responses for the user.interviewerSettings endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: object
+                        properties:
+                          id:
+                            $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                          dailyLimit:
+                            type:
+                            - integer
+                            - 'null'
+                            description: Maximum number of interviews per day for this interviewer
+                          weeklyLimit:
+                            type:
+                            - integer
+                            - 'null'
+                            description: Maximum number of interviews per week for this interviewer
+                        required:
+                        - id
+                    required:
+                    - results
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+  /user.updateInterviewerSettings:
+    post:
+      summary: user.updateInterviewerSettings
+      description: "Update interviewer settings for a user. \n\nEither limit can be provided, or both can be provided. If only one is provided, the other will remain unchanged. If a limit is provided but set to null, it will be unset.\n\n**Requires the [`organizationWrite`](authentication#permissions-userinfo) permission.**\n"
+      operationId: userUpdateInterviewerSettings
+      tags:
+      - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  allOf:
+                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                  - description: The id of the user to update interviewer settings for
+                dailyLimit:
+                  type:
+                  - integer
+                  - 'null'
+                  description: Maximum number of interviews per day for this interviewer
+                weeklyLimit:
+                  type:
+                  - integer
+                  - 'null'
+                  description: Maximum number of interviews per week for this interviewer
+              required:
+              - userId
+      responses:
+        '200':
+          description: Responses for the user.updateInterviewerSettings endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        $ref: '#/paths/~1user.interviewerSettings/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                    required:
+                    - results
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+  /user.createInterviewerPause:
+    post:
+      summary: user.createInterviewerPause
+      description: 'Creates an interviewer pause for a user. While paused, the user will not be scheduled for interviews.
+
+
+        A user can only have one interviewer pause at a time (whether active or scheduled). Attempting to create a pause when one already exists will return an error.
+
+
+        **Requires the [`organizationWrite`](authentication#permissions-usercreateinterviewerpause) permission.**
+
+        '
+      operationId: userCreateInterviewerPause
+      tags:
+      - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  allOf:
+                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                  - description: The id of the user to pause.
+                startsAt:
+                  type: string
+                  format: date-time
+                  description: The start date and time of the pause. Defaults to the current time if not provided.
+                  example: '2024-01-15T00:00:00.000Z'
+                endsAt:
+                  type: string
+                  format: date-time
+                  description: The end date and time of the pause. If not provided, the pause is indefinite.
+                  example: '2024-02-15T00:00:00.000Z'
+                comment:
+                  type: string
+                  description: An optional comment describing the reason for the pause.
+                  example: On vacation
+              required:
+              - userId
+      responses:
+        '200':
+          description: Responses for the user.createInterviewerPause endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: object
+                        description: Represents an interviewer pause period during which the user will not be scheduled for interviews.
+                        properties:
+                          id:
+                            allOf:
+                            - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            - description: The unique id of the interviewer pause.
+                          userId:
+                            allOf:
+                            - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            - description: The id of the user who is paused.
+                          startsAt:
+                            type: string
+                            format: date-time
+                            description: The start date and time of the pause period.
+                            example: '2024-01-15T00:00:00.000Z'
+                          endsAt:
+                            type:
+                            - string
+                            - 'null'
+                            format: date-time
+                            description: The end date and time of the pause period. If null, the pause is indefinite.
+                            example: '2024-02-15T00:00:00.000Z'
+                          comment:
+                            type:
+                            - string
+                            - 'null'
+                            description: An optional comment describing the reason for the pause.
+                            example: On vacation
+                          createdAt:
+                            type: string
+                            format: date-time
+                            description: The date and time when the pause was created.
+                            example: '2024-01-14T10:30:00.000Z'
+                        required:
+                        - id
+                        - userId
+                        - startsAt
+                        - createdAt
+                    required:
+                    - results
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+  /user.listInterviewerPauses:
+    post:
+      summary: user.listInterviewerPauses
+      description: 'Lists all active or scheduled interviewer pauses for a user.
+
+
+        **Requires the [`organizationRead`](authentication#permissions-userlistinterviewerpauses) permission.**
+
+        '
+      operationId: userListInterviewerPauses
+      tags:
+      - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  allOf:
+                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                  - description: The id of the user to list pauses for.
+              required:
+              - userId
+      responses:
+        '200':
+          description: Responses for the user.listInterviewerPauses endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/paths/~1user.createInterviewerPause/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                    required:
+                    - results
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+  /user.deleteInterviewerPause:
+    post:
+      summary: user.deleteInterviewerPause
+      description: 'Deletes an interviewer pause.
+
+
+        **Requires the [`organizationWrite`](authentication#permissions-userdeleteinterviewerpause) permission.**
+
+        '
+      operationId: userDeleteInterviewerPause
+      tags:
+      - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                interviewerPauseId:
+                  allOf:
+                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                  - description: The id of the interviewer pause to delete.
+              required:
+              - interviewerPauseId
+      responses:
+        '200':
+          description: Responses for the user.deleteInterviewerPause endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: object
+                        properties:
+                          id:
+                            allOf:
+                            - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            - description: The id of the interviewer pause that was deleted.
+                        required:
+                        - id
+                    required:
+                    - results
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+  /user.setCustomFieldValue:
+    post:
+      summary: user.setCustomFieldValue
+      operationId: userSetCustomFieldValue
+      description: 'Set the value of a custom field on an employee.
+
+
+        **Requires the [`organizationWrite`](authentication#permissions-usersetcustomfieldvalue) permission.**
+
+
+        The values accepted in the `fieldValue` param depend on the type of field being updated. See the
+
+        [`customField.setValue`](#operation/customFieldSetValue) docs for accepted types.
+
+
+        **Note:** When updating multiple custom fields on the same employee, use
+
+        [`user.setCustomFieldValues`](#operation/userSetCustomFieldValues) instead to avoid race conditions.
+
+        '
+      tags:
+      - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - userId
+              - fieldId
+              - fieldValue
+              properties:
+                userId:
+                  allOf:
+                  - description: The id of the employee to set the custom field value for.
+                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                fieldId:
+                  allOf:
+                  - description: The unique id of the Custom Field definition for the field.
+                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                fieldValue:
+                  description: The value to store in the field. Type depends on the custom field type (boolean, string, number, object, etc.)
+                  oneOf:
+                  - type: boolean
+                    title: Boolean
+                    description: A boolean value
+                  - type: string
+                    title: Date
+                    format: date-time
+                    description: An ISO Date string
+                  - type: string
+                    title: String, Email, LongText, Phone
+                    description: A string
+                  - type: string
+                    title: Url
+                    format: uri
+                    description: A valid http or https URL (e.g., https://example.com)
+                  - type: array
+                    title: MultiValueSelect
+                    items:
+                      type: string
+                      description: An array of strings that exist in the MultiValueSelect field's options
+                  - type: number
+                    title: Number
+                    description: A number
+                  - type: object
+                    title: Currency
+                    required:
+                    - value
+                    - currencyCode
+                    properties:
+                      value:
+                        type: number
+                        example: 100000
+                      currencyCode:
+                        type: string
+                        example: USD
+                    description: An object describing a currency amount
+                  - type: string
+                    title: ValueSelect
+                    description: A string that matches the value of one of the ValueSelect field's options
+                  - type: object
+                    title: NumberRange
+                    required:
+                    - type
+                    - minValue
+                    - maxValue
+                    properties:
+                      type:
+                        type: string
+                        example: number-range
+                      minValue:
+                        type: number
+                        example: 10000
+                      maxValue:
+                        type: number
+                        example: 100000
+                    description: An object describing the number range
+                  - type: string
+                    title: UUID
+                    format: uuid
+                    description: A valid UUID string (e.g., for Employee fields)
+                  - type: object
+                    title: CompensationRange
+                    required:
+                    - type
+                    - minValue
+                    - maxValue
+                    - currencyCode
+                    - interval
+                    properties:
+                      type:
+                        type: string
+                        example: compensation-range
+                      minValue:
+                        type: number
+                        example: 10000
+                      maxValue:
+                        type: number
+                        example: 100000
+                      currencyCode:
+                        type: string
+                        example: USD
+                      interval:
+                        type: string
+                        enum:
+                        - NONE
+                        - 1 TIME
+                        - 1 HOUR
+                        - 1 DAY
+                        - 1 WEEK
+                        - 2 WEEK
+                        - 1 MONTH
+                        - 2 MONTH
+                        - 1 YEAR
+                        - 6 MONTH
+                        - 0.5 MONTH
+                        - 3 MONTH
+                        example: 1 YEAR
+                    description: An object describing the compensation range
+      responses:
+        '200':
+          description: Responses for the user.setCustomFieldValue endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        $ref: '#/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                    required:
+                    - results
+                - $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+  /user.setCustomFieldValues:
+    post:
+      summary: user.setCustomFieldValues
+      operationId: userSetCustomFieldValues
+      description: 'Set the values of multiple custom fields on an employee in a single call.
+
+        This is the recommended approach when updating multiple fields on the same employee
+
+        to avoid race conditions that can occur with concurrent `user.setCustomFieldValue` calls.
+
+
+        **Requires the [`organizationWrite`](authentication#permissions-usersetcustomfieldvalues) permission.**
+
+
+        The values accepted in the `fieldValue` param depend on the type of field being updated. See the
+
+        [`customField.setValue`](#operation/customFieldSetValue) docs for accepted types.
+
+        '
+      tags:
+      - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - userId
+              - values
+              properties:
+                userId:
+                  allOf:
+                  - description: The id of the employee to set custom field values for.
+                  - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                values:
+                  type: array
+                  description: Array of custom field updates to apply
+                  minItems: 1
+                  items:
+                    type: object
+                    required:
+                    - fieldId
+                    - fieldValue
+                    properties:
+                      fieldId:
+                        allOf:
+                        - description: The unique id of the Custom Field definition for the field.
+                        - $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                      fieldValue:
+                        description: The value to store in the field. Type depends on the custom field type (boolean, string, number, object, etc.)
+                        oneOf:
+                        - type: boolean
+                          title: Boolean
+                          description: A boolean value
+                        - type: string
+                          title: Date
+                          format: date-time
+                          description: An ISO Date string
+                        - type: string
+                          title: String, Email, LongText, Phone
+                          description: A string
+                        - type: string
+                          title: Url
+                          format: uri
+                          description: A valid http or https URL (e.g., https://example.com)
+                        - type: array
+                          title: MultiValueSelect
+                          items:
+                            type: string
+                            description: An array of strings that exist in the MultiValueSelect field's options
+                        - type: number
+                          title: Number
+                          description: A number
+                        - type: object
+                          title: Currency
+                          required:
+                          - value
+                          - currencyCode
+                          properties:
+                            value:
+                              type: number
+                              example: 100000
+                            currencyCode:
+                              type: string
+                              example: USD
+                          description: An object describing a currency amount
+                        - type: string
+                          title: ValueSelect
+                          description: A string that matches the value of one of the ValueSelect field's options
+                        - type: object
+                          title: NumberRange
+                          required:
+                          - type
+                          - minValue
+                          - maxValue
+                          properties:
+                            type:
+                              type: string
+                              example: number-range
+                            minValue:
+                              type: number
+                              example: 10000
+                            maxValue:
+                              type: number
+                              example: 100000
+                          description: An object describing the number range
+                        - type: string
+                          title: UUID
+                          format: uuid
+                          description: A valid UUID string (e.g., for Employee fields)
+                        - type: object
+                          title: CompensationRange
+                          required:
+                          - type
+                          - minValue
+                          - maxValue
+                          - currencyCode
+                          - interval
+                          properties:
+                            type:
+                              type: string
+                              example: compensation-range
+                            minValue:
+                              type: number
+                              example: 10000
+                            maxValue:
+                              type: number
+                              example: 100000
+                            currencyCode:
+                              type: string
+                              example: USD
+                            interval:
+                              type: string
+                              enum:
+                              - NONE
+                              - 1 TIME
+                              - 1 HOUR
+                              - 1 DAY
+                              - 1 WEEK
+                              - 2 WEEK
+                              - 1 MONTH
+                              - 2 MONTH
+                              - 1 YEAR
+                              - 6 MONTH
+                              - 0.5 MONTH
+                              - 3 MONTH
+                              example: 1 YEAR
+                          description: An object describing the compensation range
+      responses:
+        '200':
+          description: Responses for the user.setCustomFieldValues endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results'
+                    required:
+                    - results
+                - $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Auth. Send your Ashby API key as the username and leave the password blank.
+    WebhookSignature:
+      type: apiKey
+      in: header
+      name: Ashby-Signature
+      description: HMAC-SHA256 signature of the webhook payload, used to verify webhook authenticity.

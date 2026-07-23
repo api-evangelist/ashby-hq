@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Ashby API Key Interview Stage Group API
+  description: Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.
+  contact:
+    name: Ashby Support
+    url: https://app.ashbyhq.com/support
+    email: support@ashbyhq.com
+servers:
+- url: https://api.ashbyhq.com
+security:
+- BasicAuth: []
+tags:
+- name: Interview Stage Group
+paths:
+  /interviewStageGroup.list:
+    post:
+      summary: interviewStageGroup.list
+      description: 'List all interview group stages for an interview plan in order.
+
+
+        **Requires the [`interviewsRead`](authentication#permissions-interviewstagelist) permission.**
+
+        '
+      operationId: interviewStageGroupList
+      tags:
+      - Interview Stage Group
+      responses:
+        '200':
+          description: Responses for the interviewStageGroup.list endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          allOf:
+                          - type: object
+                            properties:
+                              id:
+                                $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                              title:
+                                type: string
+                                example: Technical Screening
+                              order:
+                                type: integer
+                                example: 1
+                              stageType:
+                                type: string
+                                enum:
+                                - Lead
+                                - PreInterviewScreen
+                                - Active
+                                - Offer
+                                - Hired
+                                - Archived
+                                example: Active
+                            required:
+                            - id
+                            - title
+                            - order
+                            - stageType
+                    required:
+                    - results
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Auth. Send your Ashby API key as the username and leave the password blank.
+    WebhookSignature:
+      type: apiKey
+      in: header
+      name: Ashby-Signature
+      description: HMAC-SHA256 signature of the webhook payload, used to verify webhook authenticity.

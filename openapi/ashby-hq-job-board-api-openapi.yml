@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Ashby API Key Job Board API
+  description: Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.
+  contact:
+    name: Ashby Support
+    url: https://app.ashbyhq.com/support
+    email: support@ashbyhq.com
+servers:
+- url: https://api.ashbyhq.com
+security:
+- BasicAuth: []
+tags:
+- name: Job Board
+paths:
+  /jobBoard.list:
+    post:
+      summary: jobBoard.list
+      description: 'List all enabled job boards.
+
+
+        **Requires the [`jobsRead`](authentication#permissions-jobboardlist) permission.**
+
+        '
+      operationId: jobBoardList
+      tags:
+      - Job Board
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Responses for the jobBoard.list endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.list/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          allOf:
+                          - type: object
+                            properties:
+                              id:
+                                $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                              title:
+                                type: string
+                              isInternal:
+                                type: boolean
+                                description: Whether the job board is an internal board.
+                            required:
+                            - id
+                            - title
+                            - isInternal
+                    required:
+                    - results
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Auth. Send your Ashby API key as the username and leave the password blank.
+    WebhookSignature:
+      type: apiKey
+      in: header
+      name: Ashby-Signature
+      description: HMAC-SHA256 signature of the webhook payload, used to verify webhook authenticity.

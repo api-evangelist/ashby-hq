@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Ashby API Key Referral Form API
+  description: Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.
+  contact:
+    name: Ashby Support
+    url: https://app.ashbyhq.com/support
+    email: support@ashbyhq.com
+servers:
+- url: https://api.ashbyhq.com
+security:
+- BasicAuth: []
+tags:
+- name: Referral Form
+paths:
+  /referralForm.info:
+    post:
+      summary: referralForm.info
+      operationId: referralFormInfo
+      description: 'Fetches the default referral form or creates a default referral form if none exists.
+
+
+        **Requires the [`hiringProcessMetadataRead`](authentication#permissions-referralforminfo) permission.**
+
+        '
+      tags:
+      - Referral Form
+      responses:
+        '200':
+          description: Responses for the referral.create endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        allOf:
+                        - type: object
+                          properties:
+                            id:
+                              $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            organizationId:
+                              type: string
+                              format: uuid
+                              description: The ID of the organization this form belongs to
+                            title:
+                              type: string
+                              description: The title of the form
+                            isArchived:
+                              $ref: '#/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived'
+                            isDefaultForm:
+                              type: boolean
+                              description: Whether this is the default form for the organization
+                            formDefinition:
+                              $ref: '#/paths/~1offer.start/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/formDefinition'
+                          required:
+                          - id
+                          - organizationId
+                          - title
+                          - isArchived
+                          - isDefaultForm
+                          - formDefinition
+                        - type: object
+                          properties:
+                            organizationId:
+                              $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            isDefaultForm:
+                              type: boolean
+                              example: true
+                    required:
+                    - results
+                - $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Auth. Send your Ashby API key as the username and leave the password blank.
+    WebhookSignature:
+      type: apiKey
+      in: header
+      name: Ashby-Signature
+      description: HMAC-SHA256 signature of the webhook payload, used to verify webhook authenticity.

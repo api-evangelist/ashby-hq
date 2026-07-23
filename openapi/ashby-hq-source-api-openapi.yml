@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Ashby API Key Source API
+  description: Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.
+  contact:
+    name: Ashby Support
+    url: https://app.ashbyhq.com/support
+    email: support@ashbyhq.com
+servers:
+- url: https://api.ashbyhq.com
+security:
+- BasicAuth: []
+tags:
+- name: Source
+paths:
+  /source.list:
+    post:
+      summary: source.list
+      description: 'List all sources
+
+
+        **Requires the [`hiringProcessMetadataRead`](authentication#permissions-sourcelist) permission.**
+
+        '
+      operationId: sourcelist
+      tags:
+      - Source
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                includeArchived:
+                  type: boolean
+                  description: When true, includes archived items
+                  default: false
+      responses:
+        '200':
+          description: Responses for the source.list endpoint
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - title: Success response
+                  allOf:
+                  - $ref: '#/paths/~1job.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/0'
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                            title:
+                              type: string
+                              example: Applied
+                            isArchived:
+                              $ref: '#/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived'
+                            sourceType:
+                              type: object
+                              properties:
+                                id:
+                                  $ref: '#/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId'
+                                title:
+                                  type: string
+                                  example: Inbound
+                                isArchived:
+                                  $ref: '#/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived'
+                              required:
+                              - id
+                              - title
+                              - isArchived
+                          required:
+                          - id
+                          - title
+                          - isArchived
+                      moreDataAvailable:
+                        type: boolean
+                        example: false
+                    required:
+                    - results
+                    - moreDataAvailable
+                - title: Error response
+                  $ref: '#/paths/~1report.generate/post/responses/429/content/application~1json/schema'
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Auth. Send your Ashby API key as the username and leave the password blank.
+    WebhookSignature:
+      type: apiKey
+      in: header
+      name: Ashby-Signature
+      description: HMAC-SHA256 signature of the webhook payload, used to verify webhook authenticity.
