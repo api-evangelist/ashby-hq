@@ -1,260 +1,6 @@
 aid: ashby-hq
 url: https://raw.githubusercontent.com/api-evangelist/ashby-hq/refs/heads/main/apis.yml
 apis:
-- aid: ashby-hq:ashby-applications-api
-  name: Ashby Applications API
-  tags:
-  - Applications
-  - ATS
-  - Recruiting
-  - Candidates
-  humanURL: https://developers.ashbyhq.com/reference/applicationlist
-  properties:
-  - url: https://developers.ashbyhq.com/reference/applicationlist
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  - url: json-schema/ashby-application-schema.json
-    type: JSONSchema
-  - url: json-ld/ashby-context.jsonld
-    type: JSONLD
-  - url: graphql/ashby-hq-graphql.md
-    type: GraphQL
-  description: Create, list, transfer, update, and inspect candidate applications
-    across jobs and stages. Includes application history, hiring team membership,
-    source and stage changes, feedback submission, criteria evaluations from AI Application
-    Review, and application form submission for custom careers pages.
-- aid: ashby-hq:ashby-candidates-api
-  name: Ashby Candidates API
-  tags:
-  - Candidates
-  - ATS
-  - CRM
-  - Sourcing
-  - Recruiting
-  humanURL: https://developers.ashbyhq.com/reference/candidatelist
-  properties:
-  - url: https://developers.ashbyhq.com/reference/candidatelist
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  - url: json-schema/ashby-candidate-schema.json
-    type: JSONSchema
-  - url: json-ld/ashby-context.jsonld
-    type: JSONLD
-  description: Manage candidate records — create, update, search, anonymize, merge,
-    hire — plus candidate tags, projects, notes, messages, resume and file uploads,
-    sourcing sequences, referrals, and fraud-check status. The candidate is the central
-    CRM entity in Ashby's all-in-one recruiting platform.
-- aid: ashby-hq:ashby-jobs-api
-  name: Ashby Jobs API
-  tags:
-  - Jobs
-  - Openings
-  - Job Postings
-  - Job Boards
-  - ATS
-  humanURL: https://developers.ashbyhq.com/reference/joblist
-  properties:
-  - url: https://developers.ashbyhq.com/reference/joblist
-    type: Documentation
-  - url: https://developers.ashbyhq.com/reference/jobpostinglist
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  - url: json-schema/ashby-job-schema.json
-    type: JSONSchema
-  description: Manage jobs, openings, job postings, and job boards. Includes job CRUD,
-    compensation updates, status changes (Open / Closed / Archived / Draft), opening
-    lifecycle (create / archive / restore / addJob / removeJob / addLocation / removeLocation),
-    job posting publish/unpublish, job templates, and interview plan associations.
-    Powers Ashby's dedicated partner job feeds.
-- aid: ashby-hq:ashby-interviews-api
-  name: Ashby Interviews API
-  tags:
-  - Interviews
-  - Scheduling
-  - Recruiting
-  - Calendar
-  - Notetaker
-  humanURL: https://developers.ashbyhq.com/reference/interviewschedulelist
-  properties:
-  - url: https://developers.ashbyhq.com/reference/interviewschedulelist
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  - url: json-schema/ashby-interview-schema.json
-    type: JSONSchema
-  description: Read and manage interviews, interview schedules (create / update /
-    cancel), interview events, interview stages and stage groups, interview plans,
-    interview briefings, interviewer pools and pauses, and AI Notetaker transcripts.
-    Backs Ashby's advanced scheduling and AI Notetaker add-ons.
-- aid: ashby-hq:ashby-offers-api
-  name: Ashby Offers API
-  tags:
-  - Offers
-  - Approvals
-  - Recruiting
-  - Hiring
-  humanURL: https://developers.ashbyhq.com/reference/offerlist
-  properties:
-  - url: https://developers.ashbyhq.com/reference/offerlist
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  description: Create and manage candidate offers, offer versions, the offer process
-    (start), and approval workflows — including force-approve for individual approval
-    steps or the entire offer (mirrors the Ashby app's admin override). Integrates
-    with Pave for compensation and Ironclad for offer contracts.
-- aid: ashby-hq:ashby-approvals-api
-  name: Ashby Approvals API
-  tags:
-  - Approvals
-  - Workflow
-  - Governance
-  - Recruiting
-  humanURL: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
-  properties:
-  - url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  description: Programmatically define approval definitions for entities in scope
-    of API-managed approvals. Supports multi-step approval workflows and skip-via-empty-list
-    semantics for routing offers and other entities through governance gates.
-- aid: ashby-hq:ashby-surveys-api
-  name: Ashby Surveys & Feedback API
-  tags:
-  - Surveys
-  - Feedback
-  - Forms
-  - Recruiting
-  humanURL: https://developers.ashbyhq.com/reference/surveyrequestlist
-  properties:
-  - url: https://developers.ashbyhq.com/reference/surveyrequestlist
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  description: Read survey form and feedback form definitions, create survey requests,
-    list and submit survey submissions, list application feedback, and submit interviewer
-    feedback. Powers Ashby's structured-hiring feedback loops and candidate-experience
-    surveys.
-- aid: ashby-hq:ashby-assessments-api
-  name: Ashby Assessments API
-  tags:
-  - Assessments
-  - Integrations
-  - Partner API
-  - Recruiting
-  humanURL: https://developers.ashbyhq.com/reference/assessmentstart
-  properties:
-  - url: https://developers.ashbyhq.com/reference/assessmentstart
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  description: Partner-implemented assessment integration surface. Lists configured
-    assessments, starts and cancels assessment instances, updates assessment status,
-    adds completed assessments to a candidate, and syncs result-driven custom fields.
-    Used by SHL, HackerRank, CodeSignal, and CoderPad integrations.
-- aid: ashby-hq:ashby-custom-fields-api
-  name: Ashby Custom Fields API
-  tags:
-  - Custom Fields
-  - Configuration
-  - Recruiting
-  humanURL: https://developers.ashbyhq.com/reference/customfieldcreate
-  properties:
-  - url: https://developers.ashbyhq.com/reference/customfieldcreate
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  description: Define custom fields on Ashby entities, set single and batch values,
-    and manage selectable options. Backs Ashby's structured-hiring data model and
-    is the integration point for partner-driven field syncing (assessments, background
-    checks, HRIS).
-- aid: ashby-hq:ashby-organization-api
-  name: Ashby Organization API
-  tags:
-  - Organization
-  - Users
-  - Departments
-  - Locations
-  - Brands
-  - Sources
-  humanURL: https://developers.ashbyhq.com/reference/userlist
-  properties:
-  - url: https://developers.ashbyhq.com/reference/userlist
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  description: Read and manage organization metadata — users (with permission roles),
-    departments and teams, locations with hierarchical address updates, brands, hiring
-    team roles, archive and close reasons, communication templates, sources, source
-    tracking links, referral forms, and search across users and locations. The reference
-    data plane for every other Ashby resource.
-- aid: ashby-hq:ashby-files-api
-  name: Ashby Files API
-  tags:
-  - Files
-  - Uploads
-  - Recruiting
-  humanURL: https://developers.ashbyhq.com/reference/fileinfo
-  properties:
-  - url: https://developers.ashbyhq.com/reference/fileinfo
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  description: Look up file metadata and request presigned upload URLs for candidate
-    resumes, application attachments, and partner-provided assessment artifacts. Two-step
-    pattern — request presigned URL, then PUT bytes — keeps payloads off Ashby's API
-    surface.
-- aid: ashby-hq:ashby-reports-api
-  name: Ashby Reports API
-  tags:
-  - Reports
-  - Analytics
-  - Recruiting
-  - Async
-  humanURL: https://developers.ashbyhq.com/reference/reportgenerate
-  properties:
-  - url: https://developers.ashbyhq.com/reference/reportgenerate
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  description: Generate Ashby Analytics reports synchronously or asynchronously. The
-    async path is the recommended pattern for large datasets; subject to a strict
-    15 req/min, 3 concurrent execution cap to protect the analytics warehouse. Powers
-    the standalone Ashby Analytics product.
-- aid: ashby-hq:ashby-webhooks-api
-  name: Ashby Webhooks API
-  tags:
-  - Webhooks
-  - Events
-  - Eventing
-  - Recruiting
-  humanURL: https://developers.ashbyhq.com/docs/setting-up-webhooks
-  properties:
-  - url: https://developers.ashbyhq.com/docs/setting-up-webhooks
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/authenticating-webhooks
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/related-webhooks
-    type: Documentation
-  - url: https://developers.ashbyhq.com/docs/webhook-retries
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  description: 'Manage outbound webhook subscriptions (webhook.create / update / info
-    / delete) and consume 22 event types: applicationSubmit, applicationUpdate, candidateDelete,
-    candidateHire, candidateMerge, candidateStageChange, interviewPlanTransition,
-    interviewScheduleCreate, interviewScheduleUpdate, jobCreate, jobUpdate, jobPostingPublish,
-    jobPostingUnpublish, jobPostingUpdate, offerCreate, offerDelete, offerUpdate,
-    openingCreate, ping, pushToHRIS, signatureRequestUpdate, surveySubmit. HMAC-SHA256
-    signed via Ashby-Signature header; automatic retries on non-2xx responses.'
 - aid: ashby-hq:ashby-job-postings-public-api
   name: Ashby Job Postings Public API
   tags:
@@ -269,26 +15,3124 @@ apis:
     type: Documentation
   - url: https://developers.ashbyhq.com/docs/dedicated-partner-job-feeds
     type: Documentation
-  description: Public, unauthenticated job postings endpoint for building custom careers
-    pages and partner job feeds (LinkedIn, Indeed, Otta, Built In, ZipRecruiter, Levels.fyi).
-    Returns published job postings with structured location, compensation, employment
-    type, and brand metadata.
-- aid: ashby-hq:ashby-api-keys-api
-  name: Ashby API Keys API
+  description: >-
+    Public, unauthenticated job postings endpoint for building custom careers pages and partner job feeds
+    (LinkedIn, Indeed, Otta, Built In, ZipRecruiter, Levels.fyi). Returns published job postings with
+    structured location, compensation, employment type, and brand metadata.
+- aid: ashby-hq:ashby-hq-api-key-api
+  name: Ashby API Key API
+  description: The API Key API from Ashby — 1 operation(s) for api key.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
   tags:
-  - API Keys
-  - Authentication
-  - Administration
-  humanURL: https://developers.ashbyhq.com/reference/apikeyinfo
+  - API Key
   properties:
-  - url: https://developers.ashbyhq.com/reference/apikeyinfo
-    type: Documentation
-  - url: openapi/ashby-openapi.yml
-    type: OpenAPI
-  description: Inspect the calling API key — returns the key's name, granted permission
-    modules (Jobs, Candidates, Interviews, Offers, Approvals, Organization, Reports,
-    API Keys), and read/write scopes. Useful for partners that need to validate permission
-    grants before issuing dependent calls.
+  - type: OpenAPI
+    url: openapi/ashby-hq-api-key-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-application-api
+  name: Ashby Application API
+  description: The Application API from Ashby — 12 operation(s) for application.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Application
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-application-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-application-feedback-api
+  name: Ashby Application Feedback API
+  description: The Application Feedback API from Ashby — 2 operation(s) for application feedback.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Application Feedback
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-application-feedback-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-application-feedback-request-api
+  name: Ashby Application Feedback Request API
+  description: >-
+    The Application Feedback Request API from Ashby — 1 operation(s) for application feedback request.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Application Feedback Request
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-application-feedback-request-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-application-form-api
+  name: Ashby Application Form API
+  description: The Application Form API from Ashby — 1 operation(s) for application form.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Application Form
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-application-form-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-application-hiring-team-role-api
+  name: Ashby Application Hiring Team Role API
+  description: >-
+    The Application Hiring Team Role API from Ashby — 1 operation(s) for application hiring team role.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Application Hiring Team Role
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-application-hiring-team-role-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-approval-api
+  name: Ashby Approval API
+  description: The Approval API from Ashby — 1 operation(s) for approval.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Approval
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-approval-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-approval-definition-api
+  name: Ashby Approval Definition API
+  description: The Approval Definition API from Ashby — 1 operation(s) for approval definition.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Approval Definition
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-approval-definition-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-archive-reason-api
+  name: Ashby Archive Reason API
+  description: The Archive Reason API from Ashby — 1 operation(s) for archive reason.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Archive Reason
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-archive-reason-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-assessment-api
+  name: Ashby Assessment API
+  description: The Assessment API from Ashby — 6 operation(s) for assessment.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Assessment
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-assessment-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-brand-api
+  name: Ashby Brand API
+  description: The Brand API from Ashby — 1 operation(s) for brand.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Brand
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-brand-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-candidate-api
+  name: Ashby Candidate API
+  description: The Candidate API from Ashby — 19 operation(s) for candidate.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Candidate
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-candidate-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-candidate-tag-api
+  name: Ashby Candidate Tag API
+  description: The Candidate Tag API from Ashby — 3 operation(s) for candidate tag.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Candidate Tag
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-candidate-tag-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-close-reason-api
+  name: Ashby Close Reason API
+  description: The Close Reason API from Ashby — 1 operation(s) for close reason.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Close Reason
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-close-reason-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-communication-template-api
+  name: Ashby Communication Template API
+  description: The Communication Template API from Ashby — 1 operation(s) for communication template.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Communication Template
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-communication-template-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-custom-field-api
+  name: Ashby Custom Field API
+  description: The Custom Field API from Ashby — 6 operation(s) for custom field.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Custom Field
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-custom-field-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-department-api
+  name: Ashby Department API
+  description: The Department API from Ashby — 2 operation(s) for department.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Department
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-department-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-department-team-api
+  name: Ashby Department & Team API
+  description: The Department & Team API from Ashby — 5 operation(s) for department & team.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Department & Team
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-department-team-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-feedback-form-definition-api
+  name: Ashby Feedback Form Definition API
+  description: >-
+    The Feedback Form Definition API from Ashby — 2 operation(s) for feedback form definition.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Feedback Form Definition
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-feedback-form-definition-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-file-api
+  name: Ashby File API
+  description: The File API from Ashby — 2 operation(s) for file.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - File
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-file-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-hiring-team-api
+  name: Ashby Hiring Team API
+  description: The Hiring Team API from Ashby — 2 operation(s) for hiring team.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Hiring Team
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-hiring-team-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-hiring-team-role-api
+  name: Ashby Hiring Team Role API
+  description: The Hiring Team Role API from Ashby — 1 operation(s) for hiring team role.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Hiring Team Role
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-hiring-team-role-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-interview-api
+  name: Ashby Interview API
+  description: The Interview API from Ashby — 2 operation(s) for interview.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Interview
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-interview-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-interview-briefing-api
+  name: Ashby Interview Briefing API
+  description: The Interview Briefing API from Ashby — 1 operation(s) for interview briefing.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Interview Briefing
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-interview-briefing-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-interview-event-api
+  name: Ashby Interview Event API
+  description: The Interview Event API from Ashby — 1 operation(s) for interview event.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Interview Event
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-interview-event-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-interview-plan-api
+  name: Ashby Interview Plan API
+  description: The Interview Plan API from Ashby — 1 operation(s) for interview plan.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Interview Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-interview-plan-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-interview-schedule-api
+  name: Ashby Interview Schedule API
+  description: The Interview Schedule API from Ashby — 4 operation(s) for interview schedule.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Interview Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-interview-schedule-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-interview-stage-api
+  name: Ashby Interview Stage API
+  description: The Interview Stage API from Ashby — 2 operation(s) for interview stage.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Interview Stage
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-interview-stage-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-interview-stage-group-api
+  name: Ashby Interview Stage Group API
+  description: The Interview Stage Group API from Ashby — 1 operation(s) for interview stage group.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Interview Stage Group
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-interview-stage-group-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-interviewer-pool-api
+  name: Ashby Interviewer Pool API
+  description: The Interviewer Pool API from Ashby — 8 operation(s) for interviewer pool.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Interviewer Pool
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-interviewer-pool-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-job-api
+  name: Ashby Job API
+  description: The Job API from Ashby — 7 operation(s) for job.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Job
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-job-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-job-board-api
+  name: Ashby Job Board API
+  description: The Job Board API from Ashby — 1 operation(s) for job board.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Job Board
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-job-board-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-job-interview-plan-api
+  name: Ashby Job Interview Plan API
+  description: The Job Interview Plan API from Ashby — 1 operation(s) for job interview plan.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Job Interview Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-job-interview-plan-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-job-posting-api
+  name: Ashby Job Posting API
+  description: The Job Posting API from Ashby — 3 operation(s) for job posting.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Job Posting
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-job-posting-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-job-template-api
+  name: Ashby Job Template API
+  description: The Job Template API from Ashby — 1 operation(s) for job template.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Job Template
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-job-template-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-location-api
+  name: Ashby Location API
+  description: The Location API from Ashby — 10 operation(s) for location.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Location
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-location-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-notetaker-transcript-api
+  name: Ashby Notetaker Transcript API
+  description: The Notetaker Transcript API from Ashby — 1 operation(s) for notetaker transcript.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Notetaker Transcript
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-notetaker-transcript-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-offer-api
+  name: Ashby Offer API
+  description: The Offer API from Ashby — 7 operation(s) for offer.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Offer
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-offer-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-offer-process-api
+  name: Ashby Offer Process API
+  description: The Offer Process API from Ashby — 1 operation(s) for offer process.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Offer Process
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-offer-process-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-openings-api
+  name: Ashby Openings API
+  description: The Openings API from Ashby — 11 operation(s) for openings.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Openings
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-openings-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-project-api
+  name: Ashby Project API
+  description: The Project API from Ashby — 3 operation(s) for project.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Project
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-project-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-referral-api
+  name: Ashby Referral API
+  description: The Referral API from Ashby — 1 operation(s) for referral.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Referral
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-referral-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-referral-form-api
+  name: Ashby Referral Form API
+  description: The Referral Form API from Ashby — 1 operation(s) for referral form.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Referral Form
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-referral-form-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-report-api
+  name: Ashby Report API
+  description: The Report API from Ashby — 2 operation(s) for report.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Report
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-report-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-source-api
+  name: Ashby Source API
+  description: The Source API from Ashby — 1 operation(s) for source.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Source
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-source-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-source-tracking-links-api
+  name: Ashby Source Tracking Links API
+  description: The Source Tracking Links API from Ashby — 1 operation(s) for source tracking links.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Source Tracking Links
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-source-tracking-links-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-survey-form-definition-api
+  name: Ashby Survey Form Definition API
+  description: The Survey Form Definition API from Ashby — 2 operation(s) for survey form definition.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Survey Form Definition
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-survey-form-definition-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-survey-request-api
+  name: Ashby Survey Request API
+  description: The Survey Request API from Ashby — 2 operation(s) for survey request.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Survey Request
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-survey-request-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-survey-submission-api
+  name: Ashby Survey Submission API
+  description: The Survey Submission API from Ashby — 2 operation(s) for survey submission.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Survey Submission
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-survey-submission-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-user-api
+  name: Ashby User API
+  description: The User API from Ashby — 10 operation(s) for user.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-user-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-webhook-api
+  name: Ashby Webhook API
+  description: The Webhook API from Ashby — 4 operation(s) for webhook.
+  humanURL: https://developers.ashbyhq.com/reference/applicationlist
+  tags:
+  - Webhook
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-webhook-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/applicationlist
+  - type: JSONSchema
+    url: json-schema/ashby-application-schema.json
+  - type: JSONLD
+    url: json-ld/ashby-context.jsonld
+  - type: GraphQL
+    url: graphql/ashby-hq-graphql.md
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/candidatelist
+  - type: JSONSchema
+    url: json-schema/ashby-candidate-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/joblist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/jobpostinglist
+  - type: JSONSchema
+    url: json-schema/ashby-job-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/interviewschedulelist
+  - type: JSONSchema
+    url: json-schema/ashby-interview-schema.json
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/offerlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/approvaldefinitionupdate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/surveyrequestlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/assessmentstart
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/creating-an-assessments-integration
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/customfieldcreate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/userlist
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/fileinfo
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/reportgenerate
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/setting-up-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/authenticating-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/common-webhook-payload-data
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/related-webhooks
+  - type: Documentation
+    url: https://developers.ashbyhq.com/docs/webhook-retries
+  - type: Documentation
+    url: https://developers.ashbyhq.com/reference/apikeyinfo
 name: Ashby
 tags:
 - ATS
@@ -303,9 +3147,24 @@ tags:
 - HR Tech
 - AI
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ashby-hq.png
 access: 3rd-Party
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/ashby/overview
 - type: MCPServer
   url: mcp/ashby-hq-mcp.yml
 - type: Packages
