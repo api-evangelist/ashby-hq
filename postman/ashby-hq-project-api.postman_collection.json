@@ -1,0 +1,365 @@
+{
+  "info": {
+    "_postman_id": "d14278cc-981c-4476-9f66-3fe09aa42f23",
+    "name": "Ashby API Key Project API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:59.000Z",
+    "updatedAt": "2026-07-28T01:06:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d14278cc-981c-4476-9f66-3fe09aa42f23"
+  },
+  "item": [
+    {
+      "name": "project.info",
+      "item": [
+        {
+          "name": "project.info",
+          "id": "97e759a8-5598-43e8-8b08-bfa95b606dee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"projectId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/project.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "project.info"
+              ]
+            },
+            "description": "Retrieves an project by its UUID.\n      \n**Requires the [`jobsRead`](authentication#permissions-projectinfo) permission.**"
+          },
+          "response": [
+            {
+              "id": "8204cb87-0a5e-4743-9fcb-c3cadb382ab0",
+              "name": "Responses for the project.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"projectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/project.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "project.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"confidential\": \"<boolean>\",\n    \"authorId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"createdAt\": {\n      \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n    },\n    \"customFieldEntries\": [\n      {\n        \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:07:00.000Z",
+              "updatedAt": "2026-07-28T01:07:00.000Z",
+              "uid": "35240-8204cb87-0a5e-4743-9fcb-c3cadb382ab0"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:00.000Z",
+          "updatedAt": "2026-07-28T01:07:00.000Z",
+          "uid": "35240-97e759a8-5598-43e8-8b08-bfa95b606dee"
+        }
+      ],
+      "id": "c1d56240-7d0d-48ba-bb7c-fb1cdd7ad44a",
+      "createdAt": "2026-07-28T01:07:00.000Z",
+      "updatedAt": "2026-07-28T01:07:00.000Z",
+      "uid": "35240-c1d56240-7d0d-48ba-bb7c-fb1cdd7ad44a"
+    },
+    {
+      "name": "project.list",
+      "item": [
+        {
+          "name": "project.list",
+          "id": "73ff65a0-fa80-4dd0-a9f9-264b8b88e186",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"reference #/paths/~1opening.list/post/requestBody/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/project.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "project.list"
+              ]
+            },
+            "description": "Lists projects.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n      \n**Requires the [`candidatesRead`](authentication#permissions-projectlist) permission.**"
+          },
+          "response": [
+            {
+              "id": "49f02a9b-c2fc-4684-8415-47e60cb12f40",
+              "name": "Responses for the project.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/paths/~1opening.list/post/requestBody/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/project.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "project.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      },\n      \"confidential\": \"<boolean>\",\n      \"authorId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"customFieldEntries\": [\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      },\n      \"confidential\": \"<boolean>\",\n      \"authorId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"customFieldEntries\": [\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:07:00.000Z",
+              "updatedAt": "2026-07-28T01:07:00.000Z",
+              "uid": "35240-49f02a9b-c2fc-4684-8415-47e60cb12f40"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:00.000Z",
+          "updatedAt": "2026-07-28T01:07:00.000Z",
+          "uid": "35240-73ff65a0-fa80-4dd0-a9f9-264b8b88e186"
+        }
+      ],
+      "id": "fbbc224b-8d0b-4d5f-9a30-eab7466d9aa9",
+      "createdAt": "2026-07-28T01:07:00.000Z",
+      "updatedAt": "2026-07-28T01:07:00.000Z",
+      "uid": "35240-fbbc224b-8d0b-4d5f-9a30-eab7466d9aa9"
+    },
+    {
+      "name": "project.search",
+      "item": [
+        {
+          "name": "project.search",
+          "id": "a85f873e-b24f-4fb1-aaf2-a7e8c34f491a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/project.search",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "project.search"
+              ]
+            },
+            "description": "Search for projects by title. \n\n**Requires the [`candidatesRead`](authentication#permissions-projectsearch) permission.**\n\nResponses are limited to 100 results. Consider refining your search or using /project.list to paginate through all projects, if you approach this limit. This API is for use cases where you intend operate on a final small set of projects, like building a project autocomplete.\n"
+          },
+          "response": [
+            {
+              "id": "81f65e2d-38a3-4f26-9c5e-2ea34e544017",
+              "name": "Responses for the project.search endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/project.search",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "project.search"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      },\n      \"confidential\": \"<boolean>\",\n      \"authorId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"customFieldEntries\": [\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      },\n      \"confidential\": \"<boolean>\",\n      \"authorId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"customFieldEntries\": [\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:07:00.000Z",
+              "updatedAt": "2026-07-28T01:07:00.000Z",
+              "uid": "35240-81f65e2d-38a3-4f26-9c5e-2ea34e544017"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:00.000Z",
+          "updatedAt": "2026-07-28T01:07:00.000Z",
+          "uid": "35240-a85f873e-b24f-4fb1-aaf2-a7e8c34f491a"
+        }
+      ],
+      "id": "a51bc63e-c5be-4ba8-b622-fa5eb8b26630",
+      "createdAt": "2026-07-28T01:07:00.000Z",
+      "updatedAt": "2026-07-28T01:07:00.000Z",
+      "uid": "35240-a51bc63e-c5be-4ba8-b622-fa5eb8b26630"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

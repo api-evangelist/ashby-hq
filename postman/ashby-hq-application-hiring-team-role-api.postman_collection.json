@@ -1,0 +1,117 @@
+{
+  "info": {
+    "_postman_id": "aa86dddb-54cf-4854-9eed-f0c300dde0f9",
+    "name": "Ashby API Key Application Hiring Team Role API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:07.000Z",
+    "updatedAt": "2026-07-28T01:05:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aa86dddb-54cf-4854-9eed-f0c300dde0f9"
+  },
+  "item": [
+    {
+      "name": "applicationHiringTeamRole.list",
+      "item": [
+        {
+          "name": "applicationHiringTeamRole.list",
+          "id": "0a7eb6af-6e34-44f2-a8fe-6c7fa62ee609",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicationHiringTeamRole.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicationHiringTeamRole.list"
+              ]
+            },
+            "description": "Gets all available hiring team roles for applications in the organization.\n\n**Requires the [`candidatesRead`](authentication#permissions-applicationHiringTeamRoleList) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "4d3a8813-a4a3-40f4-a397-4fbfc01c5b3e",
+              "name": "Responses from the applicationHiringTeamRole.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/applicationHiringTeamRole.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applicationHiringTeamRole.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:08.000Z",
+              "updatedAt": "2026-07-28T01:05:08.000Z",
+              "uid": "35240-4d3a8813-a4a3-40f4-a397-4fbfc01c5b3e"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:08.000Z",
+          "updatedAt": "2026-07-28T01:05:08.000Z",
+          "uid": "35240-0a7eb6af-6e34-44f2-a8fe-6c7fa62ee609"
+        }
+      ],
+      "id": "2702498e-8c53-471e-92d6-3e4b81ddd430",
+      "createdAt": "2026-07-28T01:05:08.000Z",
+      "updatedAt": "2026-07-28T01:05:08.000Z",
+      "uid": "35240-2702498e-8c53-471e-92d6-3e4b81ddd430"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

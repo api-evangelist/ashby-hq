@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "fd48f8bd-9600-42d8-8d50-bfef690ea5a1",
+    "name": "Ashby API Key Offer Process API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:52.000Z",
+    "updatedAt": "2026-07-28T01:06:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fd48f8bd-9600-42d8-8d50-bfef690ea5a1"
+  },
+  "item": [
+    {
+      "name": "offerProcess.start",
+      "item": [
+        {
+          "name": "offerProcess.start",
+          "id": "371b332b-4b71-440b-876b-2b75ad6ef686",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"description\": \"The id of the application to start an offer process for\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/offerProcess.start",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "offerProcess.start"
+              ]
+            },
+            "description": "Starts an offer process for a candidate.\n\n**Requires the [`offersWrite`](authentication#permissions-offerprocessstart) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "ae22af31-f70e-4dff-b49a-ddf7299ad6aa",
+              "name": "Responses for the offerProcess.start endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"description\": \"The id of the application to start an offer process for\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/offerProcess.start",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "offerProcess.start"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"description\": \"The id of the started offer process\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"applicationId\": {\n      \"description\": \"The id of the application the offer process was started for\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"status\": \"CandidateRejected\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:53.000Z",
+              "updatedAt": "2026-07-28T01:06:53.000Z",
+              "uid": "35240-ae22af31-f70e-4dff-b49a-ddf7299ad6aa"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:53.000Z",
+          "updatedAt": "2026-07-28T01:06:53.000Z",
+          "uid": "35240-371b332b-4b71-440b-876b-2b75ad6ef686"
+        }
+      ],
+      "id": "add04678-d518-4f38-963e-77ecd3eacc3a",
+      "createdAt": "2026-07-28T01:06:53.000Z",
+      "updatedAt": "2026-07-28T01:06:53.000Z",
+      "uid": "35240-add04678-d518-4f38-963e-77ecd3eacc3a"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

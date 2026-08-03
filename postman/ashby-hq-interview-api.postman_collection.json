@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "f403e42f-cfd7-4954-8b41-da63e0826914",
+    "name": "Ashby API Key Interview API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:20.000Z",
+    "updatedAt": "2026-07-28T01:06:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f403e42f-cfd7-4954-8b41-da63e0826914"
+  },
+  "item": [
+    {
+      "name": "interview.info",
+      "item": [
+        {
+          "name": "interview.info",
+          "id": "9c941a95-df34-4783-9b72-947d18fc3605",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The unique id of the interview whose details will be fetched\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interview.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interview.info"
+              ]
+            },
+            "description": "Fetch interview details by id\n\n**Requires the [`interviewsRead`](authentication#permissions-interviewinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "0f70c83f-63e2-4977-b1d3-50b424b8918e",
+              "name": "Responses from the interview.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The unique id of the interview whose details will be fetched\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interview.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interview.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"description\": \"The interview's id\",\n      \"example\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the interview is archived\"\n    },\n    \"isFeedbackRequired\": \"<boolean>\",\n    \"isFeedbackRequested\": \"<boolean>\",\n    \"feedbackFormDefinitionId\": {\n      \"description\": \"The id of the feedback form definition associated with the interview. \\n\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"externalTitle\": \"<string>\",\n    \"isDebrief\": \"<boolean>\",\n    \"instructionsHtml\": \"<string>\",\n    \"instructionsPlain\": \"<string>\",\n    \"jobId\": {\n      \"description\": \"The id of the job the interview is associated with. If null, the interview is not associated with a specific job\\nand is a shared interview. Interviews that are associated with particular jobs can only be scheduled for applications\\nto those jobs.\\n\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:20.000Z",
+              "updatedAt": "2026-07-28T01:06:20.000Z",
+              "uid": "35240-0f70c83f-63e2-4977-b1d3-50b424b8918e"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:20.000Z",
+          "updatedAt": "2026-07-28T01:06:20.000Z",
+          "uid": "35240-9c941a95-df34-4783-9b72-947d18fc3605"
+        }
+      ],
+      "id": "d563e4a7-dee5-4a19-93a1-64cf76ef81f5",
+      "createdAt": "2026-07-28T01:06:20.000Z",
+      "updatedAt": "2026-07-28T01:06:20.000Z",
+      "uid": "35240-d563e4a7-dee5-4a19-93a1-64cf76ef81f5"
+    },
+    {
+      "name": "interview.list",
+      "item": [
+        {
+          "name": "interview.list",
+          "id": "237d9481-d799-4f0b-92e9-a92b0058fd90",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeArchived\": {\n    \"value\": \"reference #/paths/~1source.list/post/requestBody/content/application~1json/schema/properties/includeArchived not found in the OpenAPI spec\"\n  },\n  \"includeNonSharedInterviews\": false,\n  \"excludeArchivedScheduleTemplateInterviews\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interview.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interview.list"
+              ]
+            },
+            "description": "List all interviews.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`interviewsRead`](authentication#permissions-interviewlist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "99d2012e-5045-4550-9c59-ddfb6cf5d322",
+              "name": "Responses from the interview.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeArchived\": {\n    \"value\": \"reference #/paths/~1source.list/post/requestBody/content/application~1json/schema/properties/includeArchived not found in the OpenAPI spec\"\n  },\n  \"includeNonSharedInterviews\": false,\n  \"excludeArchivedScheduleTemplateInterviews\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interview.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interview.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"description\": \"The interview's id\",\n        \"example\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n        \"description\": \"Whether or not the interview is archived\"\n      },\n      \"isFeedbackRequired\": \"<boolean>\",\n      \"isFeedbackRequested\": \"<boolean>\",\n      \"feedbackFormDefinitionId\": {\n        \"description\": \"The id of the feedback form definition associated with the interview. \\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"externalTitle\": \"<string>\",\n      \"isDebrief\": \"<boolean>\",\n      \"instructionsHtml\": \"<string>\",\n      \"instructionsPlain\": \"<string>\",\n      \"jobId\": {\n        \"description\": \"The id of the job the interview is associated with. If null, the interview is not associated with a specific job\\nand is a shared interview. Interviews that are associated with particular jobs can only be scheduled for applications\\nto those jobs.\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"id\": {\n        \"description\": \"The interview's id\",\n        \"example\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n        \"description\": \"Whether or not the interview is archived\"\n      },\n      \"isFeedbackRequired\": \"<boolean>\",\n      \"isFeedbackRequested\": \"<boolean>\",\n      \"feedbackFormDefinitionId\": {\n        \"description\": \"The id of the feedback form definition associated with the interview. \\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"externalTitle\": \"<string>\",\n      \"isDebrief\": \"<boolean>\",\n      \"instructionsHtml\": \"<string>\",\n      \"instructionsPlain\": \"<string>\",\n      \"jobId\": {\n        \"description\": \"The id of the job the interview is associated with. If null, the interview is not associated with a specific job\\nand is a shared interview. Interviews that are associated with particular jobs can only be scheduled for applications\\nto those jobs.\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:20.000Z",
+              "updatedAt": "2026-07-28T01:06:20.000Z",
+              "uid": "35240-99d2012e-5045-4550-9c59-ddfb6cf5d322"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:20.000Z",
+          "updatedAt": "2026-07-28T01:06:20.000Z",
+          "uid": "35240-237d9481-d799-4f0b-92e9-a92b0058fd90"
+        }
+      ],
+      "id": "2c9b0cf0-3c6d-4baa-ae99-1ff37937ec29",
+      "createdAt": "2026-07-28T01:06:20.000Z",
+      "updatedAt": "2026-07-28T01:06:20.000Z",
+      "uid": "35240-2c9b0cf0-3c6d-4baa-ae99-1ff37937ec29"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

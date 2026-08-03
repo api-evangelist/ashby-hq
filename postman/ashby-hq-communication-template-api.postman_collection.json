@@ -1,0 +1,117 @@
+{
+  "info": {
+    "_postman_id": "6c60986e-9eba-401b-a328-c19e0db91e37",
+    "name": "Ashby API Key Communication Template API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:44.000Z",
+    "updatedAt": "2026-07-28T01:05:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6c60986e-9eba-401b-a328-c19e0db91e37"
+  },
+  "item": [
+    {
+      "name": "communicationTemplate.list",
+      "item": [
+        {
+          "name": "communicationTemplate.list",
+          "id": "e9e0cf2c-c3cc-42ae-8b3b-6f84404c71ad",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/communicationTemplate.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "communicationTemplate.list"
+              ]
+            },
+            "description": "List all enabled communication templates.\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-communicationtemplatelist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "8cd7ae6e-c082-4a44-a567-cacf1b2ced9a",
+              "name": "Responses for the communicationTemplate.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/communicationTemplate.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "communicationTemplate.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"intendedTypes\": [\n        \"email\",\n        \"email\"\n      ],\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"updatedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"intendedTypes\": [\n        \"linkedInConnection\",\n        \"email\"\n      ],\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"updatedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:45.000Z",
+              "updatedAt": "2026-07-28T01:05:45.000Z",
+              "uid": "35240-8cd7ae6e-c082-4a44-a567-cacf1b2ced9a"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:45.000Z",
+          "updatedAt": "2026-07-28T01:05:45.000Z",
+          "uid": "35240-e9e0cf2c-c3cc-42ae-8b3b-6f84404c71ad"
+        }
+      ],
+      "id": "dd1e3679-5b8c-46eb-b9d4-b18cdfe407ce",
+      "createdAt": "2026-07-28T01:05:45.000Z",
+      "updatedAt": "2026-07-28T01:05:45.000Z",
+      "uid": "35240-dd1e3679-5b8c-46eb-b9d4-b18cdfe407ce"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

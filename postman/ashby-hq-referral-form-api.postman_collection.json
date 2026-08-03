@@ -1,0 +1,117 @@
+{
+  "info": {
+    "_postman_id": "e0b7fb7d-3581-43a9-94f3-6f525a595357",
+    "name": "Ashby API Key Referral Form API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:01.000Z",
+    "updatedAt": "2026-07-28T01:07:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e0b7fb7d-3581-43a9-94f3-6f525a595357"
+  },
+  "item": [
+    {
+      "name": "referralForm.info",
+      "item": [
+        {
+          "name": "referralForm.info",
+          "id": "dae1cf98-c51f-4e69-83ee-e9a3e60d985f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/referralForm.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "referralForm.info"
+              ]
+            },
+            "description": "Fetches the default referral form or creates a default referral form if none exists.\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-referralforminfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "6d8e20de-a80b-4f44-ab91-964516e1338c",
+              "name": "Responses for the referral.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/referralForm.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "referralForm.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"organizationId\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"isDefaultForm\": \"<boolean>\",\n    \"formDefinition\": {\n      \"value\": \"reference #/paths/~1offer.start/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/formDefinition not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:07:02.000Z",
+              "updatedAt": "2026-07-28T01:07:02.000Z",
+              "uid": "35240-6d8e20de-a80b-4f44-ab91-964516e1338c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:02.000Z",
+          "updatedAt": "2026-07-28T01:07:02.000Z",
+          "uid": "35240-dae1cf98-c51f-4e69-83ee-e9a3e60d985f"
+        }
+      ],
+      "id": "4be35f40-5a42-4806-93c7-278adc310501",
+      "createdAt": "2026-07-28T01:07:02.000Z",
+      "updatedAt": "2026-07-28T01:07:02.000Z",
+      "uid": "35240-4be35f40-5a42-4806-93c7-278adc310501"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "fcc226b9-ba89-43dc-ac9c-80fa14bf1da0",
+    "name": "Ashby API Key Approval API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:33.000Z",
+    "updatedAt": "2026-07-28T01:05:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fcc226b9-ba89-43dc-ac9c-80fa14bf1da0"
+  },
+  "item": [
+    {
+      "name": "approval.list",
+      "item": [
+        {
+          "name": "approval.list",
+          "id": "addfa600-1504-4d12-a0d8-b67b062598f2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entityType\": \"offer\",\n  \"entityId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/approval.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "approval.list"
+              ]
+            },
+            "description": "Gets all approvals in the organization. You can optionally filter by entity type and entity ID.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`approvalsRead`](authentication#permissions-approvallist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "028dfb55-4eeb-4f76-9b60-17d0e7f239fd",
+              "name": "Responses from the approval.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entityType\": \"offer\",\n  \"entityId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/approval.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approval.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"approvalDefinitionId\": {\n        \"description\": \"The id of the approval definition associated to this approval.\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"entityId\": {\n        \"description\": \"The id of the approval entity (e.g. the id of the offer version).\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"entityType\": \"job\",\n      \"steps\": [\n        {\n          \"id\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n          },\n          \"approvalsRequired\": \"<integer>\",\n          \"approvers\": [\n            {\n              \"id\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n              },\n              \"userId\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n                \"description\": \"The id of a user who is an approver for this step.\"\n              },\n              \"decision\": \"pending\",\n              \"decidedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was taken by the user.\"\n              },\n              \"requestedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was sent to be approved by the user.\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n              },\n              \"userId\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n                \"description\": \"The id of a user who is an approver for this step.\"\n              },\n              \"decision\": \"pending\",\n              \"decidedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was taken by the user.\"\n              },\n              \"requestedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was sent to be approved by the user.\"\n              }\n            }\n          ],\n          \"completedAt\": {\n            \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n            \"description\": \"The date when the step is completed based on the number of required approvals\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n          },\n          \"approvalsRequired\": \"<integer>\",\n          \"approvers\": [\n            {\n              \"id\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n              },\n              \"userId\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n                \"description\": \"The id of a user who is an approver for this step.\"\n              },\n              \"decision\": \"approve\",\n              \"decidedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was taken by the user.\"\n              },\n              \"requestedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was sent to be approved by the user.\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n              },\n              \"userId\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n                \"description\": \"The id of a user who is an approver for this step.\"\n              },\n              \"decision\": \"approve\",\n              \"decidedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was taken by the user.\"\n              },\n              \"requestedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was sent to be approved by the user.\"\n              }\n            }\n          ],\n          \"completedAt\": {\n            \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n            \"description\": \"The date when the step is completed based on the number of required approvals\"\n          }\n        }\n      ],\n      \"submittedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n        \"description\": \"The date when the approval was submitted and sent to users for approval.\"\n      },\n      \"completedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n        \"description\": \"The date when the approval was completed and approved by everyone.\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"approvalDefinitionId\": {\n        \"description\": \"The id of the approval definition associated to this approval.\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"entityId\": {\n        \"description\": \"The id of the approval entity (e.g. the id of the offer version).\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"entityType\": \"offer\",\n      \"steps\": [\n        {\n          \"id\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n          },\n          \"approvalsRequired\": \"<integer>\",\n          \"approvers\": [\n            {\n              \"id\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n              },\n              \"userId\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n                \"description\": \"The id of a user who is an approver for this step.\"\n              },\n              \"decision\": \"reject\",\n              \"decidedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was taken by the user.\"\n              },\n              \"requestedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was sent to be approved by the user.\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n              },\n              \"userId\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n                \"description\": \"The id of a user who is an approver for this step.\"\n              },\n              \"decision\": \"approve\",\n              \"decidedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was taken by the user.\"\n              },\n              \"requestedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was sent to be approved by the user.\"\n              }\n            }\n          ],\n          \"completedAt\": {\n            \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n            \"description\": \"The date when the step is completed based on the number of required approvals\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n          },\n          \"approvalsRequired\": \"<integer>\",\n          \"approvers\": [\n            {\n              \"id\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n              },\n              \"userId\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n                \"description\": \"The id of a user who is an approver for this step.\"\n              },\n              \"decision\": \"approve\",\n              \"decidedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was taken by the user.\"\n              },\n              \"requestedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was sent to be approved by the user.\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n              },\n              \"userId\": {\n                \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n                \"description\": \"The id of a user who is an approver for this step.\"\n              },\n              \"decision\": \"pending\",\n              \"decidedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was taken by the user.\"\n              },\n              \"requestedAt\": {\n                \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n                \"description\": \"The date when the decision was sent to be approved by the user.\"\n              }\n            }\n          ],\n          \"completedAt\": {\n            \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n            \"description\": \"The date when the step is completed based on the number of required approvals\"\n          }\n        }\n      ],\n      \"submittedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n        \"description\": \"The date when the approval was submitted and sent to users for approval.\"\n      },\n      \"completedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\",\n        \"description\": \"The date when the approval was completed and approved by everyone.\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:34.000Z",
+              "updatedAt": "2026-07-28T01:05:34.000Z",
+              "uid": "35240-028dfb55-4eeb-4f76-9b60-17d0e7f239fd"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:34.000Z",
+          "updatedAt": "2026-07-28T01:05:34.000Z",
+          "uid": "35240-addfa600-1504-4d12-a0d8-b67b062598f2"
+        }
+      ],
+      "id": "e8296eee-6be3-4d40-99e9-094c5c57a42a",
+      "createdAt": "2026-07-28T01:05:34.000Z",
+      "updatedAt": "2026-07-28T01:05:34.000Z",
+      "uid": "35240-e8296eee-6be3-4d40-99e9-094c5c57a42a"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

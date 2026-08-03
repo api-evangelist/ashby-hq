@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "cb55938e-ec6e-47a5-9536-523fcbe280a3",
+    "name": "Ashby API Key Close Reason API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:43.000Z",
+    "updatedAt": "2026-07-28T01:05:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cb55938e-ec6e-47a5-9536-523fcbe280a3"
+  },
+  "item": [
+    {
+      "name": "closeReason.list",
+      "item": [
+        {
+          "name": "closeReason.list",
+          "id": "c2aefff9-a6f6-42fc-8d5a-b9f9068f6639",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeArchived\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/closeReason.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "closeReason.list"
+              ]
+            },
+            "description": "Lists all close reasons for jobs or openings.\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-closereasonlist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "bb6a4a63-4fb9-4db7-bd0f-ff40e2de2796",
+              "name": "Responses for the closeReason.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeArchived\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/closeReason.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "closeReason.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"reasonText\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"reasonText\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:44.000Z",
+              "updatedAt": "2026-07-28T01:05:44.000Z",
+              "uid": "35240-bb6a4a63-4fb9-4db7-bd0f-ff40e2de2796"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:44.000Z",
+          "updatedAt": "2026-07-28T01:05:44.000Z",
+          "uid": "35240-c2aefff9-a6f6-42fc-8d5a-b9f9068f6639"
+        }
+      ],
+      "id": "79a09884-aafb-4d66-b8f3-edf65afb2b1c",
+      "createdAt": "2026-07-28T01:05:44.000Z",
+      "updatedAt": "2026-07-28T01:05:44.000Z",
+      "uid": "35240-79a09884-aafb-4d66-b8f3-edf65afb2b1c"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

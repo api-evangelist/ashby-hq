@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "d3721f6a-da4e-49be-b47e-4a531f2a845a",
+    "name": "Ashby API Key Hiring Team API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:52.000Z",
+    "updatedAt": "2026-07-28T01:05:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d3721f6a-da4e-49be-b47e-4a531f2a845a"
+  },
+  "item": [
+    {
+      "name": "hiringTeam.addMember",
+      "item": [
+        {
+          "name": "hiringTeam.addMember",
+          "id": "f8940b69-f1f5-4ffd-b189-c5706f9e63c4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"description\": \"The application to assign the user a role on.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"teamMemberId\": {\n    \"description\": \"The id of the user to assign the role to.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"roleId\": {\n    \"description\": \"The id of the hiring team role to assign.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/hiringTeam.addMember",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hiringTeam.addMember"
+              ]
+            },
+            "description": "Adds an Ashby user to the hiring team at the application or job-level. \n\n**Requires the [`organizationWrite`](authentication#permissions-hiringteamaddmember) permission.**\n\nHiring team members can be added to a hiring team at the application, job, or opening level. \n"
+          },
+          "response": [
+            {
+              "id": "676f2565-f1c6-4b2c-aa88-60938882e63c",
+              "name": "Responses for the hiringTeam.addMember endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"description\": \"The application to assign the user a role on.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"teamMemberId\": {\n    \"description\": \"The id of the user to assign the role to.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"roleId\": {\n    \"description\": \"The id of the hiring team role to assign.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/hiringTeam.addMember",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hiringTeam.addMember"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"userId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": {\n      \"value\": \"reference #/paths/~1candidate.create/post/requestBody/content/application~1json/schema/properties/email/allOf/0 not found in the OpenAPI spec\"\n    },\n    \"role\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:53.000Z",
+              "updatedAt": "2026-07-28T01:05:53.000Z",
+              "uid": "35240-676f2565-f1c6-4b2c-aa88-60938882e63c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:53.000Z",
+          "updatedAt": "2026-07-28T01:05:53.000Z",
+          "uid": "35240-f8940b69-f1f5-4ffd-b189-c5706f9e63c4"
+        }
+      ],
+      "id": "464c9f1b-5bac-4a3d-818a-f6f8e52b52e2",
+      "createdAt": "2026-07-28T01:05:52.000Z",
+      "updatedAt": "2026-07-28T01:05:52.000Z",
+      "uid": "35240-464c9f1b-5bac-4a3d-818a-f6f8e52b52e2"
+    },
+    {
+      "name": "hiringTeam.removeMember",
+      "item": [
+        {
+          "name": "hiringTeam.removeMember",
+          "id": "dee0f31f-614c-4189-8990-4b63ff62657a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"description\": \"The application to unassign the user a role from.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"teamMemberId\": {\n    \"description\": \"The id of the user to unassign the role from.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"roleId\": {\n    \"description\": \"The id of the hiring team role to unassign from.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/hiringTeam.removeMember",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hiringTeam.removeMember"
+              ]
+            },
+            "description": "Removes an Ashby user from the hiring team at the application or job-level. \n\n**Requires the [`organizationWrite`](authentication#permissions-hiringteamremovemember) permission.**\n\nHiring team members can be removed from a hiring team at the application, job, or opening level. \n"
+          },
+          "response": [
+            {
+              "id": "67862309-2f9d-4cef-99e7-1ab5bdd039e9",
+              "name": "Responses for the hiringTeam.removeMember endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"description\": \"The application to unassign the user a role from.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"teamMemberId\": {\n    \"description\": \"The id of the user to unassign the role from.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"roleId\": {\n    \"description\": \"The id of the hiring team role to unassign from.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/hiringTeam.removeMember",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hiringTeam.removeMember"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"userId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": {\n      \"value\": \"reference #/paths/~1candidate.create/post/requestBody/content/application~1json/schema/properties/email/allOf/0 not found in the OpenAPI spec\"\n    },\n    \"role\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:53.000Z",
+              "updatedAt": "2026-07-28T01:05:53.000Z",
+              "uid": "35240-67862309-2f9d-4cef-99e7-1ab5bdd039e9"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:53.000Z",
+          "updatedAt": "2026-07-28T01:05:53.000Z",
+          "uid": "35240-dee0f31f-614c-4189-8990-4b63ff62657a"
+        }
+      ],
+      "id": "77f9219d-55ad-4ef0-b849-ec33bbcf509f",
+      "createdAt": "2026-07-28T01:05:52.000Z",
+      "updatedAt": "2026-07-28T01:05:52.000Z",
+      "uid": "35240-77f9219d-55ad-4ef0-b849-ec33bbcf509f"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

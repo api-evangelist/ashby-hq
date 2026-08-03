@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "3466255e-3f9f-4154-9959-384e8c340f7e",
+    "name": "Ashby API Key Application Form API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:06.000Z",
+    "updatedAt": "2026-07-28T01:05:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3466255e-3f9f-4154-9959-384e8c340f7e"
+  },
+  "item": [
+    {
+      "name": "applicationForm.submit",
+      "item": [
+        {
+          "name": "applicationForm.submit",
+          "id": "e0c4a954-66b8-45ef-928f-acbab8b86552",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobPostingId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the job posting to submit an application for\"\n  },\n  \"applicationForm\": {\n    \"value\": \"reference #/paths/~1offer.create/post/requestBody/content/application~1json/schema/properties/offerForm not found in the OpenAPI spec\"\n  },\n  \"utmData\": {\n    \"utm_source\": \"<string>\",\n    \"utm_campaign\": \"<string>\",\n    \"utm_medium\": \"<string>\",\n    \"utm_term\": \"<string>\",\n    \"utm_content\": \"<string>\"\n  },\n  \"tagIds\": [\n    {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    }\n  ],\n  \"allowSubmissionForUnpublishedJobPosting\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/applicationForm.submit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicationForm.submit"
+              ]
+            },
+            "description": "Submit an application for a job posting.\n\n**Requires the [`candidatesWrite`](authentication#permissions-applicationformsubmit) permission.**\n\nThe Content-Type of this request must be `multipart/form-data` or `application/json`.\n\nWhen using `application/json`, file fields should contain a handle string obtained from [`file.createFileUploadHandle`](https://developers.ashbyhq.com/reference/filecreatefileuploadhandle) with `fileUploadContext` set to `ApplicationForm`. This allows files to be uploaded directly to storage, bypassing the need to send file bytes through the API.\n\nWhen using `multipart/form-data`, file fields should reference a file part included in the multipart request body (existing behavior).\n\n**Important:** Please ensure that you check the response's `success` field and display any validation errors to candidates if it is `false`. Not doing so will result in applications not being recorded, without any notification to the candidate prompting them to resubmit. For testing purposes, you can simulate a validation failure by submitting the email address `testing-fail-validation@example.com`.\n\n**Note: The requests generated from this documentation will not work for this endpoint.**\n\nThe values accepted for each field depend on the type of field that's being filled out:\n- `Boolean` - A boolean value\n- `Date` - A date string in the format YYYY-MM-DD\n- `Email` - A valid email address\n- `Number` - An integer\n- `RichText` - We do not support submitting rich text documents via the API but we do support submitting plain text values for these fields. Plain text values must be submitted in the format `{ type: \"PlainText\", value: \"A plain text string\" }`\n- `Score` - An integer between 1 and 4 submitted in the format `{ score: 4 }`\n- `Phone`, `String` A string\n- `ValueSelect` - A string that matches the value of one of the ValueSelect field's selectable options\n- `MultiValueSelect` - An array of strings that exist in the MultiValueSelect field's selectable options\n- `Location` - An object with the following properties: `{ country: \"USA\", city: \"San Francisco\", region: \"California\" }`. You may provide any combination of these properties and we will attempt to geocode the location. For best results, provide all three properties.\n- `EducationHistory` - [Early Access] An array of objects with the following properties: `{ schoolName: \"University of California, Berkeley\", degree: \"Bachelor of Science\", major: \"Computer Science\", startDate: \"2020-09-01\", endDate: \"2024-05-15\", isCurrent: true }`. Only `schoolName` is required. We will attempt to match the school name to a known school in our database. If `isCurrent` is true, `endDate` must not be provided.\n"
+          },
+          "response": [
+            {
+              "id": "6e36d538-56e9-4c82-b3b1-00f076e65617",
+              "name": "Responses from the applicationFeedback.submit endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobPostingId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the job posting to submit an application for\"\n  },\n  \"applicationForm\": {\n    \"value\": \"reference #/paths/~1offer.create/post/requestBody/content/application~1json/schema/properties/offerForm not found in the OpenAPI spec\"\n  },\n  \"utmData\": {\n    \"utm_source\": \"<string>\",\n    \"utm_campaign\": \"<string>\",\n    \"utm_medium\": \"<string>\",\n    \"utm_term\": \"<string>\",\n    \"utm_content\": \"<string>\"\n  },\n  \"tagIds\": [\n    {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    }\n  ],\n  \"allowSubmissionForUnpublishedJobPosting\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applicationForm.submit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applicationForm.submit"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"submittedFormInstance\": {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"formDefinition\": {\n        \"value\": \"reference #/paths/~1offer.start/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/formDefinition not found in the OpenAPI spec\"\n      },\n      \"submittedValues\": {}\n    },\n    \"formMessages\": {\n      \"blocked\": \"<boolean>\",\n      \"blockMessageForCandidateHtml\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:05:07.000Z",
+              "updatedAt": "2026-07-28T01:05:07.000Z",
+              "uid": "35240-6e36d538-56e9-4c82-b3b1-00f076e65617"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:07.000Z",
+          "updatedAt": "2026-07-28T01:05:07.000Z",
+          "uid": "35240-e0c4a954-66b8-45ef-928f-acbab8b86552"
+        }
+      ],
+      "id": "67301c6f-e4e4-4d99-87fb-2a0280b7a1bc",
+      "createdAt": "2026-07-28T01:05:07.000Z",
+      "updatedAt": "2026-07-28T01:05:07.000Z",
+      "uid": "35240-67301c6f-e4e4-4d99-87fb-2a0280b7a1bc"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "info": {
+    "_postman_id": "e1be0066-52d4-4443-a54d-897fe32d5cb8",
+    "name": "Ashby API Key Interview Stage Group API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:36.000Z",
+    "updatedAt": "2026-07-28T01:06:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e1be0066-52d4-4443-a54d-897fe32d5cb8"
+  },
+  "item": [
+    {
+      "name": "interviewStageGroup.list",
+      "item": [
+        {
+          "name": "interviewStageGroup.list",
+          "id": "c03e41a5-905a-4037-8d94-5838164712a3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/interviewStageGroup.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewStageGroup.list"
+              ]
+            },
+            "description": "List all interview group stages for an interview plan in order.\n\n**Requires the [`interviewsRead`](authentication#permissions-interviewstagelist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "d9575df8-49cf-4a49-abff-f295e0e94ca2",
+              "name": "Responses for the interviewStageGroup.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/interviewStageGroup.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewStageGroup.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"order\": \"<integer>\",\n      \"stageType\": \"Offer\"\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"order\": \"<integer>\",\n      \"stageType\": \"Hired\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:37.000Z",
+              "updatedAt": "2026-07-28T01:06:37.000Z",
+              "uid": "35240-d9575df8-49cf-4a49-abff-f295e0e94ca2"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:37.000Z",
+          "updatedAt": "2026-07-28T01:06:37.000Z",
+          "uid": "35240-c03e41a5-905a-4037-8d94-5838164712a3"
+        }
+      ],
+      "id": "b8c2c36d-9cfa-4f8e-b0d7-968b0b24f073",
+      "createdAt": "2026-07-28T01:06:37.000Z",
+      "updatedAt": "2026-07-28T01:06:37.000Z",
+      "uid": "35240-b8c2c36d-9cfa-4f8e-b0d7-968b0b24f073"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

@@ -1,0 +1,1245 @@
+{
+  "info": {
+    "_postman_id": "5489b0e2-f9a9-40c0-bb34-25ebc8238a8b",
+    "name": "Ashby API Key Openings API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:53.000Z",
+    "updatedAt": "2026-07-28T01:06:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5489b0e2-f9a9-40c0-bb34-25ebc8238a8b"
+  },
+  "item": [
+    {
+      "name": "opening.info",
+      "item": [
+        {
+          "name": "opening.info",
+          "id": "f1fe3400-c9aa-4679-8d38-9557368cc1fe",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"openingId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.info"
+              ]
+            },
+            "description": "Retrieves an opening by its UUID.\n      \n**Requires the [`jobsRead`](authentication#permissions-openinginfo) permission.**"
+          },
+          "response": [
+            {
+              "id": "7ef9a0f3-d497-4da8-a152-f2721acec902",
+              "name": "Responses for the opening.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"openingId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-7ef9a0f3-d497-4da8-a152-f2721acec902"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-f1fe3400-c9aa-4679-8d38-9557368cc1fe"
+        }
+      ],
+      "id": "cf78d418-9ef7-4c51-b186-0a8e5188b8e6",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-cf78d418-9ef7-4c51-b186-0a8e5188b8e6"
+    },
+    {
+      "name": "opening.list",
+      "item": [
+        {
+          "name": "opening.list",
+          "id": "a9290090-1b00-4aa0-bb0b-400bb4986b33",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createdAfter\": \"<long>\",\n  \"cursor\": {\n    \"value\": \"reference #/paths/~1brand.list/post/requestBody/content/application~1json/schema/properties/cursor not found in the OpenAPI spec\"\n  },\n  \"syncToken\": \"<string>\",\n  \"limit\": {\n    \"value\": \"reference #/paths/~1brand.list/post/requestBody/content/application~1json/schema/properties/limit not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.list"
+              ]
+            },
+            "description": "Lists openings.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n      \n**Requires the [`jobsRead`](authentication#permissions-openinglist) permission.**"
+          },
+          "response": [
+            {
+              "id": "fb0e86ff-2355-4fac-b701-34fb465cc7e1",
+              "name": "Responses for the opening.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdAfter\": \"<long>\",\n  \"cursor\": {\n    \"value\": \"reference #/paths/~1brand.list/post/requestBody/content/application~1json/schema/properties/cursor not found in the OpenAPI spec\"\n  },\n  \"syncToken\": \"<string>\",\n  \"limit\": {\n    \"value\": \"reference #/paths/~1brand.list/post/requestBody/content/application~1json/schema/properties/limit not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-fb0e86ff-2355-4fac-b701-34fb465cc7e1"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-a9290090-1b00-4aa0-bb0b-400bb4986b33"
+        }
+      ],
+      "id": "4c00e8e3-09f3-424c-9b1c-b8349dcc8fc5",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-4c00e8e3-09f3-424c-9b1c-b8349dcc8fc5"
+    },
+    {
+      "name": "opening.search",
+      "item": [
+        {
+          "name": "opening.search",
+          "id": "7b928dc6-7f26-4d25-86c6-a46b2bfb6fac",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifier\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.search",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.search"
+              ]
+            },
+            "description": "Searches for openings by identifier.\n      \n**Requires the [`jobsRead`](authentication#permissions-openingsearch) permission.**"
+          },
+          "response": [
+            {
+              "id": "c9f4de15-9f6e-44fa-8767-882d24c124aa",
+              "name": "Responses for the opening.search endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identifier\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.search",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.search"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-c9f4de15-9f6e-44fa-8767-882d24c124aa"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-7b928dc6-7f26-4d25-86c6-a46b2bfb6fac"
+        }
+      ],
+      "id": "c911eebb-c797-428e-b423-7fbea829393e",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-c911eebb-c797-428e-b423-7fbea829393e"
+    },
+    {
+      "name": "opening.create",
+      "item": [
+        {
+          "name": "opening.create",
+          "id": "f9fc6706-fee4-49bd-b80e-878c56f36f15",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifier\": \"<string>\",\n  \"description\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"locationIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"jobIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targetHireDate\": \"<string>\",\n  \"targetStartDate\": \"<string>\",\n  \"isBackfill\": false,\n  \"employmentType\": \"FullTime\",\n  \"openingState\": \"Draft\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.create"
+              ]
+            },
+            "description": "Creates an opening.\n      \n**Requires the [`jobsWrite`](authentication#permissions-openingcreate) permission.**\n\nTo set values of custom fields on Openings, use the [`customFields.setValue`](https://developers.ashbyhq.com/reference/customfieldsetvalue) endpoint."
+          },
+          "response": [
+            {
+              "id": "ba387934-4f76-4aa6-9d1a-a570d6a8f093",
+              "name": "Responses for the opening.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identifier\": \"<string>\",\n  \"description\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"locationIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"jobIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"targetHireDate\": \"<string>\",\n  \"targetStartDate\": \"<string>\",\n  \"isBackfill\": false,\n  \"employmentType\": \"FullTime\",\n  \"openingState\": \"Draft\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-ba387934-4f76-4aa6-9d1a-a570d6a8f093"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-f9fc6706-fee4-49bd-b80e-878c56f36f15"
+        }
+      ],
+      "id": "cb3704ed-8474-4a89-96c3-627630ba723b",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-cb3704ed-8474-4a89-96c3-627630ba723b"
+    },
+    {
+      "name": "opening.addJob",
+      "item": [
+        {
+          "name": "opening.addJob",
+          "id": "ed1aa437-5e91-4100-ae81-2dffdfd2be93",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"openingId\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.addJob",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.addJob"
+              ]
+            },
+            "description": "Adds a job to an opening.\n      \n**Requires the [`jobsWrite`](authentication#permissions-openingaddjob) permission.**"
+          },
+          "response": [
+            {
+              "id": "d8fb7ebe-729f-4a9c-ac10-2e66f02ffdc5",
+              "name": "Responses for the opening.addJob endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"openingId\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.addJob",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.addJob"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-d8fb7ebe-729f-4a9c-ac10-2e66f02ffdc5"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-ed1aa437-5e91-4100-ae81-2dffdfd2be93"
+        }
+      ],
+      "id": "1f0c389a-a8bd-419a-9e95-95c24655e7d2",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-1f0c389a-a8bd-419a-9e95-95c24655e7d2"
+    },
+    {
+      "name": "opening.removeJob",
+      "item": [
+        {
+          "name": "opening.removeJob",
+          "id": "4fcd9388-5ab3-49f7-9d03-a7d48fb2814f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"openingId\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.removeJob",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.removeJob"
+              ]
+            },
+            "description": "Removes a job from an opening.\n      \n**Requires the [`jobsWrite`](authentication#permissions-openingremovejob) permission.**"
+          },
+          "response": [
+            {
+              "id": "db1e7a09-0b69-4664-a717-3a8f8cb15b10",
+              "name": "Responses for the opening.removeJob endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"openingId\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.removeJob",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.removeJob"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-db1e7a09-0b69-4664-a717-3a8f8cb15b10"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-4fcd9388-5ab3-49f7-9d03-a7d48fb2814f"
+        }
+      ],
+      "id": "4321d897-66ce-4f59-a96b-4842fa95dc1f",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-4321d897-66ce-4f59-a96b-4842fa95dc1f"
+    },
+    {
+      "name": "opening.addLocation",
+      "item": [
+        {
+          "name": "opening.addLocation",
+          "id": "6a2154f0-9218-4547-acdb-281c1670b141",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"openingId\": \"<string>\",\n  \"locationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.addLocation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.addLocation"
+              ]
+            },
+            "description": "Adds a location to an opening.\n      \n**Requires the [`jobsWrite`](authentication#permissions-openingaddlocation) permission.**"
+          },
+          "response": [
+            {
+              "id": "fcd60fd7-3e8d-4328-a8fa-f0f3b2a70c84",
+              "name": "Responses for the opening.addLocation endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"openingId\": \"<string>\",\n  \"locationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.addLocation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.addLocation"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-fcd60fd7-3e8d-4328-a8fa-f0f3b2a70c84"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-6a2154f0-9218-4547-acdb-281c1670b141"
+        }
+      ],
+      "id": "71d35864-8e31-4fff-abc3-8121cb9ec2c2",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-71d35864-8e31-4fff-abc3-8121cb9ec2c2"
+    },
+    {
+      "name": "opening.removeLocation",
+      "item": [
+        {
+          "name": "opening.removeLocation",
+          "id": "e0be310c-543c-4a1a-a422-5be7128b243c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"openingId\": \"<string>\",\n  \"locationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.removeLocation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.removeLocation"
+              ]
+            },
+            "description": "Removes a location from an opening.\n      \n**Requires the [`jobsWrite`](authentication#permissions-openingremovelocation) permission.**"
+          },
+          "response": [
+            {
+              "id": "d6dea0f2-1a9f-4c2c-82a8-5ce5664407fb",
+              "name": "Responses for the opening.removeLocation endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"openingId\": \"<string>\",\n  \"locationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.removeLocation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.removeLocation"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-d6dea0f2-1a9f-4c2c-82a8-5ce5664407fb"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-e0be310c-543c-4a1a-a422-5be7128b243c"
+        }
+      ],
+      "id": "14fb6096-685d-4d4a-8ab3-756730d93f62",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-14fb6096-685d-4d4a-8ab3-756730d93f62"
+    },
+    {
+      "name": "opening.setOpeningState",
+      "item": [
+        {
+          "name": "opening.setOpeningState",
+          "id": "65daa9f2-325a-41dd-a8d4-807fcbb161be",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"openingId\": \"<string>\",\n  \"openingState\": \"Open\",\n  \"closeReasonId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.setOpeningState",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.setOpeningState"
+              ]
+            },
+            "description": "Sets the state of an opening.\n      \n**Requires the [`jobsWrite`](authentication#permissions-openingsetopeningstate) permission.**"
+          },
+          "response": [
+            {
+              "id": "3b7307df-1945-4d32-a4fb-b9ce479ed6b5",
+              "name": "Responses for the opening.setOpeningState endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"openingId\": \"<string>\",\n  \"openingState\": \"Open\",\n  \"closeReasonId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.setOpeningState",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.setOpeningState"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-3b7307df-1945-4d32-a4fb-b9ce479ed6b5"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-65daa9f2-325a-41dd-a8d4-807fcbb161be"
+        }
+      ],
+      "id": "10b636a8-4874-4ac1-b304-cdb3c842bf18",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-10b636a8-4874-4ac1-b304-cdb3c842bf18"
+    },
+    {
+      "name": "opening.setArchived",
+      "item": [
+        {
+          "name": "opening.setArchived",
+          "id": "a39d4c30-fb2c-413c-9edb-c454105f212a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"openingId\": \"<string>\",\n  \"archive\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.setArchived",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.setArchived"
+              ]
+            },
+            "description": "Sets the archived state of an opening.\n      \n**Requires the [`jobsWrite`](authentication#permissions-openingsetarchived) permission.**"
+          },
+          "response": [
+            {
+              "id": "d5aa2971-9371-4a03-b499-70a7648fecab",
+              "name": "Responses for the opening.setArchived endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"openingId\": \"<string>\",\n  \"archive\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.setArchived",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.setArchived"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-d5aa2971-9371-4a03-b499-70a7648fecab"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-a39d4c30-fb2c-413c-9edb-c454105f212a"
+        }
+      ],
+      "id": "600490b9-78f6-496f-8db5-9be71016902d",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-600490b9-78f6-496f-8db5-9be71016902d"
+    },
+    {
+      "name": "opening.update",
+      "item": [
+        {
+          "name": "opening.update",
+          "id": "86f81dd6-4b4f-4b75-b8a5-fa2b3f0b594e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"openingId\": \"<string>\",\n  \"identifier\": \"<string>\",\n  \"description\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"targetHireDate\": \"<string>\",\n  \"targetStartDate\": \"<string>\",\n  \"isBackfill\": false,\n  \"employmentType\": \"FullTime\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opening.update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opening.update"
+              ]
+            },
+            "description": "Updates an opening.\n      \n**Requires the [`jobsWrite`](authentication#permissions-openingupdate) permission.**\n\nTo set values for custom fields on Openings, use the [`customFields.setValue`](https://developers.ashbyhq.com/reference/customfieldsetvalue) endpoint."
+          },
+          "response": [
+            {
+              "id": "58717628-d591-4306-abc0-48474c4fe96f",
+              "name": "Responses for the opening.update endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"openingId\": \"<string>\",\n  \"identifier\": \"<string>\",\n  \"description\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"targetHireDate\": \"<string>\",\n  \"targetStartDate\": \"<string>\",\n  \"isBackfill\": false,\n  \"employmentType\": \"FullTime\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opening.update",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opening.update"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:54.000Z",
+              "updatedAt": "2026-07-28T01:06:54.000Z",
+              "uid": "35240-58717628-d591-4306-abc0-48474c4fe96f"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:54.000Z",
+          "updatedAt": "2026-07-28T01:06:54.000Z",
+          "uid": "35240-86f81dd6-4b4f-4b75-b8a5-fa2b3f0b594e"
+        }
+      ],
+      "id": "505e5fe9-7d1d-484e-9e67-94d3404e0301",
+      "createdAt": "2026-07-28T01:06:54.000Z",
+      "updatedAt": "2026-07-28T01:06:54.000Z",
+      "uid": "35240-505e5fe9-7d1d-484e-9e67-94d3404e0301"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

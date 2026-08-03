@@ -1,0 +1,1135 @@
+{
+  "info": {
+    "_postman_id": "01cfe62d-ba2c-4127-945e-67b40a8440b1",
+    "name": "Ashby API Key Location API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:44.000Z",
+    "updatedAt": "2026-07-28T01:06:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-01cfe62d-ba2c-4127-945e-67b40a8440b1"
+  },
+  "item": [
+    {
+      "name": "location.archive",
+      "item": [
+        {
+          "name": "location.archive",
+          "id": "6638b0c7-065c-43d4-b534-ad136f086a9a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/location.archive",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "location.archive"
+              ]
+            },
+            "description": "Archives a location or location hierarchy.\n\n**Requires the [`organizationWrite`](authentication#permissions-locationarchive) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "5302e35e-db12-4d68-adb4-d0d80ccdfa01",
+              "name": "Responses for the location.archive endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/location.archive",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "location.archive"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"name\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"externalName\": \"<string>\",\n    \"address\": {\n      \"postalAddress\": {\n        \"addressCountry\": \"<string>\",\n        \"addressRegion\": \"<string>\",\n        \"addressLocality\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"streetAddress\": \"<string>\"\n      }\n    },\n    \"isRemote\": \"<boolean>\",\n    \"workplaceType\": \"Remote\",\n    \"parentLocationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"type\": \"Location\",\n    \"extraData\": {\n      \"enim04\": \"<string>\",\n      \"occaecat_a\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:45.000Z",
+              "updatedAt": "2026-07-28T01:06:45.000Z",
+              "uid": "35240-5302e35e-db12-4d68-adb4-d0d80ccdfa01"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:45.000Z",
+          "updatedAt": "2026-07-28T01:06:45.000Z",
+          "uid": "35240-6638b0c7-065c-43d4-b534-ad136f086a9a"
+        }
+      ],
+      "id": "a9c30a4a-c906-48ea-b9c9-2ce9dced3b23",
+      "createdAt": "2026-07-28T01:06:45.000Z",
+      "updatedAt": "2026-07-28T01:06:45.000Z",
+      "uid": "35240-a9c30a4a-c906-48ea-b9c9-2ce9dced3b23"
+    },
+    {
+      "name": "location.create",
+      "item": [
+        {
+          "name": "location.create",
+          "id": "da946551-f071-40ef-be8c-c0d061654e4c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"LocationHierarchy\",\n  \"address\": {\n    \"postalAddress\": {\n      \"addressCountry\": \"<string>\",\n      \"addressRegion\": \"<string>\",\n      \"addressLocality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  },\n  \"parentLocationId\": \"<string>\",\n  \"isRemote\": false,\n  \"workplaceType\": \"Remote\",\n  \"externalName\": \"<string>\",\n  \"extraData\": {\n    \"ipsum_dcc\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/location.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "location.create"
+              ]
+            },
+            "description": "Creates a location or location hierarchy.\n\n**Requires the [`organizationWrite`](authentication#permissions-locationcreate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "18aecefb-1022-4074-be08-30b111e49603",
+              "name": "Responses for the location.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"LocationHierarchy\",\n  \"address\": {\n    \"postalAddress\": {\n      \"addressCountry\": \"<string>\",\n      \"addressRegion\": \"<string>\",\n      \"addressLocality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  },\n  \"parentLocationId\": \"<string>\",\n  \"isRemote\": false,\n  \"workplaceType\": \"Remote\",\n  \"externalName\": \"<string>\",\n  \"extraData\": {\n    \"ipsum_dcc\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/location.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "location.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"name\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"externalName\": \"<string>\",\n    \"address\": {\n      \"postalAddress\": {\n        \"addressCountry\": \"<string>\",\n        \"addressRegion\": \"<string>\",\n        \"addressLocality\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"streetAddress\": \"<string>\"\n      }\n    },\n    \"isRemote\": \"<boolean>\",\n    \"workplaceType\": \"Remote\",\n    \"parentLocationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"type\": \"Location\",\n    \"extraData\": {\n      \"enim04\": \"<string>\",\n      \"occaecat_a\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:45.000Z",
+              "updatedAt": "2026-07-28T01:06:45.000Z",
+              "uid": "35240-18aecefb-1022-4074-be08-30b111e49603"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:45.000Z",
+          "updatedAt": "2026-07-28T01:06:45.000Z",
+          "uid": "35240-da946551-f071-40ef-be8c-c0d061654e4c"
+        }
+      ],
+      "id": "808018e4-3c8c-4402-8e94-2dc902b39a5a",
+      "createdAt": "2026-07-28T01:06:45.000Z",
+      "updatedAt": "2026-07-28T01:06:45.000Z",
+      "uid": "35240-808018e4-3c8c-4402-8e94-2dc902b39a5a"
+    },
+    {
+      "name": "location.info",
+      "item": [
+        {
+          "name": "location.info",
+          "id": "ca6069f0-dc5a-49a3-8774-c03fbdf661d8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the location to fetch\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/location.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "location.info"
+              ]
+            },
+            "description": "Gets details for a single location by id.\n\n**Requires the [`organizationRead`](authentication#permissions-locationinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "80ca0c3e-eb2b-4ec0-8988-54473abd7aee",
+              "name": "Responses for the location.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the location to fetch\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/location.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "location.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"name\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"externalName\": \"<string>\",\n    \"address\": {\n      \"postalAddress\": {\n        \"addressCountry\": \"<string>\",\n        \"addressRegion\": \"<string>\",\n        \"addressLocality\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"streetAddress\": \"<string>\"\n      }\n    },\n    \"isRemote\": \"<boolean>\",\n    \"workplaceType\": \"Remote\",\n    \"parentLocationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"type\": \"Location\",\n    \"extraData\": {\n      \"enim04\": \"<string>\",\n      \"occaecat_a\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:45.000Z",
+              "updatedAt": "2026-07-28T01:06:45.000Z",
+              "uid": "35240-80ca0c3e-eb2b-4ec0-8988-54473abd7aee"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:45.000Z",
+          "updatedAt": "2026-07-28T01:06:45.000Z",
+          "uid": "35240-ca6069f0-dc5a-49a3-8774-c03fbdf661d8"
+        }
+      ],
+      "id": "82f5c5a7-8bb5-482d-85ef-044de68046e8",
+      "createdAt": "2026-07-28T01:06:45.000Z",
+      "updatedAt": "2026-07-28T01:06:45.000Z",
+      "uid": "35240-82f5c5a7-8bb5-482d-85ef-044de68046e8"
+    },
+    {
+      "name": "location.list",
+      "item": [
+        {
+          "name": "location.list",
+          "id": "b4ecf500-967c-488e-925e-70ed710a0a10",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeArchived\": {\n    \"value\": \"reference #/paths/~1source.list/post/requestBody/content/application~1json/schema/properties/includeArchived not found in the OpenAPI spec\"\n  },\n  \"includeLocationHierarchy\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/location.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "location.list"
+              ]
+            },
+            "description": "List all locations. Regions are not returned.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`organizationRead`](authentication#permissions-locationlist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "b5d718c7-9f6b-46a3-8fec-9c9abefae456",
+              "name": "Responses for the location.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeArchived\": {\n    \"value\": \"reference #/paths/~1source.list/post/requestBody/content/application~1json/schema/properties/includeArchived not found in the OpenAPI spec\"\n  },\n  \"includeLocationHierarchy\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/location.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "location.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"name\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      },\n      \"externalName\": \"<string>\",\n      \"address\": {\n        \"postalAddress\": {\n          \"addressCountry\": \"<string>\",\n          \"addressRegion\": \"<string>\",\n          \"addressLocality\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"streetAddress\": \"<string>\"\n        }\n      },\n      \"isRemote\": \"<boolean>\",\n      \"workplaceType\": \"OnSite\",\n      \"parentLocationId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"type\": \"LocationHierarchy\",\n      \"extraData\": {\n        \"officia_0\": \"<string>\",\n        \"culpa_8d\": \"<string>\",\n        \"nostrud6a\": \"<string>\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"name\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      },\n      \"externalName\": \"<string>\",\n      \"address\": {\n        \"postalAddress\": {\n          \"addressCountry\": \"<string>\",\n          \"addressRegion\": \"<string>\",\n          \"addressLocality\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"streetAddress\": \"<string>\"\n        }\n      },\n      \"isRemote\": \"<boolean>\",\n      \"workplaceType\": \"Hybrid\",\n      \"parentLocationId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"type\": \"Location\",\n      \"extraData\": {\n        \"reprehenderitfbb\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:45.000Z",
+              "updatedAt": "2026-07-28T01:06:45.000Z",
+              "uid": "35240-b5d718c7-9f6b-46a3-8fec-9c9abefae456"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:45.000Z",
+          "updatedAt": "2026-07-28T01:06:45.000Z",
+          "uid": "35240-b4ecf500-967c-488e-925e-70ed710a0a10"
+        }
+      ],
+      "id": "5d0f9463-80b5-4514-ac28-55930f83535d",
+      "createdAt": "2026-07-28T01:06:45.000Z",
+      "updatedAt": "2026-07-28T01:06:45.000Z",
+      "uid": "35240-5d0f9463-80b5-4514-ac28-55930f83535d"
+    },
+    {
+      "name": "location.move",
+      "item": [
+        {
+          "name": "location.move",
+          "id": "c08f7c45-a5d3-4223-881f-625b6f55dda3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"<string>\",\n  \"parentLocationHierarchyId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/location.move",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "location.move"
+              ]
+            },
+            "description": "Moves a location in location hierarchy.\n\n**Requires the [`organizationWrite`](authentication#permissions-locationmove) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "f1dbbb9b-d46c-46d9-b67b-23902300c63a",
+              "name": "Responses for the location.move endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"<string>\",\n  \"parentLocationHierarchyId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/location.move",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "location.move"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"name\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"externalName\": \"<string>\",\n    \"address\": {\n      \"postalAddress\": {\n        \"addressCountry\": \"<string>\",\n        \"addressRegion\": \"<string>\",\n        \"addressLocality\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"streetAddress\": \"<string>\"\n      }\n    },\n    \"isRemote\": \"<boolean>\",\n    \"workplaceType\": \"Remote\",\n    \"parentLocationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"type\": \"Location\",\n    \"extraData\": {\n      \"enim04\": \"<string>\",\n      \"occaecat_a\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:45.000Z",
+              "updatedAt": "2026-07-28T01:06:45.000Z",
+              "uid": "35240-f1dbbb9b-d46c-46d9-b67b-23902300c63a"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:45.000Z",
+          "updatedAt": "2026-07-28T01:06:45.000Z",
+          "uid": "35240-c08f7c45-a5d3-4223-881f-625b6f55dda3"
+        }
+      ],
+      "id": "64855ac1-e1d4-49be-b7e1-99ee6858f316",
+      "createdAt": "2026-07-28T01:06:45.000Z",
+      "updatedAt": "2026-07-28T01:06:45.000Z",
+      "uid": "35240-64855ac1-e1d4-49be-b7e1-99ee6858f316"
+    },
+    {
+      "name": "location.restore",
+      "item": [
+        {
+          "name": "location.restore",
+          "id": "77af1cb9-43d6-44a2-95db-af6f9081d77d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/location.restore",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "location.restore"
+              ]
+            },
+            "description": "Restores an archived location or location hierarchy.\n\n**Requires the [`organizationWrite`](authentication#permissions-locationrestore) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "07c2b636-86c5-40f9-91bd-bb7566901f9b",
+              "name": "Responses for the location.restore endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/location.restore",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "location.restore"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"name\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"externalName\": \"<string>\",\n    \"address\": {\n      \"postalAddress\": {\n        \"addressCountry\": \"<string>\",\n        \"addressRegion\": \"<string>\",\n        \"addressLocality\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"streetAddress\": \"<string>\"\n      }\n    },\n    \"isRemote\": \"<boolean>\",\n    \"workplaceType\": \"Remote\",\n    \"parentLocationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"type\": \"Location\",\n    \"extraData\": {\n      \"enim04\": \"<string>\",\n      \"occaecat_a\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:45.000Z",
+              "updatedAt": "2026-07-28T01:06:45.000Z",
+              "uid": "35240-07c2b636-86c5-40f9-91bd-bb7566901f9b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:45.000Z",
+          "updatedAt": "2026-07-28T01:06:45.000Z",
+          "uid": "35240-77af1cb9-43d6-44a2-95db-af6f9081d77d"
+        }
+      ],
+      "id": "be8302df-9d0d-4289-9d26-8232562e7543",
+      "createdAt": "2026-07-28T01:06:45.000Z",
+      "updatedAt": "2026-07-28T01:06:45.000Z",
+      "uid": "35240-be8302df-9d0d-4289-9d26-8232562e7543"
+    },
+    {
+      "name": "location.updateAddress",
+      "item": [
+        {
+          "name": "location.updateAddress",
+          "id": "2a56244c-dcde-49a3-9a9d-eee8bdd5eff8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"<string>\",\n  \"address\": {\n    \"postalAddress\": {\n      \"addressCountry\": \"<string>\",\n      \"addressRegion\": \"<string>\",\n      \"addressLocality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/location.updateAddress",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "location.updateAddress"
+              ]
+            },
+            "description": "Update an address of a location or location hierarchy.\n\n**Requires the [`organizationWrite`](authentication#permissions-locationupdateaddress) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "a66b5b56-24fc-44ac-9ea6-045de136a56b",
+              "name": "Responses for the location.updateAddress endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"<string>\",\n  \"address\": {\n    \"postalAddress\": {\n      \"addressCountry\": \"<string>\",\n      \"addressRegion\": \"<string>\",\n      \"addressLocality\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"streetAddress\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/location.updateAddress",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "location.updateAddress"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"name\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"externalName\": \"<string>\",\n    \"address\": {\n      \"postalAddress\": {\n        \"addressCountry\": \"<string>\",\n        \"addressRegion\": \"<string>\",\n        \"addressLocality\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"streetAddress\": \"<string>\"\n      }\n    },\n    \"isRemote\": \"<boolean>\",\n    \"workplaceType\": \"Remote\",\n    \"parentLocationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"type\": \"Location\",\n    \"extraData\": {\n      \"enim04\": \"<string>\",\n      \"occaecat_a\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:45.000Z",
+              "updatedAt": "2026-07-28T01:06:45.000Z",
+              "uid": "35240-a66b5b56-24fc-44ac-9ea6-045de136a56b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:45.000Z",
+          "updatedAt": "2026-07-28T01:06:45.000Z",
+          "uid": "35240-2a56244c-dcde-49a3-9a9d-eee8bdd5eff8"
+        }
+      ],
+      "id": "efae4919-c18a-4312-9291-ba9bb0497c5c",
+      "createdAt": "2026-07-28T01:06:45.000Z",
+      "updatedAt": "2026-07-28T01:06:45.000Z",
+      "uid": "35240-efae4919-c18a-4312-9291-ba9bb0497c5c"
+    },
+    {
+      "name": "location.updateName",
+      "item": [
+        {
+          "name": "location.updateName",
+          "id": "962a8e71-3dcd-491d-b6e9-02b36787d5b7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/location.updateName",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "location.updateName"
+              ]
+            },
+            "description": "Update location's name.\n\n**Requires the [`organizationWrite`](authentication#permissions-locationupdateName) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "77059987-1526-43dc-a6d1-f92adedb71c1",
+              "name": "Responses for the location.updateName endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/location.updateName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "location.updateName"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"name\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"externalName\": \"<string>\",\n    \"address\": {\n      \"postalAddress\": {\n        \"addressCountry\": \"<string>\",\n        \"addressRegion\": \"<string>\",\n        \"addressLocality\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"streetAddress\": \"<string>\"\n      }\n    },\n    \"isRemote\": \"<boolean>\",\n    \"workplaceType\": \"Remote\",\n    \"parentLocationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"type\": \"Location\",\n    \"extraData\": {\n      \"enim04\": \"<string>\",\n      \"occaecat_a\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:45.000Z",
+              "updatedAt": "2026-07-28T01:06:45.000Z",
+              "uid": "35240-77059987-1526-43dc-a6d1-f92adedb71c1"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:45.000Z",
+          "updatedAt": "2026-07-28T01:06:45.000Z",
+          "uid": "35240-962a8e71-3dcd-491d-b6e9-02b36787d5b7"
+        }
+      ],
+      "id": "fafa2fdf-8990-4425-8497-7dea0e18955e",
+      "createdAt": "2026-07-28T01:06:45.000Z",
+      "updatedAt": "2026-07-28T01:06:45.000Z",
+      "uid": "35240-fafa2fdf-8990-4425-8497-7dea0e18955e"
+    },
+    {
+      "name": "location.updateExternalName",
+      "item": [
+        {
+          "name": "location.updateExternalName",
+          "id": "8f566e5d-c483-466c-bf8a-48a51988fb51",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"<string>\",\n  \"externalName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/location.updateExternalName",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "location.updateExternalName"
+              ]
+            },
+            "description": "Update a location's external (candidate-facing) name.\n\n**Requires the [`organizationWrite`](authentication#permissions-locationupdateexternalname) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "d375aaa3-08ad-4605-8353-c0d211b51dd2",
+              "name": "Responses for the location.updateExternalName endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"<string>\",\n  \"externalName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/location.updateExternalName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "location.updateExternalName"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"name\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"externalName\": \"<string>\",\n    \"address\": {\n      \"postalAddress\": {\n        \"addressCountry\": \"<string>\",\n        \"addressRegion\": \"<string>\",\n        \"addressLocality\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"streetAddress\": \"<string>\"\n      }\n    },\n    \"isRemote\": \"<boolean>\",\n    \"workplaceType\": \"Remote\",\n    \"parentLocationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"type\": \"Location\",\n    \"extraData\": {\n      \"enim04\": \"<string>\",\n      \"occaecat_a\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:45.000Z",
+              "updatedAt": "2026-07-28T01:06:45.000Z",
+              "uid": "35240-d375aaa3-08ad-4605-8353-c0d211b51dd2"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:45.000Z",
+          "updatedAt": "2026-07-28T01:06:45.000Z",
+          "uid": "35240-8f566e5d-c483-466c-bf8a-48a51988fb51"
+        }
+      ],
+      "id": "c609dd0e-6a92-49f1-beeb-60cce800e6ad",
+      "createdAt": "2026-07-28T01:06:45.000Z",
+      "updatedAt": "2026-07-28T01:06:45.000Z",
+      "uid": "35240-c609dd0e-6a92-49f1-beeb-60cce800e6ad"
+    },
+    {
+      "name": "location.updateWorkplaceType",
+      "item": [
+        {
+          "name": "location.updateWorkplaceType",
+          "id": "61326311-5cb5-45a1-b5c9-c21ad94213dc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"<string>\",\n  \"workplaceType\": \"Remote\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/location.updateWorkplaceType",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "location.updateWorkplaceType"
+              ]
+            },
+            "description": "Update location's workplace type.\n\n**Requires the [`organizationWrite`](authentication#permissions-locationupdateworkplacetype) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "f36633e4-e0f4-40cd-a45e-8261a07c36ff",
+              "name": "Responses for the location.updateWorkplaceType endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"<string>\",\n  \"workplaceType\": \"Remote\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/location.updateWorkplaceType",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "location.updateWorkplaceType"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"name\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"externalName\": \"<string>\",\n    \"address\": {\n      \"postalAddress\": {\n        \"addressCountry\": \"<string>\",\n        \"addressRegion\": \"<string>\",\n        \"addressLocality\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"streetAddress\": \"<string>\"\n      }\n    },\n    \"isRemote\": \"<boolean>\",\n    \"workplaceType\": \"Remote\",\n    \"parentLocationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"type\": \"Location\",\n    \"extraData\": {\n      \"enim04\": \"<string>\",\n      \"occaecat_a\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:45.000Z",
+              "updatedAt": "2026-07-28T01:06:45.000Z",
+              "uid": "35240-f36633e4-e0f4-40cd-a45e-8261a07c36ff"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:45.000Z",
+          "updatedAt": "2026-07-28T01:06:45.000Z",
+          "uid": "35240-61326311-5cb5-45a1-b5c9-c21ad94213dc"
+        }
+      ],
+      "id": "63694335-9562-4bc1-a20a-fbf00efb2b88",
+      "createdAt": "2026-07-28T01:06:45.000Z",
+      "updatedAt": "2026-07-28T01:06:45.000Z",
+      "uid": "35240-63694335-9562-4bc1-a20a-fbf00efb2b88"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

@@ -1,0 +1,1355 @@
+{
+  "info": {
+    "_postman_id": "b73c6106-0244-4216-bd9a-d52169b35a00",
+    "name": "Ashby API Key Application API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:03.000Z",
+    "updatedAt": "2026-07-28T01:05:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b73c6106-0244-4216-bd9a-d52169b35a00"
+  },
+  "item": [
+    {
+      "name": "application.addHiringTeamMember",
+      "item": [
+        {
+          "name": "application.addHiringTeamMember",
+          "id": "9d1dd5c8-854a-461f-b8fb-24a297a89c81",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"description\": \"The application to assign the user a role on.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"teamMemberId\": {\n    \"description\": \"The id of the user to assign the role to.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"roleId\": {\n    \"description\": \"The id of the hiring team role to assign.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.addHiringTeamMember",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.addHiringTeamMember"
+              ]
+            },
+            "description": "Adds an Ashby user to the hiring team at the application level. \n\n**Requires the [`candidateWrite`](authentication#permissions-applicationaddhiringteammember) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "c88d0f95-188d-44b5-92a9-ed23e1d2279f",
+              "name": "Responses for the application.addHiringTeamMember endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"description\": \"The application to assign the user a role on.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"teamMemberId\": {\n    \"description\": \"The id of the user to assign the role to.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"roleId\": {\n    \"description\": \"The id of the hiring team role to assign.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.addHiringTeamMember",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.addHiringTeamMember"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/paths/~1hiringTeam.addMember/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-c88d0f95-188d-44b5-92a9-ed23e1d2279f"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-9d1dd5c8-854a-461f-b8fb-24a297a89c81"
+        }
+      ],
+      "id": "16d8a150-8034-4a78-b8d2-ce1457b2666d",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-16d8a150-8034-4a78-b8d2-ce1457b2666d"
+    },
+    {
+      "name": "application.changeSource",
+      "item": [
+        {
+          "name": "application.changeSource",
+          "id": "d9d892ad-570a-408e-9cf3-e9e5eb90e46d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to update the source of\"\n  },\n  \"sourceId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The source to set on the application. Pass null to unset an application's source.\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.changeSource",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.changeSource"
+              ]
+            },
+            "description": "Change the source of an application.\n\n**Requires the [`candidatesWrite`](authentication#permissions-applicationchangesource) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "d916a017-6131-4cd7-81d5-6d1915fbca1a",
+              "name": "Responses from the application.changeSource endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to update the source of\"\n  },\n  \"sourceId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The source to set on the application. Pass null to unset an application's source.\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.changeSource",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.changeSource"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/pushToHRIS/post/requestBody/content/application~1json/schema/properties/data/properties/application not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-d916a017-6131-4cd7-81d5-6d1915fbca1a"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-d9d892ad-570a-408e-9cf3-e9e5eb90e46d"
+        }
+      ],
+      "id": "5416c88f-95c8-421e-bf1d-85ddf533455a",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-5416c88f-95c8-421e-bf1d-85ddf533455a"
+    },
+    {
+      "name": "application.changeStage",
+      "item": [
+        {
+          "name": "application.changeStage",
+          "id": "6a53659e-864c-4548-bb7d-cb5c7b9d8317",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to update the stage of\"\n  },\n  \"interviewStageId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The interview stage to move the application to.\"\n  },\n  \"archiveReasonId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"Archive Reason to set when moving to an Interview Stage with type: `Archived`. \\nNote: You must pass this parameter when moving to an Interview Stage with type: `Archived`\\n\"\n  },\n  \"archiveEmail\": {\n    \"communicationTemplateId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n      \"description\": \"The id of the communication template to use for the email.\\nNote: This communication template's intendedTypes must include: `email`.\\n\"\n    },\n    \"sendAt\": \"<dateTime>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.changeStage",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.changeStage"
+              ]
+            },
+            "description": "Change the stage of an application\n\n**Requires the [`candidatesWrite`](authentication#permissions-applicationchangestage) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "8df831b5-d0d1-49fa-8f68-8072b28c4a78",
+              "name": "Responses from the application.changeStage endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to update the stage of\"\n  },\n  \"interviewStageId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The interview stage to move the application to.\"\n  },\n  \"archiveReasonId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"Archive Reason to set when moving to an Interview Stage with type: `Archived`. \\nNote: You must pass this parameter when moving to an Interview Stage with type: `Archived`\\n\"\n  },\n  \"archiveEmail\": {\n    \"communicationTemplateId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n      \"description\": \"The id of the communication template to use for the email.\\nNote: This communication template's intendedTypes must include: `email`.\\n\"\n    },\n    \"sendAt\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.changeStage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.changeStage"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/pushToHRIS/post/requestBody/content/application~1json/schema/properties/data/properties/application not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-8df831b5-d0d1-49fa-8f68-8072b28c4a78"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-6a53659e-864c-4548-bb7d-cb5c7b9d8317"
+        }
+      ],
+      "id": "83d7dd73-963d-4502-9f0c-1b6f203f8dd9",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-83d7dd73-963d-4502-9f0c-1b6f203f8dd9"
+    },
+    {
+      "name": "application.create",
+      "item": [
+        {
+          "name": "application.create",
+          "id": "dffb5b22-e775-494f-b914-0f0f9ef62f81",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"candidateId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the candidate to consider for a job\"\n  },\n  \"jobId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the job to consider the candidate for\"\n  },\n  \"interviewPlanId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interview plan to place the application in. If none is provided, the default interview plan is used.\\n\"\n  },\n  \"interviewStageId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The interview stage of the interview plan (either default or provided) to place the application in. \\nIf none is provided, the application is placed in the first \\\"Lead\\\" stage. \\nYou can also supply the special string \\\"FirstPreInterviewScreen\\\", which will choose the first pre-interview-screen stage on the specified job's interview plan.\\n\"\n  },\n  \"sourceId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The source to set on the application being created.\"\n  },\n  \"creditedToUserId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user the application will be credited to.\"\n  },\n  \"createdAt\": {\n    \"description\": \"An ISO date string to set the application's `createdAt` timestamp. When this value isn't provided, the `createdAt` timestamp defaults to the time the call was made.\\n\",\n    \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n  },\n  \"applicationHistory\": [\n    {\n      \"stageId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The ID of the interview stage for this history event. This stage must belong to the interview plan associated with the application.\"\n      },\n      \"stageNumber\": \"<integer>\",\n      \"enteredStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.addEmailMessage/post/requestBody/content/application~1json/schema/properties/sentAt/allOf/0 not found in the OpenAPI spec\",\n        \"description\": \"An ISO date string representing the time the application entered this stage.\"\n      },\n      \"archiveReasonId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The ID of the archive reason. If the interview stage is an `Archived` stage type, this field is required.\"\n      }\n    },\n    {\n      \"stageId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The ID of the interview stage for this history event. This stage must belong to the interview plan associated with the application.\"\n      },\n      \"stageNumber\": \"<integer>\",\n      \"enteredStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.addEmailMessage/post/requestBody/content/application~1json/schema/properties/sentAt/allOf/0 not found in the OpenAPI spec\",\n        \"description\": \"An ISO date string representing the time the application entered this stage.\"\n      },\n      \"archiveReasonId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The ID of the archive reason. If the interview stage is an `Archived` stage type, this field is required.\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.create"
+              ]
+            },
+            "description": "Consider a candidate for a job (eg when sourcing a candidate for a job posting).\n\nIf you're submitting an application as a job board, use the [`applicationForm.submit`](https://developers.ashbyhq.com/reference/applicationformsubmit) endpoint instead. See [Creating a custom careers page](https://developers.ashbyhq.com/docs/creating-a-custom-careers-page) for details.\n\n**Requires the [`candidatesWrite`](authentication#permissions-applicationcreate) permission.**\n\nTo set values for custom fields on Applications, use the [`customFields.setValue`](https://developers.ashbyhq.com/reference/customfieldsetvalue) endpoint.\n"
+          },
+          "response": [
+            {
+              "id": "03ccad48-61ee-41cc-9712-09b4d232b968",
+              "name": "Responses from the application.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"candidateId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the candidate to consider for a job\"\n  },\n  \"jobId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the job to consider the candidate for\"\n  },\n  \"interviewPlanId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interview plan to place the application in. If none is provided, the default interview plan is used.\\n\"\n  },\n  \"interviewStageId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The interview stage of the interview plan (either default or provided) to place the application in. \\nIf none is provided, the application is placed in the first \\\"Lead\\\" stage. \\nYou can also supply the special string \\\"FirstPreInterviewScreen\\\", which will choose the first pre-interview-screen stage on the specified job's interview plan.\\n\"\n  },\n  \"sourceId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The source to set on the application being created.\"\n  },\n  \"creditedToUserId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user the application will be credited to.\"\n  },\n  \"createdAt\": {\n    \"description\": \"An ISO date string to set the application's `createdAt` timestamp. When this value isn't provided, the `createdAt` timestamp defaults to the time the call was made.\\n\",\n    \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n  },\n  \"applicationHistory\": [\n    {\n      \"stageId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The ID of the interview stage for this history event. This stage must belong to the interview plan associated with the application.\"\n      },\n      \"stageNumber\": \"<integer>\",\n      \"enteredStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.addEmailMessage/post/requestBody/content/application~1json/schema/properties/sentAt/allOf/0 not found in the OpenAPI spec\",\n        \"description\": \"An ISO date string representing the time the application entered this stage.\"\n      },\n      \"archiveReasonId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The ID of the archive reason. If the interview stage is an `Archived` stage type, this field is required.\"\n      }\n    },\n    {\n      \"stageId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The ID of the interview stage for this history event. This stage must belong to the interview plan associated with the application.\"\n      },\n      \"stageNumber\": \"<integer>\",\n      \"enteredStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.addEmailMessage/post/requestBody/content/application~1json/schema/properties/sentAt/allOf/0 not found in the OpenAPI spec\",\n        \"description\": \"An ISO date string representing the time the application entered this stage.\"\n      },\n      \"archiveReasonId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The ID of the archive reason. If the interview stage is an `Archived` stage type, this field is required.\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/pushToHRIS/post/requestBody/content/application~1json/schema/properties/data/properties/application not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-03ccad48-61ee-41cc-9712-09b4d232b968"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-dffb5b22-e775-494f-b914-0f0f9ef62f81"
+        }
+      ],
+      "id": "394b11bb-4606-486b-8111-20fb99d332f5",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-394b11bb-4606-486b-8111-20fb99d332f5"
+    },
+    {
+      "name": "application.info",
+      "item": [
+        {
+          "name": "application.info",
+          "id": "b582059f-28a9-46ae-b7da-80e5698637f7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"description\": \"The id of the application to fetch.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"expand\": [\n    \"applicationFormSubmissions\",\n    \"openings\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.info"
+              ]
+            },
+            "description": "Fetch application details by application id or by submitted form instance id (which is return by the `applicationForm.submit` endpoint). If both applicationId and submittedFormInstanceId are provided, we will lookup by applicationId.\n\n**Requires the [`candidatesRead`](authentication#permissions-applicationinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "fe657276-0fc5-48a2-99bd-0e8a2cb04b01",
+              "name": "Responses from the application.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"description\": \"The id of the application to fetch.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"expand\": [\n    \"applicationFormSubmissions\",\n    \"openings\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"openings\": [\n      {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening not found in the OpenAPI spec\"\n      }\n    ],\n    \"applicationHistory\": [\n      {\n        \"id\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"stageId\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"title\": \"<string>\",\n        \"enteredStageAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        },\n        \"allowedActions\": [\n          \"delete\",\n          \"none\"\n        ],\n        \"stageNumber\": \"<integer>\",\n        \"leftStageAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        },\n        \"actorId\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        }\n      },\n      {\n        \"id\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"stageId\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"title\": \"<string>\",\n        \"enteredStageAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        },\n        \"allowedActions\": [\n          \"none\",\n          \"none\"\n        ],\n        \"stageNumber\": \"<integer>\",\n        \"leftStageAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        },\n        \"actorId\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        }\n      }\n    ],\n    \"applicationFormSubmissions\": [\n      {\n        \"value\": \"reference #/paths/~1applicationForm.submit/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/submittedFormInstance not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/paths/~1applicationForm.submit/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/submittedFormInstance not found in the OpenAPI spec\"\n      }\n    ],\n    \"referrals\": [\n      {\n        \"user\": {\n          \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        \"referredAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        }\n      },\n      {\n        \"user\": {\n          \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        \"referredAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        }\n      }\n    ],\n    \"resumeFileHandle\": {\n      \"value\": \"reference #/paths/~1candidate.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/fileHandles/items not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-fe657276-0fc5-48a2-99bd-0e8a2cb04b01"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-b582059f-28a9-46ae-b7da-80e5698637f7"
+        }
+      ],
+      "id": "fb18ac76-2aea-4289-a3b7-125d403e7f11",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-fb18ac76-2aea-4289-a3b7-125d403e7f11"
+    },
+    {
+      "name": "application.list",
+      "item": [
+        {
+          "name": "application.list",
+          "id": "9ecd8d65-0545-4c33-9658-1d0af5ca3612",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Hired\",\n  \"jobId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"expand\": [\n    \"openings\",\n    \"openings\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.list"
+              ]
+            },
+            "description": "Gets all applications in the organization.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`candidatesRead`](authentication#permissions-applicationlist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "f6630e5c-b453-4aff-a777-09cb74d55100",
+              "name": "Responses from the application.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"Hired\",\n  \"jobId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"expand\": [\n    \"openings\",\n    \"openings\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"value\": \"reference #/webhooks/pushToHRIS/post/requestBody/content/application~1json/schema/properties/data/properties/application not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/webhooks/pushToHRIS/post/requestBody/content/application~1json/schema/properties/data/properties/application not found in the OpenAPI spec\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-f6630e5c-b453-4aff-a777-09cb74d55100"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-9ecd8d65-0545-4c33-9658-1d0af5ca3612"
+        }
+      ],
+      "id": "0f0dbf54-38d1-417c-8942-c00bcc26f293",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-0f0dbf54-38d1-417c-8942-c00bcc26f293"
+    },
+    {
+      "name": "application.listCriteriaEvaluations",
+      "item": [
+        {
+          "name": "application.listCriteriaEvaluations",
+          "id": "91a1bd2a-dd61-4c18-bef8-b097f17fc8bc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"description\": \"The id of the application to fetch criteria evaluations for.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.listCriteriaEvaluations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.listCriteriaEvaluations"
+              ]
+            },
+            "description": "Fetch a paginated list of AI criteria evaluations for an application.\n\nThis endpoint returns the AI-generated criteria evaluations that assess how well a candidate meets specific job requirements. Each evaluation contains the outcome, reasoning, and other assessment details.\n\nThis endpoint supports pagination only (not incremental sync). See the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for usage examples.\n\n**Requires the [`candidatesRead`](authentication#permissions-applicationListCriteriaEvaluations) permission.**\n\n**Note:** This endpoint requires the AI Application Review feature to be enabled for your organization.\n"
+          },
+          "response": [
+            {
+              "id": "1f7c1d4b-fc54-467f-bfb9-36d932d2d04c",
+              "name": "Responses for the application.listCriteriaEvaluations endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"description\": \"The id of the application to fetch criteria evaluations for.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.listCriteriaEvaluations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.listCriteriaEvaluations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The id of the criteria evaluation.\"\n      },\n      \"criterion\": {\n        \"id\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n          \"description\": \"The id of the criterion version.\"\n        },\n        \"title\": \"<string>\",\n        \"type\": \"DidAnswerApplicationFormQuestion\",\n        \"prompt\": \"<string>\",\n        \"applicationFormDefinitionId\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"applicationFormFieldPath\": \"<string,null>\"\n      },\n      \"status\": \"Pending\",\n      \"outcome\": \"<string,null>\",\n      \"reasoning\": \"<string,null>\",\n      \"skipReason\": \"<string,null>\",\n      \"outcomeNumber\": \"<number,null>\",\n      \"evaluatedAt\": \"<string,null-date-time>\"\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The id of the criteria evaluation.\"\n      },\n      \"criterion\": {\n        \"id\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n          \"description\": \"The id of the criterion version.\"\n        },\n        \"title\": \"<string>\",\n        \"type\": \"SimilarityToAiGeneratedAnswer\",\n        \"prompt\": \"<string>\",\n        \"applicationFormDefinitionId\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"applicationFormFieldPath\": \"<string,null>\"\n      },\n      \"status\": \"Skipped\",\n      \"outcome\": \"<string,null>\",\n      \"reasoning\": \"<string,null>\",\n      \"skipReason\": \"<string,null>\",\n      \"outcomeNumber\": \"<number,null>\",\n      \"evaluatedAt\": \"<string,null-date-time>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-1f7c1d4b-fc54-467f-bfb9-36d932d2d04c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-91a1bd2a-dd61-4c18-bef8-b097f17fc8bc"
+        }
+      ],
+      "id": "13433768-5e3e-4e3e-9b43-b567884db7bc",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-13433768-5e3e-4e3e-9b43-b567884db7bc"
+    },
+    {
+      "name": "application.listHistory",
+      "item": [
+        {
+          "name": "application.listHistory",
+          "id": "ae4fb8ac-1069-47f3-98a5-59903796b949",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"description\": \"The id of the application to fetch.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.listHistory",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.listHistory"
+              ]
+            },
+            "description": "Fetch a paginated list of application history items for an application.\n\nThis endpoint supports pagination only (not incremental sync). See the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for usage examples.\n\n**Requires the [`candidatesRead`](authentication#permissions-applicationListHistory) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "ce8d9f4e-09f3-43a1-b311-bef13308bdd6",
+              "name": "Responses for the application.listHistory endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"description\": \"The id of the application to fetch.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.listHistory",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.listHistory"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"stageId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"enteredStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"allowedActions\": [\n        \"none\",\n        \"none\"\n      ],\n      \"stageNumber\": \"<integer>\",\n      \"leftStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"actorId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"stageId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"enteredStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"allowedActions\": [\n        \"set_entered_at\",\n        \"none\"\n      ],\n      \"stageNumber\": \"<integer>\",\n      \"leftStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"actorId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-ce8d9f4e-09f3-43a1-b311-bef13308bdd6"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-ae4fb8ac-1069-47f3-98a5-59903796b949"
+        }
+      ],
+      "id": "13388a0f-7986-4c93-b467-777a489cd673",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-13388a0f-7986-4c93-b467-777a489cd673"
+    },
+    {
+      "name": "application.removeHiringTeamMember",
+      "item": [
+        {
+          "name": "application.removeHiringTeamMember",
+          "id": "fb2ab1da-f56d-400e-96ad-0b2b0a9d6a3f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"description\": \"The application to unassign the user a role from.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"teamMemberId\": {\n    \"description\": \"The id of the user to unassign the role from.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"roleId\": {\n    \"description\": \"The id of the hiring team role to unassign.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.removeHiringTeamMember",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.removeHiringTeamMember"
+              ]
+            },
+            "description": "Removes an Ashby user to the hiring team at the application level. \n\n**Requires the [`candidateWrite`](authentication#permissions-applicationremovehiringteammember) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "2e49a547-424e-4639-b123-63c3cf0e9c23",
+              "name": "Responses for the application.removeHiringTeamMember endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"description\": \"The application to unassign the user a role from.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"teamMemberId\": {\n    \"description\": \"The id of the user to unassign the role from.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"roleId\": {\n    \"description\": \"The id of the hiring team role to unassign.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.removeHiringTeamMember",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.removeHiringTeamMember"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/paths/~1hiringTeam.addMember/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-2e49a547-424e-4639-b123-63c3cf0e9c23"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-fb2ab1da-f56d-400e-96ad-0b2b0a9d6a3f"
+        }
+      ],
+      "id": "d153b5ce-99e3-4083-8697-62d927677cac",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-d153b5ce-99e3-4083-8697-62d927677cac"
+    },
+    {
+      "name": "application.transfer",
+      "item": [
+        {
+          "name": "application.transfer",
+          "id": "58546f6f-d714-45fc-a648-d1b17fcd2891",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to transfer.\"\n  },\n  \"jobId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the job to transfer the application to.\"\n  },\n  \"interviewPlanId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interview plan to transfer the application to. \\n\"\n  },\n  \"interviewStageId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The interview stage of the interview plan to transfer the application to. \\n\"\n  },\n  \"startAutomaticActivities\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.transfer",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.transfer"
+              ]
+            },
+            "description": "Transfer an application to a different job.\n\n**Requires the [`candidatesWrite`](authentication#permissions-applicationtransfer) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "4703bc29-ffec-4268-b505-86f6f262f919",
+              "name": "Responses from the application.transfer endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to transfer.\"\n  },\n  \"jobId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the job to transfer the application to.\"\n  },\n  \"interviewPlanId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interview plan to transfer the application to. \\n\"\n  },\n  \"interviewStageId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The interview stage of the interview plan to transfer the application to. \\n\"\n  },\n  \"startAutomaticActivities\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.transfer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.transfer"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/pushToHRIS/post/requestBody/content/application~1json/schema/properties/data/properties/application not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-4703bc29-ffec-4268-b505-86f6f262f919"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-58546f6f-d714-45fc-a648-d1b17fcd2891"
+        }
+      ],
+      "id": "afef993f-362a-407f-bb9f-5d890dc5d828",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-afef993f-362a-407f-bb9f-5d890dc5d828"
+    },
+    {
+      "name": "application.update",
+      "item": [
+        {
+          "name": "application.update",
+          "id": "c9c0f94c-c29a-4771-8f2c-32b89e64f213",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to update\"\n  },\n  \"sourceId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The source to set on the application being created.\"\n  },\n  \"creditedToUserId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user the application will be credited to.\"\n  },\n  \"createdAt\": {\n    \"description\": \"An ISO date string to set the application's `createdAt` timestamp. When this value isn't provided, the `createdAt` timestamp defaults to the time the call was made.\\n\",\n    \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n  },\n  \"sendNotifications\": true\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.update"
+              ]
+            },
+            "description": "Update an application\n\n**Requires the [`candidatesWrite`](authentication#permissions-applicationupdate) permission.**\n\nTo set values for custom fields on Applications, use the [`customFields.setValue`](https://developers.ashbyhq.com/reference/customfieldsetvalue) endpoint.\n"
+          },
+          "response": [
+            {
+              "id": "aeb4aeec-28d6-4c73-aaee-5eb6c6bdaf91",
+              "name": "Responses from the application.update endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to update\"\n  },\n  \"sourceId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The source to set on the application being created.\"\n  },\n  \"creditedToUserId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user the application will be credited to.\"\n  },\n  \"createdAt\": {\n    \"description\": \"An ISO date string to set the application's `createdAt` timestamp. When this value isn't provided, the `createdAt` timestamp defaults to the time the call was made.\\n\",\n    \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n  },\n  \"sendNotifications\": true\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.update",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.update"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/pushToHRIS/post/requestBody/content/application~1json/schema/properties/data/properties/application not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-aeb4aeec-28d6-4c73-aaee-5eb6c6bdaf91"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-c9c0f94c-c29a-4771-8f2c-32b89e64f213"
+        }
+      ],
+      "id": "1aeda6f7-f7e4-43a3-947a-50a8f9affbf5",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-1aeda6f7-f7e4-43a3-947a-50a8f9affbf5"
+    },
+    {
+      "name": "application.updateHistory",
+      "item": [
+        {
+          "name": "application.updateHistory",
+          "id": "867cd30f-dd2f-403a-a307-aaf779b11567",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"description\": \"The id of the application to fetch.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"applicationHistory\": [\n    {\n      \"stageId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"stageNumber\": \"<integer>\",\n      \"enteredStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"applicationHistoryId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"archiveReasonId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"stageId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"stageNumber\": \"<integer>\",\n      \"enteredStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"applicationHistoryId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"archiveReasonId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application.updateHistory",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application.updateHistory"
+              ]
+            },
+            "description": "Update the history of an application. This endpoint is used to update the history of an application, such as setting the entered stage time or deleting a history event.\n\n**Requires the [`candidatesWrite`](authentication#permissions-applicationupdatehistory) permission and the `Allow updating application history?` setting found in your admin API key permissions configuration.**\n"
+          },
+          "response": [
+            {
+              "id": "48b98512-0b9e-4f1c-aeca-2e21b86e7370",
+              "name": "Responses from the application.updateHistory endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"description\": \"The id of the application to fetch.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"applicationHistory\": [\n    {\n      \"stageId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"stageNumber\": \"<integer>\",\n      \"enteredStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"applicationHistoryId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"archiveReasonId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"stageId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"stageNumber\": \"<integer>\",\n      \"enteredStageAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"applicationHistoryId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"archiveReasonId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application.updateHistory",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application.updateHistory"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"applicationHistory\": [\n      {\n        \"id\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"stageId\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"title\": \"<string>\",\n        \"enteredStageAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        },\n        \"allowedActions\": [\n          \"delete\",\n          \"none\"\n        ],\n        \"stageNumber\": \"<integer>\",\n        \"leftStageAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        },\n        \"actorId\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        }\n      },\n      {\n        \"id\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"stageId\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"title\": \"<string>\",\n        \"enteredStageAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        },\n        \"allowedActions\": [\n          \"delete\",\n          \"delete\"\n        ],\n        \"stageNumber\": \"<integer>\",\n        \"leftStageAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        },\n        \"actorId\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        }\n      }\n    ],\n    \"applicationFormSubmissions\": [\n      {\n        \"value\": \"reference #/paths/~1applicationForm.submit/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/submittedFormInstance not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/paths/~1applicationForm.submit/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/submittedFormInstance not found in the OpenAPI spec\"\n      }\n    ],\n    \"referrals\": [\n      {\n        \"user\": {\n          \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        \"referredAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        }\n      },\n      {\n        \"user\": {\n          \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        \"referredAt\": {\n          \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:05:04.000Z",
+              "updatedAt": "2026-07-28T01:05:04.000Z",
+              "uid": "35240-48b98512-0b9e-4f1c-aeca-2e21b86e7370"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:04.000Z",
+          "updatedAt": "2026-07-28T01:05:04.000Z",
+          "uid": "35240-867cd30f-dd2f-403a-a307-aaf779b11567"
+        }
+      ],
+      "id": "d9e92438-0b1e-4308-96f7-97b97cea71d0",
+      "createdAt": "2026-07-28T01:05:04.000Z",
+      "updatedAt": "2026-07-28T01:05:04.000Z",
+      "uid": "35240-d9e92438-0b1e-4308-96f7-97b97cea71d0"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

@@ -1,0 +1,915 @@
+{
+  "info": {
+    "_postman_id": "e9273507-6fba-4146-a589-5e1533dafea1",
+    "name": "Ashby API Key Interviewer Pool API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:37.000Z",
+    "updatedAt": "2026-07-28T01:06:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e9273507-6fba-4146-a589-5e1533dafea1"
+  },
+  "item": [
+    {
+      "name": "interviewerPool.list",
+      "item": [
+        {
+          "name": "interviewerPool.list",
+          "id": "7537f90e-bdec-4184-999b-0674b87e7a59",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeArchivedPools\": false,\n  \"includeArchivedTrainingStages\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewerPool.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewerPool.list"
+              ]
+            },
+            "description": "List all interviewer pools.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-interviewerpoollist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "33a76aa4-a659-41ed-af7b-47e43bbc5945",
+              "name": "Responses from the interviewerPool.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeArchivedPools\": false,\n  \"includeArchivedTrainingStages\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewerPool.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewerPool.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"title\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n        \"description\": \"Whether or not the pool is archived\"\n      },\n      \"trainingPath\": {\n        \"id\": \"<uuid>\",\n        \"enabled\": \"<boolean>\",\n        \"trainingStages\": [\n          {\n            \"id\": \"<uuid>\",\n            \"interviewerRole\": \"Shadow\",\n            \"interviewsRequired\": \"<integer>\",\n            \"isArchived\": \"<boolean>\",\n            \"approvalRequired\": \"<boolean>\",\n            \"approvers\": [\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              },\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"interviewerRole\": \"Shadow\",\n            \"interviewsRequired\": \"<integer>\",\n            \"isArchived\": \"<boolean>\",\n            \"approvalRequired\": \"<boolean>\",\n            \"approvers\": [\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              },\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              }\n            ]\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"title\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n        \"description\": \"Whether or not the pool is archived\"\n      },\n      \"trainingPath\": {\n        \"id\": \"<uuid>\",\n        \"enabled\": \"<boolean>\",\n        \"trainingStages\": [\n          {\n            \"id\": \"<uuid>\",\n            \"interviewerRole\": \"Shadow\",\n            \"interviewsRequired\": \"<integer>\",\n            \"isArchived\": \"<boolean>\",\n            \"approvalRequired\": \"<boolean>\",\n            \"approvers\": [\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              },\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              }\n            ]\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"interviewerRole\": \"Shadow\",\n            \"interviewsRequired\": \"<integer>\",\n            \"isArchived\": \"<boolean>\",\n            \"approvalRequired\": \"<boolean>\",\n            \"approvers\": [\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              },\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              }\n            ]\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:38.000Z",
+              "updatedAt": "2026-07-28T01:06:38.000Z",
+              "uid": "35240-33a76aa4-a659-41ed-af7b-47e43bbc5945"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:38.000Z",
+          "updatedAt": "2026-07-28T01:06:38.000Z",
+          "uid": "35240-7537f90e-bdec-4184-999b-0674b87e7a59"
+        }
+      ],
+      "id": "6d20b2f1-8393-44c3-876e-d61715878542",
+      "createdAt": "2026-07-28T01:06:38.000Z",
+      "updatedAt": "2026-07-28T01:06:38.000Z",
+      "uid": "35240-6d20b2f1-8393-44c3-876e-d61715878542"
+    },
+    {
+      "name": "interviewerPool.info",
+      "item": [
+        {
+          "name": "interviewerPool.info",
+          "id": "0d21edcd-6fc6-43f3-a77c-9e0662f85a1f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewerPool.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewerPool.info"
+              ]
+            },
+            "description": "Get information about an interviewer pool.\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-interviewerpoolinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "5b4adf38-246f-4a83-bed6-004e9bd43ce4",
+              "name": "Responses from the interviewerPool.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewerPool.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewerPool.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"trainingStages\": [\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"Shadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"ReverseShadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"isPaused\": \"<boolean>\"\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:06:38.000Z",
+              "updatedAt": "2026-07-28T01:06:38.000Z",
+              "uid": "35240-5b4adf38-246f-4a83-bed6-004e9bd43ce4"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:38.000Z",
+          "updatedAt": "2026-07-28T01:06:38.000Z",
+          "uid": "35240-0d21edcd-6fc6-43f3-a77c-9e0662f85a1f"
+        }
+      ],
+      "id": "32b53a0b-2ea4-4628-87c9-313ee1065095",
+      "createdAt": "2026-07-28T01:06:38.000Z",
+      "updatedAt": "2026-07-28T01:06:38.000Z",
+      "uid": "35240-32b53a0b-2ea4-4628-87c9-313ee1065095"
+    },
+    {
+      "name": "interviewerPool.create",
+      "item": [
+        {
+          "name": "interviewerPool.create",
+          "id": "ff2fe463-36e9-48f0-b4e2-cbc1f0aee582",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"requiresTraining\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewerPool.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewerPool.create"
+              ]
+            },
+            "description": "Create an interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpoolcreate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "70e6d08d-a44e-4832-82ba-27d8fcff8ef3",
+              "name": "Responses from the interviewerPool.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"requiresTraining\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewerPool.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewerPool.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"trainingStages\": [\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"Shadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"ReverseShadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"isPaused\": \"<boolean>\"\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:06:38.000Z",
+              "updatedAt": "2026-07-28T01:06:38.000Z",
+              "uid": "35240-70e6d08d-a44e-4832-82ba-27d8fcff8ef3"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:38.000Z",
+          "updatedAt": "2026-07-28T01:06:38.000Z",
+          "uid": "35240-ff2fe463-36e9-48f0-b4e2-cbc1f0aee582"
+        }
+      ],
+      "id": "5e989007-64df-415d-9760-f7bd36f90014",
+      "createdAt": "2026-07-28T01:06:38.000Z",
+      "updatedAt": "2026-07-28T01:06:38.000Z",
+      "uid": "35240-5e989007-64df-415d-9760-f7bd36f90014"
+    },
+    {
+      "name": "interviewerPool.update",
+      "item": [
+        {
+          "name": "interviewerPool.update",
+          "id": "1eeab013-7c63-4482-bcfb-640a1ed13b72",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\",\n  \"title\": \"<string>\",\n  \"requiresTraining\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewerPool.update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewerPool.update"
+              ]
+            },
+            "description": "Update an interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpoolupdate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "e6bb21e0-96a5-41c3-9d6d-5571c222a7e4",
+              "name": "Responses from the interviewerPool.update endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"<uuid>\",\n  \"title\": \"<string>\",\n  \"requiresTraining\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewerPool.update",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewerPool.update"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"trainingStages\": [\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"Shadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"ReverseShadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"isPaused\": \"<boolean>\"\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:06:38.000Z",
+              "updatedAt": "2026-07-28T01:06:38.000Z",
+              "uid": "35240-e6bb21e0-96a5-41c3-9d6d-5571c222a7e4"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:38.000Z",
+          "updatedAt": "2026-07-28T01:06:38.000Z",
+          "uid": "35240-1eeab013-7c63-4482-bcfb-640a1ed13b72"
+        }
+      ],
+      "id": "ed2b9161-5b6e-465b-bffd-64279c9a3c2d",
+      "createdAt": "2026-07-28T01:06:38.000Z",
+      "updatedAt": "2026-07-28T01:06:38.000Z",
+      "uid": "35240-ed2b9161-5b6e-465b-bffd-64279c9a3c2d"
+    },
+    {
+      "name": "interviewerPool.archive",
+      "item": [
+        {
+          "name": "interviewerPool.archive",
+          "id": "2604ff2c-8711-41df-8341-f69aec86f6f0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewerPool.archive",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewerPool.archive"
+              ]
+            },
+            "description": "Archives an interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpoolarchive) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "313fc221-07d5-438d-8f5f-bf0075920dcc",
+              "name": "Responses from the interviewerPool.archive endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewerPool.archive",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewerPool.archive"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"trainingStages\": [\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"Shadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"ReverseShadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"isPaused\": \"<boolean>\"\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:06:38.000Z",
+              "updatedAt": "2026-07-28T01:06:38.000Z",
+              "uid": "35240-313fc221-07d5-438d-8f5f-bf0075920dcc"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:38.000Z",
+          "updatedAt": "2026-07-28T01:06:38.000Z",
+          "uid": "35240-2604ff2c-8711-41df-8341-f69aec86f6f0"
+        }
+      ],
+      "id": "b2926ebe-7e93-40a1-95e7-1b2e3fd1f92f",
+      "createdAt": "2026-07-28T01:06:38.000Z",
+      "updatedAt": "2026-07-28T01:06:38.000Z",
+      "uid": "35240-b2926ebe-7e93-40a1-95e7-1b2e3fd1f92f"
+    },
+    {
+      "name": "interviewerPool.restore",
+      "item": [
+        {
+          "name": "interviewerPool.restore",
+          "id": "009c580a-509b-4be1-a320-b28e81cf48cc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewerPool.restore",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewerPool.restore"
+              ]
+            },
+            "description": "Restores an archived interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpoolrestore) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "ad4bb212-6acc-4039-a581-d8da9473cc93",
+              "name": "Responses from the interviewerPool.restore endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewerPool.restore",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewerPool.restore"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"trainingStages\": [\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"Shadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"ReverseShadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"isPaused\": \"<boolean>\"\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:06:38.000Z",
+              "updatedAt": "2026-07-28T01:06:38.000Z",
+              "uid": "35240-ad4bb212-6acc-4039-a581-d8da9473cc93"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:38.000Z",
+          "updatedAt": "2026-07-28T01:06:38.000Z",
+          "uid": "35240-009c580a-509b-4be1-a320-b28e81cf48cc"
+        }
+      ],
+      "id": "cfe092d2-a406-46eb-aa36-4113010a81af",
+      "createdAt": "2026-07-28T01:06:38.000Z",
+      "updatedAt": "2026-07-28T01:06:38.000Z",
+      "uid": "35240-cfe092d2-a406-46eb-aa36-4113010a81af"
+    },
+    {
+      "name": "interviewerPool.addUser",
+      "item": [
+        {
+          "name": "interviewerPool.addUser",
+          "id": "79d58374-a138-44c0-a6b5-31c570d890d4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\",\n  \"userId\": \"<uuid>\",\n  \"interviewerPoolTrainingPathStageId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewerPool.addUser",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewerPool.addUser"
+              ]
+            },
+            "description": "Add a user to an interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpooladduser) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "d7964328-82d8-4677-a8a5-52a655b1854b",
+              "name": "Responses from the interviewerPool.removeUser endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"<uuid>\",\n  \"userId\": \"<uuid>\",\n  \"interviewerPoolTrainingPathStageId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewerPool.addUser",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewerPool.addUser"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"trainingStages\": [\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"Shadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"ReverseShadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"isPaused\": \"<boolean>\"\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:06:38.000Z",
+              "updatedAt": "2026-07-28T01:06:38.000Z",
+              "uid": "35240-d7964328-82d8-4677-a8a5-52a655b1854b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:38.000Z",
+          "updatedAt": "2026-07-28T01:06:38.000Z",
+          "uid": "35240-79d58374-a138-44c0-a6b5-31c570d890d4"
+        }
+      ],
+      "id": "e44a39b2-c13b-4a22-a518-a0cdc5e2dd70",
+      "createdAt": "2026-07-28T01:06:38.000Z",
+      "updatedAt": "2026-07-28T01:06:38.000Z",
+      "uid": "35240-e44a39b2-c13b-4a22-a518-a0cdc5e2dd70"
+    },
+    {
+      "name": "interviewerPool.removeUser",
+      "item": [
+        {
+          "name": "interviewerPool.removeUser",
+          "id": "732fb280-e7b8-4141-ba79-aeb26188871d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\",\n  \"userId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewerPool.removeUser",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewerPool.removeUser"
+              ]
+            },
+            "description": "Remove a user from an interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpoolremoveuser) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "2116509b-0e4f-433e-8d65-775ff7ff42f8",
+              "name": "Responses from the interviewerPool.removeUser endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"<uuid>\",\n  \"userId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewerPool.removeUser",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewerPool.removeUser"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": \"<uuid>\",\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"trainingStages\": [\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"Shadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"interviewerRole\": \"ReverseShadow\",\n          \"interviewsRequired\": \"<integer>\",\n          \"isArchived\": \"<boolean>\",\n          \"approvalRequired\": \"<boolean>\",\n          \"approvers\": [\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            },\n            {\n              \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n            }\n          ]\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"isPaused\": \"<boolean>\"\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": \"<uuid>\",\n          \"trainingPathStageId\": \"<uuid>\",\n          \"interviewsCompleted\": \"<integer>\"\n        },\n        \"isPaused\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:06:38.000Z",
+              "updatedAt": "2026-07-28T01:06:38.000Z",
+              "uid": "35240-2116509b-0e4f-433e-8d65-775ff7ff42f8"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:38.000Z",
+          "updatedAt": "2026-07-28T01:06:38.000Z",
+          "uid": "35240-732fb280-e7b8-4141-ba79-aeb26188871d"
+        }
+      ],
+      "id": "12597101-aecb-4e89-9428-ab8898fcb7cf",
+      "createdAt": "2026-07-28T01:06:38.000Z",
+      "updatedAt": "2026-07-28T01:06:38.000Z",
+      "uid": "35240-12597101-aecb-4e89-9428-ab8898fcb7cf"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

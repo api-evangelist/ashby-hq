@@ -1,0 +1,785 @@
+{
+  "info": {
+    "_postman_id": "ffa9c737-1d77-4e64-bd2b-d8f83283b246",
+    "name": "Ashby API Key Assessment API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:36.000Z",
+    "updatedAt": "2026-07-28T01:05:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ffa9c737-1d77-4e64-bd2b-d8f83283b246"
+  },
+  "item": [
+    {
+      "name": "assessment.addCompletedToCandidate",
+      "item": [
+        {
+          "name": "assessment.addCompletedToCandidate",
+          "id": "0788fd23-1421-4fb0-8751-7655f15411ee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"candidateId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the candidate, to whom to add the completed assessment\"\n  },\n  \"partnerId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the partner adding the assessment\"\n  },\n  \"assessment\": {\n    \"assessmentTypeId\": {\n      \"description\": \"An identifier that uniquely identifies the assessment type\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"assessmentId\": {\n      \"description\": \"An identifier that uniquely identifies the completed assessment\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"assessmentName\": \"<string>\",\n    \"result\": {\n      \"identifier\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"string\",\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"metadata\": [\n      {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"url\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"numeric_duration_minutes\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ]\n  },\n  \"timestamp\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/assessment.addCompletedToCandidate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "assessment.addCompletedToCandidate"
+              ]
+            },
+            "description": "Add a completed assessment to a candidate\n\n**Requires the [`candidatesWrite`](authentication#permissions-assessmentaddcompletedtocandidate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "52047685-6f82-404a-ad08-f8d88ab764b9",
+              "name": "Responses for the assessment.addCompletedToCandidate endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"candidateId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the candidate, to whom to add the completed assessment\"\n  },\n  \"partnerId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the partner adding the assessment\"\n  },\n  \"assessment\": {\n    \"assessmentTypeId\": {\n      \"description\": \"An identifier that uniquely identifies the assessment type\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"assessmentId\": {\n      \"description\": \"An identifier that uniquely identifies the completed assessment\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"assessmentName\": \"<string>\",\n    \"result\": {\n      \"identifier\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"string\",\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"metadata\": [\n      {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"url\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"numeric_duration_minutes\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ]\n  },\n  \"timestamp\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assessment.addCompletedToCandidate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assessment.addCompletedToCandidate"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"assessmentTypeId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"assessmentId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"assessmentName\": \"<string>\",\n    \"candidateId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"metadata\": [\n      {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"string\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"numeric_score\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"applicationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"result\": {\n      \"identifier\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"string\",\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:05:36.000Z",
+              "updatedAt": "2026-07-28T01:05:36.000Z",
+              "uid": "35240-52047685-6f82-404a-ad08-f8d88ab764b9"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:36.000Z",
+          "updatedAt": "2026-07-28T01:05:36.000Z",
+          "uid": "35240-0788fd23-1421-4fb0-8751-7655f15411ee"
+        }
+      ],
+      "id": "e30537e8-47b3-4f05-bca2-a9e4a3a90fff",
+      "createdAt": "2026-07-28T01:05:36.000Z",
+      "updatedAt": "2026-07-28T01:05:36.000Z",
+      "uid": "35240-e30537e8-47b3-4f05-bca2-a9e4a3a90fff"
+    },
+    {
+      "name": "assessment.start",
+      "item": [
+        {
+          "name": "assessment.start (Implemented by Partner)",
+          "id": "353b69cb-ea25-423f-80c8-a74650e9d27b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assessment_type_id\": {\n    \"description\": \"The id of the type of assessment to start (retrieved from calling /assessment.list)\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"candidate\": {\n    \"ashby_id\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"ashby_profile_url\": \"<string>\"\n  },\n  \"application\": {\n    \"ashby_id\": \"<string>\",\n    \"status\": {\n      \"value\": \"reference #/paths/~1application.list/post/requestBody/content/application~1json/schema/allOf/1/properties/status not found in the OpenAPI spec\",\n      \"description\": \"The status of the application in Ashby\"\n    }\n  },\n  \"job\": {\n    \"ashby_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"ashby_job_url\": \"<string>\",\n    \"req_id\": \"<string>\",\n    \"hiringTeam\": [\n      {\n        \"value\": \"reference #/paths/~1hiringTeam.addMember/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/paths/~1hiringTeam.addMember/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/assessment.start",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "assessment.start"
+              ]
+            },
+            "description": "The API for starting an assessment. Implemented by the partner, called by Ashby.\n"
+          },
+          "response": [
+            {
+              "id": "100972b2-eebb-4985-8a22-1cf4fca49d1b",
+              "name": "Responses for the assessment.start endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assessment_type_id\": {\n    \"description\": \"The id of the type of assessment to start (retrieved from calling /assessment.list)\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"candidate\": {\n    \"ashby_id\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"ashby_profile_url\": \"<string>\"\n  },\n  \"application\": {\n    \"ashby_id\": \"<string>\",\n    \"status\": {\n      \"value\": \"reference #/paths/~1application.list/post/requestBody/content/application~1json/schema/allOf/1/properties/status not found in the OpenAPI spec\",\n      \"description\": \"The status of the application in Ashby\"\n    }\n  },\n  \"job\": {\n    \"ashby_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"ashby_job_url\": \"<string>\",\n    \"req_id\": \"<string>\",\n    \"hiringTeam\": [\n      {\n        \"value\": \"reference #/paths/~1hiringTeam.addMember/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/paths/~1hiringTeam.addMember/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assessment.start",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assessment.start"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"success\": \"<boolean>\",\n  \"results\": {\n    \"assessment_id\": \"<string>\",\n    \"update_request\": {\n      \"assessment_id\": {\n        \"description\": \"Identifier of the assessment being updated\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"timestamp\": {\n        \"value\": \"reference #/paths/~1assessment.addCompletedToCandidate/post/requestBody/content/application~1json/schema/properties/timestamp/allOf/1 not found in the OpenAPI spec\"\n      },\n      \"assessment_status\": {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"boolean_success\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"assessment_profile_url\": {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"numeric_score\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"assessment_result\": {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"numeric_duration_minutes\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"cancelled_reason\": {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"numeric_duration_minutes\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"metadata\": [\n        {\n          \"identifier\": \"<string>\",\n          \"label\": \"<string>\",\n          \"type\": \"numeric_score\",\n          \"value\": \"<string>\",\n          \"description\": \"<string>\"\n        },\n        {\n          \"identifier\": \"<string>\",\n          \"label\": \"<string>\",\n          \"type\": \"numeric_duration_minutes\",\n          \"value\": \"<string>\",\n          \"description\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:05:36.000Z",
+              "updatedAt": "2026-07-28T01:05:36.000Z",
+              "uid": "35240-100972b2-eebb-4985-8a22-1cf4fca49d1b"
+            },
+            {
+              "id": "e8cbcfa0-82d5-46d3-937f-7a87da41ff6d",
+              "name": "The assessment could not be started because the candidate is already being assessed.\n",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assessment_type_id\": {\n    \"description\": \"The id of the type of assessment to start (retrieved from calling /assessment.list)\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"candidate\": {\n    \"ashby_id\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"ashby_profile_url\": \"<string>\"\n  },\n  \"application\": {\n    \"ashby_id\": \"<string>\",\n    \"status\": {\n      \"value\": \"reference #/paths/~1application.list/post/requestBody/content/application~1json/schema/allOf/1/properties/status not found in the OpenAPI spec\",\n      \"description\": \"The status of the application in Ashby\"\n    }\n  },\n  \"job\": {\n    \"ashby_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"ashby_job_url\": \"<string>\",\n    \"req_id\": \"<string>\",\n    \"hiringTeam\": [\n      {\n        \"value\": \"reference #/paths/~1hiringTeam.addMember/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/paths/~1hiringTeam.addMember/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assessment.start",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assessment.start"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:05:36.000Z",
+              "updatedAt": "2026-07-28T01:05:36.000Z",
+              "uid": "35240-e8cbcfa0-82d5-46d3-937f-7a87da41ff6d"
+            },
+            {
+              "id": "0eb19401-6547-41d0-a561-ec0bf8bb6cdd",
+              "name": "A custom error message that will be shown to the user in Ashby.\n",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assessment_type_id\": {\n    \"description\": \"The id of the type of assessment to start (retrieved from calling /assessment.list)\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"candidate\": {\n    \"ashby_id\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"ashby_profile_url\": \"<string>\"\n  },\n  \"application\": {\n    \"ashby_id\": \"<string>\",\n    \"status\": {\n      \"value\": \"reference #/paths/~1application.list/post/requestBody/content/application~1json/schema/allOf/1/properties/status not found in the OpenAPI spec\",\n      \"description\": \"The status of the application in Ashby\"\n    }\n  },\n  \"job\": {\n    \"ashby_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"ashby_job_url\": \"<string>\",\n    \"req_id\": \"<string>\",\n    \"hiringTeam\": [\n      {\n        \"value\": \"reference #/paths/~1hiringTeam.addMember/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/paths/~1hiringTeam.addMember/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assessment.start",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assessment.start"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:05:36.000Z",
+              "updatedAt": "2026-07-28T01:05:36.000Z",
+              "uid": "35240-0eb19401-6547-41d0-a561-ec0bf8bb6cdd"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:36.000Z",
+          "updatedAt": "2026-07-28T01:05:36.000Z",
+          "uid": "35240-353b69cb-ea25-423f-80c8-a74650e9d27b"
+        }
+      ],
+      "id": "23a965ed-04aa-4747-95af-fccef8242029",
+      "createdAt": "2026-07-28T01:05:36.000Z",
+      "updatedAt": "2026-07-28T01:05:36.000Z",
+      "uid": "35240-23a965ed-04aa-4747-95af-fccef8242029"
+    },
+    {
+      "name": "assessment.list",
+      "item": [
+        {
+          "name": "assessment.list (Implemented by Partner)",
+          "id": "dcbdd0e7-adec-4d87-8771-a0c3ce0550db",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/assessment.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "assessment.list"
+              ]
+            },
+            "description": "The API for listing assessments that the partner supports \u2014 implemented by the partner, but called by Ashby\n"
+          },
+          "response": [
+            {
+              "id": "5d1112e2-68c3-4238-b942-953ee6038436",
+              "name": "Responses for the assessment.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assessment.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assessment.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"assessment_type_id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"assessment_type_id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:36.000Z",
+              "updatedAt": "2026-07-28T01:05:36.000Z",
+              "uid": "35240-5d1112e2-68c3-4238-b942-953ee6038436"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:36.000Z",
+          "updatedAt": "2026-07-28T01:05:36.000Z",
+          "uid": "35240-dcbdd0e7-adec-4d87-8771-a0c3ce0550db"
+        }
+      ],
+      "id": "a8452e0a-2de5-4bc8-9fef-24d554689305",
+      "createdAt": "2026-07-28T01:05:36.000Z",
+      "updatedAt": "2026-07-28T01:05:36.000Z",
+      "uid": "35240-a8452e0a-2de5-4bc8-9fef-24d554689305"
+    },
+    {
+      "name": "assessment.update",
+      "item": [
+        {
+          "name": "assessment.update",
+          "id": "ed888072-c0b3-4550-b252-004d73e6e249",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assessment_id\": {\n    \"description\": \"Identifier of the assessment being updated\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"timestamp\": {\n    \"value\": \"reference #/paths/~1assessment.addCompletedToCandidate/post/requestBody/content/application~1json/schema/properties/timestamp/allOf/1 not found in the OpenAPI spec\"\n  },\n  \"assessment_status\": {\n    \"identifier\": \"<string>\",\n    \"label\": \"<string>\",\n    \"type\": \"boolean_success\",\n    \"value\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"assessment_profile_url\": {\n    \"identifier\": \"<string>\",\n    \"label\": \"<string>\",\n    \"type\": \"numeric_score\",\n    \"value\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"assessment_result\": {\n    \"identifier\": \"<string>\",\n    \"label\": \"<string>\",\n    \"type\": \"numeric_score\",\n    \"value\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"cancelled_reason\": {\n    \"identifier\": \"<string>\",\n    \"label\": \"<string>\",\n    \"type\": \"boolean_success\",\n    \"value\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"metadata\": [\n    {\n      \"identifier\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"boolean_success\",\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"identifier\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"numeric_duration_minutes\",\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/assessment.update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "assessment.update"
+              ]
+            },
+            "description": "Update Ashby about the status of a started assessment.\n\n**Requires the [`candidatesWrite`](authentication#permissions-assessmentupdate) permission.**\n\n`assessment_status` is required unless `cancelled_reason` is provided.\n"
+          },
+          "response": [
+            {
+              "id": "df0a81e9-9c9b-46ec-aabc-3fd4bce4c97b",
+              "name": "Responses for the assessment.start endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assessment_id\": {\n    \"description\": \"Identifier of the assessment being updated\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"timestamp\": {\n    \"value\": \"reference #/paths/~1assessment.addCompletedToCandidate/post/requestBody/content/application~1json/schema/properties/timestamp/allOf/1 not found in the OpenAPI spec\"\n  },\n  \"assessment_status\": {\n    \"identifier\": \"<string>\",\n    \"label\": \"<string>\",\n    \"type\": \"boolean_success\",\n    \"value\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"assessment_profile_url\": {\n    \"identifier\": \"<string>\",\n    \"label\": \"<string>\",\n    \"type\": \"numeric_score\",\n    \"value\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"assessment_result\": {\n    \"identifier\": \"<string>\",\n    \"label\": \"<string>\",\n    \"type\": \"numeric_score\",\n    \"value\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"cancelled_reason\": {\n    \"identifier\": \"<string>\",\n    \"label\": \"<string>\",\n    \"type\": \"boolean_success\",\n    \"value\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  \"metadata\": [\n    {\n      \"identifier\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"boolean_success\",\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"identifier\": \"<string>\",\n      \"label\": \"<string>\",\n      \"type\": \"numeric_duration_minutes\",\n      \"value\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assessment.update",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assessment.update"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:05:36.000Z",
+              "updatedAt": "2026-07-28T01:05:36.000Z",
+              "uid": "35240-df0a81e9-9c9b-46ec-aabc-3fd4bce4c97b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:36.000Z",
+          "updatedAt": "2026-07-28T01:05:36.000Z",
+          "uid": "35240-ed888072-c0b3-4550-b252-004d73e6e249"
+        }
+      ],
+      "id": "910a9aed-65f4-43b2-80f5-496c89ee34b2",
+      "createdAt": "2026-07-28T01:05:36.000Z",
+      "updatedAt": "2026-07-28T01:05:36.000Z",
+      "uid": "35240-910a9aed-65f4-43b2-80f5-496c89ee34b2"
+    },
+    {
+      "name": "assessment.cancel",
+      "item": [
+        {
+          "name": "assessment.cancel (Implemented by Partner)",
+          "id": "28da4e21-43ec-4965-99dd-3baedd312501",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assessment_id\": {\n    \"description\": \"The id of the started assessment to cancel\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/assessment.cancel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "assessment.cancel"
+              ]
+            },
+            "description": "(Optional) Cancels an assessment. Implemented by the partner, called by Ashby.\n"
+          },
+          "response": [
+            {
+              "id": "9ab1fe79-571c-49e2-ad17-2c8174ff5aed",
+              "name": "Responses for the assessment.cancel endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assessment_id\": {\n    \"description\": \"The id of the started assessment to cancel\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assessment.cancel",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assessment.cancel"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"success\": \"<boolean>\",\n  \"results\": {\n    \"assessment_id\": \"<string>\",\n    \"update_request\": {\n      \"assessment_id\": {\n        \"description\": \"Identifier of the assessment being updated\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"timestamp\": {\n        \"value\": \"reference #/paths/~1assessment.addCompletedToCandidate/post/requestBody/content/application~1json/schema/properties/timestamp/allOf/1 not found in the OpenAPI spec\"\n      },\n      \"assessment_status\": {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"boolean_success\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"assessment_profile_url\": {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"numeric_score\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"assessment_result\": {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"numeric_duration_minutes\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"cancelled_reason\": {\n        \"identifier\": \"<string>\",\n        \"label\": \"<string>\",\n        \"type\": \"numeric_duration_minutes\",\n        \"value\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"metadata\": [\n        {\n          \"identifier\": \"<string>\",\n          \"label\": \"<string>\",\n          \"type\": \"numeric_score\",\n          \"value\": \"<string>\",\n          \"description\": \"<string>\"\n        },\n        {\n          \"identifier\": \"<string>\",\n          \"label\": \"<string>\",\n          \"type\": \"numeric_duration_minutes\",\n          \"value\": \"<string>\",\n          \"description\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:05:36.000Z",
+              "updatedAt": "2026-07-28T01:05:36.000Z",
+              "uid": "35240-9ab1fe79-571c-49e2-ad17-2c8174ff5aed"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:36.000Z",
+          "updatedAt": "2026-07-28T01:05:36.000Z",
+          "uid": "35240-28da4e21-43ec-4965-99dd-3baedd312501"
+        }
+      ],
+      "id": "4f09bac2-99a1-464f-a59b-da8457cc7223",
+      "createdAt": "2026-07-28T01:05:36.000Z",
+      "updatedAt": "2026-07-28T01:05:36.000Z",
+      "uid": "35240-4f09bac2-99a1-464f-a59b-da8457cc7223"
+    },
+    {
+      "name": "assessment.customField.list",
+      "item": [
+        {
+          "name": "customField.list (Implemented by Partner)",
+          "id": "5794883e-d161-4ade-9ac2-e89bf5900c35",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/assessment.customField.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "assessment.customField.list"
+              ]
+            },
+            "description": "The API for listing custom fields that can be synced to Ashby \u2014 implemented by the assessment partner, but called by Ashby.\n\nThis endpoint is optional and must be enabled for your integration. Contact Ashby if you wish to use this feature.\n"
+          },
+          "response": [
+            {
+              "id": "596bb020-db07-433c-8d1a-07e0a4c1fc55",
+              "name": "Responses for the customField.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assessment.customField.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assessment.customField.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"fields\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"Email\",\n      \"possible_values\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"isRequired\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"String\",\n      \"possible_values\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"isRequired\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:36.000Z",
+              "updatedAt": "2026-07-28T01:05:36.000Z",
+              "uid": "35240-596bb020-db07-433c-8d1a-07e0a4c1fc55"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:36.000Z",
+          "updatedAt": "2026-07-28T01:05:36.000Z",
+          "uid": "35240-5794883e-d161-4ade-9ac2-e89bf5900c35"
+        }
+      ],
+      "id": "17ff0dcb-66c2-4f7f-bdac-e43c7411dedc",
+      "createdAt": "2026-07-28T01:05:36.000Z",
+      "updatedAt": "2026-07-28T01:05:36.000Z",
+      "uid": "35240-17ff0dcb-66c2-4f7f-bdac-e43c7411dedc"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

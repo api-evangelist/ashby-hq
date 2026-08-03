@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "5fe0ef6d-1e9c-445c-a8fa-99e88805dd0a",
+    "name": "Ashby API Key Referral API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:00.000Z",
+    "updatedAt": "2026-07-28T01:07:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5fe0ef6d-1e9c-445c-a8fa-99e88805dd0a"
+  },
+  "item": [
+    {
+      "name": "referral.create",
+      "item": [
+        {
+          "name": "referral.create",
+          "id": "e868328b-c0a6-4e52-913b-26fbdcb5147b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": {\n    \"description\": \"The id of the referral form, from /referralForm.info\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"creditedToUserId\": {\n    \"description\": \"The id of the user submitting the referral\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"fieldSubmissions\": [\n    {\n      \"path\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"path\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"createdAt\": {\n    \"description\": \"An ISO date string to set the referral's createdAt timestamp to. When this value isn't provided, the createdAt timestamp defaults to the time the referral was created.\\n\",\n    \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/referral.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "referral.create"
+              ]
+            },
+            "description": "Creates a referral\n\n**Requires the [`candidatesWrite`](authentication#permissions-referralcreate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "69036ff7-aeeb-467e-86b5-a503f0fd10b0",
+              "name": "Responses for the referral.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": {\n    \"description\": \"The id of the referral form, from /referralForm.info\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"creditedToUserId\": {\n    \"description\": \"The id of the user submitting the referral\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"fieldSubmissions\": [\n    {\n      \"path\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"path\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"createdAt\": {\n    \"description\": \"An ISO date string to set the referral's createdAt timestamp to. When this value isn't provided, the createdAt timestamp defaults to the time the referral was created.\\n\",\n    \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/referral.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "referral.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/pushToHRIS/post/requestBody/content/application~1json/schema/properties/data/properties/application not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:01.000Z",
+              "updatedAt": "2026-07-28T01:07:01.000Z",
+              "uid": "35240-69036ff7-aeeb-467e-86b5-a503f0fd10b0"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:01.000Z",
+          "updatedAt": "2026-07-28T01:07:01.000Z",
+          "uid": "35240-e868328b-c0a6-4e52-913b-26fbdcb5147b"
+        }
+      ],
+      "id": "552d0240-59bd-47f1-8a31-0cc38e68d499",
+      "createdAt": "2026-07-28T01:07:01.000Z",
+      "updatedAt": "2026-07-28T01:07:01.000Z",
+      "uid": "35240-552d0240-59bd-47f1-8a31-0cc38e68d499"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

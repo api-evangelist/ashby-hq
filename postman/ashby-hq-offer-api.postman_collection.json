@@ -1,0 +1,805 @@
+{
+  "info": {
+    "_postman_id": "912c8bd7-33a5-492b-8ef0-2abf527a37ee",
+    "name": "Ashby API Key Offer API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:48.000Z",
+    "updatedAt": "2026-07-28T01:06:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-912c8bd7-33a5-492b-8ef0-2abf527a37ee"
+  },
+  "item": [
+    {
+      "name": "offer.approve",
+      "item": [
+        {
+          "name": "offer.approve",
+          "id": "199c2f12-e663-4961-9224-e6d600d814a8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerVersionId\": {\n    \"description\": \"The id of the offer version that needs approval. This can be obtained as the `entityId` from the `approval.list` endpoint.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"approvalStepId\": {\n    \"description\": \"The id of the specific approval step to approve. If provided, `userId` must also be provided.\\nIf omitted, the entire offer approval process will be approved. This can be obtained from the `approval.list` endpoint.\\n\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"userId\": {\n    \"description\": \"The id of the user approving the step. Required if `approvalStepId` is provided.\\nMust be an approver for the specified approval step.\\n\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"excludeFormDefinition\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/offer.approve",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "offer.approve"
+              ]
+            },
+            "description": "Approves an offer or a specific approval step within an offer's approval process.\n\nThis endpoint mimics the behavior of the \"Force Approve\" function in the Ashby app, where an admin can override approval for a specific step or entire approval process.\n\n**Requires the [`offersWrite`](authentication#permissions-offerapprove) permission.**\n\nThis endpoint can be used in two ways:\n1. **Approve entire offer**: Call without `approvalStepId` and `userId` to approve the entire offer approval process\n2. **Approve specific step**: Provide both `approvalStepId` and `userId` to approve a specific step in the approval process\n\nWhen approving a specific step, the step must be the current step in the approval process and the user must be an approver for that step.\n"
+          },
+          "response": [
+            {
+              "id": "b269004d-494e-4ac9-959f-ba1f9ec5c3d3",
+              "name": "Responses for the offer.approve endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerVersionId\": {\n    \"description\": \"The id of the offer version that needs approval. This can be obtained as the `entityId` from the `approval.list` endpoint.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"approvalStepId\": {\n    \"description\": \"The id of the specific approval step to approve. If provided, `userId` must also be provided.\\nIf omitted, the entire offer approval process will be approved. This can be obtained from the `approval.list` endpoint.\\n\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"userId\": {\n    \"description\": \"The id of the user approving the step. Required if `approvalStepId` is provided.\\nMust be an approver for the specified approval step.\\n\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"excludeFormDefinition\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/offer.approve",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "offer.approve"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/offerCreate/post/requestBody/content/application~1json/schema/properties/data/properties/offer not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:48.000Z",
+              "updatedAt": "2026-07-28T01:06:48.000Z",
+              "uid": "35240-b269004d-494e-4ac9-959f-ba1f9ec5c3d3"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:48.000Z",
+          "updatedAt": "2026-07-28T01:06:48.000Z",
+          "uid": "35240-199c2f12-e663-4961-9224-e6d600d814a8"
+        }
+      ],
+      "id": "8ab6411c-5df3-4594-8c48-f7b099209330",
+      "createdAt": "2026-07-28T01:06:48.000Z",
+      "updatedAt": "2026-07-28T01:06:48.000Z",
+      "uid": "35240-8ab6411c-5df3-4594-8c48-f7b099209330"
+    },
+    {
+      "name": "offer.create",
+      "item": [
+        {
+          "name": "offer.create",
+          "id": "51f05d41-3c72-49fb-b6ed-6c0a4b07768e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerProcessId\": {\n    \"description\": \"The id of the offer process associated with the offer you're creating. \\nThis value is the id included in the response of the `offerProcess.start` API.\\n\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"offerFormId\": {\n    \"description\": \"The id of the form associated with the offer.\\nThis value is the id included in the response of the `offer.start` API.\\n\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"offerForm\": {\n    \"fieldSubmissions\": [\n      {\n        \"path\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"path\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"excludeFormDefinition\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/offer.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "offer.create"
+              ]
+            },
+            "description": "Creates a new Offer\n\n**Requires the [`offersWrite`](authentication#permissions-offercreate) permission.**\n\nOffer forms support a variety of field types. The values accepted for each field depend on the type of field that's being filled out:\n- `Boolean` - A boolean value.\n- `Currency` - An object in the format `{ currencyCode: \"USD\", value: 100000 }` where currencyCode is a valid ISO 4217 currency code and value is an integer.\n- `Date` - A valid ISO Date string.\n- `Number` - An integer.\n- `String` - A string.\n- `ValueSelect` - A string that matches the value of one of the ValueSelect field's selectable options.\n- `MultiValueSelect` - An array of strings that exist in the MultiValueSelect field's selectable options.\n\n**Error codes:**\n\n| Code | Description |\n|---|---|\n| `opening_in_use` | The opening is already in use by another offer. |\n| `opening_state_invalid` | The opening has already been closed or filled by a different application.. |\n"
+          },
+          "response": [
+            {
+              "id": "929e1894-5ce5-4bdf-a7e7-9cd031ccab5c",
+              "name": "Responses for the offer.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerProcessId\": {\n    \"description\": \"The id of the offer process associated with the offer you're creating. \\nThis value is the id included in the response of the `offerProcess.start` API.\\n\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"offerFormId\": {\n    \"description\": \"The id of the form associated with the offer.\\nThis value is the id included in the response of the `offer.start` API.\\n\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"offerForm\": {\n    \"fieldSubmissions\": [\n      {\n        \"path\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"path\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"excludeFormDefinition\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/offer.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "offer.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/offerCreate/post/requestBody/content/application~1json/schema/properties/data/properties/offer not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:48.000Z",
+              "updatedAt": "2026-07-28T01:06:48.000Z",
+              "uid": "35240-929e1894-5ce5-4bdf-a7e7-9cd031ccab5c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:48.000Z",
+          "updatedAt": "2026-07-28T01:06:48.000Z",
+          "uid": "35240-51f05d41-3c72-49fb-b6ed-6c0a4b07768e"
+        }
+      ],
+      "id": "89a059b2-c03f-412c-baf7-9a9c8829ae7d",
+      "createdAt": "2026-07-28T01:06:48.000Z",
+      "updatedAt": "2026-07-28T01:06:48.000Z",
+      "uid": "35240-89a059b2-c03f-412c-baf7-9a9c8829ae7d"
+    },
+    {
+      "name": "offer.info",
+      "item": [
+        {
+          "name": "offer.info",
+          "id": "b4356330-4607-4d8e-9a4b-11ae30a16e37",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerId\": {\n    \"description\": \"The id of the offer to fetch\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"excludeFormDefinition\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/offer.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "offer.info"
+              ]
+            },
+            "description": "Returns details about a single offer by id\n\n**Requires the [`offersRead`](authentication#permissions-offerinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "924df410-41bb-481e-b4f8-ee97d15c524a",
+              "name": "Responses for the offer.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerId\": {\n    \"description\": \"The id of the offer to fetch\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"excludeFormDefinition\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/offer.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "offer.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/offerCreate/post/requestBody/content/application~1json/schema/properties/data/properties/offer not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:48.000Z",
+              "updatedAt": "2026-07-28T01:06:48.000Z",
+              "uid": "35240-924df410-41bb-481e-b4f8-ee97d15c524a"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:48.000Z",
+          "updatedAt": "2026-07-28T01:06:48.000Z",
+          "uid": "35240-b4356330-4607-4d8e-9a4b-11ae30a16e37"
+        }
+      ],
+      "id": "e88432c1-e271-48fe-8988-d1a926464906",
+      "createdAt": "2026-07-28T01:06:48.000Z",
+      "updatedAt": "2026-07-28T01:06:48.000Z",
+      "uid": "35240-e88432c1-e271-48fe-8988-d1a926464906"
+    },
+    {
+      "name": "offer.list",
+      "item": [
+        {
+          "name": "offer.list",
+          "id": "d14b7420-15bd-4e1f-80df-bcd3c9638e2e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerStatus\": [\n    \"CandidateAccepted\"\n  ],\n  \"acceptanceStatus\": [\n    \"WaitingOnResponse\"\n  ],\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"If provided, only returns the offers for the application with the supplied id\"\n  },\n  \"approvalStatus\": [\n    \"Declined\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/offer.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "offer.list"
+              ]
+            },
+            "description": "Get a list of all offers with their latest version.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`offersRead`](authentication#permissions-offerlist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "d2762bb5-18d3-48b8-aa52-3cac38678c6b",
+              "name": "Responses for the offer.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerStatus\": [\n    \"CandidateAccepted\"\n  ],\n  \"acceptanceStatus\": [\n    \"WaitingOnResponse\"\n  ],\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"If provided, only returns the offers for the application with the supplied id\"\n  },\n  \"approvalStatus\": [\n    \"Declined\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/offer.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "offer.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"applicationId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The id of the application associated with the offer\"\n      },\n      \"acceptanceStatus\": {\n        \"value\": \"reference #/paths/~1offer.list/post/requestBody/content/application~1json/schema/allOf/1/properties/acceptanceStatus/items/allOf/0 not found in the OpenAPI spec\",\n        \"title\": \"AcceptanceStatus\"\n      },\n      \"decidedAt\": \"<string>\",\n      \"offerStatus\": {\n        \"title\": \"OfferStatus\",\n        \"value\": \"reference #/paths/~1offer.list/post/requestBody/content/application~1json/schema/allOf/1/properties/offerStatus/items/allOf/0 not found in the OpenAPI spec\"\n      },\n      \"latestVersion\": {\n        \"value\": \"reference #/webhooks/offerCreate/post/requestBody/content/application~1json/schema/properties/data/properties/offer/allOf/1/properties/versions/items not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"applicationId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The id of the application associated with the offer\"\n      },\n      \"acceptanceStatus\": {\n        \"value\": \"reference #/paths/~1offer.list/post/requestBody/content/application~1json/schema/allOf/1/properties/acceptanceStatus/items/allOf/0 not found in the OpenAPI spec\",\n        \"title\": \"AcceptanceStatus\"\n      },\n      \"decidedAt\": \"<string>\",\n      \"offerStatus\": {\n        \"title\": \"OfferStatus\",\n        \"value\": \"reference #/paths/~1offer.list/post/requestBody/content/application~1json/schema/allOf/1/properties/offerStatus/items/allOf/0 not found in the OpenAPI spec\"\n      },\n      \"latestVersion\": {\n        \"value\": \"reference #/webhooks/offerCreate/post/requestBody/content/application~1json/schema/properties/data/properties/offer/allOf/1/properties/versions/items not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:48.000Z",
+              "updatedAt": "2026-07-28T01:06:48.000Z",
+              "uid": "35240-d2762bb5-18d3-48b8-aa52-3cac38678c6b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:48.000Z",
+          "updatedAt": "2026-07-28T01:06:48.000Z",
+          "uid": "35240-d14b7420-15bd-4e1f-80df-bcd3c9638e2e"
+        }
+      ],
+      "id": "4190960f-f22a-4480-8190-6797a11fbbae",
+      "createdAt": "2026-07-28T01:06:48.000Z",
+      "updatedAt": "2026-07-28T01:06:48.000Z",
+      "uid": "35240-4190960f-f22a-4480-8190-6797a11fbbae"
+    },
+    {
+      "name": "offer.start",
+      "item": [
+        {
+          "name": "offer.start",
+          "id": "01ee54be-1bcd-4403-a038-6ead1ca7773d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerProcessId\": {\n    \"description\": \"The ID of the offer process to start. This value is the id included in the response of the `offerProcess.start` API.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/offer.start",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "offer.start"
+              ]
+            },
+            "description": "The offer.start endpoint creates and returns an offer version instance that can be filled out and submitted\nusing the `offer.create` endpoint. \n\n**Requires the [`offersWrite`](authentication#permissions-offerstart) permission.**\n\nIn order to create a new offer version for a candidate with an in-progress \noffer process, you can call the `offer.start` endpoint and then call the `offer.create` endpoint to fill out the\nnewly created offer version form.  \n"
+          },
+          "response": [
+            {
+              "id": "b052eb98-f803-4288-b982-71fde73af92a",
+              "name": "Responses for the offer.start endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerProcessId\": {\n    \"description\": \"The ID of the offer process to start. This value is the id included in the response of the `offerProcess.start` API.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/offer.start",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "offer.start"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"formDefinition\": {\n      \"sections\": [\n        {\n          \"fields\": [\n            {\n              \"isRequired\": true,\n              \"field\": {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"type\": \"<string>\",\n                \"path\": \"<string>\",\n                \"humanReadablePath\": \"<string>\",\n                \"title\": \"<string>\",\n                \"isNullable\": true,\n                \"selectableValues\": [\n                  {\n                    \"label\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"label\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              },\n              \"descriptionHtml\": \"<string>\",\n              \"descriptionPlain\": \"<string>\"\n            },\n            {\n              \"isRequired\": true,\n              \"field\": {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"type\": \"<string>\",\n                \"path\": \"<string>\",\n                \"humanReadablePath\": \"<string>\",\n                \"title\": \"<string>\",\n                \"isNullable\": true,\n                \"selectableValues\": [\n                  {\n                    \"label\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"label\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              },\n              \"descriptionHtml\": \"<string>\",\n              \"descriptionPlain\": \"<string>\"\n            }\n          ],\n          \"title\": \"<string>\",\n          \"descriptionHtml\": \"<string>\",\n          \"descriptionPlain\": \"<string>\"\n        },\n        {\n          \"fields\": [\n            {\n              \"isRequired\": true,\n              \"field\": {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"type\": \"<string>\",\n                \"path\": \"<string>\",\n                \"humanReadablePath\": \"<string>\",\n                \"title\": \"<string>\",\n                \"isNullable\": true,\n                \"selectableValues\": [\n                  {\n                    \"label\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"label\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              },\n              \"descriptionHtml\": \"<string>\",\n              \"descriptionPlain\": \"<string>\"\n            },\n            {\n              \"isRequired\": true,\n              \"field\": {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"type\": \"<string>\",\n                \"path\": \"<string>\",\n                \"humanReadablePath\": \"<string>\",\n                \"title\": \"<string>\",\n                \"isNullable\": true,\n                \"selectableValues\": [\n                  {\n                    \"label\": \"<string>\",\n                    \"value\": \"<string>\"\n                  },\n                  {\n                    \"label\": \"<string>\",\n                    \"value\": \"<string>\"\n                  }\n                ]\n              },\n              \"descriptionHtml\": \"<string>\",\n              \"descriptionPlain\": \"<string>\"\n            }\n          ],\n          \"title\": \"<string>\",\n          \"descriptionHtml\": \"<string>\",\n          \"descriptionPlain\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:48.000Z",
+              "updatedAt": "2026-07-28T01:06:48.000Z",
+              "uid": "35240-b052eb98-f803-4288-b982-71fde73af92a"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:48.000Z",
+          "updatedAt": "2026-07-28T01:06:48.000Z",
+          "uid": "35240-01ee54be-1bcd-4403-a038-6ead1ca7773d"
+        }
+      ],
+      "id": "f5d420eb-395b-4adf-8ca6-f5dca3bc38c5",
+      "createdAt": "2026-07-28T01:06:48.000Z",
+      "updatedAt": "2026-07-28T01:06:48.000Z",
+      "uid": "35240-f5d420eb-395b-4adf-8ca6-f5dca3bc38c5"
+    },
+    {
+      "name": "offer.startApprovalProcess",
+      "item": [
+        {
+          "name": "offer.startApprovalProcess",
+          "id": "01eec384-24c7-4d64-887a-5a2cbdfdb0e9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerVersionId\": {\n    \"description\": \"The id of the offer version whose approval process should be started.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"note\": \"<string>\",\n  \"excludeFormDefinition\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/offer.startApprovalProcess",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "offer.startApprovalProcess"
+              ]
+            },
+            "description": "Starts the approval process for an offer in a \"WaitingOnApprovalStart\" state.\nOnce started, the approval is sent to the configured approvers.\n\nThe offer version ID can be obtained from the offer (e.g. `offer.info` or `offer.list` response's `latestVersion.id`).\n\n**Requires the [`offersWrite`](authentication#permissions-offerstartapprovalprocess) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "00b4de85-0c0b-441f-a436-8af2608bf176",
+              "name": "Responses for the offer.startApprovalProcess endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerVersionId\": {\n    \"description\": \"The id of the offer version whose approval process should be started.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"note\": \"<string>\",\n  \"excludeFormDefinition\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/offer.startApprovalProcess",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "offer.startApprovalProcess"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/offerCreate/post/requestBody/content/application~1json/schema/properties/data/properties/offer not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:48.000Z",
+              "updatedAt": "2026-07-28T01:06:48.000Z",
+              "uid": "35240-00b4de85-0c0b-441f-a436-8af2608bf176"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:48.000Z",
+          "updatedAt": "2026-07-28T01:06:48.000Z",
+          "uid": "35240-01eec384-24c7-4d64-887a-5a2cbdfdb0e9"
+        }
+      ],
+      "id": "38b392b9-fd51-4d71-a208-4fbdfffbf41b",
+      "createdAt": "2026-07-28T01:06:48.000Z",
+      "updatedAt": "2026-07-28T01:06:48.000Z",
+      "uid": "35240-38b392b9-fd51-4d71-a208-4fbdfffbf41b"
+    },
+    {
+      "name": "offer.update",
+      "item": [
+        {
+          "name": "offer.update",
+          "id": "5fcfde35-f2f1-4732-a144-17fffc23ee16",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offerId\": {\n    \"description\": \"The id of the offer you're updating.\\n\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"offerForm\": {\n    \"fieldSubmissions\": [\n      {\n        \"path\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"path\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"excludeFormDefinition\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/offer.update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "offer.update"
+              ]
+            },
+            "description": "Updates an existing Offer\n\n**Requires the [`offersWrite`](authentication#permissions-offerupdate) permission.**\n\nOffer forms support a variety of field types. The values accepted for each field depend on the type of field that's being filled out:\n- `Boolean` - A boolean value.\n- `Currency` - An object in the format `{ currencyCode: \"USD\", value: 100000 }` where currencyCode is a valid ISO 4217 currency code and value is an integer.\n- `Date` - A valid ISO Date string.\n- `Number` - An integer.\n- `String` - A string.\n- `ValueSelect` - A string that matches the value of one of the ValueSelect field's selectable options.\n- `MultiValueSelect` - An array of strings that exist in the MultiValueSelect field's selectable options.\n\nCalling this endpoint will create a new version of the offer and retrigger any necessary approval steps.\n"
+          },
+          "response": [
+            {
+              "id": "6f9d8a5a-7e26-4be5-92de-2b11ef289e23",
+              "name": "Responses for the offer.update endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offerId\": {\n    \"description\": \"The id of the offer you're updating.\\n\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"offerForm\": {\n    \"fieldSubmissions\": [\n      {\n        \"path\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"path\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"excludeFormDefinition\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/offer.update",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "offer.update"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/offerCreate/post/requestBody/content/application~1json/schema/properties/data/properties/offer not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:48.000Z",
+              "updatedAt": "2026-07-28T01:06:48.000Z",
+              "uid": "35240-6f9d8a5a-7e26-4be5-92de-2b11ef289e23"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:48.000Z",
+          "updatedAt": "2026-07-28T01:06:48.000Z",
+          "uid": "35240-5fcfde35-f2f1-4732-a144-17fffc23ee16"
+        }
+      ],
+      "id": "8afb6b9c-6b67-4d3f-9782-a1cbbf301482",
+      "createdAt": "2026-07-28T01:06:48.000Z",
+      "updatedAt": "2026-07-28T01:06:48.000Z",
+      "uid": "35240-8afb6b9c-6b67-4d3f-9782-a1cbbf301482"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

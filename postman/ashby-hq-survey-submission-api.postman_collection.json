@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "196da0d5-e025-4775-9dc4-b4eaea62e9d3",
+    "name": "Ashby API Key Survey Submission API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:24.000Z",
+    "updatedAt": "2026-07-28T01:07:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-196da0d5-e025-4775-9dc4-b4eaea62e9d3"
+  },
+  "item": [
+    {
+      "name": "surveySubmission.create",
+      "item": [
+        {
+          "name": "surveySubmission.create",
+          "id": "61baa4e8-eeb2-40d5-bb4a-c6df778022ca",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"candidateId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the candidate to create a survey submission for.\"\n  },\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to associate with the survey submission.\"\n  },\n  \"surveyFormDefinitionId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The ID of the survey form definition that submissions are being provided for.\\n\"\n  },\n  \"submittedValues\": {\n    \"Duis_2b\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/surveySubmission.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "surveySubmission.create"
+              ]
+            },
+            "description": "Create a new survey submission.\n\n**Requires the [`candidatesWrite`](authentication#permissions-surveySubmissionCreate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "a0a20501-a75a-40dc-aeac-331c658c7b50",
+              "name": "Responses for the surveySubmission.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"candidateId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the candidate to create a survey submission for.\"\n  },\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to associate with the survey submission.\"\n  },\n  \"surveyFormDefinitionId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The ID of the survey form definition that submissions are being provided for.\\n\"\n  },\n  \"submittedValues\": {\n    \"Duis_2b\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/surveySubmission.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "surveySubmission.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/webhooks/surveySubmit/post/requestBody/content/application~1json/schema/properties/data/properties/surveySubmission not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:25.000Z",
+              "updatedAt": "2026-07-28T01:07:25.000Z",
+              "uid": "35240-a0a20501-a75a-40dc-aeac-331c658c7b50"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:25.000Z",
+          "updatedAt": "2026-07-28T01:07:25.000Z",
+          "uid": "35240-61baa4e8-eeb2-40d5-bb4a-c6df778022ca"
+        }
+      ],
+      "id": "b9a25a75-0982-40f0-9165-dc654a51d3c0",
+      "createdAt": "2026-07-28T01:07:25.000Z",
+      "updatedAt": "2026-07-28T01:07:25.000Z",
+      "uid": "35240-b9a25a75-0982-40f0-9165-dc654a51d3c0"
+    },
+    {
+      "name": "surveySubmission.list",
+      "item": [
+        {
+          "name": "surveySubmission.list",
+          "id": "7f58eb41-afcb-425d-81f6-e4c0b4ade013",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"surveyType\": \"CandidateExperience\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/surveySubmission.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "surveySubmission.list"
+              ]
+            },
+            "description": "Lists all survey submissions of a given `surveyType`.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`candidatesRead`](authentication#permissions-surveySubmissionList) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "29c4f000-06bc-4ba7-9f43-28c18b44dddc",
+              "name": "Responses for the surveySubmission.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"surveyType\": \"CandidateExperience\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/surveySubmission.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "surveySubmission.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"surveyType\": \"CandidateExperience\"\n    },\n    {\n      \"surveyType\": \"CandidateExperience\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:07:25.000Z",
+              "updatedAt": "2026-07-28T01:07:25.000Z",
+              "uid": "35240-29c4f000-06bc-4ba7-9f43-28c18b44dddc"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:25.000Z",
+          "updatedAt": "2026-07-28T01:07:25.000Z",
+          "uid": "35240-7f58eb41-afcb-425d-81f6-e4c0b4ade013"
+        }
+      ],
+      "id": "b0eae2e6-1d0a-4b59-a24f-405b74d03069",
+      "createdAt": "2026-07-28T01:07:25.000Z",
+      "updatedAt": "2026-07-28T01:07:25.000Z",
+      "uid": "35240-b0eae2e6-1d0a-4b59-a24f-405b74d03069"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

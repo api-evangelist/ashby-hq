@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "aa60dddf-a909-4374-9677-12f0f8b32eb5",
+    "name": "Ashby API Key Interview Stage API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:24.000Z",
+    "updatedAt": "2026-07-28T01:06:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aa60dddf-a909-4374-9677-12f0f8b32eb5"
+  },
+  "item": [
+    {
+      "name": "interviewStage.list",
+      "item": [
+        {
+          "name": "interviewStage.list",
+          "id": "a200d024-c34f-4b2c-a5b4-30cc5caa8ad3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewPlanId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interview plan to list stages for\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewStage.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewStage.list"
+              ]
+            },
+            "description": "List all interview stages for an interview plan in order.\n\n**Requires the [`interviewsRead`](authentication#permissions-interviewstagelist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "fb2d6cfb-657e-47c6-9aad-b621b0dba823",
+              "name": "Responses for the interviewStage.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewPlanId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interview plan to list stages for\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewStage.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewStage.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"interviewPlanId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"interviewPlanId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      }\n    }\n  ],\n  \"moreDataAvailable\": {\n    \"value\": \"reference #/paths/~1source.list/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/moreDataAvailable not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:06:25.000Z",
+              "updatedAt": "2026-07-28T01:06:25.000Z",
+              "uid": "35240-fb2d6cfb-657e-47c6-9aad-b621b0dba823"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:25.000Z",
+          "updatedAt": "2026-07-28T01:06:25.000Z",
+          "uid": "35240-a200d024-c34f-4b2c-a5b4-30cc5caa8ad3"
+        }
+      ],
+      "id": "afc67d1c-994f-47fd-bc6a-9507512b5be8",
+      "createdAt": "2026-07-28T01:06:25.000Z",
+      "updatedAt": "2026-07-28T01:06:25.000Z",
+      "uid": "35240-afc67d1c-994f-47fd-bc6a-9507512b5be8"
+    },
+    {
+      "name": "interviewStage.info",
+      "item": [
+        {
+          "name": "interviewStage.info",
+          "id": "528df7cc-77fb-404e-af32-c34786fb2504",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewStageId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The unique id of the interview stage whose details will be fetched\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewStage.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewStage.info"
+              ]
+            },
+            "description": "Fetch interview stage details by id\n\n**Requires the [`interviewsRead`](authentication#permissions-interviewstageinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "b965ecef-9af0-4071-ba0d-5307d749dd95",
+              "name": "Responses from the interviewStage.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewStageId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The unique id of the interview stage whose details will be fetched\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewStage.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewStage.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"interviewPlanId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:06:25.000Z",
+              "updatedAt": "2026-07-28T01:06:25.000Z",
+              "uid": "35240-b965ecef-9af0-4071-ba0d-5307d749dd95"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:25.000Z",
+          "updatedAt": "2026-07-28T01:06:25.000Z",
+          "uid": "35240-528df7cc-77fb-404e-af32-c34786fb2504"
+        }
+      ],
+      "id": "ee5908b7-6d0c-469b-b73c-c5324d9811a6",
+      "createdAt": "2026-07-28T01:06:25.000Z",
+      "updatedAt": "2026-07-28T01:06:25.000Z",
+      "uid": "35240-ee5908b7-6d0c-469b-b73c-c5324d9811a6"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

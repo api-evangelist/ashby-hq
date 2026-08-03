@@ -1,0 +1,367 @@
+{
+  "info": {
+    "_postman_id": "45a8e281-1fc5-421b-8670-ffc54461619f",
+    "name": "Ashby API Key Report API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:02.000Z",
+    "updatedAt": "2026-07-28T01:07:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-45a8e281-1fc5-421b-8670-ffc54461619f"
+  },
+  "item": [
+    {
+      "name": "report.generate",
+      "item": [
+        {
+          "name": "report.generate",
+          "id": "8a626782-b868-4918-95d0-7c4c55c8331e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reportId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The ID of the report\"\n  },\n  \"includeHeadersInData\": true,\n  \"requestId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/report.generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "report.generate"
+              ]
+            },
+            "description": "> \u26a0\ufe0f Beta\n>\n> This endpoint is currently in beta and may change without notice.\n\nGenerates a new report or polls the status of an existing report generation.\n\n**Two-step process:**\n1. Call with only `reportId` to start generation \u2192 returns `requestId`\n2. Poll with both `reportId` and `requestId` every second until `status` is `complete` or `failed`\n\n**Example:**\n```\n// Step 1: Start generation\nPOST /report.generate\n{ \"reportId\": \"abc-123-def-456\" }\n\u2192 { \"requestId\": \"rep_result:12345abc\", \"status\": \"in_progress\", \"reportData\": null }\n\n// Step 2: Poll for results\nPOST /report.generate\n{ \"reportId\": \"abc-123-def-456\", \"requestId\": \"rep_result:12345abc\" }\n\u2192 { \"requestId\": \"rep_result:12345abc\", \"status\": \"complete\", \"reportData\": {...} }\n```\n\n**Rate Limiting (Per Organization):**\n- **Start generation requests** (without `requestId`): 15 requests per minute per organization\n- **Concurrent limit**: Maximum 3 report operations at once per organization (shared with [`report.synchronous`](https://developers.ashbyhq.com/reference/reportsynchronous))\n- **Polling requests** (with `requestId`): Bypass all limits\n\n**Usage Notes:**\n- If you receive a 429 error, your organization has hit its limit - wait and retry or use [`report.synchronous`](https://developers.ashbyhq.com/reference/reportsynchronous)\n- For synchronous retrieval of existing data, use [`report.synchronous`](https://developers.ashbyhq.com/reference/reportsynchronous)\n- Use this async endpoint for reports that may exceed 30 seconds\n\n**Requires the [`reportsRead`](authentication#permissions-reportgenerate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "220c4993-c0f4-4106-8a2e-e234df39a1c1",
+              "name": "Responses for the report.generate endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The ID of the report\"\n  },\n  \"includeHeadersInData\": true,\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/report.generate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "report.generate"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"requestId\": \"<string>\",\n    \"status\": \"complete\",\n    \"reportData\": {\n      \"data\": [\n        [\n          \"<string>\",\n          \"<string>\"\n        ],\n        [\n          \"<string>\",\n          \"<string>\"\n        ]\n      ],\n      \"columnNames\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"metadata\": {\n        \"updatedAt\": \"<dateTime>\",\n        \"title\": \"<string>\",\n        \"reportGeneratedAt\": \"<dateTime>\",\n        \"cacheExpiresAt\": \"<dateTime>\"\n      }\n    },\n    \"failureReason\": \"<string,null>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:03.000Z",
+              "updatedAt": "2026-07-28T01:07:03.000Z",
+              "uid": "35240-220c4993-c0f4-4106-8a2e-e234df39a1c1"
+            },
+            {
+              "id": "71f24911-e07e-4146-8154-90439323e29c",
+              "name": "Rate limit or concurrent limit exceeded",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The ID of the report\"\n  },\n  \"includeHeadersInData\": true,\n  \"requestId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/report.generate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "report.generate"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"errorInfo\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"requestId\": \"<string>\",\n    \"meta\": {}\n  }\n}",
+              "createdAt": "2026-07-28T01:07:03.000Z",
+              "updatedAt": "2026-07-28T01:07:03.000Z",
+              "uid": "35240-71f24911-e07e-4146-8154-90439323e29c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:03.000Z",
+          "updatedAt": "2026-07-28T01:07:03.000Z",
+          "uid": "35240-8a626782-b868-4918-95d0-7c4c55c8331e"
+        }
+      ],
+      "id": "84842798-4bb3-4bae-8a54-81708210c16d",
+      "createdAt": "2026-07-28T01:07:03.000Z",
+      "updatedAt": "2026-07-28T01:07:03.000Z",
+      "uid": "35240-84842798-4bb3-4bae-8a54-81708210c16d"
+    },
+    {
+      "name": "report.synchronous",
+      "item": [
+        {
+          "name": "report.synchronous",
+          "id": "2ca58842-832e-43dd-916f-e96caefae679",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reportId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The ID of the report\"\n  },\n  \"includeHeadersInData\": true\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/report.synchronous",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "report.synchronous"
+              ]
+            },
+            "description": "> \u26a0\ufe0f Beta\n>\n> This endpoint is currently in beta and may change without notice.\n\nRetrieves report data synchronously.\n\n**Timeout:** 30 seconds. If a report is timing out, use the asynchronous [`report.generate`](https://developers.ashbyhq.com/reference/reportgenerate) instead.\n\n**Rate Limiting (Per Organization):**\n- **Request limit**: 15 requests per minute per organization\n- **Concurrent limit**: Maximum 3 report operations at once per organization (shared with [`report.generate`](https://developers.ashbyhq.com/reference/reportgenerate))\n- Rate limits are shared with [`report.generate`](https://developers.ashbyhq.com/reference/reportgenerate) for starting new generations\n\n**Usage Notes:**\n- If you receive a 429 error, your organization has hit its limit - wait briefly and retry\n- For long-running reports, use [`report.generate`](https://developers.ashbyhq.com/reference/reportgenerate) for async processing\n- Concurrent limit is released when the HTTP request completes\n\n**Requires the [`reportsRead`](authentication#permissions-reportsynchronous) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "46bc735c-ec67-47ee-8012-41cb74640c72",
+              "name": "Responses for the report.synchronous endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The ID of the report\"\n  },\n  \"includeHeadersInData\": true\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/report.synchronous",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "report.synchronous"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"requestId\": \"<string>\",\n    \"status\": \"complete\",\n    \"reportData\": {\n      \"data\": [\n        [\n          \"<string>\",\n          \"<string>\"\n        ],\n        [\n          \"<string>\",\n          \"<string>\"\n        ]\n      ],\n      \"columnNames\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"metadata\": {\n        \"updatedAt\": \"<dateTime>\",\n        \"title\": \"<string>\",\n        \"reportGeneratedAt\": \"<dateTime>\",\n        \"cacheExpiresAt\": \"<dateTime>\"\n      }\n    },\n    \"failureReason\": \"<string,null>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:03.000Z",
+              "updatedAt": "2026-07-28T01:07:03.000Z",
+              "uid": "35240-46bc735c-ec67-47ee-8012-41cb74640c72"
+            },
+            {
+              "id": "ec18afaf-d346-4a2f-946f-457cb04a898d",
+              "name": "Rate limit or concurrent limit exceeded",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reportId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The ID of the report\"\n  },\n  \"includeHeadersInData\": true\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/report.synchronous",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "report.synchronous"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"errorInfo\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"requestId\": \"<string>\",\n    \"meta\": {}\n  }\n}",
+              "createdAt": "2026-07-28T01:07:03.000Z",
+              "updatedAt": "2026-07-28T01:07:03.000Z",
+              "uid": "35240-ec18afaf-d346-4a2f-946f-457cb04a898d"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:03.000Z",
+          "updatedAt": "2026-07-28T01:07:03.000Z",
+          "uid": "35240-2ca58842-832e-43dd-916f-e96caefae679"
+        }
+      ],
+      "id": "5c2530d9-86ad-456d-9583-5f308c1e05fd",
+      "createdAt": "2026-07-28T01:07:03.000Z",
+      "updatedAt": "2026-07-28T01:07:03.000Z",
+      "uid": "35240-5c2530d9-86ad-456d-9583-5f308c1e05fd"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

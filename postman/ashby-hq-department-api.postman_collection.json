@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "5203a87f-ac94-46d4-b48e-bc0001382e53",
+    "name": "Ashby API Key Department API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:46.000Z",
+    "updatedAt": "2026-07-28T01:05:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5203a87f-ac94-46d4-b48e-bc0001382e53"
+  },
+  "item": [
+    {
+      "name": "department.info",
+      "item": [
+        {
+          "name": "department.info",
+          "id": "b5dec33e-960d-4955-9d94-d5be2fb2cf2a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"departmentId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The unique id of the department whose details will be fetched\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/department.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department.info"
+              ]
+            },
+            "description": "Fetch department details by id\n\n**Requires the [`organizationRead`](authentication#permissions-departmentinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "7577e012-6492-452b-a87e-aa25709b64b9",
+              "name": "Responses from the department.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"departmentId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The unique id of the department whose details will be fetched\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/department.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"name\": {\n      \"value\": \"reference #/paths/~1department.create/post/requestBody/content/application~1json/schema/properties/name not found in the OpenAPI spec\"\n    },\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"createdAt\": {\n      \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n    },\n    \"updatedAt\": \"<dateTime>\",\n    \"externalName\": {\n      \"value\": \"reference #/paths/~1department.create/post/requestBody/content/application~1json/schema/properties/externalName not found in the OpenAPI spec\"\n    },\n    \"parentId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"extraData\": {\n      \"value\": \"reference #/paths/~1location.create/post/requestBody/content/application~1json/schema/properties/extraData not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:05:47.000Z",
+              "updatedAt": "2026-07-28T01:05:47.000Z",
+              "uid": "35240-7577e012-6492-452b-a87e-aa25709b64b9"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:47.000Z",
+          "updatedAt": "2026-07-28T01:05:47.000Z",
+          "uid": "35240-b5dec33e-960d-4955-9d94-d5be2fb2cf2a"
+        }
+      ],
+      "id": "f4d4f1c5-8c59-491d-8fb3-f20975ae3e7a",
+      "createdAt": "2026-07-28T01:05:47.000Z",
+      "updatedAt": "2026-07-28T01:05:47.000Z",
+      "uid": "35240-f4d4f1c5-8c59-491d-8fb3-f20975ae3e7a"
+    },
+    {
+      "name": "department.list",
+      "item": [
+        {
+          "name": "department.list",
+          "id": "cbd3e0c3-7fc5-40ae-ace7-3b74a2952422",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeArchived\": {\n    \"value\": \"reference #/paths/~1source.list/post/requestBody/content/application~1json/schema/properties/includeArchived not found in the OpenAPI spec\"\n  },\n  \"cursor\": {\n    \"value\": \"reference #/paths/~1brand.list/post/requestBody/content/application~1json/schema/properties/cursor not found in the OpenAPI spec\"\n  },\n  \"syncToken\": {\n    \"value\": \"reference #/paths/~1opening.list/post/requestBody/content/application~1json/schema/properties/syncToken not found in the OpenAPI spec\"\n  },\n  \"limit\": {\n    \"value\": \"reference #/paths/~1brand.list/post/requestBody/content/application~1json/schema/properties/limit not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/department.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department.list"
+              ]
+            },
+            "description": "Lists all departments\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`organizationRead`](authentication#permissions-departmentlist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "f0bcc21b-8e36-4f51-8f2e-308e44eff684",
+              "name": "Responses for the department.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeArchived\": {\n    \"value\": \"reference #/paths/~1source.list/post/requestBody/content/application~1json/schema/properties/includeArchived not found in the OpenAPI spec\"\n  },\n  \"cursor\": {\n    \"value\": \"reference #/paths/~1brand.list/post/requestBody/content/application~1json/schema/properties/cursor not found in the OpenAPI spec\"\n  },\n  \"syncToken\": {\n    \"value\": \"reference #/paths/~1opening.list/post/requestBody/content/application~1json/schema/properties/syncToken not found in the OpenAPI spec\"\n  },\n  \"limit\": {\n    \"value\": \"reference #/paths/~1brand.list/post/requestBody/content/application~1json/schema/properties/limit not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/department.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"name\": {\n        \"value\": \"reference #/paths/~1department.create/post/requestBody/content/application~1json/schema/properties/name not found in the OpenAPI spec\"\n      },\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      },\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"updatedAt\": \"<dateTime>\",\n      \"externalName\": {\n        \"value\": \"reference #/paths/~1department.create/post/requestBody/content/application~1json/schema/properties/externalName not found in the OpenAPI spec\"\n      },\n      \"parentId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"extraData\": {\n        \"value\": \"reference #/paths/~1location.create/post/requestBody/content/application~1json/schema/properties/extraData not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"name\": {\n        \"value\": \"reference #/paths/~1department.create/post/requestBody/content/application~1json/schema/properties/name not found in the OpenAPI spec\"\n      },\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      },\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"updatedAt\": \"<dateTime>\",\n      \"externalName\": {\n        \"value\": \"reference #/paths/~1department.create/post/requestBody/content/application~1json/schema/properties/externalName not found in the OpenAPI spec\"\n      },\n      \"parentId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"extraData\": {\n        \"value\": \"reference #/paths/~1location.create/post/requestBody/content/application~1json/schema/properties/extraData not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:47.000Z",
+              "updatedAt": "2026-07-28T01:05:47.000Z",
+              "uid": "35240-f0bcc21b-8e36-4f51-8f2e-308e44eff684"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:47.000Z",
+          "updatedAt": "2026-07-28T01:05:47.000Z",
+          "uid": "35240-cbd3e0c3-7fc5-40ae-ace7-3b74a2952422"
+        }
+      ],
+      "id": "96b81eab-da7b-4f22-a663-d96f5050261f",
+      "createdAt": "2026-07-28T01:05:47.000Z",
+      "updatedAt": "2026-07-28T01:05:47.000Z",
+      "uid": "35240-96b81eab-da7b-4f22-a663-d96f5050261f"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

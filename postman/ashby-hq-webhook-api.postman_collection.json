@@ -1,0 +1,475 @@
+{
+  "info": {
+    "_postman_id": "c20402d2-ab5c-4e02-975b-f0a00f54085d",
+    "name": "Ashby API Key Webhook API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:36.000Z",
+    "updatedAt": "2026-07-28T01:07:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c20402d2-ab5c-4e02-975b-f0a00f54085d"
+  },
+  "item": [
+    {
+      "name": "webhook.create",
+      "item": [
+        {
+          "name": "webhook.create",
+          "id": "2d3f3ad5-155a-4e1f-9ed2-77c17797eba1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webhookType\": \"interviewScheduleUpdate\",\n  \"requestUrl\": \"<string>\",\n  \"secretToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/webhook.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhook.create"
+              ]
+            },
+            "description": "Creates a webhook setting.\n\n**Requires the [`apiKeysWrite`](authentication#permissions-webhookcreate) scope.**\n"
+          },
+          "response": [
+            {
+              "id": "a6b1613b-b775-40bf-b258-3513091333f3",
+              "name": "Responses from the webhook.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"webhookType\": \"interviewScheduleUpdate\",\n  \"requestUrl\": \"<string>\",\n  \"secretToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhook.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhook.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"enabled\": \"<boolean>\",\n    \"requestUrl\": \"<string>\",\n    \"secretToken\": \"<string>\",\n    \"webhookType\": \"offerCreate\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:37.000Z",
+              "updatedAt": "2026-07-28T01:07:37.000Z",
+              "uid": "35240-a6b1613b-b775-40bf-b258-3513091333f3"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:37.000Z",
+          "updatedAt": "2026-07-28T01:07:37.000Z",
+          "uid": "35240-2d3f3ad5-155a-4e1f-9ed2-77c17797eba1"
+        }
+      ],
+      "id": "6fb846f9-98c4-4555-aa28-7cd7ef512f7d",
+      "createdAt": "2026-07-28T01:07:37.000Z",
+      "updatedAt": "2026-07-28T01:07:37.000Z",
+      "uid": "35240-6fb846f9-98c4-4555-aa28-7cd7ef512f7d"
+    },
+    {
+      "name": "webhook.info",
+      "item": [
+        {
+          "name": "webhook.info",
+          "id": "48a8d95d-ddb3-4195-a234-3ca70fdd347b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webhookId\": {\n    \"description\": \"The id of the webhook setting to retrieve.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/webhook.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhook.info"
+              ]
+            },
+            "description": "Retrieves information about a specific webhook setting by its ID\n\n**Requires the [`apiKeysRead`](authentication#permissions-webhookinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "afaf0189-9c03-4ccc-a717-2046ddf04d5a",
+              "name": "Responses from the webhook.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"webhookId\": {\n    \"description\": \"The id of the webhook setting to retrieve.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhook.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhook.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"enabled\": \"<boolean>\",\n    \"requestUrl\": \"<string>\",\n    \"webhookType\": \"jobPostingUnpublish\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:37.000Z",
+              "updatedAt": "2026-07-28T01:07:37.000Z",
+              "uid": "35240-afaf0189-9c03-4ccc-a717-2046ddf04d5a"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:37.000Z",
+          "updatedAt": "2026-07-28T01:07:37.000Z",
+          "uid": "35240-48a8d95d-ddb3-4195-a234-3ca70fdd347b"
+        }
+      ],
+      "id": "2d16146b-de7a-49f8-9721-9e3a24507a33",
+      "createdAt": "2026-07-28T01:07:37.000Z",
+      "updatedAt": "2026-07-28T01:07:37.000Z",
+      "uid": "35240-2d16146b-de7a-49f8-9721-9e3a24507a33"
+    },
+    {
+      "name": "webhook.update",
+      "item": [
+        {
+          "name": "webhook.update",
+          "id": "c1414ac6-26c6-4f1c-aae0-3620fb994f94",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webhookId\": {\n    \"description\": \"The id of the webhook setting to update.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"requestUrl\": \"<string>\",\n  \"secretToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/webhook.update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhook.update"
+              ]
+            },
+            "description": "Updates a webhook setting. One of `enabled`, `requestUrl`, or `secretToken` must be provided.\n\n**Requires the [`apiKeysWrite`](authentication#permissions-webhookcreate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "a5f80394-bc0f-4235-b082-dac8631f3641",
+              "name": "Responses from the webhook.update endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"webhookId\": {\n    \"description\": \"The id of the webhook setting to update.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"requestUrl\": \"<string>\",\n  \"secretToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhook.update",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhook.update"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"enabled\": \"<boolean>\",\n    \"requestUrl\": \"<string>\",\n    \"secretToken\": \"<string>\",\n    \"webhookType\": \"offerCreate\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:37.000Z",
+              "updatedAt": "2026-07-28T01:07:37.000Z",
+              "uid": "35240-a5f80394-bc0f-4235-b082-dac8631f3641"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:37.000Z",
+          "updatedAt": "2026-07-28T01:07:37.000Z",
+          "uid": "35240-c1414ac6-26c6-4f1c-aae0-3620fb994f94"
+        }
+      ],
+      "id": "de50044a-2aa1-4f4f-9199-7cb0fb75da0a",
+      "createdAt": "2026-07-28T01:07:37.000Z",
+      "updatedAt": "2026-07-28T01:07:37.000Z",
+      "uid": "35240-de50044a-2aa1-4f4f-9199-7cb0fb75da0a"
+    },
+    {
+      "name": "webhook.delete",
+      "item": [
+        {
+          "name": "webhook.delete",
+          "id": "6f25b1ec-bb17-45ff-8e2d-f6790fc95922",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webhookId\": {\n    \"description\": \"The id of the webhook setting to delete.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/webhook.delete",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhook.delete"
+              ]
+            },
+            "description": "Deletes a webhook setting.\n\n**Requires the [`apiKeysWrite`](authentication#permissions-webhookcreate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "3ae31b3f-966c-471b-bea6-68bb872a5147",
+              "name": "Responses from the webhook.delete endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"webhookId\": {\n    \"description\": \"The id of the webhook setting to delete.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhook.delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhook.delete"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"webhookId\": {\n      \"description\": \"The id of the webhook setting that was deleted.\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:07:37.000Z",
+              "updatedAt": "2026-07-28T01:07:37.000Z",
+              "uid": "35240-3ae31b3f-966c-471b-bea6-68bb872a5147"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:37.000Z",
+          "updatedAt": "2026-07-28T01:07:37.000Z",
+          "uid": "35240-6f25b1ec-bb17-45ff-8e2d-f6790fc95922"
+        }
+      ],
+      "id": "dc822fb4-6882-44bd-86a2-13ee4a4a9918",
+      "createdAt": "2026-07-28T01:07:37.000Z",
+      "updatedAt": "2026-07-28T01:07:37.000Z",
+      "uid": "35240-dc822fb4-6882-44bd-86a2-13ee4a4a9918"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

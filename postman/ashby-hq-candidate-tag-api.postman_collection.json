@@ -1,0 +1,365 @@
+{
+  "info": {
+    "_postman_id": "732c0f3b-76f9-44a5-a091-f3508c2e8655",
+    "name": "Ashby API Key Candidate Tag API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:43.000Z",
+    "updatedAt": "2026-07-28T01:05:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-732c0f3b-76f9-44a5-a091-f3508c2e8655"
+  },
+  "item": [
+    {
+      "name": "candidateTag.archive",
+      "item": [
+        {
+          "name": "candidateTag.archive",
+          "id": "992f4dcb-e852-4eea-9c7c-551f4c274685",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tagId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/candidateTag.archive",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "candidateTag.archive"
+              ]
+            },
+            "description": "Archives a candidate tag.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-candidatetagarchive) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "2c286f79-db53-4a3f-8e9d-707b620656c0",
+              "name": "Responses for the candidateTag.archive endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tagId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/candidateTag.archive",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "candidateTag.archive"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:05:43.000Z",
+              "updatedAt": "2026-07-28T01:05:43.000Z",
+              "uid": "35240-2c286f79-db53-4a3f-8e9d-707b620656c0"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:43.000Z",
+          "updatedAt": "2026-07-28T01:05:43.000Z",
+          "uid": "35240-992f4dcb-e852-4eea-9c7c-551f4c274685"
+        }
+      ],
+      "id": "ff4318ed-59ef-4c1f-8e9a-7cc3778b762f",
+      "createdAt": "2026-07-28T01:05:43.000Z",
+      "updatedAt": "2026-07-28T01:05:43.000Z",
+      "uid": "35240-ff4318ed-59ef-4c1f-8e9a-7cc3778b762f"
+    },
+    {
+      "name": "candidateTag.create",
+      "item": [
+        {
+          "name": "candidateTag.create",
+          "id": "25568a2e-a245-4c5b-8481-d4563fed69db",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/candidateTag.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "candidateTag.create"
+              ]
+            },
+            "description": "Creates a candidate tag.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-candidatetagcreate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "54adb1d3-154d-4d69-9477-3440e18a5724",
+              "name": "Responses for the location.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/candidateTag.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "candidateTag.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"title\": \"<string>\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:05:43.000Z",
+              "updatedAt": "2026-07-28T01:05:43.000Z",
+              "uid": "35240-54adb1d3-154d-4d69-9477-3440e18a5724"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:43.000Z",
+          "updatedAt": "2026-07-28T01:05:43.000Z",
+          "uid": "35240-25568a2e-a245-4c5b-8481-d4563fed69db"
+        }
+      ],
+      "id": "fac438f2-ecd4-4f45-b660-50adb96e9372",
+      "createdAt": "2026-07-28T01:05:43.000Z",
+      "updatedAt": "2026-07-28T01:05:43.000Z",
+      "uid": "35240-fac438f2-ecd4-4f45-b660-50adb96e9372"
+    },
+    {
+      "name": "candidateTag.list",
+      "item": [
+        {
+          "name": "candidateTag.list",
+          "id": "6b2ab7fe-8d96-4faf-a89d-bfb3a31783b1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeArchived\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/candidateTag.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "candidateTag.list"
+              ]
+            },
+            "description": "Lists all candidate tags.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-candidatetaglist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "25f69dc1-5628-4754-b987-895c132383d1",
+              "name": "Responses for the candidateTag.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeArchived\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/candidateTag.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "candidateTag.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:43.000Z",
+              "updatedAt": "2026-07-28T01:05:43.000Z",
+              "uid": "35240-25f69dc1-5628-4754-b987-895c132383d1"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:43.000Z",
+          "updatedAt": "2026-07-28T01:05:43.000Z",
+          "uid": "35240-6b2ab7fe-8d96-4faf-a89d-bfb3a31783b1"
+        }
+      ],
+      "id": "30f5afbc-38f1-462c-a19f-e3bc78d35a9b",
+      "createdAt": "2026-07-28T01:05:43.000Z",
+      "updatedAt": "2026-07-28T01:05:43.000Z",
+      "uid": "35240-30f5afbc-38f1-462c-a19f-e3bc78d35a9b"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

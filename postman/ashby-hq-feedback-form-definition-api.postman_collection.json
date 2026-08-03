@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "a80bbd87-66b4-4149-b038-d26b351e48b9",
+    "name": "Ashby API Key Feedback Form Definition API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:48.000Z",
+    "updatedAt": "2026-07-28T01:05:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a80bbd87-66b4-4149-b038-d26b351e48b9"
+  },
+  "item": [
+    {
+      "name": "feedbackFormDefinition.info",
+      "item": [
+        {
+          "name": "feedbackFormDefinition.info",
+          "id": "1d0f1470-a543-41e6-8059-cdec1c679c9d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"feedbackFormDefinitionId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The unique id of the feedback form you'd like to fetch.\",\n    \"example\": \"9b17887e-5add-49e8-9a03-ffffa669aa2f\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/feedbackFormDefinition.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "feedbackFormDefinition.info"
+              ]
+            },
+            "description": "Returns a single feedback form by id\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-feedbackformdefinitioninfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "6e3eef50-a411-4250-931e-104119f9f701",
+              "name": "Responses for the feedbackFormDefinition.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"feedbackFormDefinitionId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The unique id of the feedback form you'd like to fetch.\",\n    \"example\": \"9b17887e-5add-49e8-9a03-ffffa669aa2f\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/feedbackFormDefinition.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "feedbackFormDefinition.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"organizationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"isDefaultForm\": \"<boolean>\",\n    \"interviewId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n      \"description\": \"The id of the interview associated with the feedback form.\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:05:49.000Z",
+              "updatedAt": "2026-07-28T01:05:49.000Z",
+              "uid": "35240-6e3eef50-a411-4250-931e-104119f9f701"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:49.000Z",
+          "updatedAt": "2026-07-28T01:05:49.000Z",
+          "uid": "35240-1d0f1470-a543-41e6-8059-cdec1c679c9d"
+        }
+      ],
+      "id": "1beabbf4-ea5c-4f71-b2dd-f9dd29885231",
+      "createdAt": "2026-07-28T01:05:49.000Z",
+      "updatedAt": "2026-07-28T01:05:49.000Z",
+      "uid": "35240-1beabbf4-ea5c-4f71-b2dd-f9dd29885231"
+    },
+    {
+      "name": "feedbackFormDefinition.list",
+      "item": [
+        {
+          "name": "feedbackFormDefinition.list",
+          "id": "5261dc97-602c-4176-806d-b56c50287f3e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"reference #/paths/~1department.list/post/requestBody/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/feedbackFormDefinition.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "feedbackFormDefinition.list"
+              ]
+            },
+            "description": "Lists all feedback forms.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-feedbackformdefinitionlist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "c4774b5c-d459-464f-be10-5c378bd6a0df",
+              "name": "Responses for the feedbackFormDefinition.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/paths/~1department.list/post/requestBody/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/feedbackFormDefinition.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "feedbackFormDefinition.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"organizationId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"isDefaultForm\": \"<boolean>\",\n      \"interviewId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The id of the interview associated with the feedback form.\"\n      }\n    },\n    {\n      \"organizationId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"isDefaultForm\": \"<boolean>\",\n      \"interviewId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The id of the interview associated with the feedback form.\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:05:49.000Z",
+              "updatedAt": "2026-07-28T01:05:49.000Z",
+              "uid": "35240-c4774b5c-d459-464f-be10-5c378bd6a0df"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:49.000Z",
+          "updatedAt": "2026-07-28T01:05:49.000Z",
+          "uid": "35240-5261dc97-602c-4176-806d-b56c50287f3e"
+        }
+      ],
+      "id": "4326cf1b-90b1-4cec-985e-3d165acecfa0",
+      "createdAt": "2026-07-28T01:05:49.000Z",
+      "updatedAt": "2026-07-28T01:05:49.000Z",
+      "uid": "35240-4326cf1b-90b1-4cec-985e-3d165acecfa0"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

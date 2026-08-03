@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "e6522414-702b-4aef-a205-99954493e9d0",
+    "name": "Ashby API Key Source Tracking Links API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:21.000Z",
+    "updatedAt": "2026-07-28T01:07:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e6522414-702b-4aef-a205-99954493e9d0"
+  },
+  "item": [
+    {
+      "name": "sourceTrackingLink.list",
+      "item": [
+        {
+          "name": "sourceTrackingLink.list",
+          "id": "a2c62c94-4bf6-4418-a0e7-269a345d93c4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeDisabled\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sourceTrackingLink.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sourceTrackingLink.list"
+              ]
+            },
+            "description": "List all source custom tracking links\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-sourcetrackinglinklist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "e2cd6cff-a66d-4222-9b4b-d0c70fc414a2",
+              "name": "Responses for the sourceTrackingLink.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeDisabled\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sourceTrackingLink.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sourceTrackingLink.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"code\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"sourceId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"link\": \"<string>\"\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"code\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"sourceId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"link\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:07:22.000Z",
+              "updatedAt": "2026-07-28T01:07:22.000Z",
+              "uid": "35240-e2cd6cff-a66d-4222-9b4b-d0c70fc414a2"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:22.000Z",
+          "updatedAt": "2026-07-28T01:07:22.000Z",
+          "uid": "35240-a2c62c94-4bf6-4418-a0e7-269a345d93c4"
+        }
+      ],
+      "id": "3724cabd-c65d-4980-b452-154a95f83278",
+      "createdAt": "2026-07-28T01:07:22.000Z",
+      "updatedAt": "2026-07-28T01:07:22.000Z",
+      "uid": "35240-3724cabd-c65d-4980-b452-154a95f83278"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

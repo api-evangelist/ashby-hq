@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "48247cd2-b345-4b91-8f23-38b8c50c9965",
+    "name": "Ashby API Key Job Interview Plan API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:40.000Z",
+    "updatedAt": "2026-07-28T01:06:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-48247cd2-b345-4b91-8f23-38b8c50c9965"
+  },
+  "item": [
+    {
+      "name": "jobInterviewPlan.info",
+      "item": [
+        {
+          "name": "jobInterviewPlan.info",
+          "id": "8c89cbe1-7593-4fc6-b71e-f8290a3db903",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobId\": {\n    \"description\": \"The id of the job to fetch an interview plan for\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobInterviewPlan.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobInterviewPlan.info"
+              ]
+            },
+            "description": "Returns a job's interview plan, including activities and interviews that need to be scheduled at each stage\n\n**Requires the [`jobsRead`](authentication#permissions-jobinterviewplaninfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "48ed7a2d-32fe-4650-87b4-8120f2a72efe",
+              "name": "Responses for the jobInterviewPlan.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobId\": {\n    \"description\": \"The id of the job to fetch an interview plan for\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobInterviewPlan.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobInterviewPlan.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"jobId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"interviewPlanId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"stages\": [\n      {\n        \"activities\": [\n          {\n            \"id\": {\n              \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n            },\n            \"interviews\": [\n              {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"title\": \"<string>\",\n                \"interviewId\": {\n                  \"description\": \"The id of the interview to be scheduled\",\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"interviewDurationMinutes\": \"<number>\",\n                \"isSchedulable\": \"<boolean>\"\n              },\n              {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"title\": \"<string>\",\n                \"interviewId\": {\n                  \"description\": \"The id of the interview to be scheduled\",\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"interviewDurationMinutes\": \"<number>\",\n                \"isSchedulable\": \"<boolean>\"\n              }\n            ],\n            \"title\": \"<string>\"\n          },\n          {\n            \"id\": {\n              \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n            },\n            \"interviews\": [\n              {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"title\": \"<string>\",\n                \"interviewId\": {\n                  \"description\": \"The id of the interview to be scheduled\",\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"interviewDurationMinutes\": \"<number>\",\n                \"isSchedulable\": \"<boolean>\"\n              },\n              {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"title\": \"<string>\",\n                \"interviewId\": {\n                  \"description\": \"The id of the interview to be scheduled\",\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"interviewDurationMinutes\": \"<number>\",\n                \"isSchedulable\": \"<boolean>\"\n              }\n            ],\n            \"title\": \"<string>\"\n          }\n        ],\n        \"id\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"orderInInterviewPlan\": 0,\n        \"title\": \"<string>\",\n        \"type\": \"<string>\",\n        \"interviewStageGroupId\": \"<string>\"\n      },\n      {\n        \"activities\": [\n          {\n            \"id\": {\n              \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n            },\n            \"interviews\": [\n              {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"title\": \"<string>\",\n                \"interviewId\": {\n                  \"description\": \"The id of the interview to be scheduled\",\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"interviewDurationMinutes\": \"<number>\",\n                \"isSchedulable\": \"<boolean>\"\n              },\n              {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"title\": \"<string>\",\n                \"interviewId\": {\n                  \"description\": \"The id of the interview to be scheduled\",\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"interviewDurationMinutes\": \"<number>\",\n                \"isSchedulable\": \"<boolean>\"\n              }\n            ],\n            \"title\": \"<string>\"\n          },\n          {\n            \"id\": {\n              \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n            },\n            \"interviews\": [\n              {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"title\": \"<string>\",\n                \"interviewId\": {\n                  \"description\": \"The id of the interview to be scheduled\",\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"interviewDurationMinutes\": \"<number>\",\n                \"isSchedulable\": \"<boolean>\"\n              },\n              {\n                \"id\": {\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"title\": \"<string>\",\n                \"interviewId\": {\n                  \"description\": \"The id of the interview to be scheduled\",\n                  \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n                },\n                \"interviewDurationMinutes\": \"<number>\",\n                \"isSchedulable\": \"<boolean>\"\n              }\n            ],\n            \"title\": \"<string>\"\n          }\n        ],\n        \"id\": {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n        },\n        \"orderInInterviewPlan\": 0,\n        \"title\": \"<string>\",\n        \"type\": \"<string>\",\n        \"interviewStageGroupId\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:06:41.000Z",
+              "updatedAt": "2026-07-28T01:06:41.000Z",
+              "uid": "35240-48ed7a2d-32fe-4650-87b4-8120f2a72efe"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:41.000Z",
+          "updatedAt": "2026-07-28T01:06:41.000Z",
+          "uid": "35240-8c89cbe1-7593-4fc6-b71e-f8290a3db903"
+        }
+      ],
+      "id": "3afff346-ad97-404e-bc82-9697dbb582df",
+      "createdAt": "2026-07-28T01:06:41.000Z",
+      "updatedAt": "2026-07-28T01:06:41.000Z",
+      "uid": "35240-3afff346-ad97-404e-bc82-9697dbb582df"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

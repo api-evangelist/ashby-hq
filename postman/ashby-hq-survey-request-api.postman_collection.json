@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "73fb60b4-5dec-469b-bc3a-80fb60b2a629",
+    "name": "Ashby API Key Survey Request API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:23.000Z",
+    "updatedAt": "2026-07-28T01:07:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-73fb60b4-5dec-469b-bc3a-80fb60b2a629"
+  },
+  "item": [
+    {
+      "name": "surveyRequest.create",
+      "item": [
+        {
+          "name": "surveyRequest.create",
+          "id": "76e68c6b-9414-47bd-b8db-69d907e904d4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"candidateId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the candidate to create a survey request for.\"\n  },\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to associate with the survey request.\"\n  },\n  \"surveyFormDefinitionId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The ID of the survey form that the candidate will see when they visit the URL returned in the `surveyURL` property of the API response. \\nSurvey forms IDs can be obtained using the `surveyFormDefinition.list` endpoint. \\n\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/surveyRequest.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "surveyRequest.create"
+              ]
+            },
+            "description": "This endpoint generates a survey request and returns a survey URL. You can send this URL to a candidate to allow them to complete a survey. \n\n**Requires the [`candidatesWrite`](authentication#permissions-surveyrequestcreate) permission.**\n\n**Note that calling this endpoint will not automatically email the survey to the candidate.** It simply creates the request and gives you a URL to share with a candidate.\n"
+          },
+          "response": [
+            {
+              "id": "fda7eb1d-9c45-4d19-b477-c87d3afd4ca2",
+              "name": "Responses for the surveyRequest.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"candidateId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the candidate to create a survey request for.\"\n  },\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application to associate with the survey request.\"\n  },\n  \"surveyFormDefinitionId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The ID of the survey form that the candidate will see when they visit the URL returned in the `surveyURL` property of the API response. \\nSurvey forms IDs can be obtained using the `surveyFormDefinition.list` endpoint. \\n\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/surveyRequest.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "surveyRequest.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"description\": \"The id of the survey request\\n\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"candidateId\": {\n      \"description\": \"The id of the candidate the survey request is for\\n\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"applicationId\": {\n      \"description\": \"The id of the application associated with the survey request\\n\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"surveyFormDefinitionId\": {\n      \"description\": \"The id of the survey form the candidate will fill out when they take the survey\\n\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"surveyUrl\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:24.000Z",
+              "updatedAt": "2026-07-28T01:07:24.000Z",
+              "uid": "35240-fda7eb1d-9c45-4d19-b477-c87d3afd4ca2"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:24.000Z",
+          "updatedAt": "2026-07-28T01:07:24.000Z",
+          "uid": "35240-76e68c6b-9414-47bd-b8db-69d907e904d4"
+        }
+      ],
+      "id": "1f091dff-ce4f-4e22-a564-406df04503ab",
+      "createdAt": "2026-07-28T01:07:24.000Z",
+      "updatedAt": "2026-07-28T01:07:24.000Z",
+      "uid": "35240-1f091dff-ce4f-4e22-a564-406df04503ab"
+    },
+    {
+      "name": "surveyRequest.list",
+      "item": [
+        {
+          "name": "surveyRequest.list",
+          "id": "26ea4f78-3872-455d-8cf0-11adc81ade96",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"surveyType\": \"<string>\",\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"If provided, only returns the offers for the application with the supplied id\"\n  },\n  \"candidateId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"If provided, only returns the offers for the candidate with the supplied id\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/surveyRequest.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "surveyRequest.list"
+              ]
+            },
+            "description": "Lists all survey requests.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`candidatesRead`](authentication#permissions-surveyRequestList) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "3437b370-3dea-446d-a61e-d8e5bf213cf3",
+              "name": "Responses for the surveyRequest.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"surveyType\": \"<string>\",\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"If provided, only returns the offers for the application with the supplied id\"\n  },\n  \"candidateId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"If provided, only returns the offers for the candidate with the supplied id\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/surveyRequest.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "surveyRequest.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"description\": \"The id of the survey request\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"candidateId\": {\n        \"description\": \"The id of the candidate the survey request is for\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"applicationId\": {\n        \"description\": \"The id of the application associated with the survey request\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"surveyFormDefinitionId\": {\n        \"description\": \"The id of the survey form the candidate will fill out when they take the survey\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"surveyUrl\": \"<string>\"\n    },\n    {\n      \"id\": {\n        \"description\": \"The id of the survey request\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"candidateId\": {\n        \"description\": \"The id of the candidate the survey request is for\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"applicationId\": {\n        \"description\": \"The id of the application associated with the survey request\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"surveyFormDefinitionId\": {\n        \"description\": \"The id of the survey form the candidate will fill out when they take the survey\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"surveyUrl\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:07:24.000Z",
+              "updatedAt": "2026-07-28T01:07:24.000Z",
+              "uid": "35240-3437b370-3dea-446d-a61e-d8e5bf213cf3"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:24.000Z",
+          "updatedAt": "2026-07-28T01:07:24.000Z",
+          "uid": "35240-26ea4f78-3872-455d-8cf0-11adc81ade96"
+        }
+      ],
+      "id": "08e12442-8353-45b8-a371-953778ababb7",
+      "createdAt": "2026-07-28T01:07:24.000Z",
+      "updatedAt": "2026-07-28T01:07:24.000Z",
+      "uid": "35240-08e12442-8353-45b8-a371-953778ababb7"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

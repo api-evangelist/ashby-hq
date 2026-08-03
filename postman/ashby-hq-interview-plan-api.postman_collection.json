@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "3c522ec8-0b28-4afe-a2d9-b1180899251f",
+    "name": "Ashby API Key Interview Plan API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:22.000Z",
+    "updatedAt": "2026-07-28T01:06:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3c522ec8-0b28-4afe-a2d9-b1180899251f"
+  },
+  "item": [
+    {
+      "name": "interviewPlan.list",
+      "item": [
+        {
+          "name": "interviewPlan.list",
+          "id": "44dd9ed3-402c-41e9-8590-c4e5cb402bda",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"reference #/paths/~1department.list/post/requestBody/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewPlan.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewPlan.list"
+              ]
+            },
+            "description": "List published interview plans. Draft interview plans are not returned. If `includeArchived` is true, archived interview plans are also included.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`interviewsRead`](authentication#permissions-interviewplanlist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "e5e6b3d1-3ee2-428a-854a-641dabf5c91e",
+              "name": "Responses from the interviewPlan.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/paths/~1department.list/post/requestBody/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewPlan.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewPlan.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"updatedAt\": {\n        \"value\": \"reference #/paths/~1department.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/updatedAt not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"updatedAt\": {\n        \"value\": \"reference #/paths/~1department.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/updatedAt not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:23.000Z",
+              "updatedAt": "2026-07-28T01:06:23.000Z",
+              "uid": "35240-e5e6b3d1-3ee2-428a-854a-641dabf5c91e"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:23.000Z",
+          "updatedAt": "2026-07-28T01:06:23.000Z",
+          "uid": "35240-44dd9ed3-402c-41e9-8590-c4e5cb402bda"
+        }
+      ],
+      "id": "83646a12-c786-4775-983f-05fa06689643",
+      "createdAt": "2026-07-28T01:06:23.000Z",
+      "updatedAt": "2026-07-28T01:06:23.000Z",
+      "uid": "35240-83646a12-c786-4775-983f-05fa06689643"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

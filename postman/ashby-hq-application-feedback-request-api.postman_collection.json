@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "6df786c8-f73d-4590-ba25-534628ad73b1",
+    "name": "Ashby API Key Application Feedback Request API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:05.000Z",
+    "updatedAt": "2026-07-28T01:05:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6df786c8-f73d-4590-ba25-534628ad73b1"
+  },
+  "item": [
+    {
+      "name": "applicationFeedbackRequest.create",
+      "item": [
+        {
+          "name": "applicationFeedbackRequest.create",
+          "id": "28e0f5c7-9e95-46ca-911a-258d930aaac7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application you are requesting feedback for\"\n  },\n  \"interviewId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interview associated with this feedback request\"\n  },\n  \"interviewerUserId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The user you are requesting feedback from\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/applicationFeedbackRequest.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicationFeedbackRequest.create"
+              ]
+            },
+            "description": "Request feedback on an application without scheduling an interview.\nThe `interviewEventId` returned in the response can be provided to `applicationFeedback.submit` to\ncomplete the feedback request.\n\nThe interview used must be configured to request feedback.\n\n**Requires the [`candidatesWrite`](authentication#permissions-applicationfeedbackrequestcreate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "04b50312-2212-453b-a473-1c514c714d3f",
+              "name": "Responses from the applicationFeedbackRequest.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"applicationId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the application you are requesting feedback for\"\n  },\n  \"interviewId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interview associated with this feedback request\"\n  },\n  \"interviewerUserId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The user you are requesting feedback from\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applicationFeedbackRequest.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applicationFeedbackRequest.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"interviewEventId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n      \"description\": \"The id of the interview event created without scheduling\"\n    },\n    \"interviewerUserId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n      \"description\": \"The id of the user whose feedback was requested\"\n    },\n    \"applicationId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n      \"description\": \"The id of the application feedback was requested for\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:05:06.000Z",
+              "updatedAt": "2026-07-28T01:05:06.000Z",
+              "uid": "35240-04b50312-2212-453b-a473-1c514c714d3f"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:06.000Z",
+          "updatedAt": "2026-07-28T01:05:06.000Z",
+          "uid": "35240-28e0f5c7-9e95-46ca-911a-258d930aaac7"
+        }
+      ],
+      "id": "d96442c1-e345-4da2-b134-5e4a93e083b6",
+      "createdAt": "2026-07-28T01:05:06.000Z",
+      "updatedAt": "2026-07-28T01:05:06.000Z",
+      "uid": "35240-d96442c1-e345-4da2-b134-5e4a93e083b6"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "070b65cc-999e-4208-98c9-f326512ee7a3",
+    "name": "Ashby API Key Job Template API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:43.000Z",
+    "updatedAt": "2026-07-28T01:06:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-070b65cc-999e-4208-98c9-f326512ee7a3"
+  },
+  "item": [
+    {
+      "name": "jobTemplate.list",
+      "item": [
+        {
+          "name": "jobTemplate.list",
+          "id": "503abedc-2d77-49d3-aca7-e2d886d22cf0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expand\": [\n    \"location\",\n    \"location\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobTemplate.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobTemplate.list"
+              ]
+            },
+            "description": "List all active and inactive job templates.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`jobsRead`](authentication#permissions-jobtemplatelist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "f18501b1-6222-472c-abcc-d281110ab04b",
+              "name": "Responses for the jobTemplate.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"expand\": [\n    \"location\",\n    \"location\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobTemplate.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobTemplate.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"status\": \"Inactive\",\n      \"locationId\": {\n        \"description\": \"The id of the location of the job template\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"departmentId\": {\n        \"description\": \"The id of the department or team associated with the job template\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"defaultInterviewPlanId\": {\n        \"description\": \"The id of the default interview plan for this job template. \\nA job cannot be opened without a default interview plan.\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"interviewPlanIds\": [\n        {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n          \"description\": \"The ids of all interview plans associated with a job template\"\n        },\n        {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n          \"description\": \"The ids of all interview plans associated with a job template\"\n        }\n      ],\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"updatedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"location\": {\n        \"value\": \"reference #/paths/~1location.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\",\n        \"description\": \"The location will only be included if the `location` expand parameter is included when the request is made.\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"title\": \"<string>\",\n      \"status\": \"Active\",\n      \"locationId\": {\n        \"description\": \"The id of the location of the job template\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"departmentId\": {\n        \"description\": \"The id of the department or team associated with the job template\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"defaultInterviewPlanId\": {\n        \"description\": \"The id of the default interview plan for this job template. \\nA job cannot be opened without a default interview plan.\\n\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"interviewPlanIds\": [\n        {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n          \"description\": \"The ids of all interview plans associated with a job template\"\n        },\n        {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n          \"description\": \"The ids of all interview plans associated with a job template\"\n        }\n      ],\n      \"createdAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"updatedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"location\": {\n        \"value\": \"reference #/paths/~1location.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\",\n        \"description\": \"The location will only be included if the `location` expand parameter is included when the request is made.\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:44.000Z",
+              "updatedAt": "2026-07-28T01:06:44.000Z",
+              "uid": "35240-f18501b1-6222-472c-abcc-d281110ab04b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:44.000Z",
+          "updatedAt": "2026-07-28T01:06:44.000Z",
+          "uid": "35240-503abedc-2d77-49d3-aca7-e2d886d22cf0"
+        }
+      ],
+      "id": "fc8211bf-73dc-40c9-9f33-b0f154d8e715",
+      "createdAt": "2026-07-28T01:06:44.000Z",
+      "updatedAt": "2026-07-28T01:06:44.000Z",
+      "uid": "35240-fc8211bf-73dc-40c9-9f33-b0f154d8e715"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

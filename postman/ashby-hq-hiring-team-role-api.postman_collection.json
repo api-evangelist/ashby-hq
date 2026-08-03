@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "22280740-99ba-4792-9991-4a26c09e39e8",
+    "name": "Ashby API Key Hiring Team Role API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:16.000Z",
+    "updatedAt": "2026-07-28T01:06:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-22280740-99ba-4792-9991-4a26c09e39e8"
+  },
+  "item": [
+    {
+      "name": "hiringTeamRole.list",
+      "item": [
+        {
+          "name": "hiringTeamRole.list",
+          "id": "e9798281-2ba9-4c2c-b464-085d704585e1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"namesOnly\": true\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/hiringTeamRole.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hiringTeamRole.list"
+              ]
+            },
+            "description": "Lists the possible hiring team roles in an organization\n\n**Requires the [`organizationRead`](authentication#permissions-hiringteamrolelist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "d753d67f-2ee1-49d4-9310-69e0c5a779ff",
+              "name": "Responses for the hiringTeamRole.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"namesOnly\": true\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/hiringTeamRole.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "hiringTeamRole.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:16.000Z",
+              "updatedAt": "2026-07-28T01:06:16.000Z",
+              "uid": "35240-d753d67f-2ee1-49d4-9310-69e0c5a779ff"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:16.000Z",
+          "updatedAt": "2026-07-28T01:06:16.000Z",
+          "uid": "35240-e9798281-2ba9-4c2c-b464-085d704585e1"
+        }
+      ],
+      "id": "8e98e22c-6a70-4bb5-9ba6-8a8d218f7efe",
+      "createdAt": "2026-07-28T01:06:16.000Z",
+      "updatedAt": "2026-07-28T01:06:16.000Z",
+      "uid": "35240-8e98e22c-6a70-4bb5-9ba6-8a8d218f7efe"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

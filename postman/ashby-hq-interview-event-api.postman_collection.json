@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "10ad4090-e2ed-493c-ab06-a85b0c2c0773",
+    "name": "Ashby API Key Interview Event API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:21.000Z",
+    "updatedAt": "2026-07-28T01:06:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-10ad4090-e2ed-493c-ab06-a85b0c2c0773"
+  },
+  "item": [
+    {
+      "name": "interviewEvent.list",
+      "item": [
+        {
+          "name": "interviewEvent.list",
+          "id": "ff0c8c7d-2722-48db-8f4a-beee20511360",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewScheduleId\": {\n    \"description\": \"The unique ID of the interview schedule, for which to list interview events\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"expand\": [\n    \"interview\",\n    \"interview\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/interviewEvent.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "interviewEvent.list"
+              ]
+            },
+            "description": "Lists interview events associated with an interview schedule\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`interviewsRead`](authentication#permissions-intervieweventlist) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "dcdb2d6b-89a6-42e1-8b51-56e0341741b2",
+              "name": "Responses from the interviewEvent.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewScheduleId\": {\n    \"description\": \"The unique ID of the interview schedule, for which to list interview events\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"expand\": [\n    \"interview\",\n    \"interview\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interviewEvent.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interviewEvent.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The interview event's id\",\n        \"example\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\"\n      },\n      \"interviewId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The interview's id\",\n        \"example\": \"ff6c7d9d-71e3-4c9c-88b1-28824980c276\"\n      },\n      \"interviewScheduleId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The interview schedule's id\",\n        \"example\": \"9d34f544-c150-4d70-91c4-e8b0b4a72846\"\n      },\n      \"interviewers\": [\n        {\n          \"trainingRole\": \"Reverse-Shadow\",\n          \"interviewerPool\": {\n            \"value\": \"reference #/paths/~1interviewerPool.list/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/items not found in the OpenAPI spec\"\n          },\n          \"isFeedbackRequired\": \"<boolean>\"\n        },\n        {\n          \"trainingRole\": \"Shadow\",\n          \"interviewerPool\": {\n            \"value\": \"reference #/paths/~1interviewerPool.list/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/items not found in the OpenAPI spec\"\n          },\n          \"isFeedbackRequired\": \"<boolean>\"\n        }\n      ],\n      \"createdAt\": \"voluptate exercitation nostrud mollit\",\n      \"updatedAt\": \"officia la\",\n      \"startTime\": \"exercitation incididunt fugia\",\n      \"endTime\": \"amet consequat commodo\",\n      \"feedbackLink\": \"<uri>\",\n      \"hasSubmittedFeedback\": \"<boolean>\",\n      \"interviewerUserIds\": [\n        {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n          \"description\": \"An array of the ids of all interviewers\",\n          \"example\": \"caea4d97-331d-46b1-a8e3-6b821c2214ef\"\n        },\n        {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n          \"description\": \"An array of the ids of all interviewers\",\n          \"example\": \"caea4d97-331d-46b1-a8e3-6b821c2214ef\"\n        }\n      ],\n      \"location\": \"<string,null>\",\n      \"meetingLink\": \"<string,null-uri>\",\n      \"interviewerCalendarEventId\": \"<string,null>\",\n      \"interview\": {\n        \"value\": \"reference #/paths/~1interview.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      },\n      \"notetakerTranscriptId\": \"labore veniam id ad\",\n      \"extraData\": {\n        \"value\": \"reference #/paths/~1location.create/post/requestBody/content/application~1json/schema/properties/extraData not found in the OpenAPI spec\"\n      }\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The interview event's id\",\n        \"example\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\"\n      },\n      \"interviewId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The interview's id\",\n        \"example\": \"ff6c7d9d-71e3-4c9c-88b1-28824980c276\"\n      },\n      \"interviewScheduleId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The interview schedule's id\",\n        \"example\": \"9d34f544-c150-4d70-91c4-e8b0b4a72846\"\n      },\n      \"interviewers\": [\n        {\n          \"trainingRole\": \"Reverse-Shadow\",\n          \"interviewerPool\": {\n            \"value\": \"reference #/paths/~1interviewerPool.list/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/items not found in the OpenAPI spec\"\n          },\n          \"isFeedbackRequired\": \"<boolean>\"\n        },\n        {\n          \"trainingRole\": \"Reverse-Shadow\",\n          \"interviewerPool\": {\n            \"value\": \"reference #/paths/~1interviewerPool.list/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/items not found in the OpenAPI spec\"\n          },\n          \"isFeedbackRequired\": \"<boolean>\"\n        }\n      ],\n      \"createdAt\": \"veniam fugiat\",\n      \"updatedAt\": \"irure ullamco dolore\",\n      \"startTime\": \"dolore ea sed \",\n      \"endTime\": \"labore ut pariatur\",\n      \"feedbackLink\": \"<uri>\",\n      \"hasSubmittedFeedback\": \"<boolean>\",\n      \"interviewerUserIds\": [\n        {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n          \"description\": \"An array of the ids of all interviewers\",\n          \"example\": \"caea4d97-331d-46b1-a8e3-6b821c2214ef\"\n        },\n        {\n          \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n          \"description\": \"An array of the ids of all interviewers\",\n          \"example\": \"caea4d97-331d-46b1-a8e3-6b821c2214ef\"\n        }\n      ],\n      \"location\": \"<string,null>\",\n      \"meetingLink\": \"<string,null-uri>\",\n      \"interviewerCalendarEventId\": \"<string,null>\",\n      \"interview\": {\n        \"value\": \"reference #/paths/~1interview.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      },\n      \"notetakerTranscriptId\": \"sunt irure enim \",\n      \"extraData\": {\n        \"value\": \"reference #/paths/~1location.create/post/requestBody/content/application~1json/schema/properties/extraData not found in the OpenAPI spec\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:06:22.000Z",
+              "updatedAt": "2026-07-28T01:06:22.000Z",
+              "uid": "35240-dcdb2d6b-89a6-42e1-8b51-56e0341741b2"
+            }
+          ],
+          "createdAt": "2026-07-28T01:06:22.000Z",
+          "updatedAt": "2026-07-28T01:06:22.000Z",
+          "uid": "35240-ff0c8c7d-2722-48db-8f4a-beee20511360"
+        }
+      ],
+      "id": "749e66a5-b694-45aa-87b3-cf7844c8a670",
+      "createdAt": "2026-07-28T01:06:22.000Z",
+      "updatedAt": "2026-07-28T01:06:22.000Z",
+      "uid": "35240-749e66a5-b694-45aa-87b3-cf7844c8a670"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

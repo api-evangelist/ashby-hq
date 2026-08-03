@@ -1,0 +1,585 @@
+{
+  "info": {
+    "_postman_id": "23026093-b398-465c-930b-54ea5ac0eb0e",
+    "name": "Ashby API Key Department & Team API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:47.000Z",
+    "updatedAt": "2026-07-28T01:05:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-23026093-b398-465c-930b-54ea5ac0eb0e"
+  },
+  "item": [
+    {
+      "name": "department.create",
+      "item": [
+        {
+          "name": "department.create",
+          "id": "320c93f9-32fc-4ec5-ab83-35136133ec72",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"externalName\": \"<string>\",\n  \"parentId\": \"<uuid>\",\n  \"extraData\": {\n    \"value\": \"reference #/paths/~1location.create/post/requestBody/content/application~1json/schema/properties/extraData not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/department.create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department.create"
+              ]
+            },
+            "description": "Creates a department\n\n**Requires the [`organizationWrite`](authentication#permissions-departmentcreate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "ed6bda25-5086-4e7a-8396-874ca2814a0c",
+              "name": "Responses for the department.create endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"externalName\": \"<string>\",\n  \"parentId\": \"<uuid>\",\n  \"extraData\": {\n    \"value\": \"reference #/paths/~1location.create/post/requestBody/content/application~1json/schema/properties/extraData not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/department.create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department.create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/paths/~1department.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:48.000Z",
+              "updatedAt": "2026-07-28T01:05:48.000Z",
+              "uid": "35240-ed6bda25-5086-4e7a-8396-874ca2814a0c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:48.000Z",
+          "updatedAt": "2026-07-28T01:05:48.000Z",
+          "uid": "35240-320c93f9-32fc-4ec5-ab83-35136133ec72"
+        }
+      ],
+      "id": "d13fea9b-e2ce-4a5e-a2f0-29805505752c",
+      "createdAt": "2026-07-28T01:05:48.000Z",
+      "updatedAt": "2026-07-28T01:05:48.000Z",
+      "uid": "35240-d13fea9b-e2ce-4a5e-a2f0-29805505752c"
+    },
+    {
+      "name": "department.archive",
+      "item": [
+        {
+          "name": "department.archive",
+          "id": "ee498305-41ff-4296-bf11-50689224ec6a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"departmentId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/department.archive",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department.archive"
+              ]
+            },
+            "description": "Archives a department\n\n**Requires the [`organizationWrite`](authentication#permissions-departmentarchive) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "515e5ff2-a70e-44da-ba17-66435f227bc6",
+              "name": "Responses for the department.archive endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"departmentId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/department.archive",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department.archive"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/paths/~1department.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:48.000Z",
+              "updatedAt": "2026-07-28T01:05:48.000Z",
+              "uid": "35240-515e5ff2-a70e-44da-ba17-66435f227bc6"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:48.000Z",
+          "updatedAt": "2026-07-28T01:05:48.000Z",
+          "uid": "35240-ee498305-41ff-4296-bf11-50689224ec6a"
+        }
+      ],
+      "id": "9e68f961-cf7e-49d7-b33d-b15beeec36b3",
+      "createdAt": "2026-07-28T01:05:48.000Z",
+      "updatedAt": "2026-07-28T01:05:48.000Z",
+      "uid": "35240-9e68f961-cf7e-49d7-b33d-b15beeec36b3"
+    },
+    {
+      "name": "department.restore",
+      "item": [
+        {
+          "name": "department.restore",
+          "id": "adf05c10-0428-42d9-8f24-c5ce137c9580",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"departmentId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/department.restore",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department.restore"
+              ]
+            },
+            "description": "Restores a department\n\n**Requires the [`organizationWrite`](authentication#permissions-departmentrestore) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "96f4f37b-399e-4abf-865d-7504c0cfe92c",
+              "name": "Responses for the department.restore endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"departmentId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/department.restore",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department.restore"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/paths/~1department.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:48.000Z",
+              "updatedAt": "2026-07-28T01:05:48.000Z",
+              "uid": "35240-96f4f37b-399e-4abf-865d-7504c0cfe92c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:48.000Z",
+          "updatedAt": "2026-07-28T01:05:48.000Z",
+          "uid": "35240-adf05c10-0428-42d9-8f24-c5ce137c9580"
+        }
+      ],
+      "id": "c8d4cc75-6802-461a-8700-767a489627e1",
+      "createdAt": "2026-07-28T01:05:48.000Z",
+      "updatedAt": "2026-07-28T01:05:48.000Z",
+      "uid": "35240-c8d4cc75-6802-461a-8700-767a489627e1"
+    },
+    {
+      "name": "department.move",
+      "item": [
+        {
+          "name": "department.move",
+          "id": "e18a488c-c7aa-4ef2-8d0e-6c00722d2bae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"departmentId\": \"<string>\",\n  \"parentId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/department.move",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department.move"
+              ]
+            },
+            "description": "Moves a department to another parent\n\n**Requires the [`organizationWrite`](authentication#permissions-departmentmove) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "82eaa6a6-3276-47d8-9dfa-0474a6a76dce",
+              "name": "Responses for the department.move endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"departmentId\": \"<string>\",\n  \"parentId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/department.move",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department.move"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/paths/~1department.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:48.000Z",
+              "updatedAt": "2026-07-28T01:05:48.000Z",
+              "uid": "35240-82eaa6a6-3276-47d8-9dfa-0474a6a76dce"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:48.000Z",
+          "updatedAt": "2026-07-28T01:05:48.000Z",
+          "uid": "35240-e18a488c-c7aa-4ef2-8d0e-6c00722d2bae"
+        }
+      ],
+      "id": "705ae8f1-9046-4bc2-ace8-ae77c167d40f",
+      "createdAt": "2026-07-28T01:05:48.000Z",
+      "updatedAt": "2026-07-28T01:05:48.000Z",
+      "uid": "35240-705ae8f1-9046-4bc2-ace8-ae77c167d40f"
+    },
+    {
+      "name": "department.update",
+      "item": [
+        {
+          "name": "department.update",
+          "id": "d9cf0645-40b8-404c-9bae-e0aa4c06923d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"departmentId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"externalName\": \"<string>\",\n  \"extraData\": {\n    \"value\": \"reference #/paths/~1location.create/post/requestBody/content/application~1json/schema/properties/extraData not found in the OpenAPI spec\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/department.update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department.update"
+              ]
+            },
+            "description": "Updates a department\n\n**Requires the [`organizationWrite`](authentication#permissions-departmentupdate) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "46460189-12d9-4daa-bce8-606f5b53b301",
+              "name": "Responses for the department.update endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"departmentId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"externalName\": \"<string>\",\n  \"extraData\": {\n    \"value\": \"reference #/paths/~1location.create/post/requestBody/content/application~1json/schema/properties/extraData not found in the OpenAPI spec\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/department.update",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "department.update"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/paths/~1department.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:05:48.000Z",
+              "updatedAt": "2026-07-28T01:05:48.000Z",
+              "uid": "35240-46460189-12d9-4daa-bce8-606f5b53b301"
+            }
+          ],
+          "createdAt": "2026-07-28T01:05:48.000Z",
+          "updatedAt": "2026-07-28T01:05:48.000Z",
+          "uid": "35240-d9cf0645-40b8-404c-9bae-e0aa4c06923d"
+        }
+      ],
+      "id": "082b7eb9-4f17-43c7-913b-e49cb6c19038",
+      "createdAt": "2026-07-28T01:05:48.000Z",
+      "updatedAt": "2026-07-28T01:05:48.000Z",
+      "uid": "35240-082b7eb9-4f17-43c7-913b-e49cb6c19038"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}

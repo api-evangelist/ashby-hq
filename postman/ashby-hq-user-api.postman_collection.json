@@ -1,0 +1,1135 @@
+{
+  "info": {
+    "_postman_id": "25b977a8-b178-4509-8bc2-5b44d431fd6e",
+    "name": "Ashby API Key User API",
+    "description": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:30.000Z",
+    "updatedAt": "2026-07-28T01:07:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-25b977a8-b178-4509-8bc2-5b44d431fd6e"
+  },
+  "item": [
+    {
+      "name": "user.info",
+      "item": [
+        {
+          "name": "user.info",
+          "id": "74142a8f-9aaa-447c-9797-53dc1950d52b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id to lookup the user\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user.info",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user.info"
+              ]
+            },
+            "description": "Get an Ashby user by id\n\n**Requires the [`organizationRead`](authentication#permissions-userinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "82bdf8a6-5a32-4d87-bfc9-07fe052b9fb7",
+              "name": "Responses for the user.info endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id to lookup the user\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user.info",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user.info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"globalRole\": \"External Recruiter\",\n    \"isEnabled\": \"<boolean>\",\n    \"updatedAt\": {\n      \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n    },\n    \"email\": {\n      \"value\": \"reference #/paths/~1candidate.create/post/requestBody/content/application~1json/schema/properties/email/allOf/0 not found in the OpenAPI spec\"\n    },\n    \"managerId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"customFields\": [\n      {\n        \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:07:30.000Z",
+              "updatedAt": "2026-07-28T01:07:30.000Z",
+              "uid": "35240-82bdf8a6-5a32-4d87-bfc9-07fe052b9fb7"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:30.000Z",
+          "updatedAt": "2026-07-28T01:07:30.000Z",
+          "uid": "35240-74142a8f-9aaa-447c-9797-53dc1950d52b"
+        }
+      ],
+      "id": "4d27d900-ab90-43cb-aa7c-d967233ead29",
+      "createdAt": "2026-07-28T01:07:30.000Z",
+      "updatedAt": "2026-07-28T01:07:30.000Z",
+      "uid": "35240-4d27d900-ab90-43cb-aa7c-d967233ead29"
+    },
+    {
+      "name": "user.list",
+      "item": [
+        {
+          "name": "user.list",
+          "id": "ddfd27ee-46fb-4ad4-bf14-e935a60c86e4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeDeactivated\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user.list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user.list"
+              ]
+            },
+            "description": "Get a list of all Ashby users.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`organizationRead`](authentication#permissions-userlist) permission.**\n\nThe `globalRole` property in the response specifies the user's access level in Ashby.\nFor more details on the permissions granted with each role, see our [documentation here](https://docs.ashbyhq.com/user-permissions).\n"
+          },
+          "response": [
+            {
+              "id": "8d5a9e47-63f2-4c95-82d3-4ffa83a1e202",
+              "name": "Responses for the user.list endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeDeactivated\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user.list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user.list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"globalRole\": \"Organization Admin\",\n      \"isEnabled\": \"<boolean>\",\n      \"updatedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"email\": {\n        \"value\": \"reference #/paths/~1candidate.create/post/requestBody/content/application~1json/schema/properties/email/allOf/0 not found in the OpenAPI spec\"\n      },\n      \"managerId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"customFields\": [\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"globalRole\": \"Limited Access\",\n      \"isEnabled\": \"<boolean>\",\n      \"updatedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"email\": {\n        \"value\": \"reference #/paths/~1candidate.create/post/requestBody/content/application~1json/schema/properties/email/allOf/0 not found in the OpenAPI spec\"\n      },\n      \"managerId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"customFields\": [\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:07:30.000Z",
+              "updatedAt": "2026-07-28T01:07:30.000Z",
+              "uid": "35240-8d5a9e47-63f2-4c95-82d3-4ffa83a1e202"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:30.000Z",
+          "updatedAt": "2026-07-28T01:07:30.000Z",
+          "uid": "35240-ddfd27ee-46fb-4ad4-bf14-e935a60c86e4"
+        }
+      ],
+      "id": "1de3fed2-e028-42b6-917f-a67901ca8a63",
+      "createdAt": "2026-07-28T01:07:30.000Z",
+      "updatedAt": "2026-07-28T01:07:30.000Z",
+      "uid": "35240-1de3fed2-e028-42b6-917f-a67901ca8a63"
+    },
+    {
+      "name": "user.search",
+      "item": [
+        {
+          "name": "user.search",
+          "id": "df3bcbd1-8a29-4c05-b548-506e22ae21b5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user.search",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user.search"
+              ]
+            },
+            "description": "Search for an Ashby user by email address\n\n**Requires the [`organizationRead`](authentication#permissions-usersearch) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "defc29ab-a9b0-4506-a8dc-0a7e4c5cd285",
+              "name": "Responses for the user.search endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user.search",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user.search"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"globalRole\": \"Organization Admin\",\n      \"isEnabled\": \"<boolean>\",\n      \"updatedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"email\": {\n        \"value\": \"reference #/paths/~1candidate.create/post/requestBody/content/application~1json/schema/properties/email/allOf/0 not found in the OpenAPI spec\"\n      },\n      \"managerId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"customFields\": [\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"globalRole\": \"Elevated Access\",\n      \"isEnabled\": \"<boolean>\",\n      \"updatedAt\": {\n        \"value\": \"reference #/paths/~1candidate.createNote/post/requestBody/content/application~1json/schema/properties/createdAt not found in the OpenAPI spec\"\n      },\n      \"email\": {\n        \"value\": \"reference #/paths/~1candidate.create/post/requestBody/content/application~1json/schema/properties/email/allOf/0 not found in the OpenAPI spec\"\n      },\n      \"managerId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"customFields\": [\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        {\n          \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:07:30.000Z",
+              "updatedAt": "2026-07-28T01:07:30.000Z",
+              "uid": "35240-defc29ab-a9b0-4506-a8dc-0a7e4c5cd285"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:30.000Z",
+          "updatedAt": "2026-07-28T01:07:30.000Z",
+          "uid": "35240-df3bcbd1-8a29-4c05-b548-506e22ae21b5"
+        }
+      ],
+      "id": "9b9e91d2-f0fc-468e-9505-b7740e4a4957",
+      "createdAt": "2026-07-28T01:07:30.000Z",
+      "updatedAt": "2026-07-28T01:07:30.000Z",
+      "uid": "35240-9b9e91d2-f0fc-468e-9505-b7740e4a4957"
+    },
+    {
+      "name": "user.interviewerSettings",
+      "item": [
+        {
+          "name": "user.interviewerSettings",
+          "id": "bdd1fdc4-8fc6-4ae3-84e0-1ae7370a0311",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user to get interviewer settings for\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user.interviewerSettings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user.interviewerSettings"
+              ]
+            },
+            "description": "Get interviewer settings for a user.\n\n**Requires the [`organizationRead`](authentication#permissions-userinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "b760002e-3c28-4981-b118-3fe7c313ec42",
+              "name": "Responses for the user.interviewerSettings endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user to get interviewer settings for\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user.interviewerSettings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user.interviewerSettings"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"dailyLimit\": \"<integer,null>\",\n    \"weeklyLimit\": \"<integer,null>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:30.000Z",
+              "updatedAt": "2026-07-28T01:07:30.000Z",
+              "uid": "35240-b760002e-3c28-4981-b118-3fe7c313ec42"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:30.000Z",
+          "updatedAt": "2026-07-28T01:07:30.000Z",
+          "uid": "35240-bdd1fdc4-8fc6-4ae3-84e0-1ae7370a0311"
+        }
+      ],
+      "id": "a79c66cc-8325-4983-a7de-51ff8be57c24",
+      "createdAt": "2026-07-28T01:07:30.000Z",
+      "updatedAt": "2026-07-28T01:07:30.000Z",
+      "uid": "35240-a79c66cc-8325-4983-a7de-51ff8be57c24"
+    },
+    {
+      "name": "user.updateInterviewerSettings",
+      "item": [
+        {
+          "name": "user.updateInterviewerSettings",
+          "id": "56c1d40f-17d5-4086-9d02-9af5f47c0e75",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user to update interviewer settings for\"\n  },\n  \"dailyLimit\": \"<integer,null>\",\n  \"weeklyLimit\": \"<integer,null>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user.updateInterviewerSettings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user.updateInterviewerSettings"
+              ]
+            },
+            "description": "Update interviewer settings for a user. \n\nEither limit can be provided, or both can be provided. If only one is provided, the other will remain unchanged. If a limit is provided but set to null, it will be unset.\n\n**Requires the [`organizationWrite`](authentication#permissions-userinfo) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "ceca93f5-696c-4581-b5e6-3b986aeb4f06",
+              "name": "Responses for the user.updateInterviewerSettings endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user to update interviewer settings for\"\n  },\n  \"dailyLimit\": \"<integer,null>\",\n  \"weeklyLimit\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user.updateInterviewerSettings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user.updateInterviewerSettings"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"dailyLimit\": \"<integer,null>\",\n    \"weeklyLimit\": \"<integer,null>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:30.000Z",
+              "updatedAt": "2026-07-28T01:07:30.000Z",
+              "uid": "35240-ceca93f5-696c-4581-b5e6-3b986aeb4f06"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:30.000Z",
+          "updatedAt": "2026-07-28T01:07:30.000Z",
+          "uid": "35240-56c1d40f-17d5-4086-9d02-9af5f47c0e75"
+        }
+      ],
+      "id": "33fc8fb0-22fa-4183-8ad5-afeab9d22e90",
+      "createdAt": "2026-07-28T01:07:30.000Z",
+      "updatedAt": "2026-07-28T01:07:30.000Z",
+      "uid": "35240-33fc8fb0-22fa-4183-8ad5-afeab9d22e90"
+    },
+    {
+      "name": "user.createInterviewerPause",
+      "item": [
+        {
+          "name": "user.createInterviewerPause",
+          "id": "d8b1181e-5ec4-4580-a20e-a56ed44865af",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user to pause.\"\n  },\n  \"startsAt\": \"<dateTime>\",\n  \"endsAt\": \"<dateTime>\",\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user.createInterviewerPause",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user.createInterviewerPause"
+              ]
+            },
+            "description": "Creates an interviewer pause for a user. While paused, the user will not be scheduled for interviews.\n\nA user can only have one interviewer pause at a time (whether active or scheduled). Attempting to create a pause when one already exists will return an error.\n\n**Requires the [`organizationWrite`](authentication#permissions-usercreateinterviewerpause) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "be11f39d-00ff-4539-87de-7318bde38381",
+              "name": "Responses for the user.createInterviewerPause endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user to pause.\"\n  },\n  \"startsAt\": \"<dateTime>\",\n  \"endsAt\": \"<dateTime>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user.createInterviewerPause",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user.createInterviewerPause"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n      \"description\": \"The unique id of the interviewer pause.\"\n    },\n    \"userId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n      \"description\": \"The id of the user who is paused.\"\n    },\n    \"startsAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"endsAt\": \"<string,null-date-time>\",\n    \"comment\": \"<string,null>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:30.000Z",
+              "updatedAt": "2026-07-28T01:07:30.000Z",
+              "uid": "35240-be11f39d-00ff-4539-87de-7318bde38381"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:30.000Z",
+          "updatedAt": "2026-07-28T01:07:30.000Z",
+          "uid": "35240-d8b1181e-5ec4-4580-a20e-a56ed44865af"
+        }
+      ],
+      "id": "fee7ae9d-cda9-4f4f-b4c1-a0e151cbb92e",
+      "createdAt": "2026-07-28T01:07:30.000Z",
+      "updatedAt": "2026-07-28T01:07:30.000Z",
+      "uid": "35240-fee7ae9d-cda9-4f4f-b4c1-a0e151cbb92e"
+    },
+    {
+      "name": "user.listInterviewerPauses",
+      "item": [
+        {
+          "name": "user.listInterviewerPauses",
+          "id": "9893954d-6c42-46d7-ba9f-005311beb8e6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user to list pauses for.\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user.listInterviewerPauses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user.listInterviewerPauses"
+              ]
+            },
+            "description": "Lists all active or scheduled interviewer pauses for a user.\n\n**Requires the [`organizationRead`](authentication#permissions-userlistinterviewerpauses) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "86826da2-e77e-4ba6-a2f3-187bc1dd9da2",
+              "name": "Responses for the user.listInterviewerPauses endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the user to list pauses for.\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user.listInterviewerPauses",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user.listInterviewerPauses"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The unique id of the interviewer pause.\"\n      },\n      \"userId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The id of the user who is paused.\"\n      },\n      \"startsAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"endsAt\": \"<string,null-date-time>\",\n      \"comment\": \"<string,null>\"\n    },\n    {\n      \"id\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The unique id of the interviewer pause.\"\n      },\n      \"userId\": {\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n        \"description\": \"The id of the user who is paused.\"\n      },\n      \"startsAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"endsAt\": \"<string,null-date-time>\",\n      \"comment\": \"<string,null>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:07:30.000Z",
+              "updatedAt": "2026-07-28T01:07:30.000Z",
+              "uid": "35240-86826da2-e77e-4ba6-a2f3-187bc1dd9da2"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:30.000Z",
+          "updatedAt": "2026-07-28T01:07:30.000Z",
+          "uid": "35240-9893954d-6c42-46d7-ba9f-005311beb8e6"
+        }
+      ],
+      "id": "57014f11-111f-4c83-b302-6f78706774f3",
+      "createdAt": "2026-07-28T01:07:30.000Z",
+      "updatedAt": "2026-07-28T01:07:30.000Z",
+      "uid": "35240-57014f11-111f-4c83-b302-6f78706774f3"
+    },
+    {
+      "name": "user.deleteInterviewerPause",
+      "item": [
+        {
+          "name": "user.deleteInterviewerPause",
+          "id": "eaf39c7c-494b-4ac2-b023-91732e168a71",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPauseId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interviewer pause to delete.\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user.deleteInterviewerPause",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user.deleteInterviewerPause"
+              ]
+            },
+            "description": "Deletes an interviewer pause.\n\n**Requires the [`organizationWrite`](authentication#permissions-userdeleteinterviewerpause) permission.**\n"
+          },
+          "response": [
+            {
+              "id": "ca20a764-5d7d-4130-b08e-a935fd0799fc",
+              "name": "Responses for the user.deleteInterviewerPause endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPauseId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interviewer pause to delete.\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user.deleteInterviewerPause",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user.deleteInterviewerPause"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n      \"description\": \"The id of the interviewer pause that was deleted.\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:07:30.000Z",
+              "updatedAt": "2026-07-28T01:07:30.000Z",
+              "uid": "35240-ca20a764-5d7d-4130-b08e-a935fd0799fc"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:30.000Z",
+          "updatedAt": "2026-07-28T01:07:30.000Z",
+          "uid": "35240-eaf39c7c-494b-4ac2-b023-91732e168a71"
+        }
+      ],
+      "id": "69217020-97cc-4296-8a7e-6f8a4c8e7836",
+      "createdAt": "2026-07-28T01:07:30.000Z",
+      "updatedAt": "2026-07-28T01:07:30.000Z",
+      "uid": "35240-69217020-97cc-4296-8a7e-6f8a4c8e7836"
+    },
+    {
+      "name": "user.setCustomFieldValue",
+      "item": [
+        {
+          "name": "user.setCustomFieldValue",
+          "id": "9d4e17e6-24b9-40a5-8774-5c8948a465eb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {\n    \"description\": \"The id of the employee to set the custom field value for.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"fieldId\": {\n    \"description\": \"The unique id of the Custom Field definition for the field.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"fieldValue\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user.setCustomFieldValue",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user.setCustomFieldValue"
+              ]
+            },
+            "description": "Set the value of a custom field on an employee.\n\n**Requires the [`organizationWrite`](authentication#permissions-usersetcustomfieldvalue) permission.**\n\nThe values accepted in the `fieldValue` param depend on the type of field being updated. See the\n[`customField.setValue`](#operation/customFieldSetValue) docs for accepted types.\n\n**Note:** When updating multiple custom fields on the same employee, use\n[`user.setCustomFieldValues`](#operation/userSetCustomFieldValues) instead to avoid race conditions.\n"
+          },
+          "response": [
+            {
+              "id": "c76a3ff3-bc5a-4c2c-bc7e-721b37694ecb",
+              "name": "Responses for the user.setCustomFieldValue endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": {\n    \"description\": \"The id of the employee to set the custom field value for.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"fieldId\": {\n    \"description\": \"The unique id of the Custom Field definition for the field.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"fieldValue\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user.setCustomFieldValue",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user.setCustomFieldValue"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": {\n    \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:30.000Z",
+              "updatedAt": "2026-07-28T01:07:30.000Z",
+              "uid": "35240-c76a3ff3-bc5a-4c2c-bc7e-721b37694ecb"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:30.000Z",
+          "updatedAt": "2026-07-28T01:07:30.000Z",
+          "uid": "35240-9d4e17e6-24b9-40a5-8774-5c8948a465eb"
+        }
+      ],
+      "id": "45670223-9cc8-4efd-9cc0-2be014f1f636",
+      "createdAt": "2026-07-28T01:07:30.000Z",
+      "updatedAt": "2026-07-28T01:07:30.000Z",
+      "uid": "35240-45670223-9cc8-4efd-9cc0-2be014f1f636"
+    },
+    {
+      "name": "user.setCustomFieldValues",
+      "item": [
+        {
+          "name": "user.setCustomFieldValues",
+          "id": "59e48d18-84a8-4bbe-b0a1-02e53b835d00",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": {\n    \"description\": \"The id of the employee to set custom field values for.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"values\": [\n    {\n      \"fieldId\": {\n        \"description\": \"The unique id of the Custom Field definition for the field.\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"fieldValue\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user.setCustomFieldValues",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user.setCustomFieldValues"
+              ]
+            },
+            "description": "Set the values of multiple custom fields on an employee in a single call.\nThis is the recommended approach when updating multiple fields on the same employee\nto avoid race conditions that can occur with concurrent `user.setCustomFieldValue` calls.\n\n**Requires the [`organizationWrite`](authentication#permissions-usersetcustomfieldvalues) permission.**\n\nThe values accepted in the `fieldValue` param depend on the type of field being updated. See the\n[`customField.setValue`](#operation/customFieldSetValue) docs for accepted types.\n"
+          },
+          "response": [
+            {
+              "id": "0e59ec2c-4c19-4c48-97f4-6517a2a1b340",
+              "name": "Responses for the user.setCustomFieldValues endpoint",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": {\n    \"description\": \"The id of the employee to set custom field values for.\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"values\": [\n    {\n      \"fieldId\": {\n        \"description\": \"The unique id of the Custom Field definition for the field.\",\n        \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n      },\n      \"fieldValue\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user.setCustomFieldValues",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user.setCustomFieldValues"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"results\": [\n    {\n      \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/paths/~1customField.setValue/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:07:30.000Z",
+              "updatedAt": "2026-07-28T01:07:30.000Z",
+              "uid": "35240-0e59ec2c-4c19-4c48-97f4-6517a2a1b340"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:30.000Z",
+          "updatedAt": "2026-07-28T01:07:30.000Z",
+          "uid": "35240-59e48d18-84a8-4bbe-b0a1-02e53b835d00"
+        }
+      ],
+      "id": "16fb97ba-523b-4ff7-b52d-a49ec5b9cdcb",
+      "createdAt": "2026-07-28T01:07:30.000Z",
+      "updatedAt": "2026-07-28T01:07:30.000Z",
+      "uid": "35240-16fb97ba-523b-4ff7-b52d-a49ec5b9cdcb"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.ashbyhq.com"
+    }
+  ]
+}
