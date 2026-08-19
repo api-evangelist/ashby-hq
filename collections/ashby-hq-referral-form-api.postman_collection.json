@@ -1,0 +1,123 @@
+{
+  "item": [
+    {
+      "id": "3f5a0f2f-f6db-4214-a6f9-0be67458d704",
+      "name": "Referral Form",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1f47a3fe-dd55-4972-a7b0-bc0d47348f3d",
+          "name": "referralForm.info",
+          "request": {
+            "name": "referralForm.info",
+            "description": {
+              "content": "Fetches the default referral form or creates a default referral form if none exists.\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-referralforminfo) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "referralForm.info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3fd68589-5a91-476c-8240-5040beb529a9",
+              "name": "Responses for the referral.create endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "referralForm.info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"id\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"organizationId\": \"2eb8fedd-2b26-0801-bd48-45a3f83907a7\",\n    \"title\": \"string\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\"\n    },\n    \"isDefaultForm\": true,\n    \"formDefinition\": {\n      \"value\": \"reference #/paths/~1offer.start/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/properties/formDefinition not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ashbyhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "155ccaab-6525-46ab-9c70-dd2f80a3e8f8",
+    "name": "Ashby API Key Referral Form API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+      "type": "text/plain"
+    }
+  }
+}

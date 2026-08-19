@@ -1,0 +1,837 @@
+{
+  "item": [
+    {
+      "id": "d56e9c9e-b28c-4b57-af46-3d13d935de10",
+      "name": "Interviewer Pool",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9811564f-e18d-4158-bf54-979431bad54d",
+          "name": "interviewerPool.list",
+          "request": {
+            "name": "interviewerPool.list",
+            "description": {
+              "content": "List all interviewer pools.\n\nSee the [Pagination and Incremental Synchronization](/docs/pagination-and-incremental-sync) guide for detailed usage examples.\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-interviewerpoollist) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviewerPool.list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"includeArchivedPools\": false,\n  \"includeArchivedTrainingStages\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18532e89-f554-4607-a0cd-d679a5e32f6c",
+              "name": "Responses from the interviewerPool.list endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviewerPool.list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"includeArchivedPools\": false,\n  \"includeArchivedTrainingStages\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n      \"title\": \"Backend Technical Screeners\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n        \"description\": \"Whether or not the pool is archived\"\n      },\n      \"trainingPath\": {\n        \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n        \"enabled\": true,\n        \"trainingStages\": [\n          {\n            \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n            \"interviewerRole\": \"Shadow\",\n            \"interviewsRequired\": 2,\n            \"isArchived\": false,\n            \"approvalRequired\": true,\n            \"approvers\": [\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              },\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              }\n            ]\n          },\n          {\n            \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n            \"interviewerRole\": \"Shadow\",\n            \"interviewsRequired\": 2,\n            \"isArchived\": false,\n            \"approvalRequired\": true,\n            \"approvers\": [\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              },\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              }\n            ]\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n      \"title\": \"Backend Technical Screeners\",\n      \"isArchived\": {\n        \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n        \"description\": \"Whether or not the pool is archived\"\n      },\n      \"trainingPath\": {\n        \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n        \"enabled\": true,\n        \"trainingStages\": [\n          {\n            \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n            \"interviewerRole\": \"Shadow\",\n            \"interviewsRequired\": 2,\n            \"isArchived\": false,\n            \"approvalRequired\": true,\n            \"approvers\": [\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              },\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              }\n            ]\n          },\n          {\n            \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n            \"interviewerRole\": \"Shadow\",\n            \"interviewsRequired\": 2,\n            \"isArchived\": false,\n            \"approvalRequired\": true,\n            \"approvers\": [\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              },\n              {\n                \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n              }\n            ]\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24591c57-d6ed-4579-b0f6-22fe4c5aad46",
+          "name": "interviewerPool.info",
+          "request": {
+            "name": "interviewerPool.info",
+            "description": {
+              "content": "Get information about an interviewer pool.\n\n**Requires the [`hiringProcessMetadataRead`](authentication#permissions-interviewerpoolinfo) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviewerPool.info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4503c669-119d-40e1-ad4f-58145a844864",
+              "name": "Responses from the interviewerPool.info endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviewerPool.info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"e9ed20fd-d45f-4aad-8a00-a19bfba0083e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n    \"title\": \"Backend Technical Screeners\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n      \"enabled\": true,\n      \"trainingStages\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": \"Shadow\",\n          \"interviewsRequired\": 2,\n          \"isArchived\": false,\n          \"approvalRequired\": true,\n          \"approvers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": \"Shadow\",\n          \"interviewsRequired\": 2,\n          \"isArchived\": false,\n          \"approvalRequired\": true,\n          \"approvers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": false\n      },\n      {\n        \"isPaused\": false\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": 1\n        },\n        \"isPaused\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": 1\n        },\n        \"isPaused\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "187ef601-320d-4e07-95d1-bc11002352c0",
+          "name": "interviewerPool.create",
+          "request": {
+            "name": "interviewerPool.create",
+            "description": {
+              "content": "Create an interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpoolcreate) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviewerPool.create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"requiresTraining\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "46c700b0-fd3b-461d-be9e-895a864c2297",
+              "name": "Responses from the interviewerPool.create endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviewerPool.create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Engineering\",\n  \"requiresTraining\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n    \"title\": \"Backend Technical Screeners\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n      \"enabled\": true,\n      \"trainingStages\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": false\n      },\n      {\n        \"isPaused\": false\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a8789c8-6ca3-4c10-bca3-36f367446833",
+          "name": "interviewerPool.update",
+          "request": {
+            "name": "interviewerPool.update",
+            "description": {
+              "content": "Update an interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpoolupdate) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviewerPool.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\",\n  \"title\": \"<string>\",\n  \"requiresTraining\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd59d182-d356-4f1f-8a95-c4e2b4de3aa3",
+              "name": "Responses from the interviewerPool.update endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviewerPool.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"e9ed20fd-d45f-4aad-8a00-a19bfba0083e\",\n  \"title\": \"Engineering\",\n  \"requiresTraining\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n    \"title\": \"Backend Technical Screeners\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n      \"enabled\": true,\n      \"trainingStages\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": false\n      },\n      {\n        \"isPaused\": false\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ec5b646-3a9a-438f-9e09-ef136c76170a",
+          "name": "interviewerPool.archive",
+          "request": {
+            "name": "interviewerPool.archive",
+            "description": {
+              "content": "Archives an interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpoolarchive) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviewerPool.archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "931a1da4-d70a-4993-aa28-8e1b76d610e5",
+              "name": "Responses from the interviewerPool.archive endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviewerPool.archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"e9ed20fd-d45f-4aad-8a00-a19bfba0083e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n    \"title\": \"Backend Technical Screeners\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n      \"enabled\": true,\n      \"trainingStages\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": false\n      },\n      {\n        \"isPaused\": false\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c7aafbd-fb29-4d9d-9b07-c7a083f8ada9",
+          "name": "interviewerPool.restore",
+          "request": {
+            "name": "interviewerPool.restore",
+            "description": {
+              "content": "Restores an archived interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpoolrestore) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviewerPool.restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44f2c1ab-2076-4aed-b791-d9cc7bcf34c0",
+              "name": "Responses from the interviewerPool.restore endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviewerPool.restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"e9ed20fd-d45f-4aad-8a00-a19bfba0083e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n    \"title\": \"Backend Technical Screeners\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n      \"enabled\": true,\n      \"trainingStages\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": false\n      },\n      {\n        \"isPaused\": false\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc5b1d79-2a9c-4626-a305-bab541c4262a",
+          "name": "interviewerPool.addUser",
+          "request": {
+            "name": "interviewerPool.addUser",
+            "description": {
+              "content": "Add a user to an interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpooladduser) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviewerPool.addUser"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\",\n  \"userId\": \"<uuid>\",\n  \"interviewerPoolTrainingPathStageId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27192ae4-e1a9-4255-9e15-3392b11380d8",
+              "name": "Responses from the interviewerPool.removeUser endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviewerPool.addUser"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"e9ed20fd-d45f-4aad-8a00-a19bfba0083e\",\n  \"userId\": \"e9ed20fd-d45f-4aad-8a00-a19bfba0083e\",\n  \"interviewerPoolTrainingPathStageId\": \"e9ed20fd-d45f-4aad-8a00-a19bfba0083e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n    \"title\": \"Backend Technical Screeners\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n      \"enabled\": true,\n      \"trainingStages\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": false\n      },\n      {\n        \"isPaused\": false\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3f8c926-bcf1-472c-a4c4-e14dae72a657",
+          "name": "interviewerPool.removeUser",
+          "request": {
+            "name": "interviewerPool.removeUser",
+            "description": {
+              "content": "Remove a user from an interviewer pool.\n\n**Requires the [`hiringProcessMetadataWrite`](authentication#permissions-interviewerpoolremoveuser) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviewerPool.removeUser"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewerPoolId\": \"<uuid>\",\n  \"userId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "199d77f1-5634-41e6-a428-4063c43b2b16",
+              "name": "Responses from the interviewerPool.removeUser endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviewerPool.removeUser"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewerPoolId\": \"e9ed20fd-d45f-4aad-8a00-a19bfba0083e\",\n  \"userId\": \"e9ed20fd-d45f-4aad-8a00-a19bfba0083e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n    \"title\": \"Backend Technical Screeners\",\n    \"isArchived\": {\n      \"value\": \"reference #/webhooks/openingCreate/post/requestBody/content/application~1json/schema/properties/data/properties/opening/properties/isArchived not found in the OpenAPI spec\",\n      \"description\": \"Whether or not the pool is archived\"\n    },\n    \"trainingPath\": {\n      \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n      \"enabled\": true,\n      \"trainingStages\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewerRole\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isArchived\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvalRequired\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"approvers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"qualifiedMembers\": [\n      {\n        \"isPaused\": false\n      },\n      {\n        \"isPaused\": false\n      }\n    ],\n    \"trainees\": [\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      {\n        \"currentProgress\": {\n          \"trainingPathId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"trainingPathStageId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interviewsCompleted\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ashbyhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c36244fd-c3b2-426c-874c-dd712e4d174f",
+    "name": "Ashby API Key Interviewer Pool API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+      "type": "text/plain"
+    }
+  }
+}

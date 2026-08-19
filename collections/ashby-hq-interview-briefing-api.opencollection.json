@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ashby API Key Interview Briefing API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Interview Briefing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "interviewBriefing.info",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.ashbyhq.com/interviewBriefing.info",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch the briefing data for an interview event. Returns the application,\ninterview, per-interviewer status, and the feedback form definition id\nneeded to render an interviewer-facing briefing or to submit feedback via\n[`applicationFeedback.submit`](applicationfeedbacksubmit).\n\nBy default, each interviewer in the response is returned as a `userId`\nwith status flags. Pass `expand: [\"interviewers\"]` to include the full\nuser and pool details for each interviewer. Other expansions return the\napplicat"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

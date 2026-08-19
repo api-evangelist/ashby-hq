@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "39093bc7-f67f-4372-9254-4841aff4f758",
+      "name": "Interview Briefing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "88a26961-6dd9-4df9-85ba-ea749ff81591",
+          "name": "interviewBriefing.info",
+          "request": {
+            "name": "interviewBriefing.info",
+            "description": {
+              "content": "Fetch the briefing data for an interview event. Returns the application,\ninterview, per-interviewer status, and the feedback form definition id\nneeded to render an interviewer-facing briefing or to submit feedback via\n[`applicationFeedback.submit`](applicationfeedbacksubmit).\n\nBy default, each interviewer in the response is returned as a `userId`\nwith status flags. Pass `expand: [\"interviewers\"]` to include the full\nuser and pool details for each interviewer. Other expansions return the\napplication, candidate, job, interview, and feedback form definition\ninline.\n\n**Requires the [`interviewsRead`](authentication#permissions-interviewbriefinginfo) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviewBriefing.info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"interviewEventId\": {\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n    \"description\": \"The id of the interview event whose briefing should be returned.\"\n  },\n  \"expand\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44c73578-8654-40f5-98d5-ecb1088f2be6",
+              "name": "Responses from the interviewBriefing.info endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviewBriefing.info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"interviewEventId\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n  \"expand\": [\n    \"feedbackFormDefinition\",\n    \"interviewers\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"id\": \"3ae2b801-19f6-41ef-ad28-214bd731948f\",\n    \"applicationId\": \"9d34f544-c150-4d70-91c4-e8b0b4a72846\",\n    \"interviewId\": \"ff6c7d9d-71e3-4c9c-88b1-28824980c276\",\n    \"interviewStageId\": \"5a3f9c2b-71e3-4c9c-88b1-28824980c276\",\n    \"interviewers\": [\n      {\n        \"userId\": \"caea4d97-331d-46b1-a8e3-6b821c2214ef\",\n        \"isFeedbackRequired\": false,\n        \"hasSubmittedFeedback\": false,\n        \"trainingRole\": \"Shadow\",\n        \"user\": {\n          \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        \"interviewerPool\": {\n          \"value\": \"reference #/paths/~1interviewerPool.list/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/items not found in the OpenAPI spec\"\n        }\n      },\n      {\n        \"userId\": \"caea4d97-331d-46b1-a8e3-6b821c2214ef\",\n        \"isFeedbackRequired\": false,\n        \"hasSubmittedFeedback\": true,\n        \"trainingRole\": \"Shadow\",\n        \"user\": {\n          \"value\": \"reference #/paths/~1user.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n        },\n        \"interviewerPool\": {\n          \"value\": \"reference #/paths/~1interviewerPool.list/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results/items not found in the OpenAPI spec\"\n        }\n      }\n    ],\n    \"hasSubmittedFeedback\": false,\n    \"feedbackFormDefinitionId\": {\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n      \"description\": \"The id of the feedback form definition that should be used to render and submit feedback for this event.\"\n    },\n    \"feedbackFormDefinition\": {\n      \"value\": \"reference #/paths/~1feedbackFormDefinition.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n    },\n    \"application\": {\n      \"value\": \"reference #/webhooks/pushToHRIS/post/requestBody/content/application~1json/schema/properties/data/properties/application not found in the OpenAPI spec\"\n    },\n    \"candidate\": {\n      \"value\": \"reference #/paths/~1candidate.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n    },\n    \"job\": {\n      \"value\": \"reference #/webhooks/jobCreate/post/requestBody/content/application~1json/schema/properties/data/properties/job not found in the OpenAPI spec\"\n    },\n    \"interview\": {\n      \"value\": \"reference #/paths/~1interview.info/post/responses/200/content/application~1json/schema/oneOf/0/allOf/1/properties/results not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ashbyhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1b6ac9d0-ffaf-4dee-97ae-e5661d9fa8a9",
+    "name": "Ashby API Key Interview Briefing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+      "type": "text/plain"
+    }
+  }
+}

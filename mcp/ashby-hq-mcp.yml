@@ -14,28 +14,25 @@ server:
   url: https://mcp.ashbyhq.com/mcp/v1
   auth:
     type: oauth2
-    description: >-
-      Each user completes their own OAuth flow. The server only returns data and
-      permits actions the connecting user is already allowed to perform in Ashby
-      (per-user permission enforcement, not an org-wide token).
-  enablement: >-
-    An org admin must opt in: Admin > Organization Setup > Opt In Features > turn on
-    "MCP server". Available on Foundations, Legacy, Plus, and Plus Enterprise plans;
-    not available to analytics-only organizations.
+    description: Each user completes their own OAuth flow. The server only returns data and permits actions
+      the connecting user is already allowed to perform in Ashby (per-user permission enforcement, not
+      an org-wide token).
+  enablement: 'An org admin must opt in: Admin > Organization Setup > Opt In Features > turn on "MCP server".
+    Available on Foundations, Legacy, Plus, and Plus Enterprise plans; not available to analytics-only
+    organizations.'
   clients:
   - ChatGPT
   - Claude
   - Cursor
-description: >-
-  Ashby's official hosted/remote MCP server connects MCP-compatible AI clients
-  directly to live recruiting data. Tool list below is transcribed from Ashby's
-  MCP docs (Open Beta), grouped by capability area. Names are descriptive of the
-  documented capability rather than exact registered tool identifiers.
+description: Ashby's official hosted/remote MCP server connects MCP-compatible AI clients directly to
+  live recruiting data. Tool list below is transcribed from Ashby's MCP docs (Open Beta), grouped by capability
+  area. Names are descriptive of the documented capability rather than exact registered tool identifiers.
 tools:
 - name: search_records
   description: Search records by name across candidates, jobs, applications, and email templates.
 - name: filter_records
-  description: Filter records with criteria across candidates, applications, jobs, postings, openings, interviews, and offers.
+  description: Filter records with criteria across candidates, applications, jobs, postings, openings,
+    interviews, and offers.
 - name: get_record_details
   description: Retrieve the full details of a specific record.
 - name: get_candidate_profile
@@ -64,3 +61,10 @@ tools:
   description: Search Ashby product documentation.
 - name: submit_mcp_feedback
   description: Submit feedback about the MCP server.
+deployment:
+  mode: remote
+  endpoint: https://mcp.ashbyhq.com/mcp/v1
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "3c172e03-535a-4108-b1cb-70b1559c9a77",
+      "name": "Approval Definition",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "38866281-a70c-42c2-971c-29a013a814c5",
+          "name": "approvalDefinition.update",
+          "request": {
+            "name": "approvalDefinition.update",
+            "description": {
+              "content": "Create or update an approval definition for a specific entity that requires approval. The entity requiring approval must be within scope of an approval in Ashby that is marked as being managed by the API.\n\nIf the provided approval step definitions is an empty list, then approval will be skipped and the entity will proceed to the next stage.\n\n**Requires the [`approvalsWrite`](authentication#permissions-approvaldefinitionupdate) permission.**\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "approvalDefinition.update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entityType\": \"<string>\",\n  \"entityId\": {\n    \"description\": \"The id of the approval entity being updated (e.g. the id of the offer version).\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"approvalStepDefinitions\": [\n    {\n      \"approvalsRequired\": \"<integer>\",\n      \"approvers\": [\n        {\n          \"userId\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n            \"description\": \"The id of a user who is an approver for this step.\"\n          },\n          \"type\": \"<string>\"\n        },\n        {\n          \"userId\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n            \"description\": \"The id of a user who is an approver for this step.\"\n          },\n          \"type\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"approvalsRequired\": \"<integer>\",\n      \"approvers\": [\n        {\n          \"userId\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n            \"description\": \"The id of a user who is an approver for this step.\"\n          },\n          \"type\": \"<string>\"\n        },\n        {\n          \"userId\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n            \"description\": \"The id of a user who is an approver for this step.\"\n          },\n          \"type\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"submitApprovalRequest\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "baa8c63a-84cc-4150-98f2-fc3fc656cb78",
+              "name": "Responses from the approvalDefinition.update endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "approvalDefinition.update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entityType\": \"<string>\",\n  \"entityId\": {\n    \"description\": \"The id of the approval entity being updated (e.g. the id of the offer version).\",\n    \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n  },\n  \"approvalStepDefinitions\": [\n    {\n      \"approvalsRequired\": 1,\n      \"approvers\": [\n        {\n          \"userId\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n            \"description\": \"The id of a user who is an approver for this step.\"\n          },\n          \"type\": \"<string>\"\n        },\n        {\n          \"userId\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n            \"description\": \"The id of a user who is an approver for this step.\"\n          },\n          \"type\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"approvalsRequired\": 1,\n      \"approvers\": [\n        {\n          \"userId\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n            \"description\": \"The id of a user who is an approver for this step.\"\n          },\n          \"type\": \"<string>\"\n        },\n        {\n          \"userId\": {\n            \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\",\n            \"description\": \"The id of a user who is an approver for this step.\"\n          },\n          \"type\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"submitApprovalRequest\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": {\n    \"entityType\": \"Offer\",\n    \"entityId\": {\n      \"description\": \"The id of the approval entity (e.g. the id of the offer version).\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    },\n    \"approvalStepDefinitions\": [\n      {\n        \"approvalsRequired\": 1,\n        \"approvers\": [\n          {\n            \"userId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": \"<string>\"\n          },\n          {\n            \"userId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"approvalsRequired\": 1,\n        \"approvers\": [\n          {\n            \"userId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": \"<string>\"\n          },\n          {\n            \"userId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": \"<string>\"\n          }\n        ]\n      }\n    ],\n    \"id\": {\n      \"description\": \"The id of the approval definition.\",\n      \"value\": \"reference #/paths/~1interviewerPool.addUser/post/requestBody/content/application~1json/schema/properties/userId not found in the OpenAPI spec\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ashbyhq.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d99db4a5-57ca-4020-b45c-9e3bcf0bec6a",
+    "name": "Ashby API Key Approval Definition API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete public API for accessing resources in your Ashby instance. Includes applications, candidates, jobs, interviews, offers, surveys, custom fields, organization metadata, files, reports, approvals, and webhooks.\n\nContact Support:\n Name: Ashby Support\n Email: support@ashbyhq.com",
+      "type": "text/plain"
+    }
+  }
+}

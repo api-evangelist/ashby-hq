@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ashby API Key Application Feedback Request API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Application Feedback Request",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "applicationFeedbackRequest.create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.ashbyhq.com/applicationFeedbackRequest.create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request feedback on an application without scheduling an interview.\nThe `interviewEventId` returned in the response can be provided to `applicationFeedback.submit` to\ncomplete the feedback request.\n\nThe interview used must be configured to request feedback.\n\n**Requires the [`candidatesWrite`](authentication#permissions-applicationfeedbackrequestcreate) permission.**\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
