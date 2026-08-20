@@ -24,6 +24,8 @@ apis:
   description: The API Key API from Ashby — 1 operation(s) for api key.
   humanURL: https://developers.ashbyhq.com/reference/applicationlist
   tags:
+  - APIKeys
+  tags_raw:
   - API Key
   properties:
   - type: OpenAPI
@@ -3135,6 +3137,17 @@ apis:
     url: https://developers.ashbyhq.com/reference/apikeyinfo
 name: Ashby
 tags:
+- ATS
+- Recruiting
+- Talent Acquisition
+- Sourcing
+- CRM
+- Scheduling
+- Analytics
+- Hiring
+- HR Tech
+- Artificial Intelligence
+tags_raw:
 - ATS
 - Applicant Tracking System
 - Recruiting
