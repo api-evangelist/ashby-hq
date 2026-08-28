@@ -13,8 +13,14 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: ashbyApi
-  url: ../openapi/ashby-openapi.yml
+- name: surveyFormDefinitionApi
+  url: ../openapi/ashby-hq-survey-form-definition-api-openapi.yml
+  type: openapi
+- name: surveyRequestApi
+  url: ../openapi/ashby-hq-survey-request-api-openapi.yml
+  type: openapi
+- name: surveySubmissionApi
+  url: ../openapi/ashby-hq-survey-submission-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: survey-request

@@ -14,8 +14,17 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: ashbyApi
-  url: ../openapi/ashby-openapi.yml
+- name: departmentApi
+  url: ../openapi/ashby-hq-department-api-openapi.yml
+  type: openapi
+- name: interviewPlanApi
+  url: ../openapi/ashby-hq-interview-plan-api-openapi.yml
+  type: openapi
+- name: jobApi
+  url: ../openapi/ashby-hq-job-api-openapi.yml
+  type: openapi
+- name: locationApi
+  url: ../openapi/ashby-hq-location-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: job-create

@@ -13,8 +13,8 @@ info:
     opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: ashbyApi
-  url: ../openapi/ashby-openapi.yml
+- name: customFieldApi
+  url: ../openapi/ashby-hq-custom-field-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: custom-field-setup

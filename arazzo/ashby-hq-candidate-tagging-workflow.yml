@@ -13,8 +13,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: ashbyApi
-  url: ../openapi/ashby-openapi.yml
+- name: candidateApi
+  url: ../openapi/ashby-hq-candidate-api-openapi.yml
+  type: openapi
+- name: candidateTagApi
+  url: ../openapi/ashby-hq-candidate-tag-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: candidate-tagging

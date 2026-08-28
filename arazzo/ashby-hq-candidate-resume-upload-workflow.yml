@@ -13,8 +13,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: ashbyApi
-  url: ../openapi/ashby-openapi.yml
+- name: candidateApi
+  url: ../openapi/ashby-hq-candidate-api-openapi.yml
+  type: openapi
+- name: fileApi
+  url: ../openapi/ashby-hq-file-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: candidate-resume-upload

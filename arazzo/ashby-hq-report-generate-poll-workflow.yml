@@ -14,8 +14,8 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: ashbyApi
-  url: ../openapi/ashby-openapi.yml
+- name: reportApi
+  url: ../openapi/ashby-hq-report-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: report-generate-poll

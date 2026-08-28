@@ -13,8 +13,8 @@ info:
     be read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: ashbyApi
-  url: ../openapi/ashby-openapi.yml
+- name: candidateApi
+  url: ../openapi/ashby-hq-candidate-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: candidate-intake

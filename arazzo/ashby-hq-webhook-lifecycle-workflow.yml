@@ -14,8 +14,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: ashbyApi
-  url: ../openapi/ashby-openapi.yml
+- name: apiKeyApi
+  url: ../openapi/ashby-hq-api-key-api-openapi.yml
+  type: openapi
+- name: webhookApi
+  url: ../openapi/ashby-hq-webhook-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: webhook-lifecycle

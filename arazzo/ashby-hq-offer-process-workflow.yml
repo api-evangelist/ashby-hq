@@ -14,8 +14,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: ashbyApi
-  url: ../openapi/ashby-openapi.yml
+- name: offerApi
+  url: ../openapi/ashby-hq-offer-api-openapi.yml
+  type: openapi
+- name: offerProcessApi
+  url: ../openapi/ashby-hq-offer-process-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: offer-process

@@ -14,8 +14,17 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: ashbyApi
-  url: ../openapi/ashby-openapi.yml
+- name: applicationApi
+  url: ../openapi/ashby-hq-application-api-openapi.yml
+  type: openapi
+- name: archiveReasonApi
+  url: ../openapi/ashby-hq-archive-reason-api-openapi.yml
+  type: openapi
+- name: interviewStageApi
+  url: ../openapi/ashby-hq-interview-stage-api-openapi.yml
+  type: openapi
+- name: jobInterviewPlanApi
+  url: ../openapi/ashby-hq-job-interview-plan-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: application-archive
