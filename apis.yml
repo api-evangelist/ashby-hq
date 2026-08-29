@@ -3188,6 +3188,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ashby-hq.png
 access: 3rd-Party
 common:
+- type: CapabilityMap
+  url: capabilities/ashby-hq-capability-edges.yml
+  name: Ashby Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/ashby/overview
 - type: MCPServer

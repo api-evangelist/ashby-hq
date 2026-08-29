@@ -1,0 +1,274 @@
+slug: ashby-hq
+provider: Ashby
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 29
+edges:
+- tag: Application
+  spec_file: ashby-hq-application-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.95
+  evidence: POST /application.changeStage, POST /application.addHiringTeamMember, POST /application.listCriteriaEvaluations
+  reason: Operations manage candidate job applications through hiring stages, hiring team assignment and
+    sourcing changes in an Applicant Tracking System — squarely Talent Acquisition Management (recruiting/hiring).
+- tag: Candidate
+  spec_file: ashby-hq-candidate-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.95
+  evidence: POST /candidate.create; POST /candidate.addProject; POST /candidate.addEmailMessage; POST
+    /candidate.listFraudChecks
+  reason: Full lifecycle management of job candidates (create, notes, tags, email, anonymise) in an applicant
+    tracking system — the core of sourcing, recruiting and hiring.
+- tag: Job
+  spec_file: ashby-hq-job-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.93
+  evidence: POST /job.create, job.setStatus, job.updateCompensation on a recruiting platform ("Applicant
+    Tracking System (ATS)")
+  reason: Job requisition lifecycle in an ATS is recruiting/hiring, i.e. Talent Acquisition Management.
+- tag: Application Feedback
+  spec_file: ashby-hq-application-feedback-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.92
+  evidence: POST /applicationFeedback.submit applicationfeedbacksubmit
+  reason: Submission and listing of structured interview feedback on job applications in an ATS; part
+    of the recruiting/hiring selection process, i.e. Talent Acquisition Management.
+- tag: Assessment
+  spec_file: ashby-hq-assessment-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.9
+  evidence: POST /assessment.addCompletedToCandidate; POST /assessment.start; POST /assessment.cancel
+  reason: Operations start, cancel and attach completed assessments to candidates — candidate assessment
+    as part of the hiring/selection process, squarely Talent Acquisition Management.
+- tag: Interview
+  spec_file: ashby-hq-interview-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.9
+  evidence: POST /interview.info, POST /interview.list — "Includes applications, candidates, jobs, interviews,
+    offers"
+  reason: Candidate interviews in a recruiting platform are core hiring activity; maps to Talent Acquisition
+    Management.
+- tag: Job Posting
+  spec_file: ashby-hq-job-posting-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.9
+  evidence: POST /jobPosting.info, /jobPosting.list, /jobPosting.update
+  reason: Publishing and maintaining job postings is core recruiting/sourcing activity.
+- tag: Offer
+  spec_file: ashby-hq-offer-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.9
+  evidence: POST /offer.create, /offer.approve, /offer.startApprovalProcess
+  reason: Candidate offer creation and approval is part of the hiring process in the ATS.
+- tag: Application Feedback Request
+  spec_file: ashby-hq-application-feedback-request-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.88
+  evidence: POST /applicationFeedbackRequest.create
+  reason: Creates requests for interviewer feedback on a candidate application within the recruiting workflow
+    — Talent Acquisition Management.
+- tag: Application Form
+  spec_file: ashby-hq-application-form-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.88
+  evidence: POST /applicationForm.submit applicationformsubmit
+  reason: Submits a candidate job application form into the ATS, i.e. candidate intake within recruiting/hiring.
+- tag: Interview Schedule
+  spec_file: ashby-hq-interview-schedule-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.88
+  evidence: POST /interviewSchedule.create, POST /interviewSchedule.cancel — vendor offers "interview
+    scheduling"
+  reason: Creating, updating and cancelling candidate interview schedules is squarely recruiting execution,
+    mapping to Talent Acquisition Management.
+- tag: Application Hiring Team Role
+  spec_file: ashby-hq-application-hiring-team-role-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.85
+  evidence: POST /applicationHiringTeamRole.list applicationHiringTeamRoleList
+  reason: Lists hiring team roles attached to a job application in the recruiting platform; supports the
+    hiring process, mapping to Talent Acquisition Management.
+- tag: Hiring Team
+  spec_file: ashby-hq-hiring-team-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.85
+  evidence: POST /hiringTeam.addMember, POST /hiringTeam.removeMember
+  reason: Managing membership of the hiring team on a job requisition in an ATS is part of the recruiting/hiring
+    process, mapping to Talent Acquisition Management.
+- tag: Interview Stage
+  spec_file: ashby-hq-interview-stage-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.85
+  evidence: POST /interviewStage.list, POST /interviewStage.info
+  reason: Interview stages are the pipeline stages a candidate moves through in the ATS — recruiting/hiring,
+    so Talent Acquisition Management.
+- tag: Interviewer Pool
+  spec_file: ashby-hq-interviewer-pool-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.85
+  evidence: POST /interviewerPool.create, POST /interviewerPool.addUser, POST /interviewerPool.removeUser
+  reason: Managing pools of interviewers used to staff candidate interviews in a recruiting platform is
+    part of Talent Acquisition Management.
+- tag: Job Board
+  spec_file: ashby-hq-job-board-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.85
+  evidence: POST /jobBoard.list within "Complete public API for accessing resources in your Ashby instance.
+    Includes applications, candidates, jobs..."
+  reason: Job boards are the external posting channels of the ATS; part of sourcing/recruiting.
+- tag: Job Interview Plan
+  spec_file: ashby-hq-job-interview-plan-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.85
+  evidence: POST /jobInterviewPlan.info; vendor provides "interview scheduling, structured-hiring workflows"
+  reason: Interview plan definition for a job is part of the structured hiring/recruiting process.
+- tag: Offer Process
+  spec_file: ashby-hq-offer-process-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.85
+  evidence: POST /offerProcess.start
+  reason: Starting a candidate offer process is a hiring-stage activity in the recruiting platform.
+- tag: Referral
+  spec_file: ashby-hq-referral-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.85
+  evidence: POST /referral.create
+  reason: Candidate referral creation is a sourcing channel within recruiting/talent acquisition.
+- tag: Interview Briefing
+  spec_file: ashby-hq-interview-briefing-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.82
+  evidence: POST /interviewBriefing.info within an "Applicant Tracking System (ATS), sourcing/CRM, interview
+    scheduling" platform
+  reason: Interview briefing details for candidate interviews are part of the recruiting/hiring workflow.
+- tag: Interview Event
+  spec_file: ashby-hq-interview-event-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.82
+  evidence: POST /interviewEvent.list — vendor provides "interview scheduling"
+  reason: Scheduled interview events for candidates in an ATS fall under recruiting/hiring, i.e. Talent
+    Acquisition Management.
+- tag: Interview Plan
+  spec_file: ashby-hq-interview-plan-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.82
+  evidence: POST /interviewPlan.list — "structured-hiring workflows"
+  reason: Interview plans define the structured interview process for a job in the ATS; part of Talent
+    Acquisition Management.
+- tag: Candidate Tag
+  spec_file: ashby-hq-candidate-tag-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.8
+  evidence: POST /candidateTag.create; POST /candidateTag.archive; POST /candidateTag.list
+  reason: Tags applied to candidates for organising and segmenting the recruiting talent pool; supporting
+    metadata inside the talent acquisition process rather than a separate capability.
+- tag: Interview Stage Group
+  spec_file: ashby-hq-interview-stage-group-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.8
+  evidence: POST /interviewStageGroup.list
+  reason: Groupings of candidate pipeline stages in the applicant tracking system; supports the recruiting
+    pipeline, hence Talent Acquisition Management.
+- tag: Notetaker Transcript
+  spec_file: ashby-hq-notetaker-transcript-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.8
+  evidence: POST /notetakerTranscript.info; "an AI Notetaker for interview transcripts and structured
+    feedback"
+  reason: Interview transcript retrieval supports candidate interviewing/assessment within recruiting.
+- tag: Openings
+  spec_file: ashby-hq-openings-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.8
+  evidence: POST /opening.create, /opening.addJob, /opening.setOpeningState
+  reason: Openings (headcount requisitions linked to jobs and locations) are managed as part of recruiting/hiring.
+- tag: Feedback Form Definition
+  spec_file: ashby-hq-feedback-form-definition-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.78
+  evidence: POST /feedbackFormDefinition.list — Ashby ATS with "structured-hiring workflows" and "structured
+    feedback"
+  reason: Feedback form definitions in an applicant tracking system are the structured interview scorecards
+    used in hiring; this is recruiting/hiring, i.e. Talent Acquisition Management. Slight uncertainty
+    only because the tag is a configuration object rather than the hiring transaction itself.
+- tag: Hiring Team Role
+  spec_file: ashby-hq-hiring-team-role-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.75
+  evidence: POST /hiringTeamRole.list
+  reason: Lists the roles available on a job's hiring team within the ATS — recruiting process configuration,
+    so Talent Acquisition Management. Thin evidence (single list operation) lowers confidence.
+- tag: Job Template
+  spec_file: ashby-hq-job-template-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.75
+  evidence: POST /jobTemplate.list in the Ashby ATS API
+  reason: Templates for job requisitions in a recruiting platform support hiring; thin surface so moderate
+    confidence.
