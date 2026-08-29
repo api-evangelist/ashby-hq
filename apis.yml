@@ -3135,6 +3135,15 @@ apis:
     url: https://developers.ashbyhq.com/docs/webhook-retries
   - type: Documentation
     url: https://developers.ashbyhq.com/reference/apikeyinfo
+- aid: ashby-hq:ashby-hq-webhook-payloads-api
+  name: Ashby Webhook Payloads API
+  description: The Webhook Payloads API from Ashby — 0 operation(s) for webhook payloads.
+  humanURL: https://developers.ashbyhq.com/docs/ashby-job-postings-api
+  tags:
+  - Webhook Payloads
+  properties:
+  - type: OpenAPI
+    url: openapi/ashby-hq-webhook-payloads-api-openapi.yml
 name: Ashby
 tags:
 - ATS
